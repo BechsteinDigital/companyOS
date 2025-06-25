@@ -16,22 +16,22 @@ services:
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
     CompanyOS\Domain\:
-        resource: '../Domain/'
+        resource: '../../src/Domain/'
         exclude:
-            - '../Domain/*/Domain/'
-            - '../Domain/*/Repository/'
+            - '../../src/Domain/*/Domain/'
+            - '../../src/Domain/*/Repository/'
 
     CompanyOS\Application\:
-        resource: '../Application/'
+        resource: '../../src/Application/'
         exclude:
-            - '../Application/*/Command/'
-            - '../Application/*/Query/'
+            - '../../src/Application/*/Command/'
+            - '../../src/Application/*/Query/'
 
     CompanyOS\Infrastructure\:
-        resource: '../Infrastructure/'
+        resource: '../../src/Infrastructure/'
         exclude:
-            - '../Infrastructure/*/Persistence/'
-            - '../Infrastructure/*/Event/'
+            - '../../src/Infrastructure/*/Persistence/'
+            - '../../src/Infrastructure/*/Event/'
 
     # Plugin services
     _instanceof:
