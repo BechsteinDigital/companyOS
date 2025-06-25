@@ -40,14 +40,14 @@ doctrine:
 ```yaml
 framework:
     messenger:
-        default_bus: command_bus
+        default_bus: messenger.bus.default
         buses:
-            command_bus:
+            messenger.bus.default:
                 middleware:
                     - doctrine_transaction
-            query_bus:
+            messenger.bus.query:
                 default_middleware: allow_no_handlers
-            event_bus:
+            messenger.bus.event:
                 default_middleware: allow_no_handlers
 
         transports:

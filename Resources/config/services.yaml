@@ -111,7 +111,7 @@ services:
         arguments:
             $eventStore: '@CompanyOS\Domain\Shared\Domain\Event\EventStore'
             $eventDispatcher: '@event_dispatcher'
-            $messageBus: '@messenger.default_bus'
+            $messageBus: '@messenger.bus.default'
             $logger: '@logger'
 
     # Domain Event Occurred Event
@@ -133,28 +133,28 @@ services:
 
     CompanyOS\Application\Webhook\CommandHandler\CreateWebhookCommandHandler:
         tags:
-            - { name: messenger.message_handler, handles: CompanyOS\Application\Webhook\Command\CreateWebhookCommand, bus: command_bus }
+            - { name: messenger.message_handler, handles: CompanyOS\Application\Webhook\Command\CreateWebhookCommand, bus: messenger.bus.default }
 
     # Plugin Command Handlers
     CompanyOS\Application\Plugin\CommandHandler\DeactivatePluginCommandHandler:
         tags:
-            - { name: messenger.message_handler, handles: CompanyOS\Application\Plugin\Command\DeactivatePluginCommand, bus: command_bus }
+            - { name: messenger.message_handler, handles: CompanyOS\Application\Plugin\Command\DeactivatePluginCommand, bus: messenger.bus.default }
 
     CompanyOS\Application\Plugin\CommandHandler\ActivatePluginCommandHandler:
         tags:
-            - { name: messenger.message_handler, handles: CompanyOS\Application\Plugin\Command\ActivatePluginCommand, bus: command_bus }
+            - { name: messenger.message_handler, handles: CompanyOS\Application\Plugin\Command\ActivatePluginCommand, bus: messenger.bus.default }
 
     CompanyOS\Application\Plugin\CommandHandler\DeletePluginCommandHandler:
         tags:
-            - { name: messenger.message_handler, handles: CompanyOS\Application\Plugin\Command\DeletePluginCommand, bus: command_bus }
+            - { name: messenger.message_handler, handles: CompanyOS\Application\Plugin\Command\DeletePluginCommand, bus: messenger.bus.default }
 
     CompanyOS\Application\Plugin\CommandHandler\InstallPluginCommandHandler:
         tags:
-            - { name: messenger.message_handler, handles: CompanyOS\Application\Plugin\Command\InstallPluginCommand, bus: command_bus }
+            - { name: messenger.message_handler, handles: CompanyOS\Application\Plugin\Command\InstallPluginCommand, bus: messenger.bus.default }
 
     CompanyOS\Application\Plugin\CommandHandler\UpdatePluginCommandHandler:
         tags:
-            - { name: messenger.message_handler, handles: CompanyOS\Application\Plugin\Command\UpdatePluginCommand, bus: command_bus }
+            - { name: messenger.message_handler, handles: CompanyOS\Application\Plugin\Command\UpdatePluginCommand, bus: messenger.bus.default }
 
     # Logger Alias
     Psr\Log\LoggerInterface: '@logger'
