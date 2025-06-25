@@ -1,6 +1,6 @@
 <?php
 
-namespace CompanyOS\Domain\User\Application\Command;
+namespace CompanyOS\Application\User\Command;
 
 use CompanyOS\Application\Command\Command;
 use CompanyOS\Domain\ValueObject\Email;

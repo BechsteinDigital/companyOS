@@ -2,7 +2,7 @@
 
 namespace CompanyOS\Application\Plugin\Query\Handler;
 
-use CompanyOS\Domain\Plugin\Application\Query\GetAllPluginsQuery;
+use CompanyOS\Application\Plugin\Query\GetAllPluginsQuery;
 use CompanyOS\Domain\Plugin\Domain\Repository\PluginRepository;
 use CompanyOS\Application\Query\QueryHandler;
 

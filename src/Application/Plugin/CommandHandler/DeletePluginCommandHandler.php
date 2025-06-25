@@ -2,7 +2,7 @@
 
 namespace CompanyOS\Application\Plugin\CommandHandler;
 
-use CompanyOS\Domain\Plugin\Application\Command\DeletePluginCommand;
+use CompanyOS\Application\Plugin\Command\DeletePluginCommand;
 use CompanyOS\Domain\Plugin\Domain\Service\PluginManager;
 use CompanyOS\Domain\Plugin\Domain\Event\PluginDeleted;
 use CompanyOS\Application\Command\CommandHandlerInterface;

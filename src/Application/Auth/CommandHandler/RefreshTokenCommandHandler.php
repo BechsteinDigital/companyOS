@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace CompanyOS\Domain\Auth\Application\CommandHandler;
+namespace CompanyOS\Application\Auth\CommandHandler;
 
-use CompanyOS\Domain\Auth\Application\Command\RefreshTokenCommand;
-use CompanyOS\Domain\Auth\Application\DTO\LoginResponse;
-use CompanyOS\Domain\Auth\Application\Event\TokenRefreshedEvent;
+use CompanyOS\Application\Auth\Command\RefreshTokenCommand;
+use CompanyOS\Application\Auth\DTO\LoginResponse;
+use CompanyOS\Application\Auth\Event\TokenRefreshedEvent;
 use CompanyOS\Domain\Auth\Domain\Service\AuthenticationService;
 use CompanyOS\Application\Command\CommandHandlerInterface;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;

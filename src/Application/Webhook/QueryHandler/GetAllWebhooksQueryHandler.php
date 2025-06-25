@@ -1,9 +1,9 @@
 <?php
 
-namespace CompanyOS\Domain\Webhook\Application\QueryHandler;
+namespace CompanyOS\Application\Webhook\QueryHandler;
 
-use CompanyOS\Domain\Webhook\Application\Query\GetAllWebhooksQuery;
-use CompanyOS\Domain\Webhook\Application\DTO\WebhookResponse;
+use CompanyOS\Application\Webhook\Query\GetAllWebhooksQuery;
+use CompanyOS\Application\Webhook\DTO\WebhookResponse;
 use CompanyOS\Domain\Webhook\Domain\Repository\WebhookRepositoryInterface;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace CompanyOS\Domain\Auth\Application\QueryHandler;
+namespace CompanyOS\Application\Auth\QueryHandler;
 
-use CompanyOS\Domain\Auth\Application\Query\GetOAuthClientsQuery;
-use CompanyOS\Domain\Auth\Application\DTO\OAuthClientResponse;
+use CompanyOS\Application\Auth\Query\GetOAuthClientsQuery;
+use CompanyOS\Application\Auth\DTO\OAuthClientResponse;
 use CompanyOS\Domain\Auth\Domain\Repository\ClientRepositoryInterface;
 use CompanyOS\Application\Query\QueryHandlerInterface;
 

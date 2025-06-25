@@ -1,8 +1,8 @@
 <?php
 
-namespace CompanyOS\Domain\Settings\Application\CommandHandler;
+namespace CompanyOS\Application\Settings\CommandHandler;
 
-use CompanyOS\Domain\Settings\Application\Command\InitializeCompanySettingsCommand;
+use CompanyOS\Application\Settings\Command\InitializeCompanySettingsCommand;
 use CompanyOS\Domain\Settings\Domain\Entity\CompanySettings;
 use CompanyOS\Domain\Settings\Domain\Repository\CompanySettingsRepositoryInterface;
 use CompanyOS\Application\Command\CommandHandlerInterface;

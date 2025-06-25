@@ -1,8 +1,8 @@
 <?php
 
-namespace CompanyOS\Domain\Webhook\Application\CommandHandler;
+namespace CompanyOS\Application\Webhook\CommandHandler;
 
-use CompanyOS\Domain\Webhook\Application\Command\UpdateWebhookCommand;
+use CompanyOS\Application\Webhook\Command\UpdateWebhookCommand;
 use CompanyOS\Domain\Webhook\Domain\Repository\WebhookRepositoryInterface;
 use CompanyOS\Application\Command\CommandHandlerInterface;
 

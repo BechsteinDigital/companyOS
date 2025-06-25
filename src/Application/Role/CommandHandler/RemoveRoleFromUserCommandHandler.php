@@ -1,12 +1,12 @@
 <?php
 
-namespace CompanyOS\Domain\Role\Application\CommandHandler;
+namespace CompanyOS\Application\Role\CommandHandler;
 
-use CompanyOS\Domain\Role\Application\Command\RemoveRoleFromUserCommand;
+use CompanyOS\Application\Role\Command\RemoveRoleFromUserCommand;
 use CompanyOS\Domain\Role\Domain\Repository\RoleRepositoryInterface;
 use CompanyOS\Domain\Role\Domain\ValueObject\RoleId;
 use CompanyOS\Domain\User\Domain\Repository\UserRepositoryInterface;
-use CompanyOS\Domain\Role\Application\Event\RoleRemovedFromUserEvent;
+use CompanyOS\Application\Role\Event\RoleRemovedFromUserEvent;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 use Symfony\Component\Messenger\MessageBusInterface;
 use CompanyOS\Infrastructure\Event\DomainEventDispatcher;

@@ -1,8 +1,8 @@
 <?php
 
-namespace CompanyOS\Domain\User\Application\CommandHandler;
+namespace CompanyOS\Application\User\CommandHandler;
 
-use CompanyOS\Domain\User\Application\Command\DeleteUserCommand;
+use CompanyOS\Application\User\Command\DeleteUserCommand;
 use CompanyOS\Domain\User\Domain\Repository\UserRepositoryInterface;
 use CompanyOS\Domain\ValueObject\Uuid;
 use CompanyOS\Application\Command\CommandHandlerInterface;

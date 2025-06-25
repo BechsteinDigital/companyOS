@@ -1,18 +1,18 @@
 <?php
 
-namespace CompanyOS\Domain\Role\Application\Controller;
+namespace CompanyOS\Application\Role\Controller;
 
-use CompanyOS\Domain\Role\Application\Command\CreateRoleCommand;
-use CompanyOS\Domain\Role\Application\Command\UpdateRoleCommand;
-use CompanyOS\Domain\Role\Application\Command\DeleteRoleCommand;
-use CompanyOS\Domain\Role\Application\Command\AssignRoleToUserCommand;
-use CompanyOS\Domain\Role\Application\Command\RemoveRoleFromUserCommand;
-use CompanyOS\Domain\Role\Application\Query\GetRoleQuery;
-use CompanyOS\Domain\Role\Application\Query\GetAllRolesQuery;
-use CompanyOS\Domain\Role\Application\Query\GetUserRolesQuery;
-use CompanyOS\Domain\Role\Application\DTO\CreateRoleRequest;
-use CompanyOS\Domain\Role\Application\DTO\UpdateRoleRequest;
-use CompanyOS\Domain\Role\Application\DTO\RoleResponse;
+use CompanyOS\Application\Role\Command\CreateRoleCommand;
+use CompanyOS\Application\Role\Command\UpdateRoleCommand;
+use CompanyOS\Application\Role\Command\DeleteRoleCommand;
+use CompanyOS\Application\Role\Command\AssignRoleToUserCommand;
+use CompanyOS\Application\Role\Command\RemoveRoleFromUserCommand;
+use CompanyOS\Application\Role\Query\GetRoleQuery;
+use CompanyOS\Application\Role\Query\GetAllRolesQuery;
+use CompanyOS\Application\Role\Query\GetUserRolesQuery;
+use CompanyOS\Application\Role\DTO\CreateRoleRequest;
+use CompanyOS\Application\Role\DTO\UpdateRoleRequest;
+use CompanyOS\Application\Role\DTO\RoleResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;

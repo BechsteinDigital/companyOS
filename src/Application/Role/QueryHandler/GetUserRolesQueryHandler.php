@@ -1,9 +1,9 @@
 <?php
 
-namespace CompanyOS\Domain\Role\Application\QueryHandler;
+namespace CompanyOS\Application\Role\QueryHandler;
 
-use CompanyOS\Domain\Role\Application\Query\GetUserRolesQuery;
-use CompanyOS\Domain\Role\Application\DTO\RoleResponse;
+use CompanyOS\Application\Role\Query\GetUserRolesQuery;
+use CompanyOS\Application\Role\DTO\RoleResponse;
 use CompanyOS\Domain\Role\Domain\Repository\RoleRepositoryInterface;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 

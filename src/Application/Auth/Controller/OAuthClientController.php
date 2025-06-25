@@ -1,6 +1,6 @@
 <?php
 
-namespace CompanyOS\Domain\Auth\Application\Controller;
+namespace CompanyOS\Application\Auth\Controller;
 
 use CompanyOS\Domain\Auth\Domain\Entity\Client;
 use Doctrine\ORM\EntityManagerInterface;

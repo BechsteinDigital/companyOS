@@ -1,6 +1,6 @@
 <?php
 
-namespace CompanyOS\Domain\Webhook\Application\Query;
+namespace CompanyOS\Application\Webhook\Query;
 
 use CompanyOS\Application\Query\Query;
 

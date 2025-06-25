@@ -2,7 +2,7 @@
 
 namespace CompanyOS\Application\Plugin\CommandHandler;
 
-use CompanyOS\Domain\Plugin\Application\Command\UpdatePluginCommand;
+use CompanyOS\Application\Plugin\Command\UpdatePluginCommand;
 use CompanyOS\Domain\Plugin\Domain\Service\PluginManager;
 use CompanyOS\Domain\Plugin\Domain\Event\PluginUpdated;
 use CompanyOS\Application\Command\CommandHandlerInterface;

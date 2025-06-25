@@ -1,12 +1,12 @@
 <?php
 
-namespace CompanyOS\Domain\User\Application\QueryHandler;
+namespace CompanyOS\Application\User\QueryHandler;
 
-use CompanyOS\Domain\User\Application\Query\GetUserQuery;
-use CompanyOS\Domain\User\Application\DTO\UserResponse;
+use CompanyOS\Application\User\Query\GetUserQuery;
+use CompanyOS\Application\User\DTO\UserResponse;
 use CompanyOS\Domain\User\Domain\Repository\UserRepositoryInterface;
 use CompanyOS\Domain\Role\Domain\Repository\RoleRepositoryInterface;
-use CompanyOS\Domain\Role\Application\DTO\RoleResponse;
+use CompanyOS\Application\Role\DTO\RoleResponse;
 use CompanyOS\Domain\ValueObject\Uuid;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 

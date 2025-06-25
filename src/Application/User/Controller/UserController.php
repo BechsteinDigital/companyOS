@@ -1,15 +1,15 @@
 <?php
 
-namespace CompanyOS\Domain\User\Application\Controller;
+namespace CompanyOS\Application\User\Controller;
 
-use CompanyOS\Domain\User\Application\Command\CreateUserCommand;
-use CompanyOS\Domain\User\Application\Command\UpdateUserCommand;
-use CompanyOS\Domain\User\Application\Command\DeleteUserCommand;
-use CompanyOS\Domain\User\Application\DTO\CreateUserRequest;
-use CompanyOS\Domain\User\Application\DTO\UpdateUserRequest;
-use CompanyOS\Domain\User\Application\DTO\UserResponse;
-use CompanyOS\Domain\User\Application\Query\GetUserQuery;
-use CompanyOS\Domain\User\Application\Query\GetAllUsersQuery;
+use CompanyOS\Application\User\Command\CreateUserCommand;
+use CompanyOS\Application\User\Command\UpdateUserCommand;
+use CompanyOS\Application\User\Command\DeleteUserCommand;
+use CompanyOS\Application\User\DTO\CreateUserRequest;
+use CompanyOS\Application\User\DTO\UpdateUserRequest;
+use CompanyOS\Application\User\DTO\UserResponse;
+use CompanyOS\Application\User\Query\GetUserQuery;
+use CompanyOS\Application\User\Query\GetAllUsersQuery;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;

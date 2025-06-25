@@ -1,6 +1,6 @@
 <?php
 
-namespace CompanyOS\Domain\Settings\Application\Command;
+namespace CompanyOS\Application\Settings\Command;
 
 use CompanyOS\Application\Command\CommandInterface;
 

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace CompanyOS\Domain\Auth\Application\QueryHandler;
+namespace CompanyOS\Application\Auth\QueryHandler;
 
-use CompanyOS\Domain\Auth\Application\Query\GetUserProfileQuery;
-use CompanyOS\Domain\Auth\Application\DTO\UserProfileResponse;
+use CompanyOS\Application\Auth\Query\GetUserProfileQuery;
+use CompanyOS\Application\Auth\DTO\UserProfileResponse;
 use CompanyOS\Domain\User\Domain\Repository\UserRepositoryInterface;
 use CompanyOS\Application\Query\QueryHandler;
 use CompanyOS\Application\Query\QueryHandlerInterface;

@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace CompanyOS\Application\Plugin\EventHandler;
 
-use CompanyOS\Domain\Plugin\Application\Event\PluginActivatedEvent;
-use CompanyOS\Domain\Plugin\Application\Event\PluginDeletedEvent;
-use CompanyOS\Domain\Plugin\Application\Event\PluginDeactivatedEvent;
-use CompanyOS\Domain\Plugin\Application\Event\PluginInstallationFailedEvent;
-use CompanyOS\Domain\Plugin\Application\Event\PluginInstalledEvent;
-use CompanyOS\Domain\Plugin\Application\Event\PluginUpdatedEvent;
+use CompanyOS\Application\Plugin\Event\PluginActivatedEvent;
+use CompanyOS\Application\Plugin\Event\PluginDeletedEvent;
+use CompanyOS\Application\Plugin\Event\PluginDeactivatedEvent;
+use CompanyOS\Application\Plugin\Event\PluginInstallationFailedEvent;
+use CompanyOS\Application\Plugin\Event\PluginInstalledEvent;
+use CompanyOS\Application\Plugin\Event\PluginUpdatedEvent;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 

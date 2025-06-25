@@ -1,8 +1,8 @@
 <?php
 
-namespace CompanyOS\Domain\User\Application\CommandHandler;
+namespace CompanyOS\Application\User\CommandHandler;
 
-use CompanyOS\Domain\User\Application\Command\BulkDeleteUsersCommand;
+use CompanyOS\Application\User\Command\BulkDeleteUsersCommand;
 use CompanyOS\Domain\User\Domain\Repository\UserRepositoryInterface;
 use CompanyOS\Application\Command\CommandHandlerInterface;
 use CompanyOS\Domain\ValueObject\Uuid;

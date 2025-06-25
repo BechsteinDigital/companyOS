@@ -1,6 +1,6 @@
 <?php
 
-namespace CompanyOS\Domain\Role\Application\Event;
+namespace CompanyOS\Application\Role\Event;
 
 class RoleRemovedFromUserEvent
 {

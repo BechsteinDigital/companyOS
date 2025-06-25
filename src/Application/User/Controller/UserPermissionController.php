@@ -1,8 +1,8 @@
 <?php
 
-namespace CompanyOS\Domain\User\Application\Controller;
+namespace CompanyOS\Application\User\Controller;
 
-use CompanyOS\Domain\Role\Application\Service\PermissionService;
+use CompanyOS\Application\Role\Service\PermissionService;
 use CompanyOS\Domain\User\Domain\Repository\UserRepositoryInterface;
 use CompanyOS\Domain\ValueObject\Uuid;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

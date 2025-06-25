@@ -1,14 +1,14 @@
 <?php
 
-namespace CompanyOS\Domain\Webhook\Application\Controller;
+namespace CompanyOS\Application\Webhook\Controller;
 
-use CompanyOS\Domain\Webhook\Application\Command\CreateWebhookCommand;
-use CompanyOS\Domain\Webhook\Application\Command\UpdateWebhookCommand;
-use CompanyOS\Domain\Webhook\Application\Command\DeleteWebhookCommand;
-use CompanyOS\Domain\Webhook\Application\Query\GetWebhookQuery;
-use CompanyOS\Domain\Webhook\Application\Query\GetAllWebhooksQuery;
-use CompanyOS\Domain\Webhook\Application\DTO\CreateWebhookRequest;
-use CompanyOS\Domain\Webhook\Application\DTO\WebhookResponse;
+use CompanyOS\Application\Webhook\Command\CreateWebhookCommand;
+use CompanyOS\Application\Webhook\Command\UpdateWebhookCommand;
+use CompanyOS\Application\Webhook\Command\DeleteWebhookCommand;
+use CompanyOS\Application\Webhook\Query\GetWebhookQuery;
+use CompanyOS\Application\Webhook\Query\GetAllWebhooksQuery;
+use CompanyOS\Application\Webhook\DTO\CreateWebhookRequest;
+use CompanyOS\Application\Webhook\DTO\WebhookResponse;
 use CompanyOS\Domain\Webhook\Domain\Repository\WebhookRepositoryInterface;
 use CompanyOS\Domain\ValueObject\Uuid;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

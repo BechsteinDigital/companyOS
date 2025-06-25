@@ -2,16 +2,16 @@
 
 namespace CompanyOS\Application\Plugin\Controller;
 
-use CompanyOS\Domain\Plugin\Application\Command\InstallPluginCommand;
-use CompanyOS\Domain\Plugin\Application\Command\ActivatePluginCommand;
-use CompanyOS\Domain\Plugin\Application\Command\DeactivatePluginCommand;
-use CompanyOS\Domain\Plugin\Application\Command\DeletePluginCommand;
-use CompanyOS\Domain\Plugin\Application\Command\UpdatePluginCommand;
-use CompanyOS\Domain\Plugin\Application\Query\GetPluginQuery;
-use CompanyOS\Domain\Plugin\Application\Query\GetAllPluginsQuery;
-use CompanyOS\Domain\Plugin\Application\DTO\InstallPluginRequest;
-use CompanyOS\Domain\Plugin\Application\DTO\UpdatePluginRequest;
-use CompanyOS\Domain\Plugin\Application\DTO\PluginResponse;
+use CompanyOS\Application\Plugin\Command\InstallPluginCommand;
+use CompanyOS\Application\Plugin\Command\ActivatePluginCommand;
+use CompanyOS\Application\Plugin\Command\DeactivatePluginCommand;
+use CompanyOS\Application\Plugin\Command\DeletePluginCommand;
+use CompanyOS\Application\Plugin\Command\UpdatePluginCommand;
+use CompanyOS\Application\Plugin\Query\GetPluginQuery;
+use CompanyOS\Application\Plugin\Query\GetAllPluginsQuery;
+use CompanyOS\Application\Plugin\DTO\InstallPluginRequest;
+use CompanyOS\Application\Plugin\DTO\UpdatePluginRequest;
+use CompanyOS\Application\Plugin\DTO\PluginResponse;
 use CompanyOS\Domain\Plugin\Domain\Service\PluginManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;

@@ -1,8 +1,8 @@
 <?php
 
-namespace CompanyOS\Domain\Settings\Application\CommandHandler;
+namespace CompanyOS\Application\Settings\CommandHandler;
 
-use CompanyOS\Domain\Settings\Application\Command\AddSalutationCommand;
+use CompanyOS\Application\Settings\Command\AddSalutationCommand;
 use CompanyOS\Domain\Settings\Domain\Repository\CompanySettingsRepositoryInterface;
 use CompanyOS\Application\Command\CommandHandlerInterface;
 use CompanyOS\Infrastructure\Event\DomainEventDispatcher;

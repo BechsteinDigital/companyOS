@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace CompanyOS\Domain\Auth\Application\CommandHandler;
+namespace CompanyOS\Application\Auth\CommandHandler;
 
-use CompanyOS\Domain\Auth\Application\Command\ResetPasswordCommand;
-use CompanyOS\Domain\Auth\Application\Event\PasswordResetCompletedEvent;
+use CompanyOS\Application\Auth\Command\ResetPasswordCommand;
+use CompanyOS\Application\Auth\Event\PasswordResetCompletedEvent;
 use CompanyOS\Domain\Auth\Domain\Service\AuthenticationService;
 use CompanyOS\Application\Command\CommandHandlerInterface;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;

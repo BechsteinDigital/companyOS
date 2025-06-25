@@ -4,18 +4,18 @@ declare(strict_types=1);
 
 namespace CompanyOS\Application\Plugin\Service;
 
-use CompanyOS\Domain\Plugin\Application\Command\ActivatePluginCommand;
-use CompanyOS\Domain\Plugin\Application\Command\DeactivatePluginCommand;
-use CompanyOS\Domain\Plugin\Application\Command\DeletePluginCommand;
-use CompanyOS\Domain\Plugin\Application\Command\InstallPluginCommand;
-use CompanyOS\Domain\Plugin\Application\Command\UpdatePluginCommand;
-use CompanyOS\Domain\Plugin\Application\DTO\InstallPluginRequest;
-use CompanyOS\Domain\Plugin\Application\DTO\UpdatePluginRequest;
-use CompanyOS\Domain\Plugin\Application\Query\CheckPluginCompatibilityQuery;
-use CompanyOS\Domain\Plugin\Application\Query\GetActivePluginsQuery;
-use CompanyOS\Domain\Plugin\Application\Query\GetAllPluginsQuery;
-use CompanyOS\Domain\Plugin\Application\Query\GetPluginDependenciesQuery;
-use CompanyOS\Domain\Plugin\Application\Query\GetPluginQuery;
+use CompanyOS\Application\Plugin\Command\ActivatePluginCommand as PluginActivatePluginCommand;
+use CompanyOS\Application\Plugin\Command\DeactivatePluginCommand;
+use CompanyOS\Application\Plugin\Command\DeletePluginCommand;
+use CompanyOS\Application\Plugin\Command\InstallPluginCommand;
+use CompanyOS\Application\Plugin\Command\UpdatePluginCommand;
+use CompanyOS\Application\Plugin\DTO\InstallPluginRequest;
+use CompanyOS\Application\Plugin\DTO\UpdatePluginRequest;
+use CompanyOS\Application\Plugin\Query\CheckPluginCompatibilityQuery;
+use CompanyOS\Application\Plugin\Query\GetActivePluginsQuery;
+use CompanyOS\Application\Plugin\Query\GetAllPluginsQuery;
+use CompanyOS\Application\Plugin\Query\GetPluginDependenciesQuery;
+use CompanyOS\Application\Plugin\Query\GetPluginQuery;
 use CompanyOS\Application\Command\CommandBusInterface;
 use CompanyOS\Application\Query\QueryBusInterface;
 use CompanyOS\Domain\ValueObject\Uuid;
@@ -55,7 +55,7 @@ final class PluginApplicationService
 
     public function activatePlugin(string $pluginId): void
     {
-        $command = new ActivatePluginCommand(Uuid::fromString($pluginId));
+        $command = new PluginActivatePluginCommand(Uuid::fromString($pluginId));
         $this->commandBus->dispatch($command);
     }
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace CompanyOS\Domain\Settings\Application\DTO;
+namespace CompanyOS\Application\Settings\DTO;
 
 use CompanyOS\Domain\Settings\Domain\Entity\CompanySettings;
 use OpenApi\Attributes as OA;

@@ -1,9 +1,9 @@
 <?php
 
-namespace CompanyOS\Domain\User\Application\CommandHandler;
+namespace CompanyOS\Application\User\CommandHandler;
 
 use CompanyOS\Domain\Role\Domain\Repository\RoleRepositoryInterface;
-use CompanyOS\Domain\User\Application\Command\CreateUserCommand;
+use CompanyOS\Application\User\Command\CreateUserCommand;
 use CompanyOS\Domain\User\Domain\Entity\User;
 use CompanyOS\Domain\User\Domain\Repository\UserRepositoryInterface;
 use CompanyOS\Domain\ValueObject\Email;

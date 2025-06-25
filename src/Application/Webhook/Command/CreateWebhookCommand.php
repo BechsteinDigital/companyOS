@@ -1,6 +1,6 @@
 <?php
 
-namespace CompanyOS\Domain\Webhook\Application\Command;
+namespace CompanyOS\Application\Webhook\Command;
 
 use CompanyOS\Application\Command\CommandInterface;
 

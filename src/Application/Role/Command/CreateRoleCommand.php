@@ -1,6 +1,6 @@
 <?php
 
-namespace CompanyOS\Domain\Role\Application\Command;
+namespace CompanyOS\Application\Role\Command;
 
 class CreateRoleCommand
 {

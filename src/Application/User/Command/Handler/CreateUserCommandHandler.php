@@ -1,8 +1,8 @@
 <?php
 
-namespace CompanyOS\Domain\User\Application\Command\Handler;
+namespace CompanyOS\Application\User\Command\Handler;
 
-use CompanyOS\Domain\User\Application\Command\CreateUserCommand;
+use CompanyOS\Application\User\Command\CreateUserCommand;
 use CompanyOS\Domain\User\Domain\Entity\User;
 use CompanyOS\Domain\User\Domain\Repository\UserRepository;
 use CompanyOS\Application\Command\CommandHandler;

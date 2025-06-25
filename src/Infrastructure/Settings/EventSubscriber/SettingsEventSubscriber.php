@@ -2,7 +2,7 @@
 
 namespace CompanyOS\Domain\Settings\Infrastructure\EventSubscriber;
 
-use CompanyOS\Domain\Settings\Application\Service\SettingsService;
+use CompanyOS\Application\Settings\Service\SettingsService;
 use CompanyOS\Infrastructure\Event\DomainEventOccurred;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 

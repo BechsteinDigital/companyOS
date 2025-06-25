@@ -1,8 +1,8 @@
 <?php
 
-namespace CompanyOS\Domain\Webhook\Application\CommandHandler;
+namespace CompanyOS\Application\Webhook\CommandHandler;
 
-use CompanyOS\Domain\Webhook\Application\Command\DeleteWebhookCommand;
+use CompanyOS\Application\Webhook\Command\DeleteWebhookCommand;
 use CompanyOS\Domain\Webhook\Domain\Repository\WebhookRepositoryInterface;
 use CompanyOS\Application\Command\CommandHandlerInterface;
 

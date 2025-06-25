@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace CompanyOS\Application\Plugin\QueryHandler;
 
-use CompanyOS\Domain\Plugin\Application\Query\GetActivePluginsQuery;
-use CompanyOS\Domain\Plugin\Application\DTO\PluginResponse;
+use CompanyOS\Application\Plugin\Query\GetActivePluginsQuery;
+use CompanyOS\Application\Plugin\DTO\PluginResponse;
 use CompanyOS\Domain\Plugin\Domain\Repository\PluginRepositoryInterface;
 use CompanyOS\Application\Query\QueryHandlerInterface;
 

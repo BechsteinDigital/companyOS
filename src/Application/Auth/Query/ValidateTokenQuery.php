@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace CompanyOS\Domain\Auth\Application\Query;
+namespace CompanyOS\Application\Auth\Query;
 
 use CompanyOS\Application\Query\Query;
 

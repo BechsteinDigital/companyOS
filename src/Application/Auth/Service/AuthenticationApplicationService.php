@@ -2,23 +2,23 @@
 
 declare(strict_types=1);
 
-namespace CompanyOS\Domain\Auth\Application\Service;
+namespace CompanyOS\Application\Auth\Service;
 
-use CompanyOS\Domain\Auth\Application\Command\ChangePasswordCommand;
-use CompanyOS\Domain\Auth\Application\Command\LoginUserCommand;
-use CompanyOS\Domain\Auth\Application\Command\LogoutUserCommand;
-use CompanyOS\Domain\Auth\Application\Command\RefreshTokenCommand;
-use CompanyOS\Domain\Auth\Application\Command\RequestPasswordResetCommand;
-use CompanyOS\Domain\Auth\Application\Command\ResetPasswordCommand;
-use CompanyOS\Domain\Auth\Application\DTO\ChangePasswordRequest;
-use CompanyOS\Domain\Auth\Application\DTO\LoginRequest;
-use CompanyOS\Domain\Auth\Application\DTO\RefreshTokenRequest;
-use CompanyOS\Domain\Auth\Application\DTO\RequestPasswordResetRequest;
-use CompanyOS\Domain\Auth\Application\DTO\ResetPasswordRequest;
-use CompanyOS\Domain\Auth\Application\Query\GetActiveSessionsQuery;
-use CompanyOS\Domain\Auth\Application\Query\GetOAuthClientsQuery;
-use CompanyOS\Domain\Auth\Application\Query\GetUserProfileQuery;
-use CompanyOS\Domain\Auth\Application\Query\ValidateTokenQuery;
+use CompanyOS\Application\Auth\Command\ChangePasswordCommand;
+use CompanyOS\Application\Auth\Command\LoginUserCommand;
+use CompanyOS\Application\Auth\Command\LogoutUserCommand;
+use CompanyOS\Application\Auth\Command\RefreshTokenCommand;
+use CompanyOS\Application\Auth\Command\RequestPasswordResetCommand;
+use CompanyOS\Application\Auth\Command\ResetPasswordCommand;
+use CompanyOS\Application\Auth\DTO\ChangePasswordRequest;
+use CompanyOS\Application\Auth\DTO\LoginRequest;
+use CompanyOS\Application\Auth\DTO\RefreshTokenRequest;
+use CompanyOS\Application\Auth\DTO\RequestPasswordResetRequest;
+use CompanyOS\Application\Auth\DTO\ResetPasswordRequest;
+use CompanyOS\Application\Auth\Query\GetActiveSessionsQuery;
+use CompanyOS\Application\Auth\Query\GetOAuthClientsQuery;
+use CompanyOS\Application\Auth\Query\GetUserProfileQuery;
+use CompanyOS\Application\Auth\Query\ValidateTokenQuery;
 use CompanyOS\Application\Command\CommandBusInterface;
 use CompanyOS\Application\Query\QueryBusInterface;
 use CompanyOS\Domain\ValueObject\Uuid;

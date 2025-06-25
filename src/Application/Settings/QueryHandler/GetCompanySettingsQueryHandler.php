@@ -1,8 +1,8 @@
 <?php
 
-namespace CompanyOS\Domain\Settings\Application\QueryHandler;
+namespace CompanyOS\Application\Settings\QueryHandler;
 
-use CompanyOS\Domain\Settings\Application\Query\GetCompanySettingsQuery;
+use CompanyOS\Application\Settings\Query\GetCompanySettingsQuery;
 use CompanyOS\Domain\Settings\Domain\Entity\CompanySettings;
 use CompanyOS\Domain\Settings\Domain\Repository\CompanySettingsRepositoryInterface;
 use CompanyOS\Application\Query\QueryHandlerInterface;

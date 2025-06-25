@@ -1,6 +1,6 @@
 <?php
 
-namespace CompanyOS\Domain\Role\Application\DTO;
+namespace CompanyOS\Application\Role\DTO;
 
 use OpenApi\Attributes as OA;
 use Symfony\Component\Validator\Constraints as Assert;

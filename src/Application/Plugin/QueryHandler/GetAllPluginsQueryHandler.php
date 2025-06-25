@@ -2,8 +2,8 @@
 
 namespace CompanyOS\Application\Plugin\QueryHandler;
 
-use CompanyOS\Domain\Plugin\Application\Query\GetAllPluginsQuery;
-use CompanyOS\Domain\Plugin\Application\DTO\PluginResponse;
+use CompanyOS\Application\Plugin\Query\GetAllPluginsQuery;
+use CompanyOS\Application\Plugin\DTO\PluginResponse;
 use CompanyOS\Domain\Plugin\Domain\Service\PluginManager;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 

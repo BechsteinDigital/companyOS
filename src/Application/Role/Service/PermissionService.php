@@ -1,6 +1,6 @@
 <?php
 
-namespace CompanyOS\Domain\Role\Application\Service;
+namespace CompanyOS\Application\Role\Service;
 
 use CompanyOS\Domain\Role\Domain\Repository\RoleRepositoryInterface;
 use CompanyOS\Domain\User\Domain\Entity\User;

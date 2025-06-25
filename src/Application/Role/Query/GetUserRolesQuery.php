@@ -1,6 +1,6 @@
 <?php
 
-namespace CompanyOS\Domain\Role\Application\Query;
+namespace CompanyOS\Application\Role\Query;
 
 class GetUserRolesQuery
 {

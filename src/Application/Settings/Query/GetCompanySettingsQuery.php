@@ -1,6 +1,6 @@
 <?php
 
-namespace CompanyOS\Domain\Settings\Application\Query;
+namespace CompanyOS\Application\Settings\Query;
 
 use CompanyOS\Application\Query\QueryInterface;
 

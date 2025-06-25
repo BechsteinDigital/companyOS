@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace CompanyOS\Domain\Auth\Application\CommandHandler;
+namespace CompanyOS\Application\Auth\CommandHandler;
 
-use CompanyOS\Domain\Auth\Application\Command\ChangePasswordCommand;
-use CompanyOS\Domain\Auth\Application\Event\PasswordChangedEvent;
+use CompanyOS\Application\Auth\Command\ChangePasswordCommand;
+use CompanyOS\Application\Auth\Event\PasswordChangedEvent;
 use CompanyOS\Domain\Auth\Domain\Service\AuthenticationService;
 use CompanyOS\Domain\User\Domain\Repository\UserRepositoryInterface;
 use CompanyOS\Application\Command\CommandHandlerInterface;

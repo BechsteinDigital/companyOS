@@ -1,13 +1,13 @@
 <?php
 
-namespace CompanyOS\Domain\Settings\Application\Controller;
+namespace CompanyOS\Application\Settings\Controller;
 
-use CompanyOS\Domain\Settings\Application\Command\InitializeCompanySettingsCommand;
-use CompanyOS\Domain\Settings\Application\Command\UpdateCompanySettingsCommand;
-use CompanyOS\Domain\Settings\Application\DTO\CompanySettingsResponse;
-use CompanyOS\Domain\Settings\Application\DTO\InitializeCompanySettingsRequest;
-use CompanyOS\Domain\Settings\Application\DTO\UpdateCompanySettingsRequest;
-use CompanyOS\Domain\Settings\Application\Query\GetCompanySettingsQuery;
+use CompanyOS\Application\Settings\Command\InitializeCompanySettingsCommand;
+use CompanyOS\Application\Settings\Command\UpdateCompanySettingsCommand;
+use CompanyOS\Application\Settings\DTO\CompanySettingsResponse;
+use CompanyOS\Application\Settings\DTO\InitializeCompanySettingsRequest;
+use CompanyOS\Application\Settings\DTO\UpdateCompanySettingsRequest;
+use CompanyOS\Application\Settings\Query\GetCompanySettingsQuery;
 use CompanyOS\Domain\ValueObject\Email;
 use OpenApi\Attributes as OA;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

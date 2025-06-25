@@ -2,7 +2,7 @@
 
 namespace CompanyOS\Application\Plugin\CommandHandler;
 
-use CompanyOS\Domain\Plugin\Application\Command\DeactivatePluginCommand;
+use CompanyOS\Application\Plugin\Command\DeactivatePluginCommand;
 use CompanyOS\Domain\Plugin\Domain\Service\PluginManager;
 use CompanyOS\Domain\Plugin\Domain\Event\PluginDeactivated;
 use CompanyOS\Application\Command\CommandHandlerInterface;

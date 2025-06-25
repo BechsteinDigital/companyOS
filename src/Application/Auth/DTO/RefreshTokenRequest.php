@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace CompanyOS\Domain\Auth\Application\DTO;
+namespace CompanyOS\Application\Auth\DTO;
 
 final class RefreshTokenRequest
 {

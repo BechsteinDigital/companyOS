@@ -2,7 +2,7 @@
 
 namespace CompanyOS\Application\Plugin\Query\Handler;
 
-use CompanyOS\Domain\Plugin\Application\Query\GetPluginQuery;
+use CompanyOS\Application\Plugin\Query\GetPluginQuery;
 use CompanyOS\Domain\Plugin\Domain\Repository\PluginRepository;
 use CompanyOS\Application\Query\QueryHandler;
 use CompanyOS\Domain\ValueObject\Uuid;

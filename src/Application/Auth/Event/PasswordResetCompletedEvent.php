@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace CompanyOS\Domain\Auth\Application\Event;
+namespace CompanyOS\Application\Auth\Event;
 
 use CompanyOS\Domain\ValueObject\Uuid;
 

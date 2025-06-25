@@ -2,18 +2,18 @@
 
 namespace CompanyOS\Domain\Settings\Infrastructure\DependencyInjection;
 
-use CompanyOS\Domain\Settings\Application\Command\AddSalutationCommand;
-use CompanyOS\Domain\Settings\Application\Command\InitializeCompanySettingsCommand;
-use CompanyOS\Domain\Settings\Application\Command\RemoveSalutationCommand;
-use CompanyOS\Domain\Settings\Application\Command\UpdateCompanySettingsCommand;
-use CompanyOS\Domain\Settings\Application\CommandHandler\AddSalutationCommandHandler;
-use CompanyOS\Domain\Settings\Application\CommandHandler\InitializeCompanySettingsCommandHandler;
-use CompanyOS\Domain\Settings\Application\CommandHandler\RemoveSalutationCommandHandler;
-use CompanyOS\Domain\Settings\Application\CommandHandler\UpdateCompanySettingsCommandHandler;
-use CompanyOS\Domain\Settings\Application\Controller\SettingsController;
-use CompanyOS\Domain\Settings\Application\Query\GetCompanySettingsQuery;
-use CompanyOS\Domain\Settings\Application\QueryHandler\GetCompanySettingsQueryHandler;
-use CompanyOS\Domain\Settings\Application\Service\SettingsService;
+use CompanyOS\Application\Settings\Command\AddSalutationCommand;
+use CompanyOS\Application\Settings\Command\InitializeCompanySettingsCommand;
+use CompanyOS\Application\Settings\Command\RemoveSalutationCommand;
+use CompanyOS\Application\Settings\Command\UpdateCompanySettingsCommand;
+use CompanyOS\Application\Settings\CommandHandler\AddSalutationCommandHandler;
+use CompanyOS\Application\Settings\CommandHandler\InitializeCompanySettingsCommandHandler;
+use CompanyOS\Application\Settings\CommandHandler\RemoveSalutationCommandHandler;
+use CompanyOS\Application\Settings\CommandHandler\UpdateCompanySettingsCommandHandler;
+use CompanyOS\Application\Settings\Controller\SettingsController;
+use CompanyOS\Application\Settings\Query\GetCompanySettingsQuery;
+use CompanyOS\Application\Settings\QueryHandler\GetCompanySettingsQueryHandler;
+use CompanyOS\Application\Settings\Service\SettingsService;
 use CompanyOS\Domain\Settings\Domain\Repository\CompanySettingsRepositoryInterface;
 use CompanyOS\Domain\Settings\Infrastructure\Persistence\DoctrineCompanySettingsRepository;
 use CompanyOS\Application\Command\CommandHandlerInterface;

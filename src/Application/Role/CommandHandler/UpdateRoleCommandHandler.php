@@ -1,17 +1,17 @@
 <?php
 
-namespace CompanyOS\Domain\Role\Application\CommandHandler;
+namespace CompanyOS\Application\Role\CommandHandler;
 
-use CompanyOS\Domain\Role\Application\Command\UpdateRoleCommand;
+use CompanyOS\Application\Role\Command\UpdateRoleCommand;
 use CompanyOS\Domain\Role\Domain\Repository\RoleRepositoryInterface;
 use CompanyOS\Domain\Role\Domain\ValueObject\RoleDescription;
 use CompanyOS\Domain\Role\Domain\ValueObject\RoleDisplayName;
 use CompanyOS\Domain\Role\Domain\ValueObject\RoleId;
 use CompanyOS\Domain\Role\Domain\ValueObject\RolePermissions;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;
-use CompanyOS\Domain\Role\Application\Event\RoleUpdatedEvent;
+use CompanyOS\Application\Role\Event\RoleUpdatedEvent;
 use Symfony\Component\Messenger\MessageBusInterface;
-use CompanyOS\Domain\Role\Application\Event\RoleUpdated;
+use CompanyOS\Application\Role\Event\RoleUpdated;
 use CompanyOS\Infrastructure\Event\DomainEventDispatcher;
 
 #[AsMessageHandler]

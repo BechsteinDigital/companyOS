@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace CompanyOS\Domain\Auth\Application\CommandHandler;
+namespace CompanyOS\Application\Auth\CommandHandler;
 
-use CompanyOS\Domain\Auth\Application\Command\LoginUserCommand;
-use CompanyOS\Domain\Auth\Application\DTO\LoginResponse;
-use CompanyOS\Domain\Auth\Application\Event\LoginFailedEvent;
-use CompanyOS\Domain\Auth\Application\Event\UserLoggedInEvent;
+use CompanyOS\Application\Auth\Command\LoginUserCommand;
+use CompanyOS\Application\Auth\DTO\LoginResponse;
+use CompanyOS\Application\Auth\Event\LoginFailedEvent;
+use CompanyOS\Application\Auth\Event\UserLoggedInEvent;
 use CompanyOS\Domain\Auth\Domain\Service\AuthenticationService;
 use CompanyOS\Domain\User\Domain\Repository\UserRepositoryInterface;
 use CompanyOS\Application\Command\CommandHandlerInterface;

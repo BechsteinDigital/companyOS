@@ -2,18 +2,18 @@
 
 namespace CompanyOS\Domain\Plugin\Infrastructure\DependencyInjection;
 
-use CompanyOS\Domain\Plugin\Application\CommandHandler\ActivatePluginCommandHandler;
-use CompanyOS\Domain\Plugin\Application\CommandHandler\DeactivatePluginCommandHandler;
-use CompanyOS\Domain\Plugin\Application\CommandHandler\DeletePluginCommandHandler;
-use CompanyOS\Domain\Plugin\Application\CommandHandler\InstallPluginCommandHandler;
-use CompanyOS\Domain\Plugin\Application\CommandHandler\UpdatePluginCommandHandler;
-use CompanyOS\Domain\Plugin\Application\EventHandler\PluginEventHandler;
-use CompanyOS\Domain\Plugin\Application\QueryHandler\CheckPluginCompatibilityQueryHandler;
-use CompanyOS\Domain\Plugin\Application\QueryHandler\GetActivePluginsQueryHandler;
-use CompanyOS\Domain\Plugin\Application\QueryHandler\GetAllPluginsQueryHandler;
-use CompanyOS\Domain\Plugin\Application\QueryHandler\GetPluginDependenciesQueryHandler;
-use CompanyOS\Domain\Plugin\Application\QueryHandler\GetPluginQueryHandler;
-use CompanyOS\Domain\Plugin\Application\Service\PluginApplicationService;
+use CompanyOS\Application\Plugin\CommandHandler\ActivatePluginCommandHandler;
+use CompanyOS\Application\Plugin\CommandHandler\DeactivatePluginCommandHandler;
+use CompanyOS\Application\Plugin\CommandHandler\DeletePluginCommandHandler;
+use CompanyOS\Application\Plugin\CommandHandler\InstallPluginCommandHandler;
+use CompanyOS\Application\Plugin\CommandHandler\UpdatePluginCommandHandler;
+use CompanyOS\Application\Plugin\EventHandler\PluginEventHandler;
+use CompanyOS\Application\Plugin\QueryHandler\CheckPluginCompatibilityQueryHandler;
+use CompanyOS\Application\Plugin\QueryHandler\GetActivePluginsQueryHandler;
+use CompanyOS\Application\Plugin\QueryHandler\GetAllPluginsQueryHandler;
+use CompanyOS\Application\Plugin\QueryHandler\GetPluginDependenciesQueryHandler;
+use CompanyOS\Application\Plugin\QueryHandler\GetPluginQueryHandler;
+use CompanyOS\Application\Plugin\Service\PluginApplicationService;
 use CompanyOS\Domain\Plugin\Domain\Repository\PluginRepositoryInterface;
 use CompanyOS\Domain\Plugin\Domain\Service\PluginCompatibilityService;
 use CompanyOS\Domain\Plugin\Domain\Service\PluginManager;

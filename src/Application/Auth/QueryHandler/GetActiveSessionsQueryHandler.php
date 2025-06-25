@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace CompanyOS\Domain\Auth\Application\QueryHandler;
+namespace CompanyOS\Application\Auth\QueryHandler;
 
-use CompanyOS\Domain\Auth\Application\Query\GetActiveSessionsQuery;
-use CompanyOS\Domain\Auth\Application\DTO\ActiveSessionResponse;
+use CompanyOS\Application\Auth\Query\GetActiveSessionsQuery;
+use CompanyOS\Application\Auth\DTO\ActiveSessionResponse;
 use CompanyOS\Domain\Auth\Domain\Repository\AccessTokenRepositoryInterface;
 use CompanyOS\Application\Query\QueryHandlerInterface;
 

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace CompanyOS\Domain\Auth\Application\CommandHandler;
+namespace CompanyOS\Application\Auth\CommandHandler;
 
-use CompanyOS\Domain\Auth\Application\Command\LogoutUserCommand;
-use CompanyOS\Domain\Auth\Application\Event\UserLoggedOutEvent;
+use CompanyOS\Application\Auth\Command\LogoutUserCommand;
+use CompanyOS\Application\Auth\Event\UserLoggedOutEvent;
 use CompanyOS\Domain\Auth\Domain\Service\AuthenticationService;
 use CompanyOS\Application\Command\CommandHandlerInterface;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;

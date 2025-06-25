@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace CompanyOS\Domain\Auth\Application\QueryHandler;
+namespace CompanyOS\Application\Auth\QueryHandler;
 
-use CompanyOS\Domain\Auth\Application\Query\ValidateTokenQuery;
-use CompanyOS\Domain\Auth\Application\DTO\TokenValidationResponse;
+use CompanyOS\Application\Auth\Query\ValidateTokenQuery;
+use CompanyOS\Application\Auth\DTO\TokenValidationResponse;
 use CompanyOS\Domain\Auth\Domain\Repository\AccessTokenRepositoryInterface;
 use CompanyOS\Application\Query\QueryHandlerInterface;
 

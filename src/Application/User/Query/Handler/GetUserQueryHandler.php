@@ -1,8 +1,8 @@
 <?php
 
-namespace CompanyOS\Domain\User\Application\Query\Handler;
+namespace CompanyOS\Application\User\Query\Handler;
 
-use CompanyOS\Domain\User\Application\Query\GetUserQuery;
+use CompanyOS\Application\User\Query\GetUserQuery;
 use CompanyOS\Domain\User\Domain\Repository\UserRepository;
 use CompanyOS\Application\Query\QueryHandler;
 use CompanyOS\Domain\ValueObject\Uuid;

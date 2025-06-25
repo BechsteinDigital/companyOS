@@ -2,7 +2,7 @@
 
 namespace CompanyOS\Application\Plugin\CommandHandler;
 
-use CompanyOS\Domain\Plugin\Application\Command\ActivatePluginCommand;
+use CompanyOS\Application\Plugin\Command\ActivatePluginCommand;
 use CompanyOS\Domain\Plugin\Domain\Service\PluginManager;
 use CompanyOS\Domain\Plugin\Domain\Event\PluginActivated;
 use CompanyOS\Application\Command\CommandHandlerInterface;
