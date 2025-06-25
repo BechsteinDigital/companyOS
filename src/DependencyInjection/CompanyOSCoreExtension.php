@@ -13,17 +13,25 @@ class CompanyOSCoreExtension extends Extension
     {
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/../../Resources/config'));
         
-        // Services laden
+        // Services laden (immer verfügbar)
         $loader->load('services.yaml');
         
-        // Security-Konfiguration laden
-        $loader->load('security.yaml');
+        // Messenger-Konfiguration nur laden, wenn Messenger-Extension verfügbar ist
+        if ($container->hasExtension('framework')) {
+            try {
+                $loader->load('messenger.yaml');
+            } catch (\Exception $e) {
+                // Messenger-Konfiguration kann nicht geladen werden, ignorieren
+            }
+        }
         
-        // Messenger-Konfiguration laden
-        $loader->load('messenger.yaml');
-        
-        // Routing laden
+        // Routing laden (immer verfügbar)
         $loader->load('routes.yaml');
+        
+        // Security-Konfiguration nur laden, wenn Security-Extension verfügbar ist
+        if ($container->hasExtension('security')) {
+            $loader->load('security.yaml');
+        }
         
         // Bundle-Konfiguration verarbeiten
         $configuration = $this->getConfiguration($configs, $container);

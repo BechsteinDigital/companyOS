@@ -1,3 +1,6 @@
+# CompanyOS Core Bundle Security Configuration
+# Diese Konfiguration kann im Hauptprojekt überschrieben werden
+
 security:
     providers:
         companyos_user_provider:
@@ -12,6 +15,8 @@ security:
             oauth2: ~
 
     access_control:
+        # Öffentliche Endpunkte
         - { path: ^/api/auth/login, roles: PUBLIC_ACCESS }
         - { path: ^/api/oauth2/token, roles: PUBLIC_ACCESS }
+        # Geschützte API-Endpunkte
         - { path: ^/api, roles: IS_AUTHENTICATED_FULLY } 
