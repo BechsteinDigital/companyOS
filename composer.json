@@ -51,6 +51,7 @@
     },
     "autoload": {
         "psr-4": {
+            "CompanyOS\\": "CompanyOS/",
             "CompanyOS\\Domain\\": "Domain/",
             "CompanyOS\\Application\\": "Application/",
             "CompanyOS\\Infrastructure\\": "Infrastructure/"
