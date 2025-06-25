@@ -3,7 +3,7 @@
 namespace CompanyOS\Domain\Plugin\Domain\Repository;
 
 use CompanyOS\Domain\Plugin\Domain\Entity\Plugin;
-use CompanyOS\Domain\Shared\ValueObject\Uuid;
+use CompanyOS\Domain\ValueObject\Uuid;
 
 interface PluginRepository
 {

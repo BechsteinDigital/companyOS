@@ -3,7 +3,7 @@
 namespace CompanyOS\Domain\Webhook\Infrastructure\Service;
 
 use CompanyOS\Domain\Webhook\Domain\Repository\WebhookRepositoryInterface;
-use CompanyOS\Domain\Shared\Event\DomainEvent;
+use CompanyOS\Domain\Event\DomainEvent;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\HttpClient\HttpClient;
 

@@ -6,7 +6,7 @@ use CompanyOS\Domain\Plugin\Application\Command\InstallPluginCommand;
 use CompanyOS\Domain\Plugin\Domain\Entity\Plugin;
 use CompanyOS\Domain\Plugin\Domain\Repository\PluginRepository;
 use CompanyOS\Application\Command\CommandHandler;
-use CompanyOS\Domain\Shared\ValueObject\Uuid;
+use CompanyOS\Domain\ValueObject\Uuid;
 
 class InstallPluginCommandHandler implements CommandHandler
 {

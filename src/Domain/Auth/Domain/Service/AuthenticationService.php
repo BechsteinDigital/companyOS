@@ -5,7 +5,7 @@ namespace CompanyOS\Domain\Auth\Domain\Service;
 use CompanyOS\Domain\User\Domain\Entity\User;
 use CompanyOS\Domain\User\Domain\Repository\UserRepositoryInterface;
 use CompanyOS\Domain\User\Domain\ValueObject\UserStatus;
-use CompanyOS\Domain\Shared\ValueObject\Email;
+use CompanyOS\Domain\ValueObject\Email;
 
 class AuthenticationService
 {

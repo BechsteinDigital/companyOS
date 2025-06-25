@@ -3,7 +3,7 @@
 namespace CompanyOS\Domain\Auth\Domain\Event;
 
 use CompanyOS\Domain\User\Domain\Entity\User;
-use CompanyOS\Domain\Shared\Event\DomainEvent;
+use CompanyOS\Domain\Event\DomainEvent;
 
 class UserAuthenticated extends DomainEvent
 {

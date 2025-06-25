@@ -3,8 +3,8 @@
 namespace CompanyOS\Domain\User\Domain\Repository;
 
 use CompanyOS\Domain\User\Domain\Entity\User;
-use CompanyOS\Domain\Shared\ValueObject\Uuid;
-use CompanyOS\Domain\Shared\ValueObject\Email;
+use CompanyOS\Domain\ValueObject\Uuid;
+use CompanyOS\Domain\ValueObject\Email;
 
 interface UserRepositoryInterface
 {

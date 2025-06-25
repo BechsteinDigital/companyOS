@@ -3,7 +3,7 @@
 namespace CompanyOS\Domain\Webhook\Domain\Repository;
 
 use CompanyOS\Domain\Webhook\Domain\Entity\Webhook;
-use CompanyOS\Domain\Shared\ValueObject\Uuid;
+use CompanyOS\Domain\ValueObject\Uuid;
 
 interface WebhookRepositoryInterface
 {

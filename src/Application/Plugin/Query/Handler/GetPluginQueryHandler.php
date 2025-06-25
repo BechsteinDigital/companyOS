@@ -5,7 +5,7 @@ namespace CompanyOS\Domain\Plugin\Application\Query\Handler;
 use CompanyOS\Domain\Plugin\Application\Query\GetPluginQuery;
 use CompanyOS\Domain\Plugin\Domain\Repository\PluginRepository;
 use CompanyOS\Application\Query\QueryHandler;
-use CompanyOS\Domain\Shared\ValueObject\Uuid;
+use CompanyOS\Domain\ValueObject\Uuid;
 
 class GetPluginQueryHandler implements QueryHandler
 {

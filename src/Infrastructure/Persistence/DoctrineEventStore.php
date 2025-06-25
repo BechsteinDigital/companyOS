@@ -2,10 +2,10 @@
 
 namespace CompanyOS\Infrastructure\Persistence;
 
-use CompanyOS\Domain\Shared\Event\DomainEvent;
-use CompanyOS\Domain\Shared\Event\EventStore;
-use CompanyOS\Domain\Shared\Event\StoredEvent;
-use CompanyOS\Domain\Shared\ValueObject\Uuid;
+use CompanyOS\Domain\Event\DomainEvent;
+use CompanyOS\Domain\Event\EventStore;
+use CompanyOS\Domain\Event\StoredEvent;
+use CompanyOS\Domain\ValueObject\Uuid;
 use Doctrine\ORM\EntityManagerInterface;
 
 class DoctrineEventStore implements EventStore

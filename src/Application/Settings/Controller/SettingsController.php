@@ -8,7 +8,7 @@ use CompanyOS\Domain\Settings\Application\DTO\CompanySettingsResponse;
 use CompanyOS\Domain\Settings\Application\DTO\InitializeCompanySettingsRequest;
 use CompanyOS\Domain\Settings\Application\DTO\UpdateCompanySettingsRequest;
 use CompanyOS\Domain\Settings\Application\Query\GetCompanySettingsQuery;
-use CompanyOS\Domain\Shared\ValueObject\Email;
+use CompanyOS\Domain\ValueObject\Email;
 use OpenApi\Attributes as OA;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;

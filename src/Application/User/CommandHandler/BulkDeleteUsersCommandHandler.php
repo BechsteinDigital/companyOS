@@ -5,7 +5,7 @@ namespace CompanyOS\Domain\User\Application\CommandHandler;
 use CompanyOS\Domain\User\Application\Command\BulkDeleteUsersCommand;
 use CompanyOS\Domain\User\Domain\Repository\UserRepositoryInterface;
 use CompanyOS\Application\Command\CommandHandlerInterface;
-use CompanyOS\Domain\Shared\ValueObject\Uuid;
+use CompanyOS\Domain\ValueObject\Uuid;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 
 #[AsMessageHandler]

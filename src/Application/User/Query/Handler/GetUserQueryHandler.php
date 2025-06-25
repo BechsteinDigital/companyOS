@@ -5,7 +5,7 @@ namespace CompanyOS\Domain\User\Application\Query\Handler;
 use CompanyOS\Domain\User\Application\Query\GetUserQuery;
 use CompanyOS\Domain\User\Domain\Repository\UserRepository;
 use CompanyOS\Application\Query\QueryHandler;
-use CompanyOS\Domain\Shared\ValueObject\Uuid;
+use CompanyOS\Domain\ValueObject\Uuid;
 
 class GetUserQueryHandler implements QueryHandler
 {

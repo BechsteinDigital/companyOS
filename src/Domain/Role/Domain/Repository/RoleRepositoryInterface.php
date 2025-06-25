@@ -5,7 +5,7 @@ namespace CompanyOS\Domain\Role\Domain\Repository;
 use CompanyOS\Domain\Role\Domain\Entity\Role;
 use CompanyOS\Domain\Role\Domain\ValueObject\RoleId;
 use CompanyOS\Domain\Role\Domain\ValueObject\RoleName;
-use CompanyOS\Domain\Shared\ValueObject\Uuid;
+use CompanyOS\Domain\ValueObject\Uuid;
 
 interface RoleRepositoryInterface
 {

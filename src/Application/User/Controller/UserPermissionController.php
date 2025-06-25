@@ -4,7 +4,7 @@ namespace CompanyOS\Domain\User\Application\Controller;
 
 use CompanyOS\Domain\Role\Application\Service\PermissionService;
 use CompanyOS\Domain\User\Domain\Repository\UserRepositoryInterface;
-use CompanyOS\Domain\Shared\ValueObject\Uuid;
+use CompanyOS\Domain\ValueObject\Uuid;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;

@@ -3,7 +3,7 @@
 namespace CompanyOS\Domain\Settings\Domain\Event;
 
 use CompanyOS\Domain\Settings\Domain\Entity\CompanySettings;
-use CompanyOS\Domain\Shared\Event\DomainEvent;
+use CompanyOS\Domain\Event\DomainEvent;
 
 class SettingsInitialized extends DomainEvent
 {

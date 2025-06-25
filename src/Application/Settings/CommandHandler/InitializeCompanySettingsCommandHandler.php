@@ -6,7 +6,7 @@ use CompanyOS\Domain\Settings\Application\Command\InitializeCompanySettingsComma
 use CompanyOS\Domain\Settings\Domain\Entity\CompanySettings;
 use CompanyOS\Domain\Settings\Domain\Repository\CompanySettingsRepositoryInterface;
 use CompanyOS\Application\Command\CommandHandlerInterface;
-use CompanyOS\Domain\Shared\Event\DomainEventDispatcher;
+use CompanyOS\Infrastructure\Event\DomainEventDispatcher;
 
 class InitializeCompanySettingsCommandHandler implements CommandHandlerInterface
 {

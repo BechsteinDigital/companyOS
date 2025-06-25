@@ -4,7 +4,7 @@ namespace CompanyOS\Domain\Plugin\Infrastructure\Persistence;
 
 use CompanyOS\Domain\Plugin\Domain\Entity\Plugin;
 use CompanyOS\Domain\Plugin\Domain\Repository\PluginRepository;
-use CompanyOS\Domain\Shared\ValueObject\Uuid;
+use CompanyOS\Domain\ValueObject\Uuid;
 use Doctrine\ORM\EntityManagerInterface;
 
 class DoctrinePluginRepository implements PluginRepository

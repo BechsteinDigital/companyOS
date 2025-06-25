@@ -6,7 +6,7 @@ namespace CompanyOS\Domain\Auth\Infrastructure\Persistence;
 
 use CompanyOS\Domain\Auth\Domain\Entity\Client;
 use CompanyOS\Domain\Auth\Domain\Repository\ClientRepositoryInterface;
-use CompanyOS\Domain\Shared\ValueObject\Uuid;
+use CompanyOS\Domain\ValueObject\Uuid;
 use Doctrine\ORM\EntityManagerInterface;
 use League\OAuth2\Server\Entities\ClientEntityInterface;
 use League\OAuth2\Server\Repositories\ClientRepositoryInterface as LeagueClientRepositoryInterface;

@@ -7,8 +7,8 @@ namespace CompanyOS\Domain\Auth\Infrastructure\Event;
 use CompanyOS\Domain\Auth\Domain\Event\UserAuthenticated;
 use CompanyOS\Domain\Auth\Domain\Event\UserLoginFailed;
 use CompanyOS\Domain\Auth\Domain\Event\UserLoggedOut;
-use CompanyOS\Domain\Shared\Event\DomainEventDispatcher;
-use CompanyOS\Domain\Shared\Event\DomainEventOccurred;
+use CompanyOS\Infrastructure\Event\DomainEventDispatcher;
+use CompanyOS\Infrastructure\Event\DomainEventOccurred;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 

@@ -2,8 +2,8 @@
 
 namespace CompanyOS\Infrastructure\Event;
 
-use CompanyOS\Domain\Shared\Event\DomainEvent;
-use CompanyOS\Domain\Shared\Event\EventStore;
+use CompanyOS\Domain\Event\DomainEvent;
+use CompanyOS\Domain\Event\EventStore;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Psr\Log\LoggerInterface;

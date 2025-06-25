@@ -2,8 +2,8 @@
 
 namespace CompanyOS\Domain\User\Domain\Event;
 
-use CompanyOS\Domain\Shared\Event\DomainEvent;
-use CompanyOS\Domain\Shared\ValueObject\Uuid;
+use CompanyOS\Domain\Event\DomainEvent;
+use CompanyOS\Domain\ValueObject\Uuid;
 
 class UserCreated extends DomainEvent
 {

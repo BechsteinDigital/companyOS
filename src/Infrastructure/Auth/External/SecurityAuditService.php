@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace CompanyOS\Domain\Auth\Infrastructure\External;
 
-use CompanyOS\Domain\Shared\ValueObject\Uuid;
+use CompanyOS\Domain\ValueObject\Uuid;
 use Doctrine\DBAL\Connection;
 use Psr\Log\LoggerInterface;
 

@@ -21,7 +21,7 @@ use CompanyOS\Domain\Auth\Application\Query\GetUserProfileQuery;
 use CompanyOS\Domain\Auth\Application\Query\ValidateTokenQuery;
 use CompanyOS\Application\Command\CommandBusInterface;
 use CompanyOS\Application\Query\QueryBusInterface;
-use CompanyOS\Domain\Shared\ValueObject\Uuid;
+use CompanyOS\Domain\ValueObject\Uuid;
 
 final class AuthenticationApplicationService
 {

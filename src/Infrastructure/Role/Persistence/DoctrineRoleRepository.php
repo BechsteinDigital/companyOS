@@ -8,7 +8,7 @@ use CompanyOS\Domain\Role\Domain\Repository\RoleRepositoryInterface;
 use CompanyOS\Domain\Role\Domain\ValueObject\RoleId;
 use CompanyOS\Domain\Role\Domain\ValueObject\RoleName;
 use CompanyOS\Domain\User\Domain\Entity\User;
-use CompanyOS\Domain\Shared\ValueObject\Uuid;
+use CompanyOS\Domain\ValueObject\Uuid;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
 

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace CompanyOS\Domain\Auth\Application\Event;
 
-use CompanyOS\Domain\Shared\ValueObject\Uuid;
+use CompanyOS\Domain\ValueObject\Uuid;
 
 final class PasswordResetCompletedEvent
 {

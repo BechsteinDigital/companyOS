@@ -3,7 +3,7 @@
 namespace CompanyOS\Domain\User\Application\Command;
 
 use CompanyOS\Application\Command\Command;
-use CompanyOS\Domain\Shared\ValueObject\Uuid;
+use CompanyOS\Domain\ValueObject\Uuid;
 
 class UpdateUserCommand implements Command
 {

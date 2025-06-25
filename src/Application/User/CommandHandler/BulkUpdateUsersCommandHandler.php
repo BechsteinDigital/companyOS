@@ -6,7 +6,7 @@ use CompanyOS\Domain\User\Application\Command\BulkUpdateUsersCommand;
 use CompanyOS\Domain\User\Domain\Repository\UserRepositoryInterface;
 use CompanyOS\Domain\Role\Domain\Repository\RoleRepositoryInterface;
 use CompanyOS\Application\Command\CommandHandlerInterface;
-use CompanyOS\Domain\Shared\ValueObject\Uuid;
+use CompanyOS\Domain\ValueObject\Uuid;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 
 #[AsMessageHandler]

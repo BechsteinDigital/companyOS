@@ -3,7 +3,7 @@
 namespace CompanyOS\Domain\Webhook\Domain\Event;
 
 use CompanyOS\Domain\Webhook\Domain\Entity\Webhook;
-use CompanyOS\Domain\Shared\Event\DomainEvent;
+use CompanyOS\Domain\Event\DomainEvent;
 
 class WebhookUpdated extends DomainEvent
 {

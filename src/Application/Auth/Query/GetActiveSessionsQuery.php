@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace CompanyOS\Domain\Auth\Application\Query;
 
 use CompanyOS\Application\Query\Query;
-use CompanyOS\Domain\Shared\ValueObject\Uuid;
+use CompanyOS\Domain\ValueObject\Uuid;
 
 final class GetActiveSessionsQuery implements Query
 {

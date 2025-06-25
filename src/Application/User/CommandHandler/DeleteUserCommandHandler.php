@@ -4,7 +4,7 @@ namespace CompanyOS\Domain\User\Application\CommandHandler;
 
 use CompanyOS\Domain\User\Application\Command\DeleteUserCommand;
 use CompanyOS\Domain\User\Domain\Repository\UserRepositoryInterface;
-use CompanyOS\Domain\Shared\ValueObject\Uuid;
+use CompanyOS\Domain\ValueObject\Uuid;
 use CompanyOS\Application\Command\CommandHandlerInterface;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 

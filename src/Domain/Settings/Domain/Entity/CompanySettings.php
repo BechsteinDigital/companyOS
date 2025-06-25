@@ -2,8 +2,8 @@
 
 namespace CompanyOS\Domain\Settings\Domain\Entity;
 
-use CompanyOS\Domain\Shared\ValueObject\Uuid;
-use CompanyOS\Domain\Shared\ValueObject\Email;
+use CompanyOS\Domain\ValueObject\Uuid;
+use CompanyOS\Domain\ValueObject\Email;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity]

@@ -4,7 +4,7 @@ namespace CompanyOS\Domain\Role\Domain\Event;
 
 use CompanyOS\Domain\Role\Domain\Entity\Role;
 use CompanyOS\Domain\User\Domain\Entity\User;
-use CompanyOS\Domain\Shared\Event\DomainEvent;
+use CompanyOS\Domain\Event\DomainEvent;
 
 class RoleAssignedToUser extends DomainEvent
 {

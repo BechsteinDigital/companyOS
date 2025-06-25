@@ -3,7 +3,7 @@
 namespace CompanyOS\Domain\Webhook\Application\Command;
 
 use CompanyOS\Application\Command\CommandInterface;
-use CompanyOS\Domain\Shared\ValueObject\Uuid;
+use CompanyOS\Domain\ValueObject\Uuid;
 
 class UpdateWebhookCommand implements CommandInterface
 {

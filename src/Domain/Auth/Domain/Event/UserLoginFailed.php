@@ -2,7 +2,7 @@
 
 namespace CompanyOS\Domain\Auth\Domain\Event;
 
-use CompanyOS\Domain\Shared\Event\DomainEvent;
+use CompanyOS\Domain\Event\DomainEvent;
 
 class UserLoginFailed extends DomainEvent
 {

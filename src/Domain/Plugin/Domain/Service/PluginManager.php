@@ -6,7 +6,7 @@ use CompanyOS\Domain\Plugin\Domain\Entity\Plugin;
 use CompanyOS\Domain\Plugin\Domain\Repository\PluginRepository;
 use CompanyOS\Domain\Plugin\Domain\PluginInterface;
 use CompanyOS\Domain\Plugin\Domain\AbstractPlugin;
-use CompanyOS\Domain\Shared\ValueObject\Uuid;
+use CompanyOS\Domain\ValueObject\Uuid;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Routing\RouteCollection;

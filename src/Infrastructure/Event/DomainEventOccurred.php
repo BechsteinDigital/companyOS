@@ -2,7 +2,7 @@
 
 namespace CompanyOS\Infrastructure\Event;
 
-use CompanyOS\Domain\Shared\Event\DomainEvent;
+use CompanyOS\Domain\Event\DomainEvent;
 use Symfony\Contracts\EventDispatcher\Event;
 
 class DomainEventOccurred extends Event

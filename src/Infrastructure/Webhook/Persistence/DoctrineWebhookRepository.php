@@ -4,7 +4,7 @@ namespace CompanyOS\Domain\Webhook\Infrastructure\Persistence;
 
 use CompanyOS\Domain\Webhook\Domain\Entity\Webhook;
 use CompanyOS\Domain\Webhook\Domain\Repository\WebhookRepositoryInterface;
-use CompanyOS\Domain\Shared\ValueObject\Uuid;
+use CompanyOS\Domain\ValueObject\Uuid;
 use Doctrine\ORM\EntityManagerInterface;
 
 class DoctrineWebhookRepository implements WebhookRepositoryInterface

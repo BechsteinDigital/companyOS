@@ -6,8 +6,8 @@ use CompanyOS\Domain\User\Application\Command\CreateUserCommand;
 use CompanyOS\Domain\User\Domain\Entity\User;
 use CompanyOS\Domain\User\Domain\Repository\UserRepository;
 use CompanyOS\Application\Command\CommandHandler;
-use CompanyOS\Domain\Shared\ValueObject\Email;
-use CompanyOS\Domain\Shared\ValueObject\Uuid;
+use CompanyOS\Domain\ValueObject\Email;
+use CompanyOS\Domain\ValueObject\Uuid;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class CreateUserCommandHandler implements CommandHandler

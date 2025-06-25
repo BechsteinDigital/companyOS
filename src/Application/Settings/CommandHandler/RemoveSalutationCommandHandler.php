@@ -5,7 +5,7 @@ namespace CompanyOS\Domain\Settings\Application\CommandHandler;
 use CompanyOS\Domain\Settings\Application\Command\RemoveSalutationCommand;
 use CompanyOS\Domain\Settings\Domain\Repository\CompanySettingsRepositoryInterface;
 use CompanyOS\Application\Command\CommandHandlerInterface;
-use CompanyOS\Domain\Shared\Event\DomainEventDispatcher;
+use CompanyOS\Infrastructure\Event\DomainEventDispatcher;
 
 class RemoveSalutationCommandHandler implements CommandHandlerInterface
 {

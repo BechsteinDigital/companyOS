@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace CompanyOS\Domain\Auth\Domain\Repository;
 
 use CompanyOS\Domain\Auth\Domain\Entity\AccessToken;
-use CompanyOS\Domain\Shared\ValueObject\Uuid;
+use CompanyOS\Domain\ValueObject\Uuid;
 
 interface AccessTokenRepositoryInterface
 {

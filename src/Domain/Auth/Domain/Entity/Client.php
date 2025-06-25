@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace CompanyOS\Domain\Auth\Domain\Entity;
 
-use CompanyOS\Domain\Shared\ValueObject\Uuid;
+use CompanyOS\Domain\ValueObject\Uuid;
 use Doctrine\ORM\Mapping as ORM;
 use League\OAuth2\Server\Entities\ClientEntityInterface;
 use League\OAuth2\Server\Entities\Traits\ClientTrait;

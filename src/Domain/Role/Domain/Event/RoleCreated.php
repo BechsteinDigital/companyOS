@@ -3,7 +3,7 @@
 namespace CompanyOS\Domain\Role\Domain\Event;
 
 use CompanyOS\Domain\Role\Domain\Entity\Role;
-use CompanyOS\Domain\Shared\Event\DomainEvent;
+use CompanyOS\Domain\Event\DomainEvent;
 
 class RoleCreated extends DomainEvent
 {

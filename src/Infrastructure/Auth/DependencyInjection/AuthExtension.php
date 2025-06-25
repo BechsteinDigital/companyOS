@@ -26,7 +26,7 @@ use CompanyOS\Domain\Auth\Infrastructure\External\NotificationService;
 use CompanyOS\Domain\Auth\Infrastructure\External\SecurityAuditService;
 use CompanyOS\Domain\Auth\Infrastructure\Persistence\DoctrineAccessTokenRepository;
 use CompanyOS\Domain\Auth\Infrastructure\Persistence\DoctrineClientRepository;
-use CompanyOS\Domain\Shared\Event\DomainEventDispatcher;
+use CompanyOS\Infrastructure\Event\DomainEventDispatcher;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;

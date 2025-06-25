@@ -2,7 +2,7 @@
 
 namespace CompanyOS\Domain\User\Domain\ValueObject;
 
-use CompanyOS\Domain\Shared\ValueObject\Uuid;
+use CompanyOS\Domain\ValueObject\Uuid;
 
 class UserId extends Uuid
 {

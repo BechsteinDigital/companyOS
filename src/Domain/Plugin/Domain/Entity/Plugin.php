@@ -7,8 +7,8 @@ use CompanyOS\Domain\Plugin\Domain\Event\PluginActivated;
 use CompanyOS\Domain\Plugin\Domain\Event\PluginDeactivated;
 use CompanyOS\Domain\Plugin\Domain\Event\PluginUpdated;
 use CompanyOS\Domain\Plugin\Domain\Event\PluginDeleted;
-use CompanyOS\Domain\Shared\Event\DomainEvent;
-use CompanyOS\Domain\Shared\ValueObject\Uuid;
+use CompanyOS\Domain\Event\DomainEvent;
+use CompanyOS\Domain\ValueObject\Uuid;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity]

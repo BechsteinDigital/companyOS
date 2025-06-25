@@ -7,7 +7,7 @@ use CompanyOS\Domain\Plugin\Domain\Service\PluginManager;
 use CompanyOS\Domain\Plugin\Domain\Entity\Plugin;
 use CompanyOS\Domain\Plugin\Domain\Event\PluginInstalled;
 use CompanyOS\Application\Command\CommandHandlerInterface;
-use CompanyOS\Domain\Shared\ValueObject\Uuid;
+use CompanyOS\Domain\ValueObject\Uuid;
 use CompanyOS\Infrastructure\Event\DomainEventDispatcher;
 
 class InstallPluginCommandHandler implements CommandHandlerInterface

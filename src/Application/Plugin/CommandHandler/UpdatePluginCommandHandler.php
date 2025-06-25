@@ -6,7 +6,7 @@ use CompanyOS\Domain\Plugin\Application\Command\UpdatePluginCommand;
 use CompanyOS\Domain\Plugin\Domain\Service\PluginManager;
 use CompanyOS\Domain\Plugin\Domain\Event\PluginUpdated;
 use CompanyOS\Application\Command\CommandHandlerInterface;
-use CompanyOS\Domain\Shared\ValueObject\Uuid;
+use CompanyOS\Domain\ValueObject\Uuid;
 use CompanyOS\Infrastructure\Event\DomainEventDispatcher;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 use Psr\Log\LoggerInterface;

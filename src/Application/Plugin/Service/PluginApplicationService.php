@@ -18,7 +18,7 @@ use CompanyOS\Domain\Plugin\Application\Query\GetPluginDependenciesQuery;
 use CompanyOS\Domain\Plugin\Application\Query\GetPluginQuery;
 use CompanyOS\Application\Command\CommandBusInterface;
 use CompanyOS\Application\Query\QueryBusInterface;
-use CompanyOS\Domain\Shared\ValueObject\Uuid;
+use CompanyOS\Domain\ValueObject\Uuid;
 
 final class PluginApplicationService
 {

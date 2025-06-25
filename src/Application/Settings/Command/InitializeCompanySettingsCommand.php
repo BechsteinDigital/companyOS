@@ -3,7 +3,7 @@
 namespace CompanyOS\Domain\Settings\Application\Command;
 
 use CompanyOS\Application\Command\CommandInterface;
-use CompanyOS\Domain\Shared\ValueObject\Email;
+use CompanyOS\Domain\ValueObject\Email;
 
 class InitializeCompanySettingsCommand implements CommandInterface
 {

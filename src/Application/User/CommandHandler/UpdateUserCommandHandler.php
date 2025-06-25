@@ -5,8 +5,8 @@ namespace CompanyOS\Domain\User\Application\CommandHandler;
 use CompanyOS\Domain\Role\Domain\Repository\RoleRepositoryInterface;
 use CompanyOS\Domain\User\Application\Command\UpdateUserCommand;
 use CompanyOS\Domain\User\Domain\Repository\UserRepositoryInterface;
-use CompanyOS\Domain\Shared\ValueObject\Email;
-use CompanyOS\Domain\Shared\ValueObject\Uuid;
+use CompanyOS\Domain\ValueObject\Email;
+use CompanyOS\Domain\ValueObject\Uuid;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 
 #[AsMessageHandler]

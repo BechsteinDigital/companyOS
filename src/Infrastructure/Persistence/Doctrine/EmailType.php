@@ -2,7 +2,7 @@
 
 namespace CompanyOS\Infrastructure\Persistence\Doctrine;
 
-use CompanyOS\Domain\Shared\ValueObject\Email;
+use CompanyOS\Domain\ValueObject\Email;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\Type;
 

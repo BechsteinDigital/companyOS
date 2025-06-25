@@ -10,7 +10,7 @@ use CompanyOS\Domain\Webhook\Application\Query\GetAllWebhooksQuery;
 use CompanyOS\Domain\Webhook\Application\DTO\CreateWebhookRequest;
 use CompanyOS\Domain\Webhook\Application\DTO\WebhookResponse;
 use CompanyOS\Domain\Webhook\Domain\Repository\WebhookRepositoryInterface;
-use CompanyOS\Domain\Shared\ValueObject\Uuid;
+use CompanyOS\Domain\ValueObject\Uuid;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;

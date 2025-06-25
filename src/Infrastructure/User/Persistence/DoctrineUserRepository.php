@@ -4,8 +4,8 @@ namespace CompanyOS\Domain\User\Infrastructure\Persistence;
 
 use CompanyOS\Domain\User\Domain\Entity\User;
 use CompanyOS\Domain\User\Domain\Repository\UserRepositoryInterface;
-use CompanyOS\Domain\Shared\ValueObject\Uuid;
-use CompanyOS\Domain\Shared\ValueObject\Email;
+use CompanyOS\Domain\ValueObject\Uuid;
+use CompanyOS\Domain\ValueObject\Email;
 use Doctrine\ORM\EntityManagerInterface;
 
 class DoctrineUserRepository implements UserRepositoryInterface

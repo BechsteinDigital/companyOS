@@ -2,7 +2,7 @@
 
 namespace CompanyOS\Domain\Event;
 
-use CompanyOS\Domain\Shared\ValueObject\Uuid;
+use CompanyOS\Domain\ValueObject\Uuid;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity]

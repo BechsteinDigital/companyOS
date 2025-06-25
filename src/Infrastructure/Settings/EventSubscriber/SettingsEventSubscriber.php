@@ -3,7 +3,7 @@
 namespace CompanyOS\Domain\Settings\Infrastructure\EventSubscriber;
 
 use CompanyOS\Domain\Settings\Application\Service\SettingsService;
-use CompanyOS\Domain\Shared\Event\DomainEventOccurred;
+use CompanyOS\Infrastructure\Event\DomainEventOccurred;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class SettingsEventSubscriber implements EventSubscriberInterface

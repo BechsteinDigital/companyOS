@@ -5,7 +5,7 @@ namespace CompanyOS\Domain\Webhook\Application\QueryHandler;
 use CompanyOS\Domain\Webhook\Application\Query\GetWebhookQuery;
 use CompanyOS\Domain\Webhook\Application\DTO\WebhookResponse;
 use CompanyOS\Domain\Webhook\Domain\Repository\WebhookRepositoryInterface;
-use CompanyOS\Domain\Shared\ValueObject\Uuid;
+use CompanyOS\Domain\ValueObject\Uuid;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 
 #[AsMessageHandler]

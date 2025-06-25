@@ -7,7 +7,7 @@ use CompanyOS\Domain\User\Application\DTO\UserResponse;
 use CompanyOS\Domain\User\Domain\Repository\UserRepositoryInterface;
 use CompanyOS\Domain\Role\Domain\Repository\RoleRepositoryInterface;
 use CompanyOS\Domain\Role\Application\DTO\RoleResponse;
-use CompanyOS\Domain\Shared\ValueObject\Uuid;
+use CompanyOS\Domain\ValueObject\Uuid;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 
 #[AsMessageHandler]

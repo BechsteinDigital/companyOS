@@ -3,7 +3,7 @@
 namespace CompanyOS\Domain\User\Application\Command;
 
 use CompanyOS\Application\Command\Command;
-use CompanyOS\Domain\Shared\ValueObject\Email;
+use CompanyOS\Domain\ValueObject\Email;
 
 class CreateUserCommand implements Command
 {

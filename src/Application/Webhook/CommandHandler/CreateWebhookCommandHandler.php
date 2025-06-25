@@ -6,7 +6,7 @@ use CompanyOS\Domain\Webhook\Application\Command\CreateWebhookCommand;
 use CompanyOS\Domain\Webhook\Domain\Entity\Webhook;
 use CompanyOS\Domain\Webhook\Domain\Repository\WebhookRepositoryInterface;
 use CompanyOS\Application\Command\CommandHandlerInterface;
-use CompanyOS\Domain\Shared\ValueObject\Uuid;
+use CompanyOS\Domain\ValueObject\Uuid;
 
 class CreateWebhookCommandHandler implements CommandHandlerInterface
 {

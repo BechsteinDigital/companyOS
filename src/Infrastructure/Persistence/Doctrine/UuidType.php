@@ -2,7 +2,7 @@
 
 namespace CompanyOS\Infrastructure\Persistence\Doctrine;
 
-use CompanyOS\Domain\Shared\ValueObject\Uuid;
+use CompanyOS\Domain\ValueObject\Uuid;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\Type;
 
