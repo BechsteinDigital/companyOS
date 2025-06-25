@@ -16,8 +16,8 @@ doctrine:
         profiling_collect_backtrace: '%kernel.debug%'
         use_savepoints: true
         types:
-            uuid: CompanyOS\Shared\Infrastructure\Persistence\Doctrine\UuidType
-            email: CompanyOS\Shared\Infrastructure\Persistence\Doctrine\EmailType
+            uuid: CompanyOS\Infrastructure\Persistence\Doctrine\UuidType
+            email: CompanyOS\Infrastructure\Persistence\Doctrine\EmailType
     orm:
         auto_generate_proxy_classes: true
         enable_lazy_ghost_objects: true

@@ -99,23 +99,23 @@ services:
             - { name: 'kernel.extension' }
 
     # Event Store
-    CompanyOS\Domain\Shared\Domain\Event\EventStore:
-        alias: CompanyOS\Infrastructure\Shared\Persistence\DoctrineEventStore
+    CompanyOS\Domain\Event\EventStore:
+        alias: CompanyOS\Infrastructure\Persistence\DoctrineEventStore
 
-    CompanyOS\Infrastructure\Shared\Persistence\DoctrineEventStore:
+    CompanyOS\Infrastructure\Persistence\DoctrineEventStore:
         arguments:
             $entityManager: '@doctrine.orm.entity_manager'
 
     # Domain Event Dispatcher
-    CompanyOS\Infrastructure\Shared\Event\DomainEventDispatcher:
+    CompanyOS\Infrastructure\Event\DomainEventDispatcher:
         arguments:
-            $eventStore: '@CompanyOS\Domain\Shared\Domain\Event\EventStore'
+            $eventStore: '@CompanyOS\Domain\Event\EventStore'
             $eventDispatcher: '@event_dispatcher'
             $messageBus: '@messenger.bus.default'
             $logger: '@logger'
 
     # Domain Event Occurred Event
-    CompanyOS\Infrastructure\Shared\Event\DomainEventOccurred:
+    CompanyOS\Infrastructure\Event\DomainEventOccurred:
         public: false
 
     # Webhook Services
