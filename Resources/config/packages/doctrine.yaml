@@ -28,7 +28,7 @@ doctrine:
             CompanyOSCore:
                 type: attribute
                 is_bundle: true
-                dir: '%kernel.project_dir%/CompanyOSCoreBundle/Domain'
+                dir: '%kernel.project_dir%/CompanyOSCoreBundle/src/Domain'
                 prefix: 'CompanyOS\Domain'
                 alias: CompanyOS
         controller_resolver:

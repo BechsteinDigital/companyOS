@@ -4,7 +4,7 @@ doctrine:
             CompanyOSCoreBundle:
                 is_bundle: true
                 type: attribute
-                dir: '%kernel.project_dir%/CompanyOSCoreBundle/Domain'
+                dir: '%kernel.project_dir%/CompanyOSCoreBundle/src/Domain'
                 prefix: 'CompanyOS\Domain'
                 alias: CompanyOS
     migrations:
