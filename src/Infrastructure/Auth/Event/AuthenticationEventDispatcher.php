@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace CompanyOS\Domain\Auth\Infrastructure\Event;
+namespace CompanyOS\Infrastructure\Auth\Event;
 
 use CompanyOS\Domain\Auth\Domain\Event\UserAuthenticated;
 use CompanyOS\Domain\Auth\Domain\Event\UserLoginFailed;

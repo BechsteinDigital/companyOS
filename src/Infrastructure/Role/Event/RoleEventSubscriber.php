@@ -1,6 +1,6 @@
 <?php
 
-namespace CompanyOS\Domain\Role\Infrastructure\Event;
+namespace CompanyOS\Infrastructure\Role\Event;
 
 use CompanyOS\Domain\Role\Domain\Event\RoleCreated;
 use CompanyOS\Domain\Role\Domain\Event\RoleUpdated;

@@ -1,6 +1,6 @@
 <?php
 
-namespace CompanyOS\Domain\User\Infrastructure\Persistence;
+namespace CompanyOS\Infrastructure\User\Persistence;
 
 use CompanyOS\Domain\User\Domain\Entity\User;
 use CompanyOS\Domain\User\Domain\Repository\UserRepositoryInterface;

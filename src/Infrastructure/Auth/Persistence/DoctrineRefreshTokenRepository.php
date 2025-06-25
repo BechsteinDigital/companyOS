@@ -1,6 +1,6 @@
 <?php
 
-namespace CompanyOS\Domain\Auth\Infrastructure\Persistence;
+namespace CompanyOS\Infrastructure\Auth\Persistence;
 
 use CompanyOS\Domain\Auth\Domain\Entity\RefreshToken;
 use Doctrine\ORM\EntityManagerInterface;

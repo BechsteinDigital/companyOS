@@ -1,6 +1,6 @@
 <?php
 
-namespace CompanyOS\Domain\Settings\Infrastructure\DependencyInjection;
+namespace CompanyOS\Infrastructure\Settings\DependencyInjection;
 
 use CompanyOS\Application\Settings\Command\AddSalutationCommand;
 use CompanyOS\Application\Settings\Command\InitializeCompanySettingsCommand;
@@ -15,7 +15,7 @@ use CompanyOS\Application\Settings\Query\GetCompanySettingsQuery;
 use CompanyOS\Application\Settings\QueryHandler\GetCompanySettingsQueryHandler;
 use CompanyOS\Application\Settings\Service\SettingsService;
 use CompanyOS\Domain\Settings\Domain\Repository\CompanySettingsRepositoryInterface;
-use CompanyOS\Domain\Settings\Infrastructure\Persistence\DoctrineCompanySettingsRepository;
+use CompanyOS\Infrastructure\Settings\Persistence\DoctrineCompanySettingsRepository;
 use CompanyOS\Application\Command\CommandHandlerInterface;
 use CompanyOS\Application\Query\QueryHandlerInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;

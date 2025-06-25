@@ -1,6 +1,6 @@
 <?php
 
-namespace CompanyOS\Domain\Plugin\Infrastructure\DependencyInjection;
+namespace CompanyOS\Infrastructure\Plugin\DependencyInjection;
 
 use CompanyOS\Application\Plugin\CommandHandler\ActivatePluginCommandHandler;
 use CompanyOS\Application\Plugin\CommandHandler\DeactivatePluginCommandHandler;
@@ -17,10 +17,10 @@ use CompanyOS\Application\Plugin\Service\PluginApplicationService;
 use CompanyOS\Domain\Plugin\Domain\Repository\PluginRepositoryInterface;
 use CompanyOS\Domain\Plugin\Domain\Service\PluginCompatibilityService;
 use CompanyOS\Domain\Plugin\Domain\Service\PluginManager;
-use CompanyOS\Domain\Plugin\Infrastructure\Event\PluginEventSubscriber;
-use CompanyOS\Domain\Plugin\Infrastructure\External\PluginNotificationService;
-use CompanyOS\Domain\Plugin\Infrastructure\External\PluginRegistryService;
-use CompanyOS\Domain\Plugin\Infrastructure\Persistence\DoctrinePluginRepository;
+use CompanyOS\Infrastructure\Plugin\Event\PluginEventSubscriber;
+use CompanyOS\Infrastructure\Plugin\External\PluginNotificationService;
+use CompanyOS\Infrastructure\Plugin\External\PluginRegistryService;
+use CompanyOS\Infrastructure\Plugin\Persistence\DoctrinePluginRepository;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;

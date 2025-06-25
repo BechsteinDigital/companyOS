@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace CompanyOS\Domain\Plugin\Infrastructure\Event;
+namespace CompanyOS\Infrastructure\Plugin\Event;
 
 use CompanyOS\Domain\Plugin\Domain\Event\PluginActivated;
 use CompanyOS\Domain\Plugin\Domain\Event\PluginDeactivated;
 use CompanyOS\Domain\Plugin\Domain\Event\PluginDeleted;
 use CompanyOS\Domain\Plugin\Domain\Event\PluginInstalled;
 use CompanyOS\Domain\Plugin\Domain\Event\PluginUpdated;
-use CompanyOS\Domain\Plugin\Infrastructure\External\PluginNotificationService;
-use CompanyOS\Domain\Plugin\Infrastructure\External\PluginRegistryService;
+use CompanyOS\Infrastructure\Plugin\External\PluginNotificationService;
+use CompanyOS\Infrastructure\Plugin\External\PluginRegistryService;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace CompanyOS\Domain\Settings\Infrastructure\Persistence;
+namespace CompanyOS\Infrastructure\Settings\Persistence;
 
 use CompanyOS\Domain\Settings\Domain\Entity\CompanySettings;
 use CompanyOS\Domain\Settings\Domain\Repository\CompanySettingsRepositoryInterface;

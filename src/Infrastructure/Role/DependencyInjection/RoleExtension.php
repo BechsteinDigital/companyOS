@@ -1,6 +1,6 @@
 <?php
 
-namespace CompanyOS\Domain\Role\Infrastructure\DependencyInjection;
+namespace CompanyOS\Infrastructure\Role\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;

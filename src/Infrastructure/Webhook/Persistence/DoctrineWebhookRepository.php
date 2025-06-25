@@ -1,6 +1,6 @@
 <?php
 
-namespace CompanyOS\Domain\Webhook\Infrastructure\Persistence;
+namespace CompanyOS\Infrastructure\Webhook\Persistence;
 
 use CompanyOS\Domain\Webhook\Domain\Entity\Webhook;
 use CompanyOS\Domain\Webhook\Domain\Repository\WebhookRepositoryInterface;

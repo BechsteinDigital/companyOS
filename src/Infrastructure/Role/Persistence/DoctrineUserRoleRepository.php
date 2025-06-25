@@ -1,6 +1,6 @@
 <?php
 
-namespace CompanyOS\Domain\Role\Infrastructure\Persistence;
+namespace CompanyOS\Infrastructure\Role\Persistence;
 
 use CompanyOS\Domain\Role\Domain\Entity\Role;
 use CompanyOS\Domain\User\Domain\Entity\User;

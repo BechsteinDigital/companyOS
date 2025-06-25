@@ -1,8 +1,8 @@
 <?php
 
-namespace CompanyOS\Domain\Plugin\Infrastructure\Compiler;
+namespace CompanyOS\Infrastructure\Plugin\Compiler;
 
-use CompanyOS\Domain\Plugin\Infrastructure\Service\PluginServiceLoader;
+use CompanyOS\Infrastructure\Plugin\Service\PluginServiceLoader;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 

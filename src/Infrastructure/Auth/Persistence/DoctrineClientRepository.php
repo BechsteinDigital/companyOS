@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace CompanyOS\Domain\Auth\Infrastructure\Persistence;
+namespace CompanyOS\Infrastructure\Auth\Persistence;
 
 use CompanyOS\Domain\Auth\Domain\Entity\Client;
 use CompanyOS\Domain\Auth\Domain\Repository\ClientRepositoryInterface;

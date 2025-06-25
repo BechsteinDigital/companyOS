@@ -1,6 +1,6 @@
 <?php
 
-namespace CompanyOS\Domain\Webhook\Infrastructure\Service;
+namespace CompanyOS\Infrastructure\Webhook\Service;
 
 use CompanyOS\Domain\Webhook\Domain\Repository\WebhookRepositoryInterface;
 use CompanyOS\Domain\Event\DomainEvent;

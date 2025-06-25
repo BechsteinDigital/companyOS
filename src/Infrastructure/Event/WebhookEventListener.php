@@ -3,7 +3,7 @@
 namespace CompanyOS\Infrastructure\Event;
 
 use CompanyOS\Infrastructure\Event\DomainEventOccurred;
-use CompanyOS\Domain\Webhook\Infrastructure\Service\WebhookDispatcher;
+use CompanyOS\Infrastructure\Webhook\Service\WebhookDispatcher;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 

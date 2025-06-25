@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace CompanyOS\Domain\Plugin\Infrastructure\External;
+namespace CompanyOS\Infrastructure\Plugin\External;
 
 use Doctrine\DBAL\Connection;
 use Psr\Log\LoggerInterface;

@@ -1,6 +1,6 @@
 <?php
 
-namespace CompanyOS\Domain\Role\Infrastructure\Security;
+namespace CompanyOS\Infrastructure\Role\Security;
 
 use CompanyOS\Domain\Role\Domain\Repository\RoleRepositoryInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;

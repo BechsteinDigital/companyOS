@@ -1,6 +1,6 @@
 <?php
 
-namespace CompanyOS\Domain\Settings\Infrastructure\EventSubscriber;
+namespace CompanyOS\Infrastructure\Settings\EventSubscriber;
 
 use CompanyOS\Application\Settings\Service\SettingsService;
 use CompanyOS\Infrastructure\Event\DomainEventOccurred;

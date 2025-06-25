@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace CompanyOS\Domain\Auth\Infrastructure\DependencyInjection;
+namespace CompanyOS\Infrastructure\Auth\DependencyInjection;
 
 use CompanyOS\Application\Auth\CommandHandler\ChangePasswordCommandHandler;
 use CompanyOS\Application\Auth\CommandHandler\LoginUserCommandHandler;
@@ -18,14 +18,14 @@ use CompanyOS\Application\Auth\QueryHandler\ValidateTokenQueryHandler;
 use CompanyOS\Application\Auth\Service\AuthenticationApplicationService;
 use CompanyOS\Domain\Auth\Domain\Repository\AccessTokenRepositoryInterface;
 use CompanyOS\Domain\Auth\Domain\Repository\ClientRepositoryInterface;
-use CompanyOS\Domain\Auth\Infrastructure\Event\AuthenticationEventDispatcher;
-use CompanyOS\Domain\Auth\Infrastructure\Event\AuthenticationEventSubscriber;
-use CompanyOS\Domain\Auth\Infrastructure\External\EmailService;
-use CompanyOS\Domain\Auth\Infrastructure\External\GeoLocationService;
-use CompanyOS\Domain\Auth\Infrastructure\External\NotificationService;
-use CompanyOS\Domain\Auth\Infrastructure\External\SecurityAuditService;
-use CompanyOS\Domain\Auth\Infrastructure\Persistence\DoctrineAccessTokenRepository;
-use CompanyOS\Domain\Auth\Infrastructure\Persistence\DoctrineClientRepository;
+use CompanyOS\Infrastructure\Auth\Event\AuthenticationEventDispatcher;
+use CompanyOS\Infrastructure\Auth\Event\AuthenticationEventSubscriber;
+use CompanyOS\Infrastructure\Auth\External\EmailService;
+use CompanyOS\Infrastructure\Auth\External\GeoLocationService;
+use CompanyOS\Infrastructure\Auth\External\NotificationService;
+use CompanyOS\Infrastructure\Auth\External\SecurityAuditService;
+use CompanyOS\Infrastructure\Auth\Persistence\DoctrineAccessTokenRepository;
+use CompanyOS\Infrastructure\Auth\Persistence\DoctrineClientRepository;
 use CompanyOS\Infrastructure\Event\DomainEventDispatcher;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;

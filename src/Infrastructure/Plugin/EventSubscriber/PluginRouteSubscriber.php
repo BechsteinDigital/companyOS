@@ -1,8 +1,8 @@
 <?php
 
-namespace CompanyOS\Domain\Plugin\Infrastructure\EventSubscriber;
+namespace CompanyOS\Infrastructure\Plugin\EventSubscriber;
 
-use CompanyOS\Domain\Plugin\Infrastructure\Routing\PluginRouteLoader;
+use CompanyOS\Infrastructure\Plugin\Routing\PluginRouteLoader;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Symfony\Component\HttpKernel\KernelEvents;

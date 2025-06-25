@@ -1,6 +1,6 @@
 <?php
 
-namespace CompanyOS\Domain\Plugin\Infrastructure\Routing;
+namespace CompanyOS\Infrastructure\Plugin\Routing;
 
 use CompanyOS\Domain\Plugin\Domain\Service\PluginManager;
 use Symfony\Component\Config\Loader\Loader;

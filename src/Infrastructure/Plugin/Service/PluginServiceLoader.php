@@ -1,6 +1,6 @@
 <?php
 
-namespace CompanyOS\Domain\Plugin\Infrastructure\Service;
+namespace CompanyOS\Infrastructure\Plugin\Service;
 
 use CompanyOS\Domain\Plugin\Domain\Service\PluginManager;
 use Symfony\Component\DependencyInjection\ContainerBuilder;

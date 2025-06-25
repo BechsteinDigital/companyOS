@@ -1,6 +1,6 @@
 <?php
 
-namespace CompanyOS\Domain\Plugin\Infrastructure\Persistence;
+namespace CompanyOS\Infrastructure\Plugin\Persistence;
 
 use CompanyOS\Domain\Plugin\Domain\Entity\Plugin;
 use CompanyOS\Domain\Plugin\Domain\Repository\PluginRepository;

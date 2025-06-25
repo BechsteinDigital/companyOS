@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace CompanyOS\Domain\Auth\Infrastructure\Event;
+namespace CompanyOS\Infrastructure\Auth\Event;
 
 use CompanyOS\Domain\Auth\Domain\Event\UserAuthenticated;
 use CompanyOS\Domain\Auth\Domain\Event\UserLoginFailed;
 use CompanyOS\Domain\Auth\Domain\Event\UserLoggedOut;
-use CompanyOS\Domain\Auth\Infrastructure\External\EmailService;
-use CompanyOS\Domain\Auth\Infrastructure\External\NotificationService;
-use CompanyOS\Domain\Auth\Infrastructure\External\SecurityAuditService;
+use CompanyOS\Infrastructure\Auth\External\EmailService;
+use CompanyOS\Infrastructure\Auth\External\NotificationService;
+use CompanyOS\Infrastructure\Auth\External\SecurityAuditService;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
