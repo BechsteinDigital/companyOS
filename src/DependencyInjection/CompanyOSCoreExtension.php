@@ -9,6 +9,11 @@ use Symfony\Component\DependencyInjection\Extension\Extension;
 
 class CompanyOSCoreExtension extends Extension
 {
+    public function getAlias(): string
+    {
+        return 'company_os_core';
+    }
+    
     public function load(array $configs, ContainerBuilder $container): void
     {
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/../../Resources/config'));

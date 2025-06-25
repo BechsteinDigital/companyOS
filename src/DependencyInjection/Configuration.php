@@ -9,7 +9,7 @@ class Configuration implements ConfigurationInterface
 {
     public function getConfigTreeBuilder(): TreeBuilder
     {
-        $treeBuilder = new TreeBuilder('companyos_core');
+        $treeBuilder = new TreeBuilder('company_os_core');
         $rootNode = $treeBuilder->getRootNode();
 
         $rootNode
