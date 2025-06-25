@@ -1,0 +1,12 @@
+companyos_core:
+    plugin:
+        directories: 'custom/plugins,custom/static-plugins'
+    auth:
+        oauth2:
+            enabled: true
+            access_token_ttl: 3600
+            refresh_token_ttl: 1209600
+    webhook:
+        enabled: true
+        max_retries: 3
+        timeout: 30 

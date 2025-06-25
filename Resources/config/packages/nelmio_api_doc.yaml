@@ -1,0 +1,92 @@
+nelmio_api_doc:
+    documentation:
+        info:
+            title: CompanyOS Core API
+            description: |
+                # CompanyOS Core API Dokumentation
+                
+                ## Übersicht
+                CompanyOS Core ist eine modulare Plattform basierend auf DDD, CQRS und Event-Driven Architecture.
+                
+                - **DDD**: Domänenbasiertes Design
+                - **CQRS**: Trennung von Lese- und Schreiboperationen
+                - **EDA**: Domain Events für lose Kopplung
+                - **API-First**: Alles über REST erreichbar
+                - **Plugin-System**: Erweiterbar durch Module
+
+            version: 1.0.0
+            contact:
+                name: CompanyOS Development Team
+                email: dev@companyos.com
+            license:
+                name: MIT
+                url: https://opensource.org/licenses/MIT
+
+        servers:
+            - url: http://localhost:8080
+              description: Lokale Entwicklung
+            - url: https://api.companyos.com
+              description: Produktivserver
+
+        components:
+            securitySchemes:
+                BearerAuth:
+                    type: http
+                    scheme: bearer
+                    bearerFormat: JWT
+                    description: Trage deinen JWT hier ein, um geschützte Endpunkte zu testen
+
+            schemas:
+                Error:
+                    type: object
+                    properties:
+                        success:
+                            type: boolean
+                            example: false
+                        message:
+                            type: string
+                            example: "Validierungsfehler"
+                        errors:
+                            type: array
+                            items:
+                                type: object
+                                properties:
+                                    field:
+                                        type: string
+                                        example: "email"
+                                    message:
+                                        type: string
+                                        example: "Ungültiges Format"
+
+                Success:
+                    type: object
+                    properties:
+                        success:
+                            type: boolean
+                            example: true
+                        message:
+                            type: string
+                            example: "Aktion erfolgreich"
+                        data:
+                            type: object
+                            description: Enthält nutzerspezifische Antwortdaten
+
+    areas:
+        default:
+            path_patterns:
+                - ^/api(?!/doc$)  # Alles unter /api, aber nicht /api/doc selbst
+
+    html_config:
+        assets_mode: cdn
+        swagger_ui_config:
+            deepLinking: true
+            displayOperationId: false
+            defaultModelsExpandDepth: 1
+            defaultModelExpandDepth: 1
+            defaultModelRendering: example
+            displayRequestDuration: true
+            docExpansion: list
+            filter: true
+            showExtensions: true
+            showCommonExtensions: true
+            tryItOutEnabled: true 

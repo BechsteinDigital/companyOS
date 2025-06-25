@@ -1,0 +1,18 @@
+<?php
+
+declare(strict_types=1);
+
+namespace CompanyOS\Domain\Plugin\Application\Event;
+
+use CompanyOS\Domain\Shared\ValueObject\Uuid;
+
+final class PluginDeletedEvent
+{
+    public function __construct(
+        public readonly Uuid $pluginId,
+        public readonly string $pluginName,
+        public readonly string $version,
+        public readonly \DateTimeImmutable $occurredAt
+    ) {
+    }
+} 

@@ -1,0 +1,17 @@
+security:
+    providers:
+        companyos_user_provider:
+            entity:
+                class: CompanyOS\Domain\User\Domain\Entity\User
+                property: email
+
+    firewalls:
+        api:
+            pattern: ^/api
+            stateless: true
+            oauth2: ~
+
+    access_control:
+        - { path: ^/api/auth/login, roles: PUBLIC_ACCESS }
+        - { path: ^/api/oauth2/token, roles: PUBLIC_ACCESS }
+        - { path: ^/api, roles: IS_AUTHENTICATED_FULLY } 

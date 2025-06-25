@@ -1,0 +1,166 @@
+# This file is the entry point to configure your own services.
+# Files in the packages/ subdirectory configure your dependencies.
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
+parameters:
+    # Plugin configuration
+    companyos.plugin.directories: 'custom/plugins,custom/static-plugins'
+
+services:
+    # default configuration for services in *this* file
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+    # makes classes in src/ available to be used as services
+    # this creates a service per class whose id is the fully-qualified class name
+    CompanyOS\Domain\:
+        resource: '../Domain/'
+        exclude:
+            - '../Domain/*/Domain/'
+            - '../Domain/*/Repository/'
+
+    CompanyOS\Application\:
+        resource: '../Application/'
+        exclude:
+            - '../Application/*/Command/'
+            - '../Application/*/Query/'
+
+    CompanyOS\Infrastructure\:
+        resource: '../Infrastructure/'
+        exclude:
+            - '../Infrastructure/*/Persistence/'
+            - '../Infrastructure/*/Event/'
+
+    # Plugin services
+    _instanceof:
+        CompanyOS\Domain\Plugin\Domain\PluginInterface:
+            tags: ['companyos.plugin']
+
+    # User Domain Services
+    CompanyOS\Domain\User\Domain\Repository\UserRepositoryInterface:
+        alias: CompanyOS\Infrastructure\User\Persistence\DoctrineUserRepository
+
+    # Plugin Domain Services
+    CompanyOS\Domain\Plugin\Domain\Repository\PluginRepository:
+        alias: CompanyOS\Infrastructure\Plugin\Persistence\DoctrinePluginRepository
+
+    # Password Hasher Alias
+    Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface: '@security.user_password_hasher'
+
+    # Role Repository
+    CompanyOS\Domain\Role\Domain\Repository\RoleRepositoryInterface:
+        class: CompanyOS\Infrastructure\Role\Persistence\DoctrineRoleRepository
+
+    # Voter für Permission-basierte Zugriffskontrolle
+    CompanyOS\Infrastructure\Role\Security\RolePermissionVoter:
+        tags:
+            - { name: security.voter }
+
+    # Permission Service
+    CompanyOS\Application\Role\Service\PermissionService:
+        arguments:
+            $roleRepository: '@CompanyOS\Domain\Role\Domain\Repository\RoleRepositoryInterface'
+
+    # OAuth2 Services
+    CompanyOS\Infrastructure\Auth\Persistence\DoctrineClientRepository:
+        tags:
+            - { name: league_oauth2_server.client_repository }
+
+    CompanyOS\Infrastructure\Auth\Persistence\DoctrineAccessTokenRepository:
+        tags:
+            - { name: league_oauth2_server.access_token_repository }
+
+    CompanyOS\Infrastructure\Auth\Persistence\DoctrineRefreshTokenRepository:
+        tags:
+            - { name: league_oauth2_server.refresh_token_repository }
+
+    CompanyOS\Infrastructure\Auth\Persistence\DoctrineUserRepository:
+        tags:
+            - { name: league_oauth2_server.user_repository }
+
+    Symfony\Component\DependencyInjection\ContainerInterface: '@service_container'
+
+    # Plugin Infrastructure Services
+    CompanyOS\Infrastructure\Plugin\Routing\PluginRouteLoader:
+        autowire: true
+
+    CompanyOS\Infrastructure\Plugin\EventSubscriber\PluginRouteSubscriber:
+        autowire: true
+        tags:
+            - { name: 'kernel.event_subscriber' }
+
+    CompanyOS\Infrastructure\Plugin\Service\PluginServiceLoader:
+        autowire: true
+
+    CompanyOS\Infrastructure\Plugin\DependencyInjection\PluginExtension:
+        tags:
+            - { name: 'kernel.extension' }
+
+    # Event Store
+    CompanyOS\Domain\Shared\Domain\Event\EventStore:
+        alias: CompanyOS\Infrastructure\Shared\Persistence\DoctrineEventStore
+
+    CompanyOS\Infrastructure\Shared\Persistence\DoctrineEventStore:
+        arguments:
+            $entityManager: '@doctrine.orm.entity_manager'
+
+    # Domain Event Dispatcher
+    CompanyOS\Infrastructure\Shared\Event\DomainEventDispatcher:
+        arguments:
+            $eventStore: '@CompanyOS\Domain\Shared\Domain\Event\EventStore'
+            $eventDispatcher: '@event_dispatcher'
+            $messageBus: '@messenger.default_bus'
+            $logger: '@logger'
+
+    # Domain Event Occurred Event
+    CompanyOS\Infrastructure\Shared\Event\DomainEventOccurred:
+        public: false
+
+    # Webhook Services
+    CompanyOS\Domain\Webhook\Domain\Repository\WebhookRepositoryInterface:
+        alias: CompanyOS\Infrastructure\Webhook\Persistence\DoctrineWebhookRepository
+
+    CompanyOS\Infrastructure\Webhook\Persistence\DoctrineWebhookRepository:
+        arguments:
+            $entityManager: '@doctrine.orm.entity_manager'
+
+    CompanyOS\Infrastructure\Webhook\Service\WebhookDispatcher:
+        arguments:
+            $webhookRepository: '@CompanyOS\Domain\Webhook\Domain\Repository\WebhookRepositoryInterface'
+            $logger: '@logger'
+
+    CompanyOS\Application\Webhook\CommandHandler\CreateWebhookCommandHandler:
+        tags:
+            - { name: messenger.message_handler, handles: CompanyOS\Application\Webhook\Command\CreateWebhookCommand, bus: command_bus }
+
+    # Plugin Command Handlers
+    CompanyOS\Application\Plugin\CommandHandler\DeactivatePluginCommandHandler:
+        tags:
+            - { name: messenger.message_handler, handles: CompanyOS\Application\Plugin\Command\DeactivatePluginCommand, bus: command_bus }
+
+    CompanyOS\Application\Plugin\CommandHandler\ActivatePluginCommandHandler:
+        tags:
+            - { name: messenger.message_handler, handles: CompanyOS\Application\Plugin\Command\ActivatePluginCommand, bus: command_bus }
+
+    CompanyOS\Application\Plugin\CommandHandler\DeletePluginCommandHandler:
+        tags:
+            - { name: messenger.message_handler, handles: CompanyOS\Application\Plugin\Command\DeletePluginCommand, bus: command_bus }
+
+    CompanyOS\Application\Plugin\CommandHandler\InstallPluginCommandHandler:
+        tags:
+            - { name: messenger.message_handler, handles: CompanyOS\Application\Plugin\Command\InstallPluginCommand, bus: command_bus }
+
+    CompanyOS\Application\Plugin\CommandHandler\UpdatePluginCommandHandler:
+        tags:
+            - { name: messenger.message_handler, handles: CompanyOS\Application\Plugin\Command\UpdatePluginCommand, bus: command_bus }
+
+    # Logger Alias
+    Psr\Log\LoggerInterface: '@logger'
+
+    # Plugin Manager - wird durch Compiler Pass konfiguriert
+    CompanyOS\Domain\Plugin\Domain\Service\PluginManager:
+        arguments:
+            $pluginDirectories: '%companyos.plugin.directories%'
+            $consoleApplication: '@?console' 

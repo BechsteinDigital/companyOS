@@ -1,0 +1,4 @@
+settings_routes:
+    resource: '%kernel.project_dir%/src/Core/Settings/Application/Controller/SettingsController.php'
+    type: attribute
+    prefix: /api/settings 

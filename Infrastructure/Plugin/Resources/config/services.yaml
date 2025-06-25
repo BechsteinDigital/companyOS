@@ -1,0 +1,8 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  CompanyOS\Core\Plugin\:
+    resource: '../../../../../Core/Plugin/*'
+    exclude: '../../../../../Core/Plugin/Domain/{Entity,ValueObject}' 

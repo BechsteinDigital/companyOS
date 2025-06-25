@@ -1,0 +1,26 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    CompanyOS\Core\Auth\:
+        resource: '../../../../src/Core/Auth/'
+        exclude:
+            - '../../../../src/Core/Auth/Infrastructure/Resources/'
+
+    # Controllers
+    CompanyOS\Core\Auth\Application\Controller\:
+        resource: '../../../../src/Core/Auth/Application/Controller/'
+        tags: ['controller.service_arguments']
+
+    # Repositories
+    CompanyOS\Core\Auth\Infrastructure\Persistence\DoctrineAccessTokenRepository:
+        tags: ['doctrine.repository_service']
+
+    CompanyOS\Core\Auth\Infrastructure\Persistence\DoctrineClientRepository:
+        tags: ['doctrine.repository_service']
+
+    # Middleware
+    CompanyOS\Core\Auth\Infrastructure\Middleware\OAuth2Middleware:
+        tags: ['kernel.event_listener', {event: 'kernel.request', priority: 100}] 

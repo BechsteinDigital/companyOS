@@ -1,0 +1,9 @@
+doctrine:
+    orm:
+        mappings:
+            CompanyOSCoreBundle:
+                is_bundle: true
+                type: attribute
+                dir: '%kernel.project_dir%/CompanyOSCoreBundle/Domain'
+                prefix: 'CompanyOS\Domain'
+                alias: CompanyOS 

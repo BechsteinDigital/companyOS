@@ -1,0 +1,10 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  CompanyOS\Core\Role\Domain\Repository\RoleRepositoryInterface: '@CompanyOS\Core\Role\Infrastructure\Persistence\DoctrineRoleRepository'
+  CompanyOS\Core\Role\Infrastructure\Persistence\DoctrineRoleRepository: ~
+  CompanyOS\Core\Role\Infrastructure\Persistence\DoctrineUserRoleRepository: ~
+  CompanyOS\Core\Role\Infrastructure\Event\RoleEventSubscriber: ~
+  CompanyOS\Core\Role\Infrastructure\Security\RoleVoter: ~ 

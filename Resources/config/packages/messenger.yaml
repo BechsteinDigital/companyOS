@@ -1,0 +1,22 @@
+framework:
+    messenger:
+        default_bus: command_bus
+
+        transports:
+            failed: 'doctrine://default?queue_name=failed'
+
+        routing:
+            # Route your messages to the transports
+            # 'CompanyOS\Core\*\Application\Command\*': async
+            # 'CompanyOS\Core\*\Application\Query\*': async
+
+        buses:
+            command_bus:
+                default_middleware: true
+                middleware:
+                    - doctrine_transaction
+                    - validation
+            query_bus:
+                default_middleware: true
+                middleware:
+                    - validation 

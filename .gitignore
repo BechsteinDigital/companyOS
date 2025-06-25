@@ -1,0 +1,76 @@
+# Dependencies
+/vendor/
+/node_modules/
+
+# Build artifacts
+/Resources/public/build/
+/Resources/public/css/
+/Resources/public/js/
+/Resources/public/img/
+/Resources/public/icons/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Cache
+/var/cache/
+/var/logs/
+
+# Test coverage
+/coverage/
+.phpunit.result.cache
+
+# Composer
+composer.phar
+composer.lock
+
+# Package manager
+package-lock.json
+yarn.lock
+
+# Environment
+.env.test
+
+# Node modules (für Frontend-Assets)
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# Build artifacts
+/public/build/
+/public/dist/
+
+# Tests
+/coverage/
+.phpunit.result.cache
+
+# Symfony
+/var/
+.env.local.php
+.env.*.local
+
+# Doctrine
+*.db
+*.sqlite
+
+# Backup files
+*.bak
+*.backup 
