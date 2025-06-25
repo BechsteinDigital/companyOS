@@ -1,6 +1,6 @@
 <?php
 
-namespace CompanyOS\Domain\Plugin\Application\Command\Handler;
+namespace CompanyOS\Application\Plugin\Command\Handler;
 
 use CompanyOS\Domain\Plugin\Application\Command\InstallPluginCommand;
 use CompanyOS\Domain\Plugin\Domain\Entity\Plugin;

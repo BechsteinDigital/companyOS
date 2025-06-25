@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace CompanyOS\Domain\Plugin\Application\QueryHandler;
+namespace CompanyOS\Application\Plugin\QueryHandler;
 
 use CompanyOS\Domain\Plugin\Application\Query\GetActivePluginsQuery;
 use CompanyOS\Domain\Plugin\Application\DTO\PluginResponse;

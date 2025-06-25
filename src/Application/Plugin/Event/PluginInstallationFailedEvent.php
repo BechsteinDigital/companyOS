@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace CompanyOS\Domain\Plugin\Application\Event;
+namespace CompanyOS\Application\Plugin\Event;
 
 final class PluginInstallationFailedEvent
 {

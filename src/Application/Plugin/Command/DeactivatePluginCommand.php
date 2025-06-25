@@ -1,6 +1,6 @@
 <?php
 
-namespace CompanyOS\Domain\Plugin\Application\Command;
+namespace CompanyOS\Application\Plugin\Command;
 
 use CompanyOS\Application\Command\Command;
 

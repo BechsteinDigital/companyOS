@@ -1,6 +1,6 @@
 <?php
 
-namespace CompanyOS\Domain\Plugin\Application\Query\Handler;
+namespace CompanyOS\Application\Plugin\Query\Handler;
 
 use CompanyOS\Domain\Plugin\Application\Query\GetPluginQuery;
 use CompanyOS\Domain\Plugin\Domain\Repository\PluginRepository;

@@ -1,6 +1,6 @@
 <?php
 
-namespace CompanyOS\Domain\Plugin\Application\Query;
+namespace CompanyOS\Application\Plugin\Query;
 
 use CompanyOS\Application\Query\Query;
 

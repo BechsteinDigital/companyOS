@@ -1,6 +1,6 @@
 <?php
 
-namespace CompanyOS\Domain\Plugin\Application\CommandHandler;
+namespace CompanyOS\Application\Plugin\CommandHandler;
 
 use CompanyOS\Domain\Plugin\Application\Command\DeactivatePluginCommand;
 use CompanyOS\Domain\Plugin\Domain\Service\PluginManager;

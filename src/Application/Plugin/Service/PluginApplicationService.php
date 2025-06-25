@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace CompanyOS\Domain\Plugin\Application\Service;
+namespace CompanyOS\Application\Plugin\Service;
 
 use CompanyOS\Domain\Plugin\Application\Command\ActivatePluginCommand;
 use CompanyOS\Domain\Plugin\Application\Command\DeactivatePluginCommand;

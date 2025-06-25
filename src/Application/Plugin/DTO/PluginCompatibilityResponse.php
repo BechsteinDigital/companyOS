@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace CompanyOS\Domain\Plugin\Application\DTO;
+namespace CompanyOS\Application\Plugin\DTO;
 
 final class PluginCompatibilityResponse
 {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace CompanyOS\Domain\Plugin\Application\EventHandler;
+namespace CompanyOS\Application\Plugin\EventHandler;
 
 use CompanyOS\Domain\Plugin\Application\Event\PluginActivatedEvent;
 use CompanyOS\Domain\Plugin\Application\Event\PluginDeletedEvent;
