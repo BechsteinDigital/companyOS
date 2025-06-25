@@ -1,13 +1,2 @@
-doctrine:
-    orm:
-        mappings:
-            CompanyOSCoreBundle:
-                is_bundle: true
-                type: attribute
-                dir: '%kernel.project_dir%/CompanyOSCoreBundle/src/Domain'
-                prefix: 'CompanyOS\Domain'
-                alias: CompanyOS
-    migrations:
-        paths:
-            'CompanyOS\Migrations':
-                - '%kernel.project_dir%/CompanyOSCoreBundle/src/Migrations' 
+# Doctrine-Konfiguration wird im Hauptprojekt definiert
+# Diese Datei dient nur als Template/Beispiel 

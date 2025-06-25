@@ -13,6 +13,36 @@ Das Plugin-System funktioniert vollständig über Services:
 - **PluginServiceLoader**: Lädt Plugin-Services dynamisch
 - **PluginRouteSubscriber**: Registriert Plugin-Routen
 
+## Doctrine-Konfiguration
+
+### Im Hauptprojekt (config/packages/doctrine.yaml)
+
+```yaml
+doctrine:
+    orm:
+        mappings:
+            CompanyOSCore:
+                type: attribute
+                is_bundle: true
+                dir: '%kernel.project_dir%/vendor/companyos/core/src/Domain'
+                prefix: 'CompanyOS\Domain'
+                alias: CompanyOS
+    migrations:
+        paths:
+            'CompanyOS\Migrations':
+                - '%kernel.project_dir%/vendor/companyos/core/src/Migrations'
+```
+
+### Bundle registrieren
+
+```php
+// config/bundles.php
+return [
+    // ... andere Bundles
+    CompanyOS\CompanyOSCoreBundle::class => ['all' => true],
+];
+```
+
 ## Kernel-Erweiterung (Optional)
 
 Falls Sie den Kernel im Hauptprojekt erweitern möchten, können Sie dies tun:
@@ -119,4 +149,10 @@ parameters:
 
 1. Prüfen Sie, ob der `PluginServiceLoader` funktioniert
 2. Prüfen Sie die Service-Konfiguration des Plugins
+3. Cache leeren: `php bin/console cache:clear`
+
+### Doctrine-Fehler
+
+1. Stellen Sie sicher, dass die Doctrine-Konfiguration im Hauptprojekt korrekt ist
+2. Prüfen Sie, ob die Entity-Pfade korrekt sind
 3. Cache leeren: `php bin/console cache:clear` 

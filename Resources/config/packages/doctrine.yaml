@@ -1,3 +1,6 @@
+# Doctrine-Konfiguration wird im Hauptprojekt definiert
+# Diese Datei dient nur als Template/Beispiel für die Integration
+
 # Inhalt von config/packages/doctrine.yaml (bitte ggf. anpassen, falls Bundle-spezifisch) 
 
 # CompanyOS Core Bundle Doctrine Configuration
@@ -28,7 +31,7 @@ doctrine:
             CompanyOSCore:
                 type: attribute
                 is_bundle: true
-                dir: '%kernel.project_dir%/CompanyOSCoreBundle/src/Domain'
+                dir: '%kernel.project_dir%/vendor/companyos/core/src/Domain'
                 prefix: 'CompanyOS\Domain'
                 alias: CompanyOS
         controller_resolver:
@@ -36,7 +39,7 @@ doctrine:
     migrations:
         paths:
             'CompanyOS\Migrations':
-                - '%kernel.project_dir%/CompanyOSCoreBundle/src/Migrations'
+                - '%kernel.project_dir%/vendor/companyos/core/src/Migrations'
 
 when@test:
     doctrine:

@@ -16,9 +16,6 @@ class CompanyOSCoreExtension extends Extension
         // Services laden
         $loader->load('services.yaml');
         
-        // Doctrine-Mappings laden
-        $loader->load('doctrine.yaml');
-        
         // Security-Konfiguration laden
         $loader->load('security.yaml');
         
