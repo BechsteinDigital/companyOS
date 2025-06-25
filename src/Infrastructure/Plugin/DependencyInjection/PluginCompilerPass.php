@@ -29,11 +29,6 @@ class PluginCompilerPass implements CompilerPassInterface
         // Plugin Service Loader konfigurieren
         if ($container->hasDefinition('CompanyOS\Infrastructure\Plugin\Service\PluginServiceLoader')) {
             $serviceLoader = $container->getDefinition('CompanyOS\Infrastructure\Plugin\Service\PluginServiceLoader');
-            
-            // Plugin Manager injizieren
-            $serviceLoader->addMethodCall('setPluginManager', [
-                new Reference(PluginManager::class)
-            ]);
         }
 
         // Plugin Event Subscriber konfigurieren
