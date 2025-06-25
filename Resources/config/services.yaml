@@ -30,7 +30,6 @@ services:
     CompanyOS\Infrastructure\:
         resource: '../../src/Infrastructure/'
         exclude:
-            - '../../src/Infrastructure/*/Persistence/'
             - '../../src/Infrastructure/*/Event/'
 
     # Plugin services
