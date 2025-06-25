@@ -6,4 +6,8 @@ doctrine:
                 type: attribute
                 dir: '%kernel.project_dir%/CompanyOSCoreBundle/Domain'
                 prefix: 'CompanyOS\Domain'
-                alias: CompanyOS 
+                alias: CompanyOS
+    migrations:
+        paths:
+            'CompanyOS\Core\Bundle':
+                - '%kernel.project_dir%/CompanyOSCoreBundle/Resources/migrations' 

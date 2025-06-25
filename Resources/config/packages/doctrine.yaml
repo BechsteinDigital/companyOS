@@ -1,5 +1,7 @@
 # Inhalt von config/packages/doctrine.yaml (bitte ggf. anpassen, falls Bundle-spezifisch) 
 
+# CompanyOS Core Bundle Doctrine Configuration
+
 doctrine:
     dbal:
         url: '%env(resolve:DATABASE_URL)%'
@@ -26,17 +28,15 @@ doctrine:
             CompanyOSCore:
                 type: attribute
                 is_bundle: true
-                dir: '%kernel.project_dir%/src/Core'
-                prefix: 'CompanyOS\Core'
-                alias: CompanyOSCore
-            CompanyOSShared:
-                type: attribute
-                is_bundle: true
-                dir: '%kernel.project_dir%/src/Shared'
-                prefix: 'CompanyOS\Shared'
-                alias: CompanyOSShared
+                dir: '%kernel.project_dir%/CompanyOSCoreBundle/Domain'
+                prefix: 'CompanyOS\Domain'
+                alias: CompanyOS
         controller_resolver:
             auto_mapping: false
+    migrations:
+        paths:
+            'CompanyOS\Core\Bundle':
+                - '%kernel.project_dir%/CompanyOSCoreBundle/Resources/migrations'
 
 when@test:
     doctrine:

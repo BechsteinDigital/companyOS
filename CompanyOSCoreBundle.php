@@ -32,4 +32,9 @@ class CompanyOSCoreBundle extends Bundle
             $pluginManager->loadPlugins();
         }
     }
+
+    public function getPath(): string
+    {
+        return \dirname(__DIR__);
+    }
 } 
