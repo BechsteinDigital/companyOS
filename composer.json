@@ -1,7 +1,7 @@
 {
     "name": "companyos/core",
     "description": "CompanyOS Core Bundle - Eine modulare Plattform basierend auf DDD, CQRS und Event-Driven Architecture (Alpha Version)",
-    "version": "0.1.3-alpha",
+    "version": "0.1.4-alpha",
     "type": "symfony-bundle",
     "license": "MIT",
     "keywords": ["symfony", "bundle", "ddd", "cqrs", "event-driven", "api", "plugin-system"],
@@ -51,10 +51,7 @@
     },
     "autoload": {
         "psr-4": {
-            "CompanyOS\\": "CompanyOS/",
-            "CompanyOS\\Domain\\": "Domain/",
-            "CompanyOS\\Application\\": "Application/",
-            "CompanyOS\\Infrastructure\\": "Infrastructure/"
+            "CompanyOS\\": "src/"
         }
     },
     "autoload-dev": {

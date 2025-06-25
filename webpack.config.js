@@ -21,6 +21,7 @@ if (!Encore.isRuntimeEnvironmentConfigured()) {
 
 Encore
     // directory where compiled assets will be stored
+    // This will be copied to public/bundles/companyoscore/build/ by Symfony
     .setOutputPath('Resources/public/build/')
     // public path used by the web server to access the output path
     .setPublicPath('/bundles/companyoscore/build')

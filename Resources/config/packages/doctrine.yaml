@@ -35,8 +35,8 @@ doctrine:
             auto_mapping: false
     migrations:
         paths:
-            'CompanyOS\Core\Bundle':
-                - '%kernel.project_dir%/CompanyOSCoreBundle/Resources/migrations'
+            'CompanyOS\Migrations':
+                - '%kernel.project_dir%/CompanyOSCoreBundle/src/Migrations'
 
 when@test:
     doctrine:
