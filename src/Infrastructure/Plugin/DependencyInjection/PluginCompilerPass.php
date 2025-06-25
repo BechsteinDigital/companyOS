@@ -39,11 +39,6 @@ class PluginCompilerPass implements CompilerPassInterface
         // Plugin Event Subscriber konfigurieren
         if ($container->hasDefinition('CompanyOS\Infrastructure\Plugin\EventSubscriber\PluginRouteSubscriber')) {
             $routeSubscriber = $container->getDefinition('CompanyOS\Infrastructure\Plugin\EventSubscriber\PluginRouteSubscriber');
-            
-            // Plugin Manager injizieren
-            $routeSubscriber->addMethodCall('setPluginManager', [
-                new Reference(PluginManager::class)
-            ]);
         }
     }
 } 
