@@ -33,7 +33,32 @@ doctrine:
                 - '%kernel.project_dir%/vendor/companyos/core/src/Migrations'
 ```
 
-### Bundle registrieren
+## Messenger-Konfiguration
+
+### Im Hauptprojekt (config/packages/messenger.yaml)
+
+```yaml
+framework:
+    messenger:
+        default_bus: command_bus
+        buses:
+            command_bus:
+                middleware:
+                    - doctrine_transaction
+            query_bus:
+                default_middleware: allow_no_handlers
+            event_bus:
+                default_middleware: allow_no_handlers
+
+        transports:
+            async: '%env(MESSENGER_TRANSPORT_DSN)%'
+
+        routing:
+            CompanyOS\Application\*\Command\*: async
+            CompanyOS\Application\*\Event\*: async
+```
+
+## Bundle registrieren
 
 ```php
 // config/bundles.php
@@ -155,4 +180,10 @@ parameters:
 
 1. Stellen Sie sicher, dass die Doctrine-Konfiguration im Hauptprojekt korrekt ist
 2. Prüfen Sie, ob die Entity-Pfade korrekt sind
+3. Cache leeren: `php bin/console cache:clear`
+
+### Messenger-Fehler
+
+1. Stellen Sie sicher, dass die Messenger-Konfiguration im Hauptprojekt korrekt ist
+2. Prüfen Sie, ob die Bus-Konfiguration korrekt ist
 3. Cache leeren: `php bin/console cache:clear` 

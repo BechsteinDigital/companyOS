@@ -1,18 +1,2 @@
-framework:
-    messenger:
-        default_bus: command_bus
-        buses:
-            command_bus:
-                middleware:
-                    - doctrine_transaction
-            query_bus:
-                default_middleware: allow_no_handlers
-            event_bus:
-                default_middleware: allow_no_handlers
-
-        transports:
-            async: '%env(MESSENGER_TRANSPORT_DSN)%'
-
-        routing:
-            CompanyOS\Application\*\Command\*: async
-            CompanyOS\Application\*\Event\*: async 
+# Messenger-Konfiguration wird im Hauptprojekt definiert
+# Diese Datei dient nur als Template/Beispiel für die Integration 
