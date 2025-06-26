@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace CompanyOS\Domain\Plugin\Domain\Service;
+namespace CompanyOS\Bundle\CoreBundle\Domain\Plugin\Domain\Service;
 
 final class PluginCompatibilityService
 {

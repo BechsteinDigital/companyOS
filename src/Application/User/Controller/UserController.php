@@ -1,15 +1,15 @@
 <?php
 
-namespace CompanyOS\Application\User\Controller;
+namespace CompanyOS\Bundle\CoreBundle\Application\User\Controller;
 
-use CompanyOS\Application\User\Command\CreateUserCommand;
-use CompanyOS\Application\User\Command\UpdateUserCommand;
-use CompanyOS\Application\User\Command\DeleteUserCommand;
-use CompanyOS\Application\User\DTO\CreateUserRequest;
-use CompanyOS\Application\User\DTO\UpdateUserRequest;
-use CompanyOS\Application\User\DTO\UserResponse;
-use CompanyOS\Application\User\Query\GetUserQuery;
-use CompanyOS\Application\User\Query\GetAllUsersQuery;
+use CompanyOS\Bundle\CoreBundle\Application\User\Command\CreateUserCommand;
+use CompanyOS\Bundle\CoreBundle\Application\User\Command\UpdateUserCommand;
+use CompanyOS\Bundle\CoreBundle\Application\User\Command\DeleteUserCommand;
+use CompanyOS\Bundle\CoreBundle\Application\User\DTO\CreateUserRequest;
+use CompanyOS\Bundle\CoreBundle\Application\User\DTO\UpdateUserRequest;
+use CompanyOS\Bundle\CoreBundle\Application\User\DTO\UserResponse;
+use CompanyOS\Bundle\CoreBundle\Application\User\Query\GetUserQuery;
+use CompanyOS\Bundle\CoreBundle\Application\User\Query\GetAllUsersQuery;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;

@@ -1,13 +1,13 @@
 <?php
 
-namespace CompanyOS\Application\User\Command\Handler;
+namespace CompanyOS\Bundle\CoreBundle\Application\User\Command\Handler;
 
-use CompanyOS\Application\User\Command\CreateUserCommand;
-use CompanyOS\Domain\User\Domain\Entity\User;
-use CompanyOS\Domain\User\Domain\Repository\UserRepository;
-use CompanyOS\Application\Command\CommandHandler;
-use CompanyOS\Domain\ValueObject\Email;
-use CompanyOS\Domain\ValueObject\Uuid;
+use CompanyOS\Bundle\CoreBundle\Application\User\Command\CreateUserCommand;
+use CompanyOS\Bundle\CoreBundle\Domain\User\Domain\Entity\User;
+use CompanyOS\Bundle\CoreBundle\Domain\User\Domain\Repository\UserRepository;
+use CompanyOS\Bundle\CoreBundle\Application\Command\CommandHandler;
+use CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Email;
+use CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Uuid;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class CreateUserCommandHandler implements CommandHandler

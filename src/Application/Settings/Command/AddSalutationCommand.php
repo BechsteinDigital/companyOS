@@ -1,8 +1,8 @@
 <?php
 
-namespace CompanyOS\Application\Settings\Command;
+namespace CompanyOS\Bundle\CoreBundle\Application\Settings\Command;
 
-use CompanyOS\Application\Command\CommandInterface;
+use CompanyOS\Bundle\CoreBundle\Application\Command\CommandInterface;
 
 class AddSalutationCommand implements CommandInterface
 {

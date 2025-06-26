@@ -1,10 +1,10 @@
 <?php
 
-namespace CompanyOS\Application\Plugin\Query\Handler;
+namespace CompanyOS\Bundle\CoreBundle\Application\Plugin\Query\Handler;
 
-use CompanyOS\Application\Plugin\Query\GetAllPluginsQuery;
-use CompanyOS\Domain\Plugin\Domain\Repository\PluginRepository;
-use CompanyOS\Application\Query\QueryHandler;
+use CompanyOS\Bundle\CoreBundle\Application\Plugin\Query\GetAllPluginsQuery;
+use CompanyOS\Bundle\CoreBundle\Domain\Plugin\Domain\Repository\PluginRepository;
+use CompanyOS\Bundle\CoreBundle\Application\Query\QueryHandler;
 
 class GetAllPluginsQueryHandler implements QueryHandler
 {

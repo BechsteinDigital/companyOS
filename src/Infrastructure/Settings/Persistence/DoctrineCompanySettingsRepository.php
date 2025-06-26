@@ -1,9 +1,9 @@
 <?php
 
-namespace CompanyOS\Infrastructure\Settings\Persistence;
+namespace CompanyOS\Bundle\CoreBundle\Infrastructure\Settings\Persistence;
 
-use CompanyOS\Domain\Settings\Domain\Entity\CompanySettings;
-use CompanyOS\Domain\Settings\Domain\Repository\CompanySettingsRepositoryInterface;
+use CompanyOS\Bundle\CoreBundle\Domain\Settings\Domain\Entity\CompanySettings;
+use CompanyOS\Bundle\CoreBundle\Domain\Settings\Domain\Repository\CompanySettingsRepositoryInterface;
 use Doctrine\ORM\EntityManagerInterface;
 
 class DoctrineCompanySettingsRepository implements CompanySettingsRepositoryInterface

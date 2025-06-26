@@ -1,9 +1,9 @@
 <?php
 
-namespace CompanyOS\Domain\Plugin\Domain\Event;
+namespace CompanyOS\Bundle\CoreBundle\Domain\Plugin\Domain\Event;
 
-use CompanyOS\Domain\Event\DomainEvent;
-use CompanyOS\Domain\ValueObject\Uuid;
+use CompanyOS\Bundle\CoreBundle\Domain\Event\DomainEvent;
+use CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Uuid;
 
 class PluginDeleted extends DomainEvent
 {

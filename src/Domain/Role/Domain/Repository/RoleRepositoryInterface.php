@@ -1,11 +1,11 @@
 <?php
 
-namespace CompanyOS\Domain\Role\Domain\Repository;
+namespace CompanyOS\Bundle\CoreBundle\Domain\Role\Domain\Repository;
 
-use CompanyOS\Domain\Role\Domain\Entity\Role;
-use CompanyOS\Domain\Role\Domain\ValueObject\RoleId;
-use CompanyOS\Domain\Role\Domain\ValueObject\RoleName;
-use CompanyOS\Domain\ValueObject\Uuid;
+use CompanyOS\Bundle\CoreBundle\Domain\Role\Domain\Entity\Role;
+use CompanyOS\Bundle\CoreBundle\Domain\Role\Domain\ValueObject\RoleId;
+use CompanyOS\Bundle\CoreBundle\Domain\Role\Domain\ValueObject\RoleName;
+use CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Uuid;
 
 interface RoleRepositoryInterface
 {

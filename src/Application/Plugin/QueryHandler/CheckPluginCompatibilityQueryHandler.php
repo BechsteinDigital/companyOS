@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace CompanyOS\Application\Plugin\QueryHandler;
+namespace CompanyOS\Bundle\CoreBundle\Application\Plugin\QueryHandler;
 
-use CompanyOS\Application\Plugin\Query\CheckPluginCompatibilityQuery;
-use CompanyOS\Application\Plugin\DTO\PluginCompatibilityResponse;
-use CompanyOS\Domain\Plugin\Domain\Service\PluginCompatibilityService;
-use CompanyOS\Application\Query\QueryHandlerInterface;
+use CompanyOS\Bundle\CoreBundle\Application\Plugin\Query\CheckPluginCompatibilityQuery;
+use CompanyOS\Bundle\CoreBundle\Application\Plugin\DTO\PluginCompatibilityResponse;
+use CompanyOS\Bundle\CoreBundle\Domain\Plugin\Domain\Service\PluginCompatibilityService;
+use CompanyOS\Bundle\CoreBundle\Application\Query\QueryHandlerInterface;
 
 final class CheckPluginCompatibilityQueryHandler implements QueryHandlerInterface
 {

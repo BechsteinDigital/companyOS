@@ -1,6 +1,6 @@
 <?php
 
-namespace CompanyOS\Application\Command;
+namespace CompanyOS\Bundle\CoreBundle\Application\Command;
 
 interface CommandHandler
 {

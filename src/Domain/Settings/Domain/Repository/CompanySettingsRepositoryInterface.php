@@ -1,8 +1,8 @@
 <?php
 
-namespace CompanyOS\Domain\Settings\Domain\Repository;
+namespace CompanyOS\Bundle\CoreBundle\Domain\Settings\Domain\Repository;
 
-use CompanyOS\Domain\Settings\Domain\Entity\CompanySettings;
+use CompanyOS\Bundle\CoreBundle\Domain\Settings\Domain\Entity\CompanySettings;
 
 interface CompanySettingsRepositoryInterface
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace CompanyOS\Application\Query;
+namespace CompanyOS\Bundle\CoreBundle\Application\Query;
 
 interface QueryHandler
 {

@@ -1,15 +1,15 @@
 <?php
 
-namespace CompanyOS\Application\Role\CommandHandler;
+namespace CompanyOS\Bundle\CoreBundle\Application\Role\CommandHandler;
 
-use CompanyOS\Application\Role\Command\DeleteRoleCommand;
-use CompanyOS\Domain\Role\Domain\Repository\RoleRepositoryInterface;
-use CompanyOS\Domain\Role\Domain\ValueObject\RoleId;
+use CompanyOS\Bundle\CoreBundle\Application\Role\Command\DeleteRoleCommand;
+use CompanyOS\Bundle\CoreBundle\Domain\Role\Domain\Repository\RoleRepositoryInterface;
+use CompanyOS\Bundle\CoreBundle\Domain\Role\Domain\ValueObject\RoleId;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;
-use CompanyOS\Application\Role\Event\RoleDeletedEvent;
+use CompanyOS\Bundle\CoreBundle\Application\Role\Event\RoleDeletedEvent;
 use Symfony\Component\Messenger\MessageBusInterface;
-use CompanyOS\Application\Role\Event\RoleDeleted;
-use CompanyOS\Infrastructure\Event\DomainEventDispatcher;
+use CompanyOS\Bundle\CoreBundle\Application\Role\Event\RoleDeleted;
+use CompanyOS\Bundle\CoreBundle\Infrastructure\Event\DomainEventDispatcher;
 
 #[AsMessageHandler]
 class DeleteRoleCommandHandler

@@ -1,10 +1,10 @@
 <?php
 
-namespace CompanyOS\Domain\User\Domain\Repository;
+namespace CompanyOS\Bundle\CoreBundle\Domain\User\Domain\Repository;
 
-use CompanyOS\Domain\User\Domain\Entity\User;
-use CompanyOS\Domain\ValueObject\Uuid;
-use CompanyOS\Domain\ValueObject\Email;
+use CompanyOS\Bundle\CoreBundle\Domain\User\Domain\Entity\User;
+use CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Uuid;
+use CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Email;
 
 interface UserRepositoryInterface
 {

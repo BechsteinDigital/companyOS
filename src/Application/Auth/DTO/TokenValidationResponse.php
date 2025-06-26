@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace CompanyOS\Application\Auth\DTO;
+namespace CompanyOS\Bundle\CoreBundle\Application\Auth\DTO;
 
 final class TokenValidationResponse
 {

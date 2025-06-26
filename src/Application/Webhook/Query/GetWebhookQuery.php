@@ -1,8 +1,8 @@
 <?php
 
-namespace CompanyOS\Application\Webhook\Query;
+namespace CompanyOS\Bundle\CoreBundle\Application\Webhook\Query;
 
-use CompanyOS\Application\Query\Query;
+use CompanyOS\Bundle\CoreBundle\Application\Query\Query;
 
 class GetWebhookQuery implements Query
 {

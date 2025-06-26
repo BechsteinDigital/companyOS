@@ -1,11 +1,11 @@
 <?php
 
-namespace CompanyOS\Application\User\Query\Handler;
+namespace CompanyOS\Bundle\CoreBundle\Application\User\Query\Handler;
 
-use CompanyOS\Application\User\Query\GetUserQuery;
-use CompanyOS\Domain\User\Domain\Repository\UserRepository;
-use CompanyOS\Application\Query\QueryHandler;
-use CompanyOS\Domain\ValueObject\Uuid;
+use CompanyOS\Bundle\CoreBundle\Application\User\Query\GetUserQuery;
+use CompanyOS\Bundle\CoreBundle\Domain\User\Domain\Repository\UserRepository;
+use CompanyOS\Bundle\CoreBundle\Application\Query\QueryHandler;
+use CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Uuid;
 
 class GetUserQueryHandler implements QueryHandler
 {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace CompanyOS\Application\Plugin\DTO;
+namespace CompanyOS\Bundle\CoreBundle\Application\Plugin\DTO;
 
 final class PluginDependencyResponse
 {

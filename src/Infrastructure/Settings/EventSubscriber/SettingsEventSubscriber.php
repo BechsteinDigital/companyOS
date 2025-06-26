@@ -1,9 +1,9 @@
 <?php
 
-namespace CompanyOS\Infrastructure\Settings\EventSubscriber;
+namespace CompanyOS\Bundle\CoreBundle\Infrastructure\Settings\EventSubscriber;
 
-use CompanyOS\Application\Settings\Service\SettingsService;
-use CompanyOS\Infrastructure\Event\DomainEventOccurred;
+use CompanyOS\Bundle\CoreBundle\Application\Settings\Service\SettingsService;
+use CompanyOS\Bundle\CoreBundle\Infrastructure\Event\DomainEventOccurred;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class SettingsEventSubscriber implements EventSubscriberInterface

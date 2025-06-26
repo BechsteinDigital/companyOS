@@ -1,6 +1,6 @@
 <?php
 
-namespace CompanyOS\Application\Role\Query;
+namespace CompanyOS\Bundle\CoreBundle\Application\Role\Query;
 
 class GetRoleQuery
 {

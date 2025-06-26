@@ -1,8 +1,8 @@
 <?php
 
-namespace CompanyOS\Domain\Auth\Domain\Event;
+namespace CompanyOS\Bundle\CoreBundle\Domain\Auth\Domain\Event;
 
-use CompanyOS\Domain\Event\DomainEvent;
+use CompanyOS\Bundle\CoreBundle\Domain\Event\DomainEvent;
 
 class UserLoginFailed extends DomainEvent
 {

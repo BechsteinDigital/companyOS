@@ -1,9 +1,9 @@
 <?php
 
-namespace CompanyOS\Application\Role\Service;
+namespace CompanyOS\Bundle\CoreBundle\Application\Role\Service;
 
-use CompanyOS\Domain\Role\Domain\Repository\RoleRepositoryInterface;
-use CompanyOS\Domain\User\Domain\Entity\User;
+use CompanyOS\Bundle\CoreBundle\Domain\Role\Domain\Repository\RoleRepositoryInterface;
+use CompanyOS\Bundle\CoreBundle\Domain\User\Domain\Entity\User;
 
 class PermissionService
 {

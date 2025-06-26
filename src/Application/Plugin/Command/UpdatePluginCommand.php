@@ -1,8 +1,8 @@
 <?php
 
-namespace CompanyOS\Application\Plugin\Command;
+namespace CompanyOS\Bundle\CoreBundle\Application\Plugin\Command;
 
-use CompanyOS\Application\Command\Command;
+use CompanyOS\Bundle\CoreBundle\Application\Command\Command;
 
 class UpdatePluginCommand implements Command
 {

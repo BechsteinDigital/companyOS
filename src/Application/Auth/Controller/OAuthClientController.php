@@ -1,8 +1,8 @@
 <?php
 
-namespace CompanyOS\Application\Auth\Controller;
+namespace CompanyOS\Bundle\CoreBundle\Application\Auth\Controller;
 
-use CompanyOS\Domain\Auth\Domain\Entity\Client;
+use CompanyOS\Bundle\CoreBundle\Domain\Auth\Domain\Entity\Client;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;

@@ -1,9 +1,9 @@
 <?php
 
-namespace CompanyOS\Domain\Settings\Domain\Entity;
+namespace CompanyOS\Bundle\CoreBundle\Domain\Settings\Domain\Entity;
 
-use CompanyOS\Domain\ValueObject\Uuid;
-use CompanyOS\Domain\ValueObject\Email;
+use CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Uuid;
+use CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Email;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity]

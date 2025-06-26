@@ -1,8 +1,8 @@
 <?php
 
-namespace CompanyOS\Domain\Role\Domain\Entity;
+namespace CompanyOS\Bundle\CoreBundle\Domain\Role\Domain\Entity;
 
-use CompanyOS\Domain\User\Domain\Entity\User;
+use CompanyOS\Bundle\CoreBundle\Domain\User\Domain\Entity\User;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Uid\Uuid;
 

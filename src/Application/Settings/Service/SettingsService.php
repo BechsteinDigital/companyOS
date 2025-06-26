@@ -1,9 +1,9 @@
 <?php
 
-namespace CompanyOS\Application\Settings\Service;
+namespace CompanyOS\Bundle\CoreBundle\Application\Settings\Service;
 
-use CompanyOS\Application\Settings\Query\GetCompanySettingsQuery;
-use CompanyOS\Domain\Settings\Domain\Entity\CompanySettings;
+use CompanyOS\Bundle\CoreBundle\Application\Settings\Query\GetCompanySettingsQuery;
+use CompanyOS\Bundle\CoreBundle\Domain\Settings\Domain\Entity\CompanySettings;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Messenger\Stamp\HandledStamp;
 

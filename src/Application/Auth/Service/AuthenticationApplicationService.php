@@ -2,26 +2,26 @@
 
 declare(strict_types=1);
 
-namespace CompanyOS\Application\Auth\Service;
+namespace CompanyOS\Bundle\CoreBundle\Application\Auth\Service;
 
-use CompanyOS\Application\Auth\Command\ChangePasswordCommand;
-use CompanyOS\Application\Auth\Command\LoginUserCommand;
-use CompanyOS\Application\Auth\Command\LogoutUserCommand;
-use CompanyOS\Application\Auth\Command\RefreshTokenCommand;
-use CompanyOS\Application\Auth\Command\RequestPasswordResetCommand;
-use CompanyOS\Application\Auth\Command\ResetPasswordCommand;
-use CompanyOS\Application\Auth\DTO\ChangePasswordRequest;
-use CompanyOS\Application\Auth\DTO\LoginRequest;
-use CompanyOS\Application\Auth\DTO\RefreshTokenRequest;
-use CompanyOS\Application\Auth\DTO\RequestPasswordResetRequest;
-use CompanyOS\Application\Auth\DTO\ResetPasswordRequest;
-use CompanyOS\Application\Auth\Query\GetActiveSessionsQuery;
-use CompanyOS\Application\Auth\Query\GetOAuthClientsQuery;
-use CompanyOS\Application\Auth\Query\GetUserProfileQuery;
-use CompanyOS\Application\Auth\Query\ValidateTokenQuery;
-use CompanyOS\Application\Command\CommandBusInterface;
-use CompanyOS\Application\Query\QueryBusInterface;
-use CompanyOS\Domain\ValueObject\Uuid;
+use CompanyOS\Bundle\CoreBundle\Application\Auth\Command\ChangePasswordCommand;
+use CompanyOS\Bundle\CoreBundle\Application\Auth\Command\LoginUserCommand;
+use CompanyOS\Bundle\CoreBundle\Application\Auth\Command\LogoutUserCommand;
+use CompanyOS\Bundle\CoreBundle\Application\Auth\Command\RefreshTokenCommand;
+use CompanyOS\Bundle\CoreBundle\Application\Auth\Command\RequestPasswordResetCommand;
+use CompanyOS\Bundle\CoreBundle\Application\Auth\Command\ResetPasswordCommand;
+use CompanyOS\Bundle\CoreBundle\Application\Auth\DTO\ChangePasswordRequest;
+use CompanyOS\Bundle\CoreBundle\Application\Auth\DTO\LoginRequest;
+use CompanyOS\Bundle\CoreBundle\Application\Auth\DTO\RefreshTokenRequest;
+use CompanyOS\Bundle\CoreBundle\Application\Auth\DTO\RequestPasswordResetRequest;
+use CompanyOS\Bundle\CoreBundle\Application\Auth\DTO\ResetPasswordRequest;
+use CompanyOS\Bundle\CoreBundle\Application\Auth\Query\GetActiveSessionsQuery;
+use CompanyOS\Bundle\CoreBundle\Application\Auth\Query\GetOAuthClientsQuery;
+use CompanyOS\Bundle\CoreBundle\Application\Auth\Query\GetUserProfileQuery;
+use CompanyOS\Bundle\CoreBundle\Application\Auth\Query\ValidateTokenQuery;
+use CompanyOS\Bundle\CoreBundle\Application\Command\CommandBusInterface;
+use CompanyOS\Bundle\CoreBundle\Application\Query\QueryBusInterface;
+use CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Uuid;
 
 final class AuthenticationApplicationService
 {

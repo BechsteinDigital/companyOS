@@ -1,13 +1,13 @@
 <?php
 
-namespace CompanyOS\Domain\User\Domain\Entity;
+namespace CompanyOS\Bundle\CoreBundle\Domain\User\Domain\Entity;
 
-use CompanyOS\Domain\User\Domain\Event\UserCreated;
-use CompanyOS\Domain\User\Domain\Event\UserUpdated;
-use CompanyOS\Domain\User\Domain\Event\UserDeleted;
-use CompanyOS\Domain\Event\DomainEvent;
-use CompanyOS\Domain\ValueObject\Uuid;
-use CompanyOS\Domain\ValueObject\Email;
+use CompanyOS\Bundle\CoreBundle\Domain\User\Domain\Event\UserCreated;
+use CompanyOS\Bundle\CoreBundle\Domain\User\Domain\Event\UserUpdated;
+use CompanyOS\Bundle\CoreBundle\Domain\User\Domain\Event\UserDeleted;
+use CompanyOS\Bundle\CoreBundle\Domain\Event\DomainEvent;
+use CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Uuid;
+use CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Email;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 use League\OAuth2\Server\Entities\UserEntityInterface;

@@ -1,10 +1,10 @@
 <?php
 
-namespace CompanyOS\Infrastructure\Plugin\Persistence;
+namespace CompanyOS\Bundle\CoreBundle\Infrastructure\Plugin\Persistence;
 
-use CompanyOS\Domain\Plugin\Domain\Entity\Plugin;
-use CompanyOS\Domain\Plugin\Domain\Repository\PluginRepository;
-use CompanyOS\Domain\ValueObject\Uuid;
+use CompanyOS\Bundle\CoreBundle\Domain\Plugin\Domain\Entity\Plugin;
+use CompanyOS\Bundle\CoreBundle\Domain\Plugin\Domain\Repository\PluginRepository;
+use CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Uuid;
 use Doctrine\ORM\EntityManagerInterface;
 
 class DoctrinePluginRepository implements PluginRepository

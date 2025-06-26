@@ -1,9 +1,9 @@
 <?php
 
-namespace CompanyOS\Domain\Plugin\Domain\Repository;
+namespace CompanyOS\Bundle\CoreBundle\Domain\Plugin\Domain\Repository;
 
-use CompanyOS\Domain\Plugin\Domain\Entity\Plugin;
-use CompanyOS\Domain\ValueObject\Uuid;
+use CompanyOS\Bundle\CoreBundle\Domain\Plugin\Domain\Entity\Plugin;
+use CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Uuid;
 
 interface PluginRepository
 {

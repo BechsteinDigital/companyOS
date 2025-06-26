@@ -1,9 +1,9 @@
 <?php
 
-namespace CompanyOS\Domain\Webhook\Domain\Event;
+namespace CompanyOS\Bundle\CoreBundle\Domain\Webhook\Domain\Event;
 
-use CompanyOS\Domain\Webhook\Domain\Entity\Webhook;
-use CompanyOS\Domain\Event\DomainEvent;
+use CompanyOS\Bundle\CoreBundle\Domain\Webhook\Domain\Entity\Webhook;
+use CompanyOS\Bundle\CoreBundle\Domain\Event\DomainEvent;
 
 class WebhookUpdated extends DomainEvent
 {

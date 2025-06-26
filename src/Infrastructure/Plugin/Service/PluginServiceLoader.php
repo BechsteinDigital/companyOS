@@ -1,8 +1,8 @@
 <?php
 
-namespace CompanyOS\Infrastructure\Plugin\Service;
+namespace CompanyOS\Bundle\CoreBundle\Infrastructure\Plugin\Service;
 
-use CompanyOS\Domain\Plugin\Domain\Service\PluginManager;
+use CompanyOS\Bundle\CoreBundle\Domain\Plugin\Domain\Service\PluginManager;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\Config\FileLocator;

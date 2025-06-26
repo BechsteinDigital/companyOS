@@ -1,8 +1,8 @@
 <?php
 
-namespace CompanyOS\Application\Auth\Command;
+namespace CompanyOS\Bundle\CoreBundle\Application\Auth\Command;
 
-use CompanyOS\Application\Command\CommandInterface;
+use CompanyOS\Bundle\CoreBundle\Application\Command\CommandInterface;
 
 class RequestPasswordResetCommand implements CommandInterface
 {

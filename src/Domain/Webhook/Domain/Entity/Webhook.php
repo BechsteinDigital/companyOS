@@ -1,8 +1,8 @@
 <?php
 
-namespace CompanyOS\Domain\Webhook\Domain\Entity;
+namespace CompanyOS\Bundle\CoreBundle\Domain\Webhook\Domain\Entity;
 
-use CompanyOS\Domain\ValueObject\Uuid;
+use CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Uuid;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity]

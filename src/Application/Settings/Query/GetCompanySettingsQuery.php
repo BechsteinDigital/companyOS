@@ -1,8 +1,8 @@
 <?php
 
-namespace CompanyOS\Application\Settings\Query;
+namespace CompanyOS\Bundle\CoreBundle\Application\Settings\Query;
 
-use CompanyOS\Application\Query\QueryInterface;
+use CompanyOS\Bundle\CoreBundle\Application\Query\QueryInterface;
 
 class GetCompanySettingsQuery implements QueryInterface
 {

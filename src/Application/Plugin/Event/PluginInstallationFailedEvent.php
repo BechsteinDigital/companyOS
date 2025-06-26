@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace CompanyOS\Application\Plugin\Event;
+namespace CompanyOS\Bundle\CoreBundle\Application\Plugin\Event;
 
 final class PluginInstallationFailedEvent
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace CompanyOS;
+namespace CompanyOS\Bundle\CoreBundle;
 
-use CompanyOS\DependencyInjection\CompanyOSCoreExtension;
-use CompanyOS\Infrastructure\Plugin\DependencyInjection\PluginCompilerPass;
+use CompanyOS\Bundle\CoreBundle\DependencyInjection\CompanyOSCoreExtension;
+use CompanyOS\Bundle\CoreBundle\Infrastructure\Plugin\DependencyInjection\PluginCompilerPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
@@ -27,8 +27,8 @@ class CompanyOSCoreBundle extends Bundle
         parent::boot();
         
         // Plugin Manager initialisieren
-        if ($this->container->has('CompanyOS\Domain\Plugin\Domain\Service\PluginManager')) {
-            $pluginManager = $this->container->get('CompanyOS\Domain\Plugin\Domain\Service\PluginManager');
+        if ($this->container->has('CompanyOS\Bundle\CoreBundle\Domain\Plugin\Domain\Service\PluginManager')) {
+            $pluginManager = $this->container->get('CompanyOS\Bundle\CoreBundle\Domain\Plugin\Domain\Service\PluginManager');
             $pluginManager->loadPlugins();
         }
     }

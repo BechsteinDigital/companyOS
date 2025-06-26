@@ -1,6 +1,6 @@
 <?php
 
-namespace CompanyOS\Domain\Auth\Domain\Entity;
+namespace CompanyOS\Bundle\CoreBundle\Domain\Auth\Domain\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use League\OAuth2\Server\Entities\RefreshTokenEntityInterface;

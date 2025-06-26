@@ -1,13 +1,13 @@
 <?php
 
-namespace CompanyOS\Application\User\CommandHandler;
+namespace CompanyOS\Bundle\CoreBundle\Application\User\CommandHandler;
 
-use CompanyOS\Domain\Role\Domain\Repository\RoleRepositoryInterface;
-use CompanyOS\Application\User\Command\CreateUserCommand;
-use CompanyOS\Domain\User\Domain\Entity\User;
-use CompanyOS\Domain\User\Domain\Repository\UserRepositoryInterface;
-use CompanyOS\Domain\ValueObject\Email;
-use CompanyOS\Domain\ValueObject\Uuid;
+use CompanyOS\Bundle\CoreBundle\Domain\Role\Domain\Repository\RoleRepositoryInterface;
+use CompanyOS\Bundle\CoreBundle\Application\User\Command\CreateUserCommand;
+use CompanyOS\Bundle\CoreBundle\Domain\User\Domain\Entity\User;
+use CompanyOS\Bundle\CoreBundle\Domain\User\Domain\Repository\UserRepositoryInterface;
+use CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Email;
+use CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Uuid;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 

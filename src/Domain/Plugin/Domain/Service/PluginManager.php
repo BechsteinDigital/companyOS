@@ -1,12 +1,12 @@
 <?php
 
-namespace CompanyOS\Domain\Plugin\Domain\Service;
+namespace CompanyOS\Bundle\CoreBundle\Domain\Plugin\Domain\Service;
 
-use CompanyOS\Domain\Plugin\Domain\Entity\Plugin;
-use CompanyOS\Domain\Plugin\Domain\Repository\PluginRepository;
-use CompanyOS\Domain\Plugin\Domain\PluginInterface;
-use CompanyOS\Domain\Plugin\Domain\AbstractPlugin;
-use CompanyOS\Domain\ValueObject\Uuid;
+use CompanyOS\Bundle\CoreBundle\Domain\Plugin\Domain\Entity\Plugin;
+use CompanyOS\Bundle\CoreBundle\Domain\Plugin\Domain\Repository\PluginRepository;
+use CompanyOS\Bundle\CoreBundle\Domain\Plugin\Domain\PluginInterface;
+use CompanyOS\Bundle\CoreBundle\Domain\Plugin\Domain\AbstractPlugin;
+use CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Uuid;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Routing\RouteCollection;

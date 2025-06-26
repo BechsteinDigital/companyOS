@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace CompanyOS\Application\Auth\Query;
+namespace CompanyOS\Bundle\CoreBundle\Application\Auth\Query;
 
-use CompanyOS\Application\Query\Query;
-use CompanyOS\Domain\ValueObject\Uuid;
+use CompanyOS\Bundle\CoreBundle\Application\Query\Query;
+use CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Uuid;
 
 final class GetUserProfileQuery implements Query
 {

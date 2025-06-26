@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace CompanyOS\Application\Auth\QueryHandler;
+namespace CompanyOS\Bundle\CoreBundle\Application\Auth\QueryHandler;
 
-use CompanyOS\Application\Auth\Query\GetUserProfileQuery;
-use CompanyOS\Application\Auth\DTO\UserProfileResponse;
-use CompanyOS\Domain\User\Domain\Repository\UserRepositoryInterface;
-use CompanyOS\Application\Query\QueryHandler;
-use CompanyOS\Application\Query\QueryHandlerInterface;
+use CompanyOS\Bundle\CoreBundle\Application\Auth\Query\GetUserProfileQuery;
+use CompanyOS\Bundle\CoreBundle\Application\Auth\DTO\UserProfileResponse;
+use CompanyOS\Bundle\CoreBundle\Domain\User\Domain\Repository\UserRepositoryInterface;
+use CompanyOS\Bundle\CoreBundle\Application\Query\QueryHandler;
+use CompanyOS\Bundle\CoreBundle\Application\Query\QueryHandlerInterface;
 
 final class GetUserProfileQueryHandler implements QueryHandlerInterface
 {

@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace CompanyOS\Application\Auth\EventHandler;
+namespace CompanyOS\Bundle\CoreBundle\Application\Auth\EventHandler;
 
-use CompanyOS\Application\Auth\Event\LoginFailedEvent;
-use CompanyOS\Application\Auth\Event\PasswordChangedEvent;
-use CompanyOS\Application\Auth\Event\PasswordResetCompletedEvent;
-use CompanyOS\Application\Auth\Event\PasswordResetRequestedEvent;
-use CompanyOS\Application\Auth\Event\TokenRefreshedEvent;
-use CompanyOS\Application\Auth\Event\TokenRevokedEvent;
-use CompanyOS\Application\Auth\Event\UserLoggedInEvent;
-use CompanyOS\Application\Auth\Event\UserLoggedOutEvent;
+use CompanyOS\Bundle\CoreBundle\Application\Auth\Event\LoginFailedEvent;
+use CompanyOS\Bundle\CoreBundle\Application\Auth\Event\PasswordChangedEvent;
+use CompanyOS\Bundle\CoreBundle\Application\Auth\Event\PasswordResetCompletedEvent;
+use CompanyOS\Bundle\CoreBundle\Application\Auth\Event\PasswordResetRequestedEvent;
+use CompanyOS\Bundle\CoreBundle\Application\Auth\Event\TokenRefreshedEvent;
+use CompanyOS\Bundle\CoreBundle\Application\Auth\Event\TokenRevokedEvent;
+use CompanyOS\Bundle\CoreBundle\Application\Auth\Event\UserLoggedInEvent;
+use CompanyOS\Bundle\CoreBundle\Application\Auth\Event\UserLoggedOutEvent;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 

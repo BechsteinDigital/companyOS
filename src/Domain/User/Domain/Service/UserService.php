@@ -1,11 +1,11 @@
 <?php
 
-namespace CompanyOS\Domain\User\Domain\Service;
+namespace CompanyOS\Bundle\CoreBundle\Domain\User\Domain\Service;
 
-use CompanyOS\Domain\User\Domain\Entity\User;
-use CompanyOS\Domain\User\Domain\Repository\UserRepositoryInterface;
-use CompanyOS\Domain\User\Domain\ValueObject\UserName;
-use CompanyOS\Domain\ValueObject\Email;
+use CompanyOS\Bundle\CoreBundle\Domain\User\Domain\Entity\User;
+use CompanyOS\Bundle\CoreBundle\Domain\User\Domain\Repository\UserRepositoryInterface;
+use CompanyOS\Bundle\CoreBundle\Domain\User\Domain\ValueObject\UserName;
+use CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Email;
 
 class UserService
 {

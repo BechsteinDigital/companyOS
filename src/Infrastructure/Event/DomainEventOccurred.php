@@ -1,8 +1,8 @@
 <?php
 
-namespace CompanyOS\Infrastructure\Event;
+namespace CompanyOS\Bundle\CoreBundle\Infrastructure\Event;
 
-use CompanyOS\Domain\Event\DomainEvent;
+use CompanyOS\Bundle\CoreBundle\Domain\Event\DomainEvent;
 use Symfony\Contracts\EventDispatcher\Event;
 
 class DomainEventOccurred extends Event

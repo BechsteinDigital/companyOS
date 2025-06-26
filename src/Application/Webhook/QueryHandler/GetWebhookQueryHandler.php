@@ -1,11 +1,11 @@
 <?php
 
-namespace CompanyOS\Application\Webhook\QueryHandler;
+namespace CompanyOS\Bundle\CoreBundle\Application\Webhook\QueryHandler;
 
-use CompanyOS\Application\Webhook\Query\GetWebhookQuery;
-use CompanyOS\Application\Webhook\DTO\WebhookResponse;
-use CompanyOS\Domain\Webhook\Domain\Repository\WebhookRepositoryInterface;
-use CompanyOS\Domain\ValueObject\Uuid;
+use CompanyOS\Bundle\CoreBundle\Application\Webhook\Query\GetWebhookQuery;
+use CompanyOS\Bundle\CoreBundle\Application\Webhook\DTO\WebhookResponse;
+use CompanyOS\Bundle\CoreBundle\Domain\Webhook\Domain\Repository\WebhookRepositoryInterface;
+use CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Uuid;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 
 #[AsMessageHandler]

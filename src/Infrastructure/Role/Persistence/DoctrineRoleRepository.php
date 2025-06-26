@@ -1,14 +1,14 @@
 <?php
 
-namespace CompanyOS\Infrastructure\Role\Persistence;
+namespace CompanyOS\Bundle\CoreBundle\Infrastructure\Role\Persistence;
 
-use CompanyOS\Domain\Role\Domain\Entity\Role;
-use CompanyOS\Domain\Role\Domain\Entity\UserRole;
-use CompanyOS\Domain\Role\Domain\Repository\RoleRepositoryInterface;
-use CompanyOS\Domain\Role\Domain\ValueObject\RoleId;
-use CompanyOS\Domain\Role\Domain\ValueObject\RoleName;
-use CompanyOS\Domain\User\Domain\Entity\User;
-use CompanyOS\Domain\ValueObject\Uuid;
+use CompanyOS\Bundle\CoreBundle\Domain\Role\Domain\Entity\Role;
+use CompanyOS\Bundle\CoreBundle\Domain\Role\Domain\Entity\UserRole;
+use CompanyOS\Bundle\CoreBundle\Domain\Role\Domain\Repository\RoleRepositoryInterface;
+use CompanyOS\Bundle\CoreBundle\Domain\Role\Domain\ValueObject\RoleId;
+use CompanyOS\Bundle\CoreBundle\Domain\Role\Domain\ValueObject\RoleName;
+use CompanyOS\Bundle\CoreBundle\Domain\User\Domain\Entity\User;
+use CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Uuid;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace CompanyOS\Application\User\Command;
+namespace CompanyOS\Bundle\CoreBundle\Application\User\Command;
 
-use CompanyOS\Application\Command\Command;
+use CompanyOS\Bundle\CoreBundle\Application\Command\Command;
 
 class DeleteUserCommand implements Command
 {

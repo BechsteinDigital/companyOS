@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace CompanyOS\Application\Auth\QueryHandler;
+namespace CompanyOS\Bundle\CoreBundle\Application\Auth\QueryHandler;
 
-use CompanyOS\Application\Auth\Query\GetActiveSessionsQuery;
-use CompanyOS\Application\Auth\DTO\ActiveSessionResponse;
-use CompanyOS\Domain\Auth\Domain\Repository\AccessTokenRepositoryInterface;
-use CompanyOS\Application\Query\QueryHandlerInterface;
+use CompanyOS\Bundle\CoreBundle\Application\Auth\Query\GetActiveSessionsQuery;
+use CompanyOS\Bundle\CoreBundle\Application\Auth\DTO\ActiveSessionResponse;
+use CompanyOS\Bundle\CoreBundle\Domain\Auth\Domain\Repository\AccessTokenRepositoryInterface;
+use CompanyOS\Bundle\CoreBundle\Application\Query\QueryHandlerInterface;
 
 final class GetActiveSessionsQueryHandler implements QueryHandlerInterface
 {

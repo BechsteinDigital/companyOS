@@ -1,8 +1,8 @@
 <?php
 
-namespace CompanyOS\Application\Webhook\DTO;
+namespace CompanyOS\Bundle\CoreBundle\Application\Webhook\DTO;
 
-use CompanyOS\Domain\Webhook\Domain\Entity\Webhook;
+use CompanyOS\Bundle\CoreBundle\Domain\Webhook\Domain\Entity\Webhook;
 
 class WebhookResponse
 {

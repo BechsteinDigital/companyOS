@@ -1,9 +1,9 @@
 <?php
 
-namespace CompanyOS\Application\Webhook\Command;
+namespace CompanyOS\Bundle\CoreBundle\Application\Webhook\Command;
 
-use CompanyOS\Application\Command\CommandInterface;
-use CompanyOS\Domain\ValueObject\Uuid;
+use CompanyOS\Bundle\CoreBundle\Application\Command\CommandInterface;
+use CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Uuid;
 
 class DeleteWebhookCommand implements CommandInterface
 {

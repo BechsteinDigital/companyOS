@@ -1,8 +1,8 @@
 <?php
 
-namespace CompanyOS\Application\Settings\DTO;
+namespace CompanyOS\Bundle\CoreBundle\Application\Settings\DTO;
 
-use CompanyOS\Domain\Settings\Domain\Entity\CompanySettings;
+use CompanyOS\Bundle\CoreBundle\Domain\Settings\Domain\Entity\CompanySettings;
 use OpenApi\Attributes as OA;
 
 #[OA\Schema(

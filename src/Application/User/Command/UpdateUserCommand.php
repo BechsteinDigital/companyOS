@@ -1,9 +1,9 @@
 <?php
 
-namespace CompanyOS\Application\User\Command;
+namespace CompanyOS\Bundle\CoreBundle\Application\User\Command;
 
-use CompanyOS\Application\Command\Command;
-use CompanyOS\Domain\ValueObject\Uuid;
+use CompanyOS\Bundle\CoreBundle\Application\Command\Command;
+use CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Uuid;
 
 class UpdateUserCommand implements Command
 {

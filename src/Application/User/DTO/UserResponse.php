@@ -1,9 +1,9 @@
 <?php
 
-namespace CompanyOS\Application\User\DTO;
+namespace CompanyOS\Bundle\CoreBundle\Application\User\DTO;
 
 use OpenApi\Attributes as OA;
-use CompanyOS\Application\Role\DTO\RoleResponse;
+use CompanyOS\Bundle\CoreBundle\Application\Role\DTO\RoleResponse;
 
 #[OA\Schema(
     schema: "UserResponse",

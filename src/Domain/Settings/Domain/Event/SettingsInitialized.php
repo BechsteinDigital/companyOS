@@ -1,9 +1,9 @@
 <?php
 
-namespace CompanyOS\Domain\Settings\Domain\Event;
+namespace CompanyOS\Bundle\CoreBundle\Domain\Settings\Domain\Event;
 
-use CompanyOS\Domain\Settings\Domain\Entity\CompanySettings;
-use CompanyOS\Domain\Event\DomainEvent;
+use CompanyOS\Bundle\CoreBundle\Domain\Settings\Domain\Entity\CompanySettings;
+use CompanyOS\Bundle\CoreBundle\Domain\Event\DomainEvent;
 
 class SettingsInitialized extends DomainEvent
 {

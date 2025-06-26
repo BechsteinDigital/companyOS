@@ -1,8 +1,8 @@
 <?php
 
-namespace CompanyOS\Infrastructure\Auth\Persistence;
+namespace CompanyOS\Bundle\CoreBundle\Infrastructure\Auth\Persistence;
 
-use CompanyOS\Domain\Auth\Domain\Entity\RefreshToken;
+use CompanyOS\Bundle\CoreBundle\Domain\Auth\Domain\Entity\RefreshToken;
 use Doctrine\ORM\EntityManagerInterface;
 use League\OAuth2\Server\Entities\RefreshTokenEntityInterface;
 use League\OAuth2\Server\Repositories\RefreshTokenRepositoryInterface;

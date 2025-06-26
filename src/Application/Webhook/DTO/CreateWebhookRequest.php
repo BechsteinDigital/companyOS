@@ -1,6 +1,6 @@
 <?php
 
-namespace CompanyOS\Application\Webhook\DTO;
+namespace CompanyOS\Bundle\CoreBundle\Application\Webhook\DTO;
 
 use Symfony\Component\Validator\Constraints as Assert;
 

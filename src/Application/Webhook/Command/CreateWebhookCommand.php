@@ -1,8 +1,8 @@
 <?php
 
-namespace CompanyOS\Application\Webhook\Command;
+namespace CompanyOS\Bundle\CoreBundle\Application\Webhook\Command;
 
-use CompanyOS\Application\Command\CommandInterface;
+use CompanyOS\Bundle\CoreBundle\Application\Command\CommandInterface;
 
 class CreateWebhookCommand implements CommandInterface
 {

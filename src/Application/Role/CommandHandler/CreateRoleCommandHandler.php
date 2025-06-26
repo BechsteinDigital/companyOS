@@ -1,18 +1,18 @@
 <?php
 
-namespace CompanyOS\Application\Role\CommandHandler;
+namespace CompanyOS\Bundle\CoreBundle\Application\Role\CommandHandler;
 
-use CompanyOS\Application\Role\Command\CreateRoleCommand;
-use CompanyOS\Domain\Role\Domain\Entity\Role;
-use CompanyOS\Domain\Role\Domain\Repository\RoleRepositoryInterface;
-use CompanyOS\Domain\Role\Domain\ValueObject\RoleDescription;
-use CompanyOS\Domain\Role\Domain\ValueObject\RoleDisplayName;
-use CompanyOS\Domain\Role\Domain\ValueObject\RoleName;
-use CompanyOS\Domain\Role\Domain\ValueObject\RolePermissions;
+use CompanyOS\Bundle\CoreBundle\Application\Role\Command\CreateRoleCommand;
+use CompanyOS\Bundle\CoreBundle\Domain\Role\Domain\Entity\Role;
+use CompanyOS\Bundle\CoreBundle\Domain\Role\Domain\Repository\RoleRepositoryInterface;
+use CompanyOS\Bundle\CoreBundle\Domain\Role\Domain\ValueObject\RoleDescription;
+use CompanyOS\Bundle\CoreBundle\Domain\Role\Domain\ValueObject\RoleDisplayName;
+use CompanyOS\Bundle\CoreBundle\Domain\Role\Domain\ValueObject\RoleName;
+use CompanyOS\Bundle\CoreBundle\Domain\Role\Domain\ValueObject\RolePermissions;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;
-use CompanyOS\Application\Role\Event\RoleCreatedEvent;
+use CompanyOS\Bundle\CoreBundle\Application\Role\Event\RoleCreatedEvent;
 use Symfony\Component\Messenger\MessageBusInterface;
-use CompanyOS\Infrastructure\Event\DomainEventDispatcher;
+use CompanyOS\Bundle\CoreBundle\Infrastructure\Event\DomainEventDispatcher;
 
 #[AsMessageHandler]
 class CreateRoleCommandHandler

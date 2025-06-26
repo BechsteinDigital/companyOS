@@ -1,9 +1,9 @@
 <?php
 
-namespace CompanyOS\Domain\Auth\Domain\Event;
+namespace CompanyOS\Bundle\CoreBundle\Domain\Auth\Domain\Event;
 
-use CompanyOS\Domain\User\Domain\Entity\User;
-use CompanyOS\Domain\Event\DomainEvent;
+use CompanyOS\Bundle\CoreBundle\Domain\User\Domain\Entity\User;
+use CompanyOS\Bundle\CoreBundle\Domain\Event\DomainEvent;
 
 class UserLoggedOut extends DomainEvent
 {

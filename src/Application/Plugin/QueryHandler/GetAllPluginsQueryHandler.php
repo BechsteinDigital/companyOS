@@ -1,10 +1,10 @@
 <?php
 
-namespace CompanyOS\Application\Plugin\QueryHandler;
+namespace CompanyOS\Bundle\CoreBundle\Application\Plugin\QueryHandler;
 
-use CompanyOS\Application\Plugin\Query\GetAllPluginsQuery;
-use CompanyOS\Application\Plugin\DTO\PluginResponse;
-use CompanyOS\Domain\Plugin\Domain\Service\PluginManager;
+use CompanyOS\Bundle\CoreBundle\Application\Plugin\Query\GetAllPluginsQuery;
+use CompanyOS\Bundle\CoreBundle\Application\Plugin\DTO\PluginResponse;
+use CompanyOS\Bundle\CoreBundle\Domain\Plugin\Domain\Service\PluginManager;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 
 #[AsMessageHandler]

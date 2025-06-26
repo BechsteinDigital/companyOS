@@ -1,9 +1,9 @@
 <?php
 
-namespace CompanyOS\Domain\Webhook\Domain\Repository;
+namespace CompanyOS\Bundle\CoreBundle\Domain\Webhook\Domain\Repository;
 
-use CompanyOS\Domain\Webhook\Domain\Entity\Webhook;
-use CompanyOS\Domain\ValueObject\Uuid;
+use CompanyOS\Bundle\CoreBundle\Domain\Webhook\Domain\Entity\Webhook;
+use CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Uuid;
 
 interface WebhookRepositoryInterface
 {

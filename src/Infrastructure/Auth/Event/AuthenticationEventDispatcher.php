@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace CompanyOS\Infrastructure\Auth\Event;
+namespace CompanyOS\Bundle\CoreBundle\Infrastructure\Auth\Event;
 
-use CompanyOS\Domain\Auth\Domain\Event\UserAuthenticated;
-use CompanyOS\Domain\Auth\Domain\Event\UserLoginFailed;
-use CompanyOS\Domain\Auth\Domain\Event\UserLoggedOut;
-use CompanyOS\Infrastructure\Event\DomainEventDispatcher;
-use CompanyOS\Infrastructure\Event\DomainEventOccurred;
+use CompanyOS\Bundle\CoreBundle\Domain\Auth\Domain\Event\UserAuthenticated;
+use CompanyOS\Bundle\CoreBundle\Domain\Auth\Domain\Event\UserLoginFailed;
+use CompanyOS\Bundle\CoreBundle\Domain\Auth\Domain\Event\UserLoggedOut;
+use CompanyOS\Bundle\CoreBundle\Infrastructure\Event\DomainEventDispatcher;
+use CompanyOS\Bundle\CoreBundle\Infrastructure\Event\DomainEventOccurred;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 

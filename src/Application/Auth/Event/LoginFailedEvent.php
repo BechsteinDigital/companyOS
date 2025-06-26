@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace CompanyOS\Application\Auth\Event;
+namespace CompanyOS\Bundle\CoreBundle\Application\Auth\Event;
 
 final class LoginFailedEvent
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace CompanyOS\Application\User\DTO;
+namespace CompanyOS\Bundle\CoreBundle\Application\User\DTO;
 
 use OpenApi\Attributes as OA;
 

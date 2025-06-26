@@ -1,9 +1,9 @@
 <?php
 
-namespace CompanyOS\Infrastructure\Webhook\Service;
+namespace CompanyOS\Bundle\CoreBundle\Infrastructure\Webhook\Service;
 
-use CompanyOS\Domain\Webhook\Domain\Repository\WebhookRepositoryInterface;
-use CompanyOS\Domain\Event\DomainEvent;
+use CompanyOS\Bundle\CoreBundle\Domain\Webhook\Domain\Repository\WebhookRepositoryInterface;
+use CompanyOS\Bundle\CoreBundle\Domain\Event\DomainEvent;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\HttpClient\HttpClient;
 

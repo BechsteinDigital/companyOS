@@ -1,11 +1,11 @@
 <?php
 
-namespace CompanyOS\Application\User\CommandHandler;
+namespace CompanyOS\Bundle\CoreBundle\Application\User\CommandHandler;
 
-use CompanyOS\Application\User\Command\DeleteUserCommand;
-use CompanyOS\Domain\User\Domain\Repository\UserRepositoryInterface;
-use CompanyOS\Domain\ValueObject\Uuid;
-use CompanyOS\Application\Command\CommandHandlerInterface;
+use CompanyOS\Bundle\CoreBundle\Application\User\Command\DeleteUserCommand;
+use CompanyOS\Bundle\CoreBundle\Domain\User\Domain\Repository\UserRepositoryInterface;
+use CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Uuid;
+use CompanyOS\Bundle\CoreBundle\Application\Command\CommandHandlerInterface;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 
 #[AsMessageHandler]

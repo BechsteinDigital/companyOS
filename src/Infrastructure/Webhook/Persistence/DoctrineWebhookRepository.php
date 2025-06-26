@@ -1,10 +1,10 @@
 <?php
 
-namespace CompanyOS\Infrastructure\Webhook\Persistence;
+namespace CompanyOS\Bundle\CoreBundle\Infrastructure\Webhook\Persistence;
 
-use CompanyOS\Domain\Webhook\Domain\Entity\Webhook;
-use CompanyOS\Domain\Webhook\Domain\Repository\WebhookRepositoryInterface;
-use CompanyOS\Domain\ValueObject\Uuid;
+use CompanyOS\Bundle\CoreBundle\Domain\Webhook\Domain\Entity\Webhook;
+use CompanyOS\Bundle\CoreBundle\Domain\Webhook\Domain\Repository\WebhookRepositoryInterface;
+use CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Uuid;
 use Doctrine\ORM\EntityManagerInterface;
 
 class DoctrineWebhookRepository implements WebhookRepositoryInterface

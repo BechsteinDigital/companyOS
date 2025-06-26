@@ -1,6 +1,6 @@
 <?php
 
-namespace CompanyOS\Domain\Auth\Domain\ValueObject;
+namespace CompanyOS\Bundle\CoreBundle\Domain\Auth\Domain\ValueObject;
 
 class RefreshToken
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace CompanyOS\Application\User\Query;
+namespace CompanyOS\Bundle\CoreBundle\Application\User\Query;
 
-use CompanyOS\Application\Query\Query;
+use CompanyOS\Bundle\CoreBundle\Application\Query\Query;
 
 class SearchUsersQuery implements Query
 {

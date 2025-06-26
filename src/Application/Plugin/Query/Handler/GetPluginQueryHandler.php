@@ -1,11 +1,11 @@
 <?php
 
-namespace CompanyOS\Application\Plugin\Query\Handler;
+namespace CompanyOS\Bundle\CoreBundle\Application\Plugin\Query\Handler;
 
-use CompanyOS\Application\Plugin\Query\GetPluginQuery;
-use CompanyOS\Domain\Plugin\Domain\Repository\PluginRepository;
-use CompanyOS\Application\Query\QueryHandler;
-use CompanyOS\Domain\ValueObject\Uuid;
+use CompanyOS\Bundle\CoreBundle\Application\Plugin\Query\GetPluginQuery;
+use CompanyOS\Bundle\CoreBundle\Domain\Plugin\Domain\Repository\PluginRepository;
+use CompanyOS\Bundle\CoreBundle\Application\Query\QueryHandler;
+use CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Uuid;
 
 class GetPluginQueryHandler implements QueryHandler
 {

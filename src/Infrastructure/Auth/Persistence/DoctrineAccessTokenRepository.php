@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace CompanyOS\Infrastructure\Auth\Persistence;
+namespace CompanyOS\Bundle\CoreBundle\Infrastructure\Auth\Persistence;
 
-use CompanyOS\Domain\Auth\Domain\Entity\AccessToken;
-use CompanyOS\Domain\Auth\Domain\Repository\AccessTokenRepositoryInterface;
-use CompanyOS\Domain\ValueObject\Uuid;
+use CompanyOS\Bundle\CoreBundle\Domain\Auth\Domain\Entity\AccessToken;
+use CompanyOS\Bundle\CoreBundle\Domain\Auth\Domain\Repository\AccessTokenRepositoryInterface;
+use CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Uuid;
 use Doctrine\ORM\EntityManagerInterface;
 use League\OAuth2\Server\Entities\AccessTokenEntityInterface;
 use League\OAuth2\Server\Entities\ClientEntityInterface;

@@ -1,12 +1,12 @@
 <?php
 
-namespace CompanyOS\Application\Webhook\CommandHandler;
+namespace CompanyOS\Bundle\CoreBundle\Application\Webhook\CommandHandler;
 
-use CompanyOS\Application\Webhook\Command\CreateWebhookCommand;
-use CompanyOS\Domain\Webhook\Domain\Entity\Webhook;
-use CompanyOS\Domain\Webhook\Domain\Repository\WebhookRepositoryInterface;
-use CompanyOS\Application\Command\CommandHandlerInterface;
-use CompanyOS\Domain\ValueObject\Uuid;
+use CompanyOS\Bundle\CoreBundle\Application\Webhook\Command\CreateWebhookCommand;
+use CompanyOS\Bundle\CoreBundle\Domain\Webhook\Domain\Entity\Webhook;
+use CompanyOS\Bundle\CoreBundle\Domain\Webhook\Domain\Repository\WebhookRepositoryInterface;
+use CompanyOS\Bundle\CoreBundle\Application\Command\CommandHandlerInterface;
+use CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Uuid;
 
 class CreateWebhookCommandHandler implements CommandHandlerInterface
 {

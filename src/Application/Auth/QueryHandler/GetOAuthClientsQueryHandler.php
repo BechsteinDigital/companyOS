@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace CompanyOS\Application\Auth\QueryHandler;
+namespace CompanyOS\Bundle\CoreBundle\Application\Auth\QueryHandler;
 
-use CompanyOS\Application\Auth\Query\GetOAuthClientsQuery;
-use CompanyOS\Application\Auth\DTO\OAuthClientResponse;
-use CompanyOS\Domain\Auth\Domain\Repository\ClientRepositoryInterface;
-use CompanyOS\Application\Query\QueryHandlerInterface;
+use CompanyOS\Bundle\CoreBundle\Application\Auth\Query\GetOAuthClientsQuery;
+use CompanyOS\Bundle\CoreBundle\Application\Auth\DTO\OAuthClientResponse;
+use CompanyOS\Bundle\CoreBundle\Domain\Auth\Domain\Repository\ClientRepositoryInterface;
+use CompanyOS\Bundle\CoreBundle\Application\Query\QueryHandlerInterface;
 
 final class GetOAuthClientsQueryHandler implements QueryHandlerInterface
 {

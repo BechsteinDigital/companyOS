@@ -1,9 +1,9 @@
 <?php
 
-namespace CompanyOS\Application\Settings\Command;
+namespace CompanyOS\Bundle\CoreBundle\Application\Settings\Command;
 
-use CompanyOS\Application\Command\CommandInterface;
-use CompanyOS\Domain\ValueObject\Email;
+use CompanyOS\Bundle\CoreBundle\Application\Command\CommandInterface;
+use CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Email;
 
 class UpdateCompanySettingsCommand implements CommandInterface
 {

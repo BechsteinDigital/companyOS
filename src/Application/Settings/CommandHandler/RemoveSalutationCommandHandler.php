@@ -1,11 +1,11 @@
 <?php
 
-namespace CompanyOS\Application\Settings\CommandHandler;
+namespace CompanyOS\Bundle\CoreBundle\Application\Settings\CommandHandler;
 
-use CompanyOS\Application\Settings\Command\RemoveSalutationCommand;
-use CompanyOS\Domain\Settings\Domain\Repository\CompanySettingsRepositoryInterface;
-use CompanyOS\Application\Command\CommandHandlerInterface;
-use CompanyOS\Infrastructure\Event\DomainEventDispatcher;
+use CompanyOS\Bundle\CoreBundle\Application\Settings\Command\RemoveSalutationCommand;
+use CompanyOS\Bundle\CoreBundle\Domain\Settings\Domain\Repository\CompanySettingsRepositoryInterface;
+use CompanyOS\Bundle\CoreBundle\Application\Command\CommandHandlerInterface;
+use CompanyOS\Bundle\CoreBundle\Infrastructure\Event\DomainEventDispatcher;
 
 class RemoveSalutationCommandHandler implements CommandHandlerInterface
 {

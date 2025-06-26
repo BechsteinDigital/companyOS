@@ -1,6 +1,6 @@
 <?php
 
-namespace CompanyOS\Infrastructure\Auth\Middleware;
+namespace CompanyOS\Bundle\CoreBundle\Infrastructure\Auth\Middleware;
 
 use League\OAuth2\Server\ResourceServer;
 use League\OAuth2\Server\Exception\OAuthServerException;

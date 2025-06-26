@@ -1,11 +1,11 @@
 <?php
 
-namespace CompanyOS\Infrastructure\Persistence;
+namespace CompanyOS\Bundle\CoreBundle\Infrastructure\Persistence;
 
-use CompanyOS\Domain\Event\DomainEvent;
-use CompanyOS\Domain\Event\EventStore;
-use CompanyOS\Domain\Event\StoredEvent;
-use CompanyOS\Domain\ValueObject\Uuid;
+use CompanyOS\Bundle\CoreBundle\Domain\Event\DomainEvent;
+use CompanyOS\Bundle\CoreBundle\Domain\Event\EventStore;
+use CompanyOS\Bundle\CoreBundle\Domain\Event\StoredEvent;
+use CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Uuid;
 use Doctrine\ORM\EntityManagerInterface;
 
 class DoctrineEventStore implements EventStore

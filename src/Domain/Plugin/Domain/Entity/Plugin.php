@@ -1,14 +1,14 @@
 <?php
 
-namespace CompanyOS\Domain\Plugin\Domain\Entity;
+namespace CompanyOS\Bundle\CoreBundle\Domain\Plugin\Domain\Entity;
 
-use CompanyOS\Domain\Plugin\Domain\Event\PluginInstalled;
-use CompanyOS\Domain\Plugin\Domain\Event\PluginActivated;
-use CompanyOS\Domain\Plugin\Domain\Event\PluginDeactivated;
-use CompanyOS\Domain\Plugin\Domain\Event\PluginUpdated;
-use CompanyOS\Domain\Plugin\Domain\Event\PluginDeleted;
-use CompanyOS\Domain\Event\DomainEvent;
-use CompanyOS\Domain\ValueObject\Uuid;
+use CompanyOS\Bundle\CoreBundle\Domain\Plugin\Domain\Event\PluginInstalled;
+use CompanyOS\Bundle\CoreBundle\Domain\Plugin\Domain\Event\PluginActivated;
+use CompanyOS\Bundle\CoreBundle\Domain\Plugin\Domain\Event\PluginDeactivated;
+use CompanyOS\Bundle\CoreBundle\Domain\Plugin\Domain\Event\PluginUpdated;
+use CompanyOS\Bundle\CoreBundle\Domain\Plugin\Domain\Event\PluginDeleted;
+use CompanyOS\Bundle\CoreBundle\Domain\Event\DomainEvent;
+use CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Uuid;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity]

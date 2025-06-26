@@ -1,8 +1,8 @@
 <?php
 
-namespace CompanyOS\Domain\User\Domain\ValueObject;
+namespace CompanyOS\Bundle\CoreBundle\Domain\User\Domain\ValueObject;
 
-use CompanyOS\Domain\ValueObject\Uuid;
+use CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Uuid;
 
 class UserId extends Uuid
 {

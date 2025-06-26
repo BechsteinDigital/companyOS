@@ -1,8 +1,8 @@
 <?php
 
-namespace CompanyOS\Domain\Event;
+namespace CompanyOS\Bundle\CoreBundle\Domain\Event;
 
-use CompanyOS\Domain\ValueObject\Uuid;
+use CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Uuid;
 use DateTimeImmutable;
 
 abstract class DomainEvent

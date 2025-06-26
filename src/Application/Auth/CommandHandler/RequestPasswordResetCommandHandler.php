@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace CompanyOS\Application\Auth\CommandHandler;
+namespace CompanyOS\Bundle\CoreBundle\Application\Auth\CommandHandler;
 
-use CompanyOS\Application\Auth\Command\RequestPasswordResetCommand;
-use CompanyOS\Application\Auth\Event\PasswordResetRequestedEvent;
-use CompanyOS\Domain\Auth\Domain\Service\AuthenticationService;
-use CompanyOS\Application\Command\CommandHandlerInterface;
+use CompanyOS\Bundle\CoreBundle\Application\Auth\Command\RequestPasswordResetCommand;
+use CompanyOS\Bundle\CoreBundle\Application\Auth\Event\PasswordResetRequestedEvent;
+use CompanyOS\Bundle\CoreBundle\Domain\Auth\Domain\Service\AuthenticationService;
+use CompanyOS\Bundle\CoreBundle\Application\Command\CommandHandlerInterface;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 use Symfony\Component\Messenger\MessageBusInterface;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace CompanyOS\Application\Auth\Controller;
+namespace CompanyOS\Bundle\CoreBundle\Application\Auth\Controller;
 
 use League\OAuth2\Server\AuthorizationServer;
 use League\OAuth2\Server\Exception\OAuthServerException;

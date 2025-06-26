@@ -1,12 +1,12 @@
 <?php
 
-namespace CompanyOS\Domain\Role\Domain\Entity;
+namespace CompanyOS\Bundle\CoreBundle\Domain\Role\Domain\Entity;
 
-use CompanyOS\Domain\Role\Domain\ValueObject\RoleId;
-use CompanyOS\Domain\Role\Domain\ValueObject\RoleName;
-use CompanyOS\Domain\Role\Domain\ValueObject\RoleDisplayName;
-use CompanyOS\Domain\Role\Domain\ValueObject\RoleDescription;
-use CompanyOS\Domain\Role\Domain\ValueObject\RolePermissions;
+use CompanyOS\Bundle\CoreBundle\Domain\Role\Domain\ValueObject\RoleId;
+use CompanyOS\Bundle\CoreBundle\Domain\Role\Domain\ValueObject\RoleName;
+use CompanyOS\Bundle\CoreBundle\Domain\Role\Domain\ValueObject\RoleDisplayName;
+use CompanyOS\Bundle\CoreBundle\Domain\Role\Domain\ValueObject\RoleDescription;
+use CompanyOS\Bundle\CoreBundle\Domain\Role\Domain\ValueObject\RolePermissions;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Uid\Uuid;
 

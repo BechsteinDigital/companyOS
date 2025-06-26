@@ -1,12 +1,12 @@
 <?php
 
-namespace CompanyOS\Infrastructure\Role\Event;
+namespace CompanyOS\Bundle\CoreBundle\Infrastructure\Role\Event;
 
-use CompanyOS\Domain\Role\Domain\Event\RoleCreated;
-use CompanyOS\Domain\Role\Domain\Event\RoleUpdated;
-use CompanyOS\Domain\Role\Domain\Event\RoleDeleted;
-use CompanyOS\Domain\Role\Domain\Event\RoleAssignedToUser;
-use CompanyOS\Domain\Role\Domain\Event\RoleRemovedFromUser;
+use CompanyOS\Bundle\CoreBundle\Domain\Role\Domain\Event\RoleCreated;
+use CompanyOS\Bundle\CoreBundle\Domain\Role\Domain\Event\RoleUpdated;
+use CompanyOS\Bundle\CoreBundle\Domain\Role\Domain\Event\RoleDeleted;
+use CompanyOS\Bundle\CoreBundle\Domain\Role\Domain\Event\RoleAssignedToUser;
+use CompanyOS\Bundle\CoreBundle\Domain\Role\Domain\Event\RoleRemovedFromUser;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 

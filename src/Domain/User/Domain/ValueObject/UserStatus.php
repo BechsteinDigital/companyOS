@@ -1,6 +1,6 @@
 <?php
 
-namespace CompanyOS\Domain\User\Domain\ValueObject;
+namespace CompanyOS\Bundle\CoreBundle\Domain\User\Domain\ValueObject;
 
 enum UserStatus: string
 {

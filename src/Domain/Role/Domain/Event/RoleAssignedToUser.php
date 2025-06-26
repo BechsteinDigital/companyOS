@@ -1,10 +1,10 @@
 <?php
 
-namespace CompanyOS\Domain\Role\Domain\Event;
+namespace CompanyOS\Bundle\CoreBundle\Domain\Role\Domain\Event;
 
-use CompanyOS\Domain\Role\Domain\Entity\Role;
-use CompanyOS\Domain\User\Domain\Entity\User;
-use CompanyOS\Domain\Event\DomainEvent;
+use CompanyOS\Bundle\CoreBundle\Domain\Role\Domain\Entity\Role;
+use CompanyOS\Bundle\CoreBundle\Domain\User\Domain\Entity\User;
+use CompanyOS\Bundle\CoreBundle\Domain\Event\DomainEvent;
 
 class RoleAssignedToUser extends DomainEvent
 {

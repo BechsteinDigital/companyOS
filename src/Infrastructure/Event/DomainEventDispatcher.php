@@ -1,9 +1,9 @@
 <?php
 
-namespace CompanyOS\Infrastructure\Event;
+namespace CompanyOS\Bundle\CoreBundle\Infrastructure\Event;
 
-use CompanyOS\Domain\Event\DomainEvent;
-use CompanyOS\Domain\Event\EventStore;
+use CompanyOS\Bundle\CoreBundle\Domain\Event\DomainEvent;
+use CompanyOS\Bundle\CoreBundle\Domain\Event\EventStore;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Psr\Log\LoggerInterface;

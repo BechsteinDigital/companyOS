@@ -1,8 +1,8 @@
 <?php
 
-namespace CompanyOS\Infrastructure\Plugin\DependencyInjection;
+namespace CompanyOS\Bundle\CoreBundle\Infrastructure\Plugin\DependencyInjection;
 
-use CompanyOS\Domain\Plugin\Domain\Service\PluginManager;
+use CompanyOS\Bundle\CoreBundle\Domain\Plugin\Domain\Service\PluginManager;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;

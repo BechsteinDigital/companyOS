@@ -1,6 +1,6 @@
 <?php
 
-namespace CompanyOS\Application\Role\Event;
+namespace CompanyOS\Bundle\CoreBundle\Application\Role\Event;
 
 class RoleRemovedFromUserEvent
 {

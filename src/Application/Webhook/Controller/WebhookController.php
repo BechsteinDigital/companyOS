@@ -1,16 +1,16 @@
 <?php
 
-namespace CompanyOS\Application\Webhook\Controller;
+namespace CompanyOS\Bundle\CoreBundle\Application\Webhook\Controller;
 
-use CompanyOS\Application\Webhook\Command\CreateWebhookCommand;
-use CompanyOS\Application\Webhook\Command\UpdateWebhookCommand;
-use CompanyOS\Application\Webhook\Command\DeleteWebhookCommand;
-use CompanyOS\Application\Webhook\Query\GetWebhookQuery;
-use CompanyOS\Application\Webhook\Query\GetAllWebhooksQuery;
-use CompanyOS\Application\Webhook\DTO\CreateWebhookRequest;
-use CompanyOS\Application\Webhook\DTO\WebhookResponse;
-use CompanyOS\Domain\Webhook\Domain\Repository\WebhookRepositoryInterface;
-use CompanyOS\Domain\ValueObject\Uuid;
+use CompanyOS\Bundle\CoreBundle\Application\Webhook\Command\CreateWebhookCommand;
+use CompanyOS\Bundle\CoreBundle\Application\Webhook\Command\UpdateWebhookCommand;
+use CompanyOS\Bundle\CoreBundle\Application\Webhook\Command\DeleteWebhookCommand;
+use CompanyOS\Bundle\CoreBundle\Application\Webhook\Query\GetWebhookQuery;
+use CompanyOS\Bundle\CoreBundle\Application\Webhook\Query\GetAllWebhooksQuery;
+use CompanyOS\Bundle\CoreBundle\Application\Webhook\DTO\CreateWebhookRequest;
+use CompanyOS\Bundle\CoreBundle\Application\Webhook\DTO\WebhookResponse;
+use CompanyOS\Bundle\CoreBundle\Domain\Webhook\Domain\Repository\WebhookRepositoryInterface;
+use CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Uuid;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;

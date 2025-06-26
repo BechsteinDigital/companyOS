@@ -1,26 +1,26 @@
 <?php
 
-namespace CompanyOS\Infrastructure\Plugin\DependencyInjection;
+namespace CompanyOS\Bundle\CoreBundle\Infrastructure\Plugin\DependencyInjection;
 
-use CompanyOS\Application\Plugin\CommandHandler\ActivatePluginCommandHandler;
-use CompanyOS\Application\Plugin\CommandHandler\DeactivatePluginCommandHandler;
-use CompanyOS\Application\Plugin\CommandHandler\DeletePluginCommandHandler;
-use CompanyOS\Application\Plugin\CommandHandler\InstallPluginCommandHandler;
-use CompanyOS\Application\Plugin\CommandHandler\UpdatePluginCommandHandler;
-use CompanyOS\Application\Plugin\EventHandler\PluginEventHandler;
-use CompanyOS\Application\Plugin\QueryHandler\CheckPluginCompatibilityQueryHandler;
-use CompanyOS\Application\Plugin\QueryHandler\GetActivePluginsQueryHandler;
-use CompanyOS\Application\Plugin\QueryHandler\GetAllPluginsQueryHandler;
-use CompanyOS\Application\Plugin\QueryHandler\GetPluginDependenciesQueryHandler;
-use CompanyOS\Application\Plugin\QueryHandler\GetPluginQueryHandler;
-use CompanyOS\Application\Plugin\Service\PluginApplicationService;
-use CompanyOS\Domain\Plugin\Domain\Repository\PluginRepositoryInterface;
-use CompanyOS\Domain\Plugin\Domain\Service\PluginCompatibilityService;
-use CompanyOS\Domain\Plugin\Domain\Service\PluginManager;
-use CompanyOS\Infrastructure\Plugin\Event\PluginEventSubscriber;
-use CompanyOS\Infrastructure\Plugin\External\PluginNotificationService;
-use CompanyOS\Infrastructure\Plugin\External\PluginRegistryService;
-use CompanyOS\Infrastructure\Plugin\Persistence\DoctrinePluginRepository;
+use CompanyOS\Bundle\CoreBundle\Application\Plugin\CommandHandler\ActivatePluginCommandHandler;
+use CompanyOS\Bundle\CoreBundle\Application\Plugin\CommandHandler\DeactivatePluginCommandHandler;
+use CompanyOS\Bundle\CoreBundle\Application\Plugin\CommandHandler\DeletePluginCommandHandler;
+use CompanyOS\Bundle\CoreBundle\Application\Plugin\CommandHandler\InstallPluginCommandHandler;
+use CompanyOS\Bundle\CoreBundle\Application\Plugin\CommandHandler\UpdatePluginCommandHandler;
+use CompanyOS\Bundle\CoreBundle\Application\Plugin\EventHandler\PluginEventHandler;
+use CompanyOS\Bundle\CoreBundle\Application\Plugin\QueryHandler\CheckPluginCompatibilityQueryHandler;
+use CompanyOS\Bundle\CoreBundle\Application\Plugin\QueryHandler\GetActivePluginsQueryHandler;
+use CompanyOS\Bundle\CoreBundle\Application\Plugin\QueryHandler\GetAllPluginsQueryHandler;
+use CompanyOS\Bundle\CoreBundle\Application\Plugin\QueryHandler\GetPluginDependenciesQueryHandler;
+use CompanyOS\Bundle\CoreBundle\Application\Plugin\QueryHandler\GetPluginQueryHandler;
+use CompanyOS\Bundle\CoreBundle\Application\Plugin\Service\PluginApplicationService;
+use CompanyOS\Bundle\CoreBundle\Domain\Plugin\Domain\Repository\PluginRepositoryInterface;
+use CompanyOS\Bundle\CoreBundle\Domain\Plugin\Domain\Service\PluginCompatibilityService;
+use CompanyOS\Bundle\CoreBundle\Domain\Plugin\Domain\Service\PluginManager;
+use CompanyOS\Bundle\CoreBundle\Infrastructure\Plugin\Event\PluginEventSubscriber;
+use CompanyOS\Bundle\CoreBundle\Infrastructure\Plugin\External\PluginNotificationService;
+use CompanyOS\Bundle\CoreBundle\Infrastructure\Plugin\External\PluginRegistryService;
+use CompanyOS\Bundle\CoreBundle\Infrastructure\Plugin\Persistence\DoctrinePluginRepository;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;

@@ -1,12 +1,12 @@
 <?php
 
-namespace CompanyOS\Application\Role\EventHandler;
+namespace CompanyOS\Bundle\CoreBundle\Application\Role\EventHandler;
 
-use CompanyOS\Application\Role\Event\RoleCreatedEvent;
-use CompanyOS\Application\Role\Event\RoleUpdatedEvent;
-use CompanyOS\Application\Role\Event\RoleDeletedEvent;
-use CompanyOS\Application\Role\Event\RoleAssignedToUserEvent;
-use CompanyOS\Application\Role\Event\RoleRemovedFromUserEvent;
+use CompanyOS\Bundle\CoreBundle\Application\Role\Event\RoleCreatedEvent;
+use CompanyOS\Bundle\CoreBundle\Application\Role\Event\RoleUpdatedEvent;
+use CompanyOS\Bundle\CoreBundle\Application\Role\Event\RoleDeletedEvent;
+use CompanyOS\Bundle\CoreBundle\Application\Role\Event\RoleAssignedToUserEvent;
+use CompanyOS\Bundle\CoreBundle\Application\Role\Event\RoleRemovedFromUserEvent;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 

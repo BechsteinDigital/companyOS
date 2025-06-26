@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace CompanyOS\Application\Plugin\Event;
+namespace CompanyOS\Bundle\CoreBundle\Application\Plugin\Event;
 
-use CompanyOS\Domain\ValueObject\Uuid;
+use CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Uuid;
 
 final class PluginUpdatedEvent
 {

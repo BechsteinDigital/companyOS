@@ -1,10 +1,10 @@
 <?php
 
-namespace CompanyOS\Application\Webhook\CommandHandler;
+namespace CompanyOS\Bundle\CoreBundle\Application\Webhook\CommandHandler;
 
-use CompanyOS\Application\Webhook\Command\DeleteWebhookCommand;
-use CompanyOS\Domain\Webhook\Domain\Repository\WebhookRepositoryInterface;
-use CompanyOS\Application\Command\CommandHandlerInterface;
+use CompanyOS\Bundle\CoreBundle\Application\Webhook\Command\DeleteWebhookCommand;
+use CompanyOS\Bundle\CoreBundle\Domain\Webhook\Domain\Repository\WebhookRepositoryInterface;
+use CompanyOS\Bundle\CoreBundle\Application\Command\CommandHandlerInterface;
 
 class DeleteWebhookCommandHandler implements CommandHandlerInterface
 {

@@ -2,23 +2,23 @@
 
 declare(strict_types=1);
 
-namespace CompanyOS\Application\Plugin\Service;
+namespace CompanyOS\Bundle\CoreBundle\Application\Plugin\Service;
 
-use CompanyOS\Application\Plugin\Command\ActivatePluginCommand as PluginActivatePluginCommand;
-use CompanyOS\Application\Plugin\Command\DeactivatePluginCommand;
-use CompanyOS\Application\Plugin\Command\DeletePluginCommand;
-use CompanyOS\Application\Plugin\Command\InstallPluginCommand;
-use CompanyOS\Application\Plugin\Command\UpdatePluginCommand;
-use CompanyOS\Application\Plugin\DTO\InstallPluginRequest;
-use CompanyOS\Application\Plugin\DTO\UpdatePluginRequest;
-use CompanyOS\Application\Plugin\Query\CheckPluginCompatibilityQuery;
-use CompanyOS\Application\Plugin\Query\GetActivePluginsQuery;
-use CompanyOS\Application\Plugin\Query\GetAllPluginsQuery;
-use CompanyOS\Application\Plugin\Query\GetPluginDependenciesQuery;
-use CompanyOS\Application\Plugin\Query\GetPluginQuery;
-use CompanyOS\Application\Command\CommandBusInterface;
-use CompanyOS\Application\Query\QueryBusInterface;
-use CompanyOS\Domain\ValueObject\Uuid;
+use CompanyOS\Bundle\CoreBundle\Application\Plugin\Command\ActivatePluginCommand as PluginActivatePluginCommand;
+use CompanyOS\Bundle\CoreBundle\Application\Plugin\Command\DeactivatePluginCommand;
+use CompanyOS\Bundle\CoreBundle\Application\Plugin\Command\DeletePluginCommand;
+use CompanyOS\Bundle\CoreBundle\Application\Plugin\Command\InstallPluginCommand;
+use CompanyOS\Bundle\CoreBundle\Application\Plugin\Command\UpdatePluginCommand;
+use CompanyOS\Bundle\CoreBundle\Application\Plugin\DTO\InstallPluginRequest;
+use CompanyOS\Bundle\CoreBundle\Application\Plugin\DTO\UpdatePluginRequest;
+use CompanyOS\Bundle\CoreBundle\Application\Plugin\Query\CheckPluginCompatibilityQuery;
+use CompanyOS\Bundle\CoreBundle\Application\Plugin\Query\GetActivePluginsQuery;
+use CompanyOS\Bundle\CoreBundle\Application\Plugin\Query\GetAllPluginsQuery;
+use CompanyOS\Bundle\CoreBundle\Application\Plugin\Query\GetPluginDependenciesQuery;
+use CompanyOS\Bundle\CoreBundle\Application\Plugin\Query\GetPluginQuery;
+use CompanyOS\Bundle\CoreBundle\Application\Command\CommandBusInterface;
+use CompanyOS\Bundle\CoreBundle\Application\Query\QueryBusInterface;
+use CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Uuid;
 
 final class PluginApplicationService
 {

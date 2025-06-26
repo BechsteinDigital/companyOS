@@ -1,10 +1,10 @@
 <?php
 
-namespace CompanyOS\Application\Webhook\QueryHandler;
+namespace CompanyOS\Bundle\CoreBundle\Application\Webhook\QueryHandler;
 
-use CompanyOS\Application\Webhook\Query\GetAllWebhooksQuery;
-use CompanyOS\Application\Webhook\DTO\WebhookResponse;
-use CompanyOS\Domain\Webhook\Domain\Repository\WebhookRepositoryInterface;
+use CompanyOS\Bundle\CoreBundle\Application\Webhook\Query\GetAllWebhooksQuery;
+use CompanyOS\Bundle\CoreBundle\Application\Webhook\DTO\WebhookResponse;
+use CompanyOS\Bundle\CoreBundle\Domain\Webhook\Domain\Repository\WebhookRepositoryInterface;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 
 #[AsMessageHandler]

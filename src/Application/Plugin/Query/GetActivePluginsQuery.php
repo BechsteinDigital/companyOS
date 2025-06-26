@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace CompanyOS\Application\Plugin\Query;
+namespace CompanyOS\Bundle\CoreBundle\Application\Plugin\Query;
 
-use CompanyOS\Application\Query\Query;
+use CompanyOS\Bundle\CoreBundle\Application\Query\Query;
 
 final class GetActivePluginsQuery implements Query
 {

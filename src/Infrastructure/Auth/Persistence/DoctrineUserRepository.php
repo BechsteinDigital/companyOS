@@ -1,9 +1,9 @@
 <?php
 
-namespace CompanyOS\Infrastructure\Auth\Persistence;
+namespace CompanyOS\Bundle\CoreBundle\Infrastructure\Auth\Persistence;
 
-use CompanyOS\Domain\User\Domain\Entity\User;
-use CompanyOS\Domain\User\Domain\Repository\UserRepositoryInterface;
+use CompanyOS\Bundle\CoreBundle\Domain\User\Domain\Entity\User;
+use CompanyOS\Bundle\CoreBundle\Domain\User\Domain\Repository\UserRepositoryInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use League\OAuth2\Server\Entities\ClientEntityInterface;
 use League\OAuth2\Server\Entities\UserEntityInterface;

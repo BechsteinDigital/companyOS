@@ -1,6 +1,6 @@
 <?php
 
-namespace CompanyOS\Application\OpenApi;
+namespace CompanyOS\Bundle\CoreBundle\Application\OpenApi;
 
 use OpenApi\Annotations as OA;
 

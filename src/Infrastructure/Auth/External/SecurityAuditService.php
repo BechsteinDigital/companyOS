@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace CompanyOS\Infrastructure\Auth\External;
+namespace CompanyOS\Bundle\CoreBundle\Infrastructure\Auth\External;
 
-use CompanyOS\Domain\ValueObject\Uuid;
+use CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Uuid;
 use Doctrine\DBAL\Connection;
 use Psr\Log\LoggerInterface;
 

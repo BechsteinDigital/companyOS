@@ -1,15 +1,15 @@
 <?php
 
-namespace CompanyOS\Application\Role\CommandHandler;
+namespace CompanyOS\Bundle\CoreBundle\Application\Role\CommandHandler;
 
-use CompanyOS\Application\Role\Command\AssignRoleToUserCommand;
-use CompanyOS\Domain\Role\Domain\Repository\RoleRepositoryInterface;
-use CompanyOS\Domain\Role\Domain\ValueObject\RoleId;
-use CompanyOS\Domain\User\Domain\Repository\UserRepositoryInterface;
-use CompanyOS\Application\Role\Event\RoleAssignedToUserEvent;
+use CompanyOS\Bundle\CoreBundle\Application\Role\Command\AssignRoleToUserCommand;
+use CompanyOS\Bundle\CoreBundle\Domain\Role\Domain\Repository\RoleRepositoryInterface;
+use CompanyOS\Bundle\CoreBundle\Domain\Role\Domain\ValueObject\RoleId;
+use CompanyOS\Bundle\CoreBundle\Domain\User\Domain\Repository\UserRepositoryInterface;
+use CompanyOS\Bundle\CoreBundle\Application\Role\Event\RoleAssignedToUserEvent;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 use Symfony\Component\Messenger\MessageBusInterface;
-use CompanyOS\Infrastructure\Event\DomainEventDispatcher;
+use CompanyOS\Bundle\CoreBundle\Infrastructure\Event\DomainEventDispatcher;
 
 #[AsMessageHandler]
 class AssignRoleToUserCommandHandler

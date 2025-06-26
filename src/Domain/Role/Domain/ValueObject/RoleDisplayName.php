@@ -1,6 +1,6 @@
 <?php
 
-namespace CompanyOS\Domain\Role\Domain\ValueObject;
+namespace CompanyOS\Bundle\CoreBundle\Domain\Role\Domain\ValueObject;
 
 class RoleDisplayName
 {

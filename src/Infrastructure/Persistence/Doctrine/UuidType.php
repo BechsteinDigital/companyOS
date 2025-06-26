@@ -1,8 +1,8 @@
 <?php
 
-namespace CompanyOS\Infrastructure\Persistence\Doctrine;
+namespace CompanyOS\Bundle\CoreBundle\Infrastructure\Persistence\Doctrine;
 
-use CompanyOS\Domain\ValueObject\Uuid;
+use CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Uuid;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\Type;
 

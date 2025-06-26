@@ -1,9 +1,9 @@
 <?php
 
-namespace CompanyOS\Infrastructure\Role\Persistence;
+namespace CompanyOS\Bundle\CoreBundle\Infrastructure\Role\Persistence;
 
-use CompanyOS\Domain\Role\Domain\Entity\Role;
-use CompanyOS\Domain\User\Domain\Entity\User;
+use CompanyOS\Bundle\CoreBundle\Domain\Role\Domain\Entity\Role;
+use CompanyOS\Bundle\CoreBundle\Domain\User\Domain\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 
 class DoctrineUserRoleRepository

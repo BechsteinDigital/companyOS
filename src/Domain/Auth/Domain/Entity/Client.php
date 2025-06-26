@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace CompanyOS\Domain\Auth\Domain\Entity;
+namespace CompanyOS\Bundle\CoreBundle\Domain\Auth\Domain\Entity;
 
-use CompanyOS\Domain\ValueObject\Uuid;
+use CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Uuid;
 use Doctrine\ORM\Mapping as ORM;
 use League\OAuth2\Server\Entities\ClientEntityInterface;
 use League\OAuth2\Server\Entities\Traits\ClientTrait;

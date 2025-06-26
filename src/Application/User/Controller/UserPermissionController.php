@@ -1,10 +1,10 @@
 <?php
 
-namespace CompanyOS\Application\User\Controller;
+namespace CompanyOS\Bundle\CoreBundle\Application\User\Controller;
 
-use CompanyOS\Application\Role\Service\PermissionService;
-use CompanyOS\Domain\User\Domain\Repository\UserRepositoryInterface;
-use CompanyOS\Domain\ValueObject\Uuid;
+use CompanyOS\Bundle\CoreBundle\Application\Role\Service\PermissionService;
+use CompanyOS\Bundle\CoreBundle\Domain\User\Domain\Repository\UserRepositoryInterface;
+use CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Uuid;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;

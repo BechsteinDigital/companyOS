@@ -1,9 +1,9 @@
 <?php
 
-namespace CompanyOS\Infrastructure\Role\Security;
+namespace CompanyOS\Bundle\CoreBundle\Infrastructure\Role\Security;
 
-use CompanyOS\Domain\Role\Domain\Entity\Role;
-use CompanyOS\Domain\User\Domain\Entity\User;
+use CompanyOS\Bundle\CoreBundle\Domain\Role\Domain\Entity\Role;
+use CompanyOS\Bundle\CoreBundle\Domain\User\Domain\Entity\User;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authorization\Voter\Voter;
 

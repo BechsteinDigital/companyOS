@@ -1,11 +1,11 @@
 <?php
 
-namespace CompanyOS\Infrastructure\User\Persistence;
+namespace CompanyOS\Bundle\CoreBundle\Infrastructure\User\Persistence;
 
-use CompanyOS\Domain\User\Domain\Entity\User;
-use CompanyOS\Domain\User\Domain\Repository\UserRepositoryInterface;
-use CompanyOS\Domain\ValueObject\Uuid;
-use CompanyOS\Domain\ValueObject\Email;
+use CompanyOS\Bundle\CoreBundle\Domain\User\Domain\Entity\User;
+use CompanyOS\Bundle\CoreBundle\Domain\User\Domain\Repository\UserRepositoryInterface;
+use CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Uuid;
+use CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Email;
 use Doctrine\ORM\EntityManagerInterface;
 
 class DoctrineUserRepository implements UserRepositoryInterface

@@ -1,13 +1,13 @@
 <?php
 
-namespace CompanyOS\Application\Plugin\CommandHandler;
+namespace CompanyOS\Bundle\CoreBundle\Application\Plugin\CommandHandler;
 
-use CompanyOS\Application\Plugin\Command\UpdatePluginCommand;
-use CompanyOS\Domain\Plugin\Domain\Service\PluginManager;
-use CompanyOS\Domain\Plugin\Domain\Event\PluginUpdated;
-use CompanyOS\Application\Command\CommandHandlerInterface;
-use CompanyOS\Domain\ValueObject\Uuid;
-use CompanyOS\Infrastructure\Event\DomainEventDispatcher;
+use CompanyOS\Bundle\CoreBundle\Application\Plugin\Command\UpdatePluginCommand;
+use CompanyOS\Bundle\CoreBundle\Domain\Plugin\Domain\Service\PluginManager;
+use CompanyOS\Bundle\CoreBundle\Domain\Plugin\Domain\Event\PluginUpdated;
+use CompanyOS\Bundle\CoreBundle\Application\Command\CommandHandlerInterface;
+use CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Uuid;
+use CompanyOS\Bundle\CoreBundle\Infrastructure\Event\DomainEventDispatcher;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 use Psr\Log\LoggerInterface;
 

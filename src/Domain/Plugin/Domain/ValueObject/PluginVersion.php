@@ -1,6 +1,6 @@
 <?php
 
-namespace CompanyOS\Domain\Plugin\Domain\ValueObject;
+namespace CompanyOS\Bundle\CoreBundle\Domain\Plugin\Domain\ValueObject;
 
 class PluginVersion
 {

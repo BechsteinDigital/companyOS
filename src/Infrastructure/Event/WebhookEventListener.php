@@ -1,9 +1,9 @@
 <?php
 
-namespace CompanyOS\Infrastructure\Event;
+namespace CompanyOS\Bundle\CoreBundle\Infrastructure\Event;
 
-use CompanyOS\Infrastructure\Event\DomainEventOccurred;
-use CompanyOS\Infrastructure\Webhook\Service\WebhookDispatcher;
+use CompanyOS\Bundle\CoreBundle\Infrastructure\Event\DomainEventOccurred;
+use CompanyOS\Bundle\CoreBundle\Infrastructure\Webhook\Service\WebhookDispatcher;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 

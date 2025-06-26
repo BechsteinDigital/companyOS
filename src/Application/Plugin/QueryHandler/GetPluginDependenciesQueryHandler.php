@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace CompanyOS\Application\Plugin\QueryHandler;
+namespace CompanyOS\Bundle\CoreBundle\Application\Plugin\QueryHandler;
 
-use CompanyOS\Application\Plugin\Query\GetPluginDependenciesQuery;
-use CompanyOS\Application\Plugin\DTO\PluginDependencyResponse;
-use CompanyOS\Domain\Plugin\Domain\Repository\PluginRepositoryInterface;
-use CompanyOS\Application\Query\QueryHandlerInterface;
+use CompanyOS\Bundle\CoreBundle\Application\Plugin\Query\GetPluginDependenciesQuery;
+use CompanyOS\Bundle\CoreBundle\Application\Plugin\DTO\PluginDependencyResponse;
+use CompanyOS\Bundle\CoreBundle\Domain\Plugin\Domain\Repository\PluginRepositoryInterface;
+use CompanyOS\Bundle\CoreBundle\Application\Query\QueryHandlerInterface;
 
 final class GetPluginDependenciesQueryHandler implements QueryHandlerInterface
 {

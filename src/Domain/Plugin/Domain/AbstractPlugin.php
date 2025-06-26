@@ -1,6 +1,6 @@
 <?php
 
-namespace CompanyOS\Domain\Plugin\Domain;
+namespace CompanyOS\Bundle\CoreBundle\Domain\Plugin\Domain;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;

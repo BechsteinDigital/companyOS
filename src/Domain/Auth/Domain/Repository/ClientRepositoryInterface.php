@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace CompanyOS\Domain\Auth\Domain\Repository;
+namespace CompanyOS\Bundle\CoreBundle\Domain\Auth\Domain\Repository;
 
-use CompanyOS\Domain\Auth\Domain\Entity\Client;
-use CompanyOS\Domain\ValueObject\Uuid;
+use CompanyOS\Bundle\CoreBundle\Domain\Auth\Domain\Entity\Client;
+use CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Uuid;
 
 interface ClientRepositoryInterface
 {

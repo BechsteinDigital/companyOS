@@ -1,8 +1,8 @@
 <?php
 
-namespace CompanyOS\Infrastructure\Plugin\Routing;
+namespace CompanyOS\Bundle\CoreBundle\Infrastructure\Plugin\Routing;
 
-use CompanyOS\Domain\Plugin\Domain\Service\PluginManager;
+use CompanyOS\Bundle\CoreBundle\Domain\Plugin\Domain\Service\PluginManager;
 use Symfony\Component\Config\Loader\Loader;
 use Symfony\Component\Routing\RouteCollection;
 use Symfony\Component\Routing\Loader\YamlFileLoader;

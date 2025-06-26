@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace CompanyOS\Infrastructure\Auth\External;
+namespace CompanyOS\Bundle\CoreBundle\Infrastructure\Auth\External;
 
 use Psr\Log\LoggerInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;

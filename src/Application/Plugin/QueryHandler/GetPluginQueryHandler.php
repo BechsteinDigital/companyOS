@@ -1,11 +1,11 @@
 <?php
 
-namespace CompanyOS\Application\Plugin\QueryHandler;
+namespace CompanyOS\Bundle\CoreBundle\Application\Plugin\QueryHandler;
 
-use CompanyOS\Application\Plugin\Query\GetPluginQuery;
-use CompanyOS\Application\Plugin\DTO\PluginResponse;
-use CompanyOS\Domain\Plugin\Domain\Service\PluginManager;
-use CompanyOS\Domain\ValueObject\Uuid;
+use CompanyOS\Bundle\CoreBundle\Application\Plugin\Query\GetPluginQuery;
+use CompanyOS\Bundle\CoreBundle\Application\Plugin\DTO\PluginResponse;
+use CompanyOS\Bundle\CoreBundle\Domain\Plugin\Domain\Service\PluginManager;
+use CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Uuid;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 
 #[AsMessageHandler]
