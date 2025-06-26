@@ -21,6 +21,9 @@ class CompanyOSCoreExtension extends Extension
         // Services laden (immer verfügbar)
         $loader->load('services.yaml');
         
+        // Doctrine-Konfiguration laden
+        $loader->load('packages/doctrine.yaml');
+        
         // Security-Konfiguration nur laden, wenn Security-Extension verfügbar ist
         if ($container->hasExtension('security')) {
             $loader->load('security.yaml');
