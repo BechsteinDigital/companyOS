@@ -1,0 +1,37 @@
+# CompanyOS Core Bundle Routes
+
+# User API Routes
+api_users:
+    resource: ../../src/Application/User/Controller/
+    type: attribute
+    prefix: /api/users
+
+# Role API Routes
+api_roles:
+    resource: ../../src/Application/Role/Controller/
+    type: attribute
+    prefix: /api/roles
+
+# Plugin API Routes
+api_plugins:
+    resource: ../../src/Application/Plugin/Controller/
+    type: attribute
+    prefix: /api/plugins
+
+# Webhook API Routes
+api_webhooks:
+    resource: ../../src/Application/Webhook/Controller/
+    type: attribute
+    prefix: /api/webhooks
+
+# Settings API Routes
+api_settings:
+    resource: ../../src/Application/Settings/Controller/
+    type: attribute
+    prefix: /api/settings
+
+# Auth API Routes
+api_oauth2:
+    resource: ../../src/Application/Auth/Controller/
+    type: attribute
+    prefix: /api/oauth2 
