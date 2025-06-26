@@ -49,7 +49,7 @@ Das CoreBundle folgt einer **API-First-Architektur**:
 ### ⚠️ Nur für Entwickler und Tester
 
 ```bash
-composer require companyos/core:^0.1.59-alpha
+composer require companyos/core:^0.1.60-alpha
 ```
 
 ### Bundle registrieren
@@ -304,4 +304,99 @@ Bei Fragen oder Problemen erstellen Sie ein Issue im Repository oder kontaktiere
 2. Erstelle einen Feature-Branch (`git checkout -b feature/amazing-feature`)
 3. Committe deine Änderungen (`git commit -m 'Add some amazing feature'`)
 4. Push zum Branch (`git push origin feature/amazing-feature`)
-5. Öffne einen Pull Request 
+5. Öffne einen Pull Request
+
+## Doctrine-Integration
+
+Das Bundle stellt automatisch alle Core-Entities für Doctrine bereit. Um die Entities in die Datenbank zu schreiben:
+
+### 1. Doctrine-Konfiguration im Hauptprojekt
+
+Füge folgende Konfiguration in dein `config/packages/doctrine.yaml` hinzu:
+
+```yaml
+doctrine:
+    dbal:
+        types:
+            uuid: CompanyOS\Bundle\CoreBundle\Infrastructure\Persistence\Doctrine\UuidType
+            email: CompanyOS\Bundle\CoreBundle\Infrastructure\Persistence\Doctrine\EmailType
+    orm:
+        mappings:
+            CompanyOSCore:
+                type: attribute
+                is_bundle: false
+                dir: '%kernel.project_dir%/CompanyOSCoreBundle/src/Domain'
+                prefix: 'CompanyOS\Bundle\CoreBundle\Domain'
+                alias: CompanyOS
+            CompanyOSUser:
+                type: attribute
+                is_bundle: false
+                dir: '%kernel.project_dir%/CompanyOSCoreBundle/src/Domain/User/Domain/Entity'
+                prefix: 'CompanyOS\Bundle\CoreBundle\Domain\User\Domain\Entity'
+                alias: CompanyOSUser
+            CompanyOSAuth:
+                type: attribute
+                is_bundle: false
+                dir: '%kernel.project_dir%/CompanyOSCoreBundle/src/Domain/Auth/Domain/Entity'
+                prefix: 'CompanyOS\Bundle\CoreBundle\Domain\Auth\Domain\Entity'
+                alias: CompanyOSAuth
+            CompanyOSRole:
+                type: attribute
+                is_bundle: false
+                dir: '%kernel.project_dir%/CompanyOSCoreBundle/src/Domain/Role/Domain/Entity'
+                prefix: 'CompanyOS\Bundle\CoreBundle\Domain\Role\Domain\Entity'
+                alias: CompanyOSRole
+            CompanyOSPlugin:
+                type: attribute
+                is_bundle: false
+                dir: '%kernel.project_dir%/CompanyOSCoreBundle/src/Domain/Plugin/Domain/Entity'
+                prefix: 'CompanyOS\Bundle\CoreBundle\Domain\Plugin\Domain\Entity'
+                alias: CompanyOSPlugin
+            CompanyOSWebhook:
+                type: attribute
+                is_bundle: false
+                dir: '%kernel.project_dir%/CompanyOSCoreBundle/src/Domain/Webhook/Domain/Entity'
+                prefix: 'CompanyOS\Bundle\CoreBundle\Domain\Webhook\Domain\Entity'
+                alias: CompanyOSWebhook
+            CompanyOSSettings:
+                type: attribute
+                is_bundle: false
+                dir: '%kernel.project_dir%/CompanyOSCoreBundle/src/Domain/Settings/Domain/Entity'
+                prefix: 'CompanyOS\Bundle\CoreBundle\Domain\Settings\Domain\Entity'
+                alias: CompanyOSSettings
+            CompanyOSEvent:
+                type: attribute
+                is_bundle: false
+                dir: '%kernel.project_dir%/CompanyOSCoreBundle/src/Domain/Event'
+                prefix: 'CompanyOS\Bundle\CoreBundle\Domain\Event'
+                alias: CompanyOSEvent
+```
+
+### 2. Datenbank-Schema erstellen
+
+```bash
+# Schema erstellen
+bin/console doctrine:schema:create
+
+# Oder Schema aktualisieren
+bin/console doctrine:schema:update --force
+
+# Oder Migrationen generieren
+bin/console doctrine:migrations:diff
+bin/console doctrine:migrations:migrate
+```
+
+### Verfügbare Entities
+
+Das Bundle stellt folgende Entities bereit:
+
+- **User**: Benutzer-Verwaltung (`users` Tabelle)
+- **Role**: Rollen-Verwaltung (`roles` Tabelle)
+- **UserRole**: Benutzer-Rollen-Zuordnung (`user_roles` Tabelle)
+- **Client**: OAuth2-Clients (`oauth_clients` Tabelle)
+- **AccessToken**: OAuth2-Access-Tokens (`oauth_access_tokens` Tabelle)
+- **RefreshToken**: OAuth2-Refresh-Tokens (`oauth_refresh_tokens` Tabelle)
+- **Plugin**: Plugin-Verwaltung (`plugins` Tabelle)
+- **Webhook**: Webhook-Verwaltung (`webhooks` Tabelle)
+- **CompanySettings**: Unternehmens-Einstellungen (`company_settings` Tabelle)
+- **StoredEvent**: Event Store (`stored_events` Tabelle) 

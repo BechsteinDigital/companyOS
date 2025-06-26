@@ -7,6 +7,12 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [0.1.60-alpha] - 2025-06-27
+
+### Added
+- feat: Integriere Doctrine-Entities und -Konfiguration für Core-Entities Füg...
+
+
 ## [0.1.59-alpha] - 2025-06-27
 
 ### Maintenance

@@ -6,6 +6,7 @@ use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\DependencyInjection\Extension\Extension;
+use Doctrine\DBAL\Types\Type;
 
 class CompanyOSCoreExtension extends Extension
 {
@@ -24,6 +25,14 @@ class CompanyOSCoreExtension extends Extension
         // Doctrine-Konfiguration nur laden, wenn DoctrineBundle aktiv ist
         if ($container->hasExtension('doctrine')) {
             $loader->load('packages/doctrine.yaml');
+            
+            // Doctrine-Types registrieren
+            if (!Type::hasType('uuid')) {
+                Type::addType('uuid', \CompanyOS\Bundle\CoreBundle\Infrastructure\Persistence\Doctrine\UuidType::class);
+            }
+            if (!Type::hasType('email')) {
+                Type::addType('email', \CompanyOS\Bundle\CoreBundle\Infrastructure\Persistence\Doctrine\EmailType::class);
+            }
         }
         
         // Security-Konfiguration nur laden, wenn Security-Extension verfügbar ist
