@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use OpenApi\Attributes as OA;
 
+#[Route('/api/oauth2/clients')]
 #[OA\Tag(name: 'OAuth2 Clients', description: 'OAuth2 client management')]
 class OAuthClientController extends AbstractController
 {

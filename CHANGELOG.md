@@ -7,6 +7,12 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [0.1.57-alpha] - 2025-06-27
+
+### Added
+- feat: Hinzufügen von Route für OAuth2-Clients im CompanyOS Core Bundle
+
+
 ## [0.1.56-alpha] - 2025-06-27
 
 ### Changed
