@@ -7,6 +7,12 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [0.1.65-alpha] - 2025-06-27
+
+### Added
+- feat(Infrastructure): Hinzufügen von ClientFixture für die Initialisierung ...
+
+
 ## [0.1.64-alpha] - 2025-06-27
 
 ### Maintenance
