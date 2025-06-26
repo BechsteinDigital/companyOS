@@ -34,7 +34,7 @@ class WebhookController extends AbstractController
     ) {
     }
 
-    #[Route('', name: 'app_core_webhook_application_webhook_list', methods: ['GET'])]
+    #[Route('', name: 'companyos_core_application_webhook_list', methods: ['GET'])]
     #[OA\Get(
         summary: 'Get all webhooks',
         description: 'Retrieve a list of all webhooks with optional filtering',
@@ -111,7 +111,7 @@ class WebhookController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_core_webhook_application_webhook_get', methods: ['GET'])]
+    #[Route('/{id}', name: 'companyos_core_application_webhook_get', methods: ['GET'])]
     #[OA\Get(
         summary: 'Get webhook by ID',
         description: 'Retrieve a specific webhook by its unique identifier',
@@ -168,7 +168,7 @@ class WebhookController extends AbstractController
         ]);
     }
 
-    #[Route('', name: 'app_core_webhook_application_webhook_create', methods: ['POST'])]
+    #[Route('', name: 'companyos_core_application_webhook_create', methods: ['POST'])]
     #[OA\Post(
         summary: 'Create a new webhook',
         description: 'Create a new webhook in the system',
@@ -232,7 +232,7 @@ class WebhookController extends AbstractController
         ], Response::HTTP_CREATED);
     }
 
-    #[Route('/{id}', name: 'app_core_webhook_application_webhook_update', methods: ['PUT'])]
+    #[Route('/{id}', name: 'companyos_core_application_webhook_update', methods: ['PUT'])]
     #[OA\Put(
         summary: 'Update a webhook',
         description: 'Update an existing webhook in the system',
@@ -297,7 +297,7 @@ class WebhookController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_core_webhook_application_webhook_delete', methods: ['DELETE'])]
+    #[Route('/{id}', name: 'companyos_core_application_webhook_delete', methods: ['DELETE'])]
     #[OA\Delete(
         summary: 'Delete a webhook',
         description: 'Delete a webhook from the system',

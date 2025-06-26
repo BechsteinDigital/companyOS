@@ -7,6 +7,12 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [0.1.56-alpha] - 2025-06-27
+
+### Changed
+- refactor: Update route names in WebhookController for CompanyOS Core Bundle
+
+
 ## [0.1.55-alpha] - 2025-06-27
 
 ### Changed
