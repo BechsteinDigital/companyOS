@@ -231,7 +231,7 @@ class PluginController extends AbstractController
                     properties: [
                         new OA\Property(property: 'success', type: 'boolean', example: true),
                         new OA\Property(property: 'message', type: 'string', example: 'Plugin installed successfully'),
-                        new OA\Property(property: 'data', ref: '#/components/schemas/PluginResponse')
+                        new OA\Property(property: 'data', ref: new Model(type: PluginResponse::class))
                     ]
                 )
             ),

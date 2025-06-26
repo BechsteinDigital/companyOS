@@ -61,7 +61,7 @@ class SettingsController extends AbstractController
     )]
     #[OA\RequestBody(
         required: true,
-        content: new OA\JsonContent(ref: '#/components/schemas/InitializeCompanySettingsRequest')
+        content: new OA\JsonContent(ref: new Model(type: InitializeCompanySettingsRequest::class))
     )]
     #[OA\Response(
         response: 201,
@@ -125,7 +125,7 @@ class SettingsController extends AbstractController
     )]
     #[OA\RequestBody(
         required: true,
-        content: new OA\JsonContent(ref: '#/components/schemas/UpdateCompanySettingsRequest')
+        content: new OA\JsonContent(ref: new Model(type: UpdateCompanySettingsRequest::class))
     )]
     #[OA\Response(
         response: 200,

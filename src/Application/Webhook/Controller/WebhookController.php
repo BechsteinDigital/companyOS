@@ -174,7 +174,7 @@ class WebhookController extends AbstractController
         description: 'Create a new webhook in the system',
         requestBody: new OA\RequestBody(
             required: true,
-            content: new OA\JsonContent(ref: '#/components/schemas/CreateWebhookRequest')
+            content: new OA\JsonContent(ref: new Model(type: CreateWebhookRequest::class))
         ),
         responses: [
             new OA\Response(
@@ -247,7 +247,7 @@ class WebhookController extends AbstractController
         ],
         requestBody: new OA\RequestBody(
             required: true,
-            content: new OA\JsonContent(ref: '#/components/schemas/CreateWebhookRequest')
+            content: new OA\JsonContent(ref: new Model(type: CreateWebhookRequest::class))
         ),
         responses: [
             new OA\Response(

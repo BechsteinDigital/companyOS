@@ -182,7 +182,7 @@ class RoleController extends AbstractController
         tags: ['Roles'],
         requestBody: new OA\RequestBody(
             required: true,
-            content: new OA\JsonContent(ref: '#/components/schemas/CreateRoleRequest')
+            content: new OA\JsonContent(ref: new Model(type: CreateRoleRequest::class))
         ),
         responses: [
             new OA\Response(
@@ -294,7 +294,7 @@ class RoleController extends AbstractController
         ],
         requestBody: new OA\RequestBody(
             required: true,
-            content: new OA\JsonContent(ref: '#/components/schemas/UpdateRoleRequest')
+            content: new OA\JsonContent(ref: new Model(type: UpdateRoleRequest::class))
         ),
         responses: [
             new OA\Response(
