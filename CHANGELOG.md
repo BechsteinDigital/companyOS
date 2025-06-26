@@ -7,33 +7,34 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [0.1.39-alpha] - 2025-06-26
+
+### Changed
+- refactor: Update service paths for better organization, increase version to 0...
+
+
 ## [0.1.38-alpha] - 2025-06-26
 
 ### Changed
-- 
-
-refactor: Update service paths in services.yaml for better organization, chore: Aktualisiere Pfade für Domain, Application und Infrastructure-Ressourcen, erhöhe Version auf 0.1.35-alpha, chore: Update Alpha-Version auf 0.1.33-alpha in README.md
+- refactor: Update service paths in services.yaml for better organization, chore: Aktualisiere Pfade für Domain, Application und Infrastructure-Ressourcen, erhöhe Version auf 0.1.35-alpha, chore: Update Alpha-Version auf 0.1.33-alpha in README.md
 
 
 ## [0.1.37-alpha] - 2025-06-26
 
 ### Changed
-- 
-refactor: Update service paths in services.yaml for better organization
+- refactor: Update service paths in services.yaml for better organization
 
 
 ## [0.1.36-alpha] - 2025-06-26
 
 ### Maintenance
-- 
-chore: Aktualisiere Pfade für Domain, Application und Infrastructure-Ressourcen, erhöhe Version auf 0.1.35-alpha
+- chore: Aktualisiere Pfade für Domain, Application und Infrastructure-Ressourcen, erhöhe Version auf 0.1.35-alpha
 
 
 ## [0.1.34-alpha] - 2025-06-26
 
 ### Added
-- 
-chore: Update Alpha-Version auf 0.1.33-alpha in README.md
+- chore: Update Alpha-Version auf 0.1.33-alpha in README.md
 
 ### Geplant
 - Vollständige Controller-Implementierung
