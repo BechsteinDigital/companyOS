@@ -27,13 +27,13 @@ class PluginCompilerPass implements CompilerPassInterface
         }
 
         // Plugin Service Loader konfigurieren
-        if ($container->hasDefinition('CompanyOS\Infrastructure\Plugin\Service\PluginServiceLoader')) {
-            $serviceLoader = $container->getDefinition('CompanyOS\Infrastructure\Plugin\Service\PluginServiceLoader');
+        if ($container->hasDefinition('CompanyOS\Bundle\CoreBundle\Infrastructure\Plugin\Service\PluginServiceLoader')) {
+            $serviceLoader = $container->getDefinition('CompanyOS\Bundle\CoreBundle\Infrastructure\Plugin\Service\PluginServiceLoader');
         }
 
         // Plugin Event Subscriber konfigurieren
-        if ($container->hasDefinition('CompanyOS\Infrastructure\Plugin\EventSubscriber\PluginRouteSubscriber')) {
-            $routeSubscriber = $container->getDefinition('CompanyOS\Infrastructure\Plugin\EventSubscriber\PluginRouteSubscriber');
+        if ($container->hasDefinition('CompanyOS\Bundle\CoreBundle\Infrastructure\Plugin\EventSubscriber\PluginRouteSubscriber')) {
+            $routeSubscriber = $container->getDefinition('CompanyOS\Bundle\CoreBundle\Infrastructure\Plugin\EventSubscriber\PluginRouteSubscriber');
         }
     }
 } 

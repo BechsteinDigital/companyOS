@@ -7,6 +7,12 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [0.1.51-alpha] - 2025-06-26
+
+### Changed
+- refactor: Update namespace references for CompanyOS Core Bundle in OAuthContr...
+
+
 ## [0.1.50-alpha] - 2025-06-26
 
 ### Fixed
