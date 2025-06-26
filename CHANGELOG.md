@@ -7,6 +7,12 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [0.1.42-alpha] - 2025-06-26
+
+### Changed
+- refactor: Update namespace in CompanyOSCoreExtension to match Symfony best pr...
+
+
 ## [0.1.41-alpha] - 2025-06-26
 
 ### Added
