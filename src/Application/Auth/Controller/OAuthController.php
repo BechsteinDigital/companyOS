@@ -88,9 +88,14 @@ class OAuthController extends AbstractController
             ], $exception->getHttpStatusCode());
             
         } catch (\Exception $exception) {
+            // Log the actual exception for debugging
+            error_log('OAuth2 Token Error: ' . $exception->getMessage());
+            error_log('OAuth2 Token Error Stack: ' . $exception->getTraceAsString());
+            
             return $this->json([
                 'error' => 'server_error',
-                'message' => 'Internal server error'
+                'message' => 'Internal server error',
+                'debug' => $exception->getMessage() // Temporär für Debugging
             ], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
     }

@@ -7,6 +7,12 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [0.1.72-alpha] - 2025-06-27
+
+### Added
+- feat(OAuthController): Log actual exception for debugging
+
+
 ## [0.1.71-alpha] - 2025-06-27
 
 ### Added
