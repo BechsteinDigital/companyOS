@@ -1,76 +1,84 @@
 {
-    "name": "companyos/core",
-    "description": "CompanyOS Core Bundle - Eine modulare Plattform basierend auf DDD, CQRS und Event-Driven Architecture (Alpha Version)",
-    "version": "0.1.33-alpha",
-    "type": "symfony-bundle",
-    "license": "MIT",
-    "keywords": ["symfony", "bundle", "ddd", "cqrs", "event-driven", "api", "plugin-system"],
-    "homepage": "https://github.com/companyos/core-bundle",
-    "support": {
-        "issues": "https://github.com/companyos/core-bundle/issues",
-        "source": "https://github.com/companyos/core-bundle"
+  "name": "companyos/core",
+  "description": "CompanyOS Core Bundle - Eine modulare Plattform basierend auf DDD, CQRS und Event-Driven Architecture (Alpha Version)",
+  "version": "0.1.34-alpha",
+  "type": "symfony-bundle",
+  "license": "MIT",
+  "keywords": [
+    "symfony",
+    "bundle",
+    "ddd",
+    "cqrs",
+    "event-driven",
+    "api",
+    "plugin-system"
+  ],
+  "homepage": "https://github.com/companyos/core-bundle",
+  "support": {
+    "issues": "https://github.com/companyos/core-bundle/issues",
+    "source": "https://github.com/companyos/core-bundle"
+  },
+  "authors": [
+    {
+      "name": "Bechstein.Digital Ecommerce UG",
+      "email": "info@bechstein.digital"
+    }
+  ],
+  "require": {
+    "php": ">=8.2",
+    "symfony/framework-bundle": "^7.3",
+    "symfony/security-bundle": "^7.3",
+    "symfony/validator": "^7.3",
+    "symfony/twig-bundle": "^7.3",
+    "symfony/messenger": "^7.3",
+    "symfony/mailer": "^7.3",
+    "symfony/serializer": "^7.3",
+    "symfony/uid": "^7.3",
+    "symfony/console": "^7.3",
+    "symfony/http-foundation": "^7.3",
+    "symfony/http-kernel": "^7.3",
+    "symfony/routing": "^7.3",
+    "symfony/dependency-injection": "^7.3",
+    "symfony/config": "^7.3",
+    "symfony/yaml": "^7.3",
+    "doctrine/doctrine-bundle": "^2.15",
+    "doctrine/orm": "^3.0",
+    "doctrine/dbal": "^3.0",
+    "league/oauth2-server-bundle": "^1.0",
+    "nelmio/api-doc-bundle": "^5.3",
+    "nyholm/psr7": "^1.8",
+    "psr/log": "^3.0",
+    "psr/http-message": "^2.0",
+    "psr/http-factory": "^1.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^10.0",
+    "symfony/maker-bundle": "^1.63",
+    "symfony/test-pack": "^1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "CompanyOS\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "CompanyOS\\Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "symfony": {
+      "allow-contrib": false,
+      "require": "7.3.*"
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "symfony/flex": true,
+      "symfony/runtime": true
     },
-    "authors": [
-        {
-            "name": "Bechstein.Digital Ecommerce UG",
-            "email": "info@bechstein.digital"
-        }
-    ],
-    "require": {
-        "php": ">=8.2",
-        "symfony/framework-bundle": "^7.3",
-        "symfony/security-bundle": "^7.3",
-        "symfony/validator": "^7.3",
-        "symfony/twig-bundle": "^7.3",
-        "symfony/messenger": "^7.3",
-        "symfony/mailer": "^7.3",
-        "symfony/serializer": "^7.3",
-        "symfony/uid": "^7.3",
-        "symfony/console": "^7.3",
-        "symfony/http-foundation": "^7.3",
-        "symfony/http-kernel": "^7.3",
-        "symfony/routing": "^7.3",
-        "symfony/dependency-injection": "^7.3",
-        "symfony/config": "^7.3",
-        "symfony/yaml": "^7.3",
-        "doctrine/doctrine-bundle": "^2.15",
-        "doctrine/orm": "^3.0",
-        "doctrine/dbal": "^3.0",
-        "league/oauth2-server-bundle": "^1.0",
-        "nelmio/api-doc-bundle": "^5.3",
-        "nyholm/psr7": "^1.8",
-        "psr/log": "^3.0",
-        "psr/http-message": "^2.0",
-        "psr/http-factory": "^1.0"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^10.0",
-        "symfony/maker-bundle": "^1.63",
-        "symfony/test-pack": "^1.0"
-    },
-    "autoload": {
-        "psr-4": {
-            "CompanyOS\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "CompanyOS\\Tests\\": "tests/"
-        }
-    },
-    "extra": {
-        "symfony": {
-            "allow-contrib": false,
-            "require": "7.3.*"
-        }
-    },
-    "config": {
-        "allow-plugins": {
-            "symfony/flex": true,
-            "symfony/runtime": true
-        },
-        "sort-packages": true
-    },
-    "minimum-stability": "alpha",
-    "prefer-stable": false
-} 
+    "sort-packages": true
+  },
+  "minimum-stability": "alpha",
+  "prefer-stable": false
+}

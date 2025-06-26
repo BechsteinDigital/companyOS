@@ -8,7 +8,7 @@ Ein vollständiges Symfony-Bundle für das CompanyOS-System mit Plugin-Architekt
 
 ## ⚠️ Alpha Version
 
-**Dies ist eine Alpha-Version (0.1.0-alpha) und ist NICHT für den Produktiveinsatz geeignet.**
+**Dies ist eine Alpha-Version (0.1.33-alpha) und ist NICHT für den Produktiveinsatz geeignet.**
 
 ### Was funktioniert:
 - ✅ Grundlegende Bundle-Struktur (DDD-Layer)
