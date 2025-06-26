@@ -13,7 +13,6 @@ use Symfony\Component\Routing\Annotation\Route;
 use OpenApi\Attributes as OA;
 
 #[OA\Tag(name: 'OAuth2', description: 'OAuth2 authentication endpoints')]
-#[Route('/api/oauth2')]
 class OAuthController extends AbstractController
 {
     public function __construct(
