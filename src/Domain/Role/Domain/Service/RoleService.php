@@ -40,7 +40,7 @@ class RoleService
             throw new \InvalidArgumentException('User already has this role');
         }
 
-        $userRole = new UserRole($user->getId(), $role->id());
+        $userRole = new UserRole($user, $role);
         $this->roleRepository->saveUserRole($userRole);
     }
 
@@ -65,7 +65,7 @@ class RoleService
         $userRoles = $this->getUserRoles($user);
         
         foreach ($userRoles as $role) {
-            if ($role->getName() === $roleName) {
+            if ($role->name()->value() === $roleName) {
                 return true;
             }
         }
@@ -78,7 +78,7 @@ class RoleService
         $userRoles = $this->getUserRoles($user);
         
         foreach ($userRoles as $role) {
-            if (in_array($permission, $role->getPermissions())) {
+            if (in_array($permission, $role->permissions()->value())) {
                 return true;
             }
         }
