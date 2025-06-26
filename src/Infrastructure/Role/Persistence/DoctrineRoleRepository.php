@@ -158,4 +158,12 @@ class DoctrineRoleRepository implements RoleRepositoryInterface
 
         return (int) $qb->getQuery()->getSingleScalarResult();
     }
+
+    public function findUserRole($userId, $roleId): ?UserRole
+    {
+        return $this->userRoleRepository->findOneBy([
+            'user' => $userId,
+            'role' => $roleId
+        ]);
+    }
 } 

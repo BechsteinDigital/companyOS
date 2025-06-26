@@ -30,4 +30,6 @@ interface RoleRepositoryInterface
     public function isRoleAssignedToUser(Uuid $userId, RoleId $roleId): bool;
     
     public function getUserCount(RoleId $roleId): int;
+    
+    public function findUserRole($userId, $roleId): ?\CompanyOS\Bundle\CoreBundle\Domain\Role\Domain\Entity\UserRole;
 } 
