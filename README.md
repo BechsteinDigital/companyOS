@@ -287,6 +287,33 @@ Das Bundle erweitert **nicht** den Symfony-Kernel. Die Plugin-Funktionalität wi
 - [ ] Vollständige Dokumentation
 - [ ] Performance-Optimierungen
 
+## Third-Party-Lizenzen
+
+Dieses Bundle verwendet verschiedene Open-Source-Bibliotheken und Frameworks. Hier sind die wichtigsten Dependencies und deren Lizenzen:
+
+### Backend Dependencies
+
+- **Symfony Framework** (MIT) - PHP Web Framework
+- **Doctrine ORM** (MIT) - Object-Relational Mapping
+- **League OAuth2 Server** (MIT) - OAuth2 Server Implementation
+- **Nelmio API Doc Bundle** (MIT) - API Documentation Generator
+- **PHPUnit** (BSD-3-Clause) - Testing Framework
+
+### Frontend Dependencies
+
+- **Vue.js** (MIT) - Progressive JavaScript Framework
+- **CoreUI** (MIT) - Bootstrap-based Admin Template
+- **Bootstrap** (MIT) - CSS Framework
+- **Webpack Encore** (MIT) - Asset Management
+
+### Vollständige Dependency-Liste
+
+Für eine vollständige Liste aller verwendeten Pakete und deren Lizenzen siehe:
+- `composer.json` für PHP-Dependencies
+- `package.json` für JavaScript-Dependencies
+
+Alle verwendeten Pakete sind Open-Source und unter permissiven Lizenzen (hauptsächlich MIT) verfügbar.
+
 ## Lizenz
 
 MIT License - siehe [LICENSE](LICENSE) Datei.
