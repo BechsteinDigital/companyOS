@@ -7,6 +7,12 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [0.1.70-alpha] - 2025-06-27
+
+### Added
+- feat(User): User zuerst speichern, bevor Admin-Rolle zugewiesen wird
+
+
 ## [0.1.69-alpha] - 2025-06-27
 
 ### Added

@@ -63,6 +63,9 @@ class CreateAdminCommand extends Command
         $hashed = $this->passwordHasher->hashPassword($user, $plainPassword);
         $user->setPasswordHash($hashed);
 
+        // User zuerst speichern, damit er in der Datenbank existiert
+        $this->userRepository->save($user);
+
         // Admin-Rolle laden
         $adminRole = $this->roleRepository->findByName(new RoleName('admin'));
         if (!$adminRole) {
@@ -72,8 +75,6 @@ class CreateAdminCommand extends Command
 
         // Admin-Rolle zuweisen (inkl. aller zugehörigen Permissions)
         $this->roleService->assignRoleToUser($adminRole, $user);
-
-        $this->userRepository->save($user);
 
         $output->writeln('<info>Admin-Benutzer erfolgreich angelegt und Rolle zugewiesen!</info>');
         return Command::SUCCESS;
