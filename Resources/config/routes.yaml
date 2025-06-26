@@ -1,4 +1,7 @@
 # CompanyOS Core Bundle Routes
+# Diese Datei sollte im Hauptprojekt in config/routes.yaml importiert werden:
+# company_os_core:
+#     resource: '@CompanyOSCoreBundle/Resources/config/routes.yaml'
 
 # User API Routes
 api_users:
