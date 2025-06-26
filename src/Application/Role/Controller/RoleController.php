@@ -23,7 +23,7 @@ use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 use OpenApi\Attributes as OA;
 use Symfony\Component\Messenger\Stamp\HandledStamp;
-use OpenApi\Attributes\Model;
+use Nelmio\ApiDocBundle\Attribute\Model;
 
 #[OA\Tag(
     name: 'Roles',
