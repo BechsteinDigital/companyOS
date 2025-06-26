@@ -7,6 +7,12 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [0.1.45-alpha] - 2025-06-26
+
+### Added
+- feat: Add custom Doctrine types and configuration for CompanyOS Core Bundle
+
+
 ## [0.1.44-alpha] - 2025-06-26
 
 ### Added
