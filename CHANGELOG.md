@@ -7,6 +7,15 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [0.1.36-alpha] - 2025-06-26
+
+### Maintenance
+- 
+[1;33mchore: Aktualisiere Pfade für Domain, Application und Infrastructure-Ressourcen, erhöhe Version auf 0.1.35-alpha[0m
+
+chore: Aktualisiere Pfade für Domain, Application und Infrastructure-Ressourcen, erhöhe Version auf 0.1.35-alpha
+
+
 ## [0.1.34-alpha] - 2025-06-26
 
 ### Added
