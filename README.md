@@ -1,6 +1,6 @@
 # CompanyOS Core Bundle
 
-Ein vollständiges Symfony-Bundle für das CompanyOS-System mit Plugin-Architektur, Authentifizierung, Benutzerverwaltung und mehr.
+Ein vollständiges Symfony-Bundle für das CompanyOS-System mit Plugin-Architektur, Authentifizierung, Benutzerverwaltung und API-First-Design.
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/companyos/core.svg)](https://packagist.org/packages/companyos/core)
 [![Total Downloads](https://img.shields.io/packagist/dt/companyos/core.svg)](https://packagist.org/packages/companyos/core)
@@ -16,14 +16,23 @@ Ein vollständiges Symfony-Bundle für das CompanyOS-System mit Plugin-Architekt
 - ✅ Doctrine-Mappings
 - ✅ Routing-Grundstruktur
 - ✅ Plugin-System-Architektur
+- ✅ API-First-Design
 
 ### Was noch fehlt:
 - ❌ Vollständige Controller-Implementierung
 - ❌ Unit/Integration Tests
 - ❌ Datenbank-Migrationen
 - ❌ Vollständige Dokumentation
-- ❌ Frontend-Assets
 - ❌ Code Coverage
+
+## Architektur
+
+Das CoreBundle folgt einer **API-First-Architektur**:
+
+- **Reine API**: Keine UI, keine Assets, keine Templates
+- **Business-Logik**: Domain-Logik, Application-Layer, Infrastructure
+- **Plugin-Framework**: Event- und Service-Extension für Core und API
+- **Modular**: Kann unabhängig vom BackendBundle verwendet werden
 
 ## Features
 
@@ -32,8 +41,8 @@ Ein vollständiges Symfony-Bundle für das CompanyOS-System mit Plugin-Architekt
 - **Benutzerverwaltung**: CRUD-Operationen für Benutzer
 - **Rollen- und Berechtigungssystem**: Flexible Zugriffskontrolle
 - **Webhook-System**: Event-basierte Webhook-Integration
-- **VueJS-Frontend**: Modernes Frontend mit CoreUI
 - **Event-Driven Architecture**: Domain Events und Event Store
+- **API-First**: Alle Funktionen über REST-API verfügbar
 
 ## Installation
 
@@ -128,39 +137,6 @@ class MyPlugin extends AbstractPlugin
         }
     }
 }
-```
-
-## Frontend-Integration
-
-Das Bundle enthält ein vollständiges VueJS-Frontend mit CoreUI:
-
-### Assets bauen
-
-```bash
-# Im Bundle-Verzeichnis
-npm install
-npm run build
-
-# Im Hauptprojekt
-npm install
-npm run build
-```
-
-### Frontend-Template
-
-```twig
-{# templates/frontend/index.html.twig #}
-<!DOCTYPE html>
-<html>
-<head>
-    <title>CompanyOS</title>
-    {{ encore_entry_link_tags('app') }}
-</head>
-<body>
-    <div id="app"></div>
-    {{ encore_entry_script_tags('app') }}
-</body>
-</html>
 ```
 
 ## API-Endpunkte
