@@ -23,6 +23,7 @@ use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 use OpenApi\Attributes as OA;
 use Symfony\Component\Messenger\Stamp\HandledStamp;
+use OpenApi\Attributes\Model;
 
 #[OA\Tag(
     name: 'Roles',
@@ -70,6 +71,7 @@ class RoleController extends AbstractController
                             property: 'data',
                             type: 'array',
                             items: new OA\Items(ref: new Model(type: RoleResponse::class))
+                        )
                     ]
                 )
             ),
