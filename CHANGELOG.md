@@ -7,6 +7,12 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [0.1.63-alpha] - 2025-06-27
+
+### Changed
+- refactor: Remove unnecessary exclusion in services.yaml
+
+
 ## [0.1.62-alpha] - 2025-06-27
 
 ### Added

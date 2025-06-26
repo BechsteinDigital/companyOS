@@ -23,7 +23,6 @@ services:
     CompanyOS\Bundle\CoreBundle\Application\:
         resource: '../../src/Application/'
         exclude:
-            - '../../src/Application/*/Command/'
             - '../../src/Application/*/Query/'
 
     CompanyOS\Bundle\CoreBundle\Infrastructure\:
