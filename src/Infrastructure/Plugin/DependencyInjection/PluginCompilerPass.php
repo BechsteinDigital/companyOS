@@ -17,7 +17,7 @@ class PluginCompilerPass implements CompilerPassInterface
             
             // Plugin Repository injizieren
             $pluginManager->addMethodCall('setPluginRepository', [
-                new Reference('CompanyOS\Domain\Plugin\Domain\Repository\PluginRepository')
+                new Reference('CompanyOS\Bundle\CoreBundle\Domain\Plugin\Domain\Repository\PluginRepository')
             ]);
             
             // Container injizieren

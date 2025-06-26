@@ -92,7 +92,7 @@ Das Plugin-System funktioniert vollständig über Services und erfordert **keine
 
 namespace MyPlugin;
 
-use CompanyOS\Domain\Plugin\Domain\AbstractPlugin;
+use CompanyOS\Bundle\CoreBundle\Domain\Plugin\Domain\AbstractPlugin;
 
 class MyPlugin extends AbstractPlugin
 {
