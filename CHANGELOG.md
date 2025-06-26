@@ -7,6 +7,12 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [0.1.73-alpha] - 2025-06-27
+
+### Fixed
+- fix: Update namespaces in DoctrineUserRepository and LeagueClientFixture for ...
+
+
 ## [0.1.72-alpha] - 2025-06-27
 
 ### Added

@@ -26,7 +26,7 @@ class LeagueClientFixture extends Fixture
                'identifier' => 'backend',
                'name' => 'Backend',
                'secret' => null, // Kein Secret für Password Grant
-               'redirect_uris' => json_encode([]),
+               'redirect_uris' => null, // null statt leeres Array für Password Grant
                'grants' => json_encode(['password', 'refresh token']),
                'scopes' => json_encode([
                    'user.read', 'user.write',

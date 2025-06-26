@@ -31,7 +31,7 @@ class DoctrineUserRepository implements OAuthUserRepositoryInterface
         }
 
         // User anhand E-Mail finden
-        $user = $this->userRepository->findByEmail(new \CompanyOS\Domain\ValueObject\Email($username));
+        $user = $this->userRepository->findByEmail(new \CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Email($username));
         
         if (!$user || !$user->isActive()) {
             return null;
