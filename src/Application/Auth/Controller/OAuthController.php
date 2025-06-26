@@ -25,7 +25,7 @@ class OAuthController extends AbstractController
 
     #[Route('/token', methods: ['POST'])]
     #[OA\Post(
-        path: '/api/oauth2/token',
+        path: '/token',
         summary: 'OAuth2 Token holen',
         description: 'Erhalte ein Access Token via password, client_credentials oder refresh_token Grant. Content-Type: application/x-www-form-urlencoded.',
         requestBody: new OA\RequestBody(
@@ -98,7 +98,7 @@ class OAuthController extends AbstractController
 
     #[Route('/revoke', methods: ['POST'])]
     #[OA\Post(
-        path: '/api/oauth2/revoke',
+        path: '/revoke',
         summary: 'OAuth2 Token widerrufen (Logout)',
         description: 'Revokiert ein Access- oder Refresh-Token. Content-Type: application/x-www-form-urlencoded.',
         requestBody: new OA\RequestBody(

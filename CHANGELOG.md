@@ -7,6 +7,12 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [0.1.54-alpha] - 2025-06-26
+
+### Changed
+- refactor: Vereinheitliche Pfade für OAuth-Endpunkte in OAuthController
+
+
 ## [0.1.53-alpha] - 2025-06-26
 
 ### Added
