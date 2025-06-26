@@ -49,7 +49,7 @@ Das CoreBundle folgt einer **API-First-Architektur**:
 ### ⚠️ Nur für Entwickler und Tester
 
 ```bash
-composer require companyos/core:^0.1.66-alpha
+composer require companyos/core:^0.1.67-alpha
 ```
 
 ### Bundle registrieren

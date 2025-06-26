@@ -40,7 +40,7 @@ class UpdateUserCommandHandler
             foreach ($command->roleIds as $roleId) {
                 $role = $this->roleRepository->findById(Uuid::fromString($roleId));
                 if ($role) {
-                    $this->roleRepository->assignRoleToUser($role->getId(), $userId);
+                    $this->roleRepository->assignRoleToUser($role->id(), $userId);
                 }
             }
         }

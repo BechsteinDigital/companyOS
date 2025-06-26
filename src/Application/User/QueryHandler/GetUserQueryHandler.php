@@ -26,12 +26,12 @@ class GetUserQueryHandler
             return null;
         }
 
-        $roles = $this->roleRepository->findUserRoles($query->id);
+        $roles = $this->roleRepository->findUserRoles((string)$user->getId());
         $roleResponses = array_map(function ($role) {
             return new RoleResponse(
-                id: (string)$role->getId(),
-                name: $role->getName()->value(),
-                displayName: $role->getDisplayName()->value(),
+                id: (string)$role->id(),
+                name: $role->name()->value(),
+                displayName: $role->displayName()->value(),
                 description: $role->getDescription()->value(),
                 permissions: $role->getPermissions()->value(),
                 isSystem: $role->isSystem(),

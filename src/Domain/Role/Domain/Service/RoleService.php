@@ -24,7 +24,7 @@ class RoleService
             return true;
         }
 
-        if ($excludeRole && $existingRole->getId()->equals($excludeRole->getId())) {
+        if ($excludeRole && $existingRole->id()->equals($excludeRole->id())) {
             return true;
         }
 
@@ -34,19 +34,19 @@ class RoleService
     public function assignRoleToUser(Role $role, User $user): void
     {
         // Prüfen ob User bereits diese Rolle hat
-        $existingUserRole = $this->roleRepository->findUserRole($user->getId(), $role->getId());
+        $existingUserRole = $this->roleRepository->findUserRole($user->getId(), $role->id());
         
         if ($existingUserRole) {
             throw new \InvalidArgumentException('User already has this role');
         }
 
-        $userRole = new UserRole($user->getId(), $role->getId());
+        $userRole = new UserRole($user->getId(), $role->id());
         $this->roleRepository->saveUserRole($userRole);
     }
 
     public function removeRoleFromUser(Role $role, User $user): void
     {
-        $userRole = $this->roleRepository->findUserRole($user->getId(), $role->getId());
+        $userRole = $this->roleRepository->findUserRole($user->getId(), $role->id());
         
         if (!$userRole) {
             throw new \InvalidArgumentException('User does not have this role');
@@ -89,7 +89,7 @@ class RoleService
     public function canDeleteRole(Role $role): bool
     {
         // Prüfen ob Rolle noch Benutzern zugewiesen ist
-        $userCount = $this->roleRepository->countUsersWithRole($role->getId());
+        $userCount = $this->roleRepository->countUsersWithRole($role->id());
         
         return $userCount === 0;
     }

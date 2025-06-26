@@ -31,7 +31,7 @@ class DeleteRoleCommandHandler
         }
 
         $this->roleRepository->delete($role);
-        $this->eventDispatcher->dispatch(new RoleDeleted($role->getId()));
-        $this->eventBus->dispatch(new RoleDeletedEvent((string)$role->getId(), $role->getName()));
+        $this->eventDispatcher->dispatch(new RoleDeleted($role->id()));
+        $this->eventBus->dispatch(new RoleDeletedEvent((string)$role->id(), $role->name()->value()));
     }
 } 

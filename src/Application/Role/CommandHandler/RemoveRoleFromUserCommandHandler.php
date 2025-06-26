@@ -31,7 +31,7 @@ class RemoveRoleFromUserCommandHandler
         }
         $user->removeRole($role);
         $this->userRepository->save($user);
-        $this->eventDispatcher->dispatch(new RoleRemovedFromUser($role->getId(), $user->getId()));
-        $this->eventBus->dispatch(new RoleRemovedFromUserEvent((string)$role->getId(), (string)$user->getId()));
+        $this->eventDispatcher->dispatch(new RoleRemovedFromUser($role->id(), $user->getId()));
+        $this->eventBus->dispatch(new RoleRemovedFromUserEvent((string)$role->id(), (string)$user->getId()));
     }
 } 

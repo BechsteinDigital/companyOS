@@ -21,15 +21,15 @@ class GetUserRolesQueryHandler
 
         return array_map(function ($role) {
             return new RoleResponse(
-                id: (string)$role->getId(),
-                name: $role->getName()->value(),
-                displayName: $role->getDisplayName()->value(),
-                description: $role->getDescription()->value(),
-                permissions: $role->getPermissions()->value(),
+                id: (string)$role->id(),
+                name: $role->name()->value(),
+                displayName: $role->displayName()->value(),
+                description: $role->description()?->value(),
+                permissions: $role->permissions()->value(),
                 isSystem: $role->isSystem(),
-                userCount: $this->roleRepository->getUserCount($role->getId()),
-                createdAt: $role->getCreatedAt(),
-                updatedAt: $role->getUpdatedAt()
+                userCount: $this->roleRepository->getUserCount($role->id()),
+                createdAt: $role->createdAt()->format('Y-m-d H:i:s'),
+                updatedAt: $role->updatedAt()?->format('Y-m-d H:i:s')
             );
         }, $roles);
     }

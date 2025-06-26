@@ -46,7 +46,7 @@ class UpdateRoleCommandHandler
         }
 
         $this->roleRepository->save($role);
-        $this->eventDispatcher->dispatch(new RoleUpdated($role->getId()));
-        $this->eventBus->dispatch(new RoleUpdatedEvent((string)$role->getId(), $role->getName()));
+        $this->eventDispatcher->dispatch(new RoleUpdated($role->id()));
+        $this->eventBus->dispatch(new RoleUpdatedEvent((string)$role->id(), $role->name()->value()));
     }
 } 
