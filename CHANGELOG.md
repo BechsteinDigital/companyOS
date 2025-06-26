@@ -7,6 +7,12 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [0.1.46-alpha] - 2025-06-26
+
+### Maintenance
+- chore: Entferne CodeQL-Workflow und aktualisiere PHP-Version auf 8.2
+
+
 ## [0.1.45-alpha] - 2025-06-26
 
 ### Added
