@@ -7,12 +7,18 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [0.1.38-alpha] - 2025-06-26
+
+### Changed
+- 
+
+refactor: Update service paths in services.yaml for better organization, chore: Aktualisiere Pfade für Domain, Application und Infrastructure-Ressourcen, erhöhe Version auf 0.1.35-alpha, chore: Update Alpha-Version auf 0.1.33-alpha in README.md
+
+
 ## [0.1.37-alpha] - 2025-06-26
 
 ### Changed
 - 
-[1;33mrefactor: Update service paths in services.yaml for better organization[0m
-
 refactor: Update service paths in services.yaml for better organization
 
 
@@ -20,8 +26,6 @@ refactor: Update service paths in services.yaml for better organization
 
 ### Maintenance
 - 
-[1;33mchore: Aktualisiere Pfade für Domain, Application und Infrastructure-Ressourcen, erhöhe Version auf 0.1.35-alpha[0m
-
 chore: Aktualisiere Pfade für Domain, Application und Infrastructure-Ressourcen, erhöhe Version auf 0.1.35-alpha
 
 
@@ -29,14 +33,7 @@ chore: Aktualisiere Pfade für Domain, Application und Infrastructure-Ressourcen
 
 ### Added
 - 
-[0;36m[PROMPT][0m Commit-Message für CompanyOS Core Bundle:
-[1;33m[0;34m[INFO][0m Generating intelligent commit message using OpenAI...
-chore: Update Alpha-Version auf 0.1.33-alpha in README.md[0m
-
-[0;36m[PROMPT][0m Ist diese Commit-Message in Ordnung? (y/n/e für edit):
-[0;34m[INFO][0m Generating intelligent commit message using OpenAI...
 chore: Update Alpha-Version auf 0.1.33-alpha in README.md
-
 
 ### Geplant
 - Vollständige Controller-Implementierung
