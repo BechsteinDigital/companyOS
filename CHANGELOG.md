@@ -7,6 +7,12 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [0.1.64-alpha] - 2025-06-27
+
+### Maintenance
+- chore: Add doctrine/doctrine-fixtures-bundle to require-dev in composer.json
+
+
 ## [0.1.63-alpha] - 2025-06-27
 
 ### Changed
