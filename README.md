@@ -49,7 +49,7 @@ Das CoreBundle folgt einer **API-First-Architektur**:
 ### ⚠️ Nur für Entwickler und Tester
 
 ```bash
-composer require companyos/core:^0.1.60-alpha
+composer require companyos/core:^0.1.61-alpha
 ```
 
 ### Bundle registrieren
@@ -325,49 +325,49 @@ doctrine:
             CompanyOSCore:
                 type: attribute
                 is_bundle: false
-                dir: '%kernel.project_dir%/CompanyOSCoreBundle/src/Domain'
+                dir: '%kernel.project_dir%/vendor/companyos/core/src/Domain'
                 prefix: 'CompanyOS\Bundle\CoreBundle\Domain'
                 alias: CompanyOS
             CompanyOSUser:
                 type: attribute
                 is_bundle: false
-                dir: '%kernel.project_dir%/CompanyOSCoreBundle/src/Domain/User/Domain/Entity'
+                dir: '%kernel.project_dir%/vendor/companyos/core/src/Domain/User/Domain/Entity'
                 prefix: 'CompanyOS\Bundle\CoreBundle\Domain\User\Domain\Entity'
                 alias: CompanyOSUser
             CompanyOSAuth:
                 type: attribute
                 is_bundle: false
-                dir: '%kernel.project_dir%/CompanyOSCoreBundle/src/Domain/Auth/Domain/Entity'
+                dir: '%kernel.project_dir%/vendor/companyos/core/src/Domain/Auth/Domain/Entity'
                 prefix: 'CompanyOS\Bundle\CoreBundle\Domain\Auth\Domain\Entity'
                 alias: CompanyOSAuth
             CompanyOSRole:
                 type: attribute
                 is_bundle: false
-                dir: '%kernel.project_dir%/CompanyOSCoreBundle/src/Domain/Role/Domain/Entity'
+                dir: '%kernel.project_dir%/vendor/companyos/core/src/Domain/Role/Domain/Entity'
                 prefix: 'CompanyOS\Bundle\CoreBundle\Domain\Role\Domain\Entity'
                 alias: CompanyOSRole
             CompanyOSPlugin:
                 type: attribute
                 is_bundle: false
-                dir: '%kernel.project_dir%/CompanyOSCoreBundle/src/Domain/Plugin/Domain/Entity'
+                dir: '%kernel.project_dir%/vendor/companyos/core/src/Domain/Plugin/Domain/Entity'
                 prefix: 'CompanyOS\Bundle\CoreBundle\Domain\Plugin\Domain\Entity'
                 alias: CompanyOSPlugin
             CompanyOSWebhook:
                 type: attribute
                 is_bundle: false
-                dir: '%kernel.project_dir%/CompanyOSCoreBundle/src/Domain/Webhook/Domain/Entity'
+                dir: '%kernel.project_dir%/vendor/companyos/core/src/Domain/Webhook/Domain/Entity'
                 prefix: 'CompanyOS\Bundle\CoreBundle\Domain\Webhook\Domain\Entity'
                 alias: CompanyOSWebhook
             CompanyOSSettings:
                 type: attribute
                 is_bundle: false
-                dir: '%kernel.project_dir%/CompanyOSCoreBundle/src/Domain/Settings/Domain/Entity'
+                dir: '%kernel.project_dir%/vendor/companyos/core/src/Domain/Settings/Domain/Entity'
                 prefix: 'CompanyOS\Bundle\CoreBundle\Domain\Settings\Domain\Entity'
                 alias: CompanyOSSettings
             CompanyOSEvent:
                 type: attribute
                 is_bundle: false
-                dir: '%kernel.project_dir%/CompanyOSCoreBundle/src/Domain/Event'
+                dir: '%kernel.project_dir%/vendor/companyos/core/src/Domain/Event'
                 prefix: 'CompanyOS\Bundle\CoreBundle\Domain\Event'
                 alias: CompanyOSEvent
 ```
