@@ -5,7 +5,7 @@ companyos.swagger:
     defaults: { _controller: nelmio_api_doc.controller.swagger }
 
 # Swagger UI (optional)
-#companyos.swagger_ui:
-#    path: /api/doc
-#    methods: GET
-#    defaults: { _controller: nelmio_api_doc.controller.swagger_ui } 
+companyos.swagger_ui:
+    path: /api/doc
+    methods: GET
+    defaults: { _controller: nelmio_api_doc.controller.swagger_ui } 

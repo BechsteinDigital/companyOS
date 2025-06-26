@@ -10,6 +10,7 @@ use CompanyOS\Application\Settings\DTO\UpdateCompanySettingsRequest;
 use CompanyOS\Application\Settings\Query\GetCompanySettingsQuery;
 use CompanyOS\Domain\ValueObject\Email;
 use OpenApi\Attributes as OA;
+use Nelmio\ApiDocBundle\Attribute\Model;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
