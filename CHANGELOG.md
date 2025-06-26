@@ -7,6 +7,12 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [0.1.44-alpha] - 2025-06-26
+
+### Added
+- feat: Neue Funktion zur Benutzerverwaltung hinzugefügt.
+
+
 ## [0.1.43-alpha] - 2025-06-26
 
 ### Added
