@@ -7,6 +7,12 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [0.1.47-alpha] - 2025-06-26
+
+### Fixed
+- fix: Nur Doctrine-Konfiguration laden, wenn DoctrineBundle aktiv ist
+
+
 ## [0.1.46-alpha] - 2025-06-26
 
 ### Maintenance
