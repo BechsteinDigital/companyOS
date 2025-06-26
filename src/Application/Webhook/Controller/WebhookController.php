@@ -138,7 +138,13 @@ class WebhookController extends AbstractController
             new OA\Response(
                 response: 404,
                 description: 'Webhook not found',
-                content: new OA\JsonContent(ref: '#/components/schemas/Error')
+                content: new OA\JsonContent(
+                    type: 'object',
+                    properties: [
+                        new OA\Property(property: 'success', type: 'boolean', example: false),
+                        new OA\Property(property: 'message', type: 'string', example: 'Webhook not found')
+                    ]
+                )
             )
         ]
     )]
@@ -185,7 +191,14 @@ class WebhookController extends AbstractController
             new OA\Response(
                 response: 400,
                 description: 'Bad request - validation failed',
-                content: new OA\JsonContent(ref: '#/components/schemas/Error')
+                content: new OA\JsonContent(
+                    type: 'object',
+                    properties: [
+                        new OA\Property(property: 'success', type: 'boolean', example: false),
+                        new OA\Property(property: 'message', type: 'string', example: 'Validation failed'),
+                        new OA\Property(property: 'errors', type: 'array', items: new OA\Items(type: 'string'))
+                    ]
+                )
             )
         ]
     )]
@@ -251,7 +264,13 @@ class WebhookController extends AbstractController
             new OA\Response(
                 response: 404,
                 description: 'Webhook not found',
-                content: new OA\JsonContent(ref: '#/components/schemas/Error')
+                content: new OA\JsonContent(
+                    type: 'object',
+                    properties: [
+                        new OA\Property(property: 'success', type: 'boolean', example: false),
+                        new OA\Property(property: 'message', type: 'string', example: 'Webhook not found')
+                    ]
+                )
             )
         ]
     )]
@@ -305,7 +324,13 @@ class WebhookController extends AbstractController
             new OA\Response(
                 response: 404,
                 description: 'Webhook not found',
-                content: new OA\JsonContent(ref: '#/components/schemas/Error')
+                content: new OA\JsonContent(
+                    type: 'object',
+                    properties: [
+                        new OA\Property(property: 'success', type: 'boolean', example: false),
+                        new OA\Property(property: 'message', type: 'string', example: 'Webhook not found')
+                    ]
+                )
             )
         ]
     )]

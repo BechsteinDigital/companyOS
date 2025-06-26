@@ -72,7 +72,13 @@ class PluginController extends AbstractController
             new OA\Response(
                 response: 500,
                 description: 'Internal server error',
-                content: new OA\JsonContent(ref: '#/components/schemas/Error')
+                content: new OA\JsonContent(
+                    type: 'object',
+                    properties: [
+                        new OA\Property(property: 'success', type: 'boolean', example: false),
+                        new OA\Property(property: 'message', type: 'string', example: 'Internal server error')
+                    ]
+                )
             )
         ]
     )]
@@ -120,12 +126,24 @@ class PluginController extends AbstractController
             new OA\Response(
                 response: 404,
                 description: 'Plugin not found',
-                content: new OA\JsonContent(ref: '#/components/schemas/Error')
+                content: new OA\JsonContent(
+                    type: 'object',
+                    properties: [
+                        new OA\Property(property: 'success', type: 'boolean', example: false),
+                        new OA\Property(property: 'message', type: 'string', example: 'Plugin not found')
+                    ]
+                )
             ),
             new OA\Response(
                 response: 500,
                 description: 'Internal server error',
-                content: new OA\JsonContent(ref: '#/components/schemas/Error')
+                content: new OA\JsonContent(
+                    type: 'object',
+                    properties: [
+                        new OA\Property(property: 'success', type: 'boolean', example: false),
+                        new OA\Property(property: 'message', type: 'string', example: 'Internal server error')
+                    ]
+                )
             )
         ]
     )]
@@ -220,17 +238,36 @@ class PluginController extends AbstractController
             new OA\Response(
                 response: 400,
                 description: 'Bad request - validation failed',
-                content: new OA\JsonContent(ref: '#/components/schemas/Error')
+                content: new OA\JsonContent(
+                    type: 'object',
+                    properties: [
+                        new OA\Property(property: 'success', type: 'boolean', example: false),
+                        new OA\Property(property: 'message', type: 'string', example: 'Validation failed'),
+                        new OA\Property(property: 'errors', type: 'array', items: new OA\Items(type: 'string'))
+                    ]
+                )
             ),
             new OA\Response(
                 response: 409,
                 description: 'Conflict - plugin with this name already exists',
-                content: new OA\JsonContent(ref: '#/components/schemas/Error')
+                content: new OA\JsonContent(
+                    type: 'object',
+                    properties: [
+                        new OA\Property(property: 'success', type: 'boolean', example: false),
+                        new OA\Property(property: 'message', type: 'string', example: 'Plugin with this name already exists')
+                    ]
+                )
             ),
             new OA\Response(
                 response: 500,
                 description: 'Internal server error',
-                content: new OA\JsonContent(ref: '#/components/schemas/Error')
+                content: new OA\JsonContent(
+                    type: 'object',
+                    properties: [
+                        new OA\Property(property: 'success', type: 'boolean', example: false),
+                        new OA\Property(property: 'message', type: 'string', example: 'Internal server error')
+                    ]
+                )
             )
         ]
     )]
@@ -316,12 +353,24 @@ class PluginController extends AbstractController
             new OA\Response(
                 response: 404,
                 description: 'Plugin not found',
-                content: new OA\JsonContent(ref: '#/components/schemas/Error')
+                content: new OA\JsonContent(
+                    type: 'object',
+                    properties: [
+                        new OA\Property(property: 'success', type: 'boolean', example: false),
+                        new OA\Property(property: 'message', type: 'string', example: 'Plugin not found')
+                    ]
+                )
             ),
             new OA\Response(
                 response: 500,
                 description: 'Internal server error',
-                content: new OA\JsonContent(ref: '#/components/schemas/Error')
+                content: new OA\JsonContent(
+                    type: 'object',
+                    properties: [
+                        new OA\Property(property: 'success', type: 'boolean', example: false),
+                        new OA\Property(property: 'message', type: 'string', example: 'Internal server error')
+                    ]
+                )
             )
         ]
     )]
@@ -379,12 +428,24 @@ class PluginController extends AbstractController
             new OA\Response(
                 response: 404,
                 description: 'Plugin not found',
-                content: new OA\JsonContent(ref: '#/components/schemas/Error')
+                content: new OA\JsonContent(
+                    type: 'object',
+                    properties: [
+                        new OA\Property(property: 'success', type: 'boolean', example: false),
+                        new OA\Property(property: 'message', type: 'string', example: 'Plugin not found')
+                    ]
+                )
             ),
             new OA\Response(
                 response: 500,
                 description: 'Internal server error',
-                content: new OA\JsonContent(ref: '#/components/schemas/Error')
+                content: new OA\JsonContent(
+                    type: 'object',
+                    properties: [
+                        new OA\Property(property: 'success', type: 'boolean', example: false),
+                        new OA\Property(property: 'message', type: 'string', example: 'Internal server error')
+                    ]
+                )
             )
         ]
     )]
@@ -442,12 +503,24 @@ class PluginController extends AbstractController
             new OA\Response(
                 response: 404,
                 description: 'Plugin not found',
-                content: new OA\JsonContent(ref: '#/components/schemas/Error')
+                content: new OA\JsonContent(
+                    type: 'object',
+                    properties: [
+                        new OA\Property(property: 'success', type: 'boolean', example: false),
+                        new OA\Property(property: 'message', type: 'string', example: 'Plugin not found')
+                    ]
+                )
             ),
             new OA\Response(
                 response: 500,
                 description: 'Internal server error',
-                content: new OA\JsonContent(ref: '#/components/schemas/Error')
+                content: new OA\JsonContent(
+                    type: 'object',
+                    properties: [
+                        new OA\Property(property: 'success', type: 'boolean', example: false),
+                        new OA\Property(property: 'message', type: 'string', example: 'Internal server error')
+                    ]
+                )
             )
         ]
     )]

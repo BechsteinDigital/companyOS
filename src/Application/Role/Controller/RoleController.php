@@ -78,7 +78,13 @@ class RoleController extends AbstractController
             new OA\Response(
                 response: 500,
                 description: 'Internal server error',
-                content: new OA\JsonContent(ref: '#/components/schemas/Error')
+                content: new OA\JsonContent(
+                    type: 'object',
+                    properties: [
+                        new OA\Property(property: 'success', type: 'boolean', example: false),
+                        new OA\Property(property: 'message', type: 'string', example: 'Internal server error')
+                    ]
+                )
             )
         ]
     )]
@@ -127,12 +133,24 @@ class RoleController extends AbstractController
             new OA\Response(
                 response: 404,
                 description: 'Role not found',
-                content: new OA\JsonContent(ref: '#/components/schemas/Error')
+                content: new OA\JsonContent(
+                    type: 'object',
+                    properties: [
+                        new OA\Property(property: 'success', type: 'boolean', example: false),
+                        new OA\Property(property: 'message', type: 'string', example: 'Role not found')
+                    ]
+                )
             ),
             new OA\Response(
                 response: 500,
                 description: 'Internal server error',
-                content: new OA\JsonContent(ref: '#/components/schemas/Error')
+                content: new OA\JsonContent(
+                    type: 'object',
+                    properties: [
+                        new OA\Property(property: 'success', type: 'boolean', example: false),
+                        new OA\Property(property: 'message', type: 'string', example: 'Internal server error')
+                    ]
+                )
             )
         ]
     )]
@@ -181,17 +199,36 @@ class RoleController extends AbstractController
             new OA\Response(
                 response: 400,
                 description: 'Bad request - validation failed',
-                content: new OA\JsonContent(ref: '#/components/schemas/Error')
+                content: new OA\JsonContent(
+                    type: 'object',
+                    properties: [
+                        new OA\Property(property: 'success', type: 'boolean', example: false),
+                        new OA\Property(property: 'message', type: 'string', example: 'Validation failed'),
+                        new OA\Property(property: 'errors', type: 'array', items: new OA\Items(type: 'string'))
+                    ]
+                )
             ),
             new OA\Response(
                 response: 409,
                 description: 'Conflict - role with this name already exists',
-                content: new OA\JsonContent(ref: '#/components/schemas/Error')
+                content: new OA\JsonContent(
+                    type: 'object',
+                    properties: [
+                        new OA\Property(property: 'success', type: 'boolean', example: false),
+                        new OA\Property(property: 'message', type: 'string', example: 'Role with this name already exists')
+                    ]
+                )
             ),
             new OA\Response(
                 response: 500,
                 description: 'Internal server error',
-                content: new OA\JsonContent(ref: '#/components/schemas/Error')
+                content: new OA\JsonContent(
+                    type: 'object',
+                    properties: [
+                        new OA\Property(property: 'success', type: 'boolean', example: false),
+                        new OA\Property(property: 'message', type: 'string', example: 'Internal server error')
+                    ]
+                )
             )
         ]
     )]
@@ -274,17 +311,36 @@ class RoleController extends AbstractController
             new OA\Response(
                 response: 400,
                 description: 'Bad request - validation failed',
-                content: new OA\JsonContent(ref: '#/components/schemas/Error')
+                content: new OA\JsonContent(
+                    type: 'object',
+                    properties: [
+                        new OA\Property(property: 'success', type: 'boolean', example: false),
+                        new OA\Property(property: 'message', type: 'string', example: 'Validation failed'),
+                        new OA\Property(property: 'errors', type: 'array', items: new OA\Items(type: 'string'))
+                    ]
+                )
             ),
             new OA\Response(
                 response: 404,
                 description: 'Role not found',
-                content: new OA\JsonContent(ref: '#/components/schemas/Error')
+                content: new OA\JsonContent(
+                    type: 'object',
+                    properties: [
+                        new OA\Property(property: 'success', type: 'boolean', example: false),
+                        new OA\Property(property: 'message', type: 'string', example: 'Role not found')
+                    ]
+                )
             ),
             new OA\Response(
                 response: 500,
                 description: 'Internal server error',
-                content: new OA\JsonContent(ref: '#/components/schemas/Error')
+                content: new OA\JsonContent(
+                    type: 'object',
+                    properties: [
+                        new OA\Property(property: 'success', type: 'boolean', example: false),
+                        new OA\Property(property: 'message', type: 'string', example: 'Internal server error')
+                    ]
+                )
             )
         ]
     )]
@@ -362,17 +418,35 @@ class RoleController extends AbstractController
             new OA\Response(
                 response: 404,
                 description: 'Role not found',
-                content: new OA\JsonContent(ref: '#/components/schemas/Error')
+                content: new OA\JsonContent(
+                    type: 'object',
+                    properties: [
+                        new OA\Property(property: 'success', type: 'boolean', example: false),
+                        new OA\Property(property: 'message', type: 'string', example: 'Role not found')
+                    ]
+                )
             ),
             new OA\Response(
                 response: 400,
                 description: 'Bad request - cannot delete system role',
-                content: new OA\JsonContent(ref: '#/components/schemas/Error')
+                content: new OA\JsonContent(
+                    type: 'object',
+                    properties: [
+                        new OA\Property(property: 'success', type: 'boolean', example: false),
+                        new OA\Property(property: 'message', type: 'string', example: 'Cannot delete system role')
+                    ]
+                )
             ),
             new OA\Response(
                 response: 500,
                 description: 'Internal server error',
-                content: new OA\JsonContent(ref: '#/components/schemas/Error')
+                content: new OA\JsonContent(
+                    type: 'object',
+                    properties: [
+                        new OA\Property(property: 'success', type: 'boolean', example: false),
+                        new OA\Property(property: 'message', type: 'string', example: 'Internal server error')
+                    ]
+                )
             )
         ]
     )]
@@ -427,12 +501,24 @@ class RoleController extends AbstractController
             new OA\Response(
                 response: 404,
                 description: 'User not found',
-                content: new OA\JsonContent(ref: '#/components/schemas/Error')
+                content: new OA\JsonContent(
+                    type: 'object',
+                    properties: [
+                        new OA\Property(property: 'success', type: 'boolean', example: false),
+                        new OA\Property(property: 'message', type: 'string', example: 'User not found')
+                    ]
+                )
             ),
             new OA\Response(
                 response: 500,
                 description: 'Internal server error',
-                content: new OA\JsonContent(ref: '#/components/schemas/Error')
+                content: new OA\JsonContent(
+                    type: 'object',
+                    properties: [
+                        new OA\Property(property: 'success', type: 'boolean', example: false),
+                        new OA\Property(property: 'message', type: 'string', example: 'Internal server error')
+                    ]
+                )
             )
         ]
     )]
@@ -485,17 +571,35 @@ class RoleController extends AbstractController
             new OA\Response(
                 response: 404,
                 description: 'Role or user not found',
-                content: new OA\JsonContent(ref: '#/components/schemas/Error')
+                content: new OA\JsonContent(
+                    type: 'object',
+                    properties: [
+                        new OA\Property(property: 'success', type: 'boolean', example: false),
+                        new OA\Property(property: 'message', type: 'string', example: 'Role or user not found')
+                    ]
+                )
             ),
             new OA\Response(
                 response: 409,
                 description: 'Conflict - role already assigned to user',
-                content: new OA\JsonContent(ref: '#/components/schemas/Error')
+                content: new OA\JsonContent(
+                    type: 'object',
+                    properties: [
+                        new OA\Property(property: 'success', type: 'boolean', example: false),
+                        new OA\Property(property: 'message', type: 'string', example: 'Role already assigned to user')
+                    ]
+                )
             ),
             new OA\Response(
                 response: 500,
                 description: 'Internal server error',
-                content: new OA\JsonContent(ref: '#/components/schemas/Error')
+                content: new OA\JsonContent(
+                    type: 'object',
+                    properties: [
+                        new OA\Property(property: 'success', type: 'boolean', example: false),
+                        new OA\Property(property: 'message', type: 'string', example: 'Internal server error')
+                    ]
+                )
             )
         ]
     )]
@@ -553,12 +657,24 @@ class RoleController extends AbstractController
             new OA\Response(
                 response: 404,
                 description: 'Role or user not found',
-                content: new OA\JsonContent(ref: '#/components/schemas/Error')
+                content: new OA\JsonContent(
+                    type: 'object',
+                    properties: [
+                        new OA\Property(property: 'success', type: 'boolean', example: false),
+                        new OA\Property(property: 'message', type: 'string', example: 'Role or user not found')
+                    ]
+                )
             ),
             new OA\Response(
                 response: 500,
                 description: 'Internal server error',
-                content: new OA\JsonContent(ref: '#/components/schemas/Error')
+                content: new OA\JsonContent(
+                    type: 'object',
+                    properties: [
+                        new OA\Property(property: 'success', type: 'boolean', example: false),
+                        new OA\Property(property: 'message', type: 'string', example: 'Internal server error')
+                    ]
+                )
             )
         ]
     )]
