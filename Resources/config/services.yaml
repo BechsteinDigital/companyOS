@@ -16,20 +16,20 @@ services:
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
     CompanyOS\Domain\:
-        resource: '%kernel.project_dir%/vendor/companyos/core-bundle/src/Domain/'
+        resource: '../../src/Domain/'
         exclude:
-            - '%kernel.project_dir%/vendor/companyos/core-bundle/src/Domain/*/Repository/'
+            - '../../src/Domain/*/Repository/'
 
     CompanyOS\Application\:
-        resource: '%kernel.project_dir%/vendor/companyos/core-bundle/src/Application/'
+        resource: '../../src/Application/'
         exclude:
-            - '%kernel.project_dir%/vendor/companyos/core-bundle/src/Application/*/Command/'
-            - '%kernel.project_dir%/vendor/companyos/core-bundle/src/Application/*/Query/'
+            - '../../src/Application/*/Command/'
+            - '../../src/Application/*/Query/'
 
     CompanyOS\Infrastructure\:
-        resource: '%kernel.project_dir%/vendor/companyos/core-bundle/src/Infrastructure/'
+        resource: '../../src/Infrastructure/'
         exclude:
-            - '%kernel.project_dir%/vendor/companyos/core-bundle/src/Infrastructure/*/Event/'
+            - '../../src/Infrastructure/*/Event/'
 
     # Plugin services
     _instanceof:

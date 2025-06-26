@@ -7,6 +7,15 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [0.1.37-alpha] - 2025-06-26
+
+### Changed
+- 
+[1;33mrefactor: Update service paths in services.yaml for better organization[0m
+
+refactor: Update service paths in services.yaml for better organization
+
+
 ## [0.1.36-alpha] - 2025-06-26
 
 ### Maintenance
