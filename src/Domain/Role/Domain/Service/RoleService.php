@@ -40,8 +40,7 @@ class RoleService
             throw new \InvalidArgumentException('User already has this role');
         }
 
-        $userRole = new UserRole($user, $role);
-        $this->roleRepository->saveUserRole($userRole);
+        $this->roleRepository->assignRoleToUser($role->id(), $user->getId());
     }
 
     public function removeRoleFromUser(Role $role, User $user): void
@@ -52,7 +51,7 @@ class RoleService
             throw new \InvalidArgumentException('User does not have this role');
         }
 
-        $this->roleRepository->removeUserRole($userRole);
+        $this->roleRepository->removeRoleFromUser($user->getId(), $role->id());
     }
 
     public function getUserRoles(User $user): array
