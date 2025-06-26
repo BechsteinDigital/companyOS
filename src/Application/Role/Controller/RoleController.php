@@ -69,8 +69,7 @@ class RoleController extends AbstractController
                         new OA\Property(
                             property: 'data',
                             type: 'array',
-                            items: new OA\Items(ref: '#/components/schemas/RoleResponse')
-                        )
+                            items: new OA\Items(ref: new Model(type: RoleResponse::class))
                     ]
                 )
             ),
@@ -119,7 +118,7 @@ class RoleController extends AbstractController
                 content: new OA\JsonContent(
                     properties: [
                         new OA\Property(property: 'success', type: 'boolean', example: true),
-                        new OA\Property(property: 'data', ref: '#/components/schemas/RoleResponse')
+                        new OA\Property(property: 'data', ref: new Model(type: RoleResponse::class))
                     ]
                 )
             ),
@@ -173,7 +172,7 @@ class RoleController extends AbstractController
                     properties: [
                         new OA\Property(property: 'success', type: 'boolean', example: true),
                         new OA\Property(property: 'message', type: 'string', example: 'Role created successfully'),
-                        new OA\Property(property: 'data', ref: '#/components/schemas/RoleResponse')
+                        new OA\Property(property: 'data', ref: new Model(type: RoleResponse::class))
                     ]
                 )
             ),
@@ -266,7 +265,7 @@ class RoleController extends AbstractController
                     properties: [
                         new OA\Property(property: 'success', type: 'boolean', example: true),
                         new OA\Property(property: 'message', type: 'string', example: 'Role updated successfully'),
-                        new OA\Property(property: 'data', ref: '#/components/schemas/RoleResponse')
+                        new OA\Property(property: 'data', ref: new Model(type: RoleResponse::class))
                     ]
                 )
             ),
@@ -418,7 +417,7 @@ class RoleController extends AbstractController
                         new OA\Property(
                             property: 'data',
                             type: 'array',
-                            items: new OA\Items(ref: '#/components/schemas/RoleResponse')
+                            items: new OA\Items(ref: new Model(type: RoleResponse::class))
                         )
                     ]
                 )

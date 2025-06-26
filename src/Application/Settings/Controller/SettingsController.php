@@ -37,7 +37,7 @@ class SettingsController extends AbstractController
     #[OA\Response(
         response: 200,
         description: 'Settings retrieved successfully',
-        content: new OA\JsonContent(ref: '#/components/schemas/CompanySettingsResponse')
+        content: new OA\JsonContent(ref: new Model(type: CompanySettingsResponse::class))
     )]
     #[OA\Response(
         response: 404,

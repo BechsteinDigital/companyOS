@@ -84,7 +84,7 @@ class WebhookController extends AbstractController
                         new OA\Property(
                             property: 'data',
                             type: 'array',
-                            items: new OA\Items(ref: '#/components/schemas/WebhookResponse')
+                            items: new OA\Items(ref: new Model(type: WebhookResponse::class))
                         )
                     ]
                 )
@@ -130,7 +130,7 @@ class WebhookController extends AbstractController
                 content: new OA\JsonContent(
                     properties: [
                         new OA\Property(property: 'success', type: 'boolean', example: true),
-                        new OA\Property(property: 'data', ref: '#/components/schemas/WebhookResponse')
+                        new OA\Property(property: 'data', ref: new Model(type: WebhookResponse::class))
                     ]
                 )
             ),
@@ -177,7 +177,7 @@ class WebhookController extends AbstractController
                     properties: [
                         new OA\Property(property: 'success', type: 'boolean', example: true),
                         new OA\Property(property: 'message', type: 'string', example: 'Webhook created successfully'),
-                        new OA\Property(property: 'data', ref: '#/components/schemas/WebhookResponse')
+                        new OA\Property(property: 'data', ref: new Model(type: WebhookResponse::class))
                     ]
                 )
             ),
@@ -243,7 +243,7 @@ class WebhookController extends AbstractController
                     properties: [
                         new OA\Property(property: 'success', type: 'boolean', example: true),
                         new OA\Property(property: 'message', type: 'string', example: 'Webhook updated successfully'),
-                        new OA\Property(property: 'data', ref: '#/components/schemas/WebhookResponse')
+                        new OA\Property(property: 'data', ref: new Model(type: WebhookResponse::class))
                     ]
                 )
             ),
