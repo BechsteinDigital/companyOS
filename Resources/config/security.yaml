@@ -5,7 +5,7 @@ security:
     providers:
         companyos_user_provider:
             entity:
-                class: CompanyOS\Domain\User\Domain\Entity\User
+                class: CompanyOS\Bundle\CoreBundle\Domain\User\Domain\Entity\User
                 property: email
 
     firewalls:

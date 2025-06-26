@@ -12,8 +12,8 @@ doctrine:
         profiling_collect_backtrace: '%kernel.debug%'
         use_savepoints: true
         types:
-            uuid: CompanyOS\Infrastructure\Persistence\Doctrine\UuidType
-            email: CompanyOS\Infrastructure\Persistence\Doctrine\EmailType
+            uuid: CompanyOS\Bundle\CoreBundle\Infrastructure\Persistence\Doctrine\UuidType
+            email: CompanyOS\Bundle\CoreBundle\Infrastructure\Persistence\Doctrine\EmailType
     orm:
         mappings:
             CompanyOSCore:
@@ -46,7 +46,7 @@ doctrine:
             auto_mapping: false
     migrations:
         paths:
-            'CompanyOS\Migrations':
+            'CompanyOS\Bundle\CoreBundle\Migrations':
                 - '%kernel.project_dir%/vendor/companyos/core/src/Migrations'
 
 when@test:
