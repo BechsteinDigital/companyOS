@@ -7,6 +7,12 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [0.1.89-alpha] - 2025-06-27
+
+### Added
+- feat(Entity\Client): Update identifier column length and constructor parameters
+
+
 ## [0.1.88-alpha] - 2025-06-27
 
 ### Changed
