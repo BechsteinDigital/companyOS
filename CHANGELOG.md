@@ -7,6 +7,12 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [0.1.80-alpha] - 2025-06-27
+
+### Added
+- feat(Infrastructure): Debug-Log hinzugefügt beim Instanziieren von DoctrineU...
+
+
 ## [0.1.79-alpha] - 2025-06-27
 
 ### Changed

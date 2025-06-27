@@ -17,6 +17,8 @@ class DoctrineUserRepository implements OAuthUserRepositoryInterface
         private UserPasswordHasherInterface $passwordHasher,
         private LoggerInterface $logger
     ) {
+        // Debug-Log beim Konstruktor
+        $this->logger->info('[OAuth2] DoctrineUserRepository wurde instanziiert');
     }
 
     public function getUserEntityByUserCredentials(
