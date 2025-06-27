@@ -7,6 +7,12 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [0.1.77-alpha] - 2025-06-27
+
+### Maintenance
+- chore: Update composer.json for 'CompanyOS Core Bundle'
+
+
 ## [0.1.76-alpha] - 2025-06-27
 
 ### Added
