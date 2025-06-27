@@ -7,6 +7,12 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [0.1.78-alpha] - 2025-06-27
+
+### Added
+- feat: Hinzufügen von Logger-Argumenten für OAuth2-Controller und DoctrineUs...
+
+
 ## [0.1.77-alpha] - 2025-06-27
 
 ### Maintenance

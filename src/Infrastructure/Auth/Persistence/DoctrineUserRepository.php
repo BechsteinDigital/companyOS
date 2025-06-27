@@ -9,13 +9,15 @@ use League\OAuth2\Server\Entities\ClientEntityInterface;
 use League\OAuth2\Server\Entities\UserEntityInterface;
 use League\OAuth2\Server\Repositories\UserRepositoryInterface as OAuthUserRepositoryInterface;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use Psr\Log\LoggerInterface;
 
 class DoctrineUserRepository implements OAuthUserRepositoryInterface
 {
     public function __construct(
         private EntityManagerInterface $entityManager,
         private UserRepositoryInterface $userRepository,
-        private UserPasswordHasherInterface $passwordHasher
+        private UserPasswordHasherInterface $passwordHasher,
+        private LoggerInterface $logger
     ) {
     }
 
@@ -26,49 +28,55 @@ class DoctrineUserRepository implements OAuthUserRepositoryInterface
         ClientEntityInterface $clientEntity
     ): ?UserEntityInterface {
         // Debug-Logging
-        error_log('[OAuth2] getUserEntityByUserCredentials aufgerufen:');
-        error_log('[OAuth2] - Username: ' . $username);
-        error_log('[OAuth2] - GrantType: ' . $grantType);
-        error_log('[OAuth2] - Client: ' . $clientEntity->getIdentifier());
-        error_log('[OAuth2] - Password length: ' . strlen($password));
+        $this->logger->info('[OAuth2] getUserEntityByUserCredentials aufgerufen', [
+            'username' => $username,
+            'grantType' => $grantType,
+            'client' => $clientEntity->getIdentifier(),
+            'passwordLength' => strlen($password)
+        ]);
         
         // Nur für Password Grant
         if ($grantType !== 'password') {
-            error_log('[OAuth2] Wrong grant type: ' . $grantType . ' - returning null');
+            $this->logger->warning('[OAuth2] Wrong grant type', ['grantType' => $grantType]);
             return null;
         }
 
         // User anhand E-Mail finden
-        error_log('[OAuth2] Suche User mit E-Mail: ' . $username);
+        $this->logger->info('[OAuth2] Suche User mit E-Mail', ['email' => $username]);
         $user = $this->userRepository->findByEmail(new \CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Email($username));
         
         if (!$user) {
-            error_log('[OAuth2] User nicht gefunden für E-Mail: ' . $username);
+            $this->logger->warning('[OAuth2] User nicht gefunden für E-Mail', ['email' => $username]);
             return null;
         }
         
-        error_log('[OAuth2] User gefunden: ID=' . $user->getId() . ', Email=' . $user->getEmail());
+        $this->logger->info('[OAuth2] User gefunden', [
+            'id' => $user->getId()->getValue(),
+            'email' => $user->getEmail()->getValue()
+        ]);
         
         if (!$user->isActive()) {
-            error_log('[OAuth2] User ist nicht aktiv: ' . $username);
+            $this->logger->warning('[OAuth2] User ist nicht aktiv', ['email' => $username]);
             return null;
         }
 
         // Passwort prüfen mit Symfony PasswordHasher
         if (!$user->getPasswordHash()) {
-            error_log('[OAuth2] User hat kein Passwort-Hash: ' . $username);
+            $this->logger->warning('[OAuth2] User hat kein Passwort-Hash', ['email' => $username]);
             return null;
         }
 
-        error_log('[OAuth2] Prüfe Passwort für User: ' . $username);
-        error_log('[OAuth2] - Password Hash vorhanden: ' . (strlen($user->getPasswordHash()) > 0 ? 'ja' : 'nein'));
+        $this->logger->info('[OAuth2] Prüfe Passwort für User', [
+            'email' => $username,
+            'hasPasswordHash' => strlen($user->getPasswordHash()) > 0
+        ]);
         
         if ($this->passwordHasher->isPasswordValid($user, $password)) {
-            error_log('[OAuth2] Passwort ist korrekt für User: ' . $username);
+            $this->logger->info('[OAuth2] Passwort ist korrekt für User', ['email' => $username]);
             return $user;
         }
 
-        error_log('[OAuth2] Passwort ist falsch für User: ' . $username);
+        $this->logger->warning('[OAuth2] Passwort ist falsch für User', ['email' => $username]);
         return null;
     }
 } 

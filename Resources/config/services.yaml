@@ -60,6 +60,11 @@ services:
         arguments:
             $roleRepository: '@CompanyOS\Bundle\CoreBundle\Domain\Role\Domain\Repository\RoleRepositoryInterface'
 
+    # OAuth2 Controller
+    CompanyOS\Bundle\CoreBundle\Application\Auth\Controller\OAuthController:
+        arguments:
+            $logger: '@logger'
+
     # OAuth2 Services
     CompanyOS\Bundle\CoreBundle\Infrastructure\Auth\Persistence\LeagueClientRepository:
         tags:
@@ -76,6 +81,8 @@ services:
     CompanyOS\Bundle\CoreBundle\Infrastructure\Auth\Persistence\DoctrineUserRepository:
         tags:
             - { name: league_oauth2_server.user_repository }
+        arguments:
+            $logger: '@logger'
 
     Symfony\Component\DependencyInjection\ContainerInterface: '@service_container'
 

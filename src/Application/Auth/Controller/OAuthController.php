@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use OpenApi\Attributes as OA;
+use Psr\Log\LoggerInterface;
 
 #[OA\Tag(name: 'OAuth2', description: 'OAuth2 authentication endpoints')]
 class OAuthController extends AbstractController
@@ -18,7 +19,8 @@ class OAuthController extends AbstractController
     public function __construct(
         private AuthorizationServer $authorizationServer,
         private \CompanyOS\Bundle\CoreBundle\Infrastructure\Auth\Persistence\LeagueAccessTokenRepository $accessTokenRepository,
-        private \CompanyOS\Bundle\CoreBundle\Infrastructure\Auth\Persistence\LeagueRefreshTokenRepository $refreshTokenRepository
+        private \CompanyOS\Bundle\CoreBundle\Infrastructure\Auth\Persistence\LeagueRefreshTokenRepository $refreshTokenRepository,
+        private LoggerInterface $logger
     ) {
     }
 
@@ -71,8 +73,10 @@ class OAuthController extends AbstractController
     public function token(Request $request): Response
     {
         // Debug-Logging für eingehende Requests
-        error_log('[OAuth2] Token-Request eingegangen: ' . json_encode($request->request->all()));
-        error_log('[OAuth2] Request Headers: ' . json_encode($request->headers->all()));
+        $this->logger->info('[OAuth2] Token-Request eingegangen', [
+            'requestData' => $request->request->all(),
+            'headers' => $request->headers->all()
+        ]);
         
         try {
             // Request in PSR-7 Format konvertieren
@@ -85,9 +89,12 @@ class OAuthController extends AbstractController
             return $this->createSymfonyResponse($response);
             
         } catch (OAuthServerException $exception) {
-            error_log('[OAuth2] OAuthServerException: ' . $exception->getErrorType() . ' - ' . $exception->getMessage());
-            error_log('[OAuth2] OAuthServerException Hint: ' . $exception->getHint());
-            error_log('[OAuth2] OAuthServerException Stack: ' . $exception->getTraceAsString());
+            $this->logger->error('[OAuth2] OAuthServerException', [
+                'errorType' => $exception->getErrorType(),
+                'message' => $exception->getMessage(),
+                'hint' => $exception->getHint(),
+                'stack' => $exception->getTraceAsString()
+            ]);
             
             return $this->json([
                 'error' => $exception->getErrorType(),
@@ -97,8 +104,10 @@ class OAuthController extends AbstractController
             
         } catch (\Exception $exception) {
             // Log the actual exception for debugging
-            error_log('[OAuth2] General Exception: ' . $exception->getMessage());
-            error_log('[OAuth2] General Exception Stack: ' . $exception->getTraceAsString());
+            $this->logger->error('[OAuth2] General Exception', [
+                'message' => $exception->getMessage(),
+                'stack' => $exception->getTraceAsString()
+            ]);
             
             return $this->json([
                 'error' => 'server_error',
