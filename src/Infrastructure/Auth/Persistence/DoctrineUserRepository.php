@@ -42,14 +42,21 @@ class DoctrineUserRepository implements UserRepositoryInterface
             return null;
         }
 
+        // Input-Sanitization und Validierung
+        $sanitizedUsername = $this->sanitizeEmail($username);
+        if (!$this->validateEmail($sanitizedUsername)) {
+            $this->logger->warning('[OAuth2] Invalid email format', ['email' => $username]);
+            return null;
+        }
+
         // User anhand E-Mail finden
-        $this->logger->info('[OAuth2] Suche User mit E-Mail', ['email' => $username]);
+        $this->logger->info('[OAuth2] Suche User mit E-Mail', ['email' => $sanitizedUsername]);
         
         try {
-            $user = $this->entityManager->getRepository(User::class)->findOneBy(['email' => $username]);
+            $user = $this->entityManager->getRepository(User::class)->findOneBy(['email' => $sanitizedUsername]);
             
             if (!$user) {
-                $this->logger->warning('[OAuth2] User nicht gefunden für E-Mail', ['email' => $username]);
+                $this->logger->warning('[OAuth2] User nicht gefunden für E-Mail', ['email' => $sanitizedUsername]);
                 return null;
             }
             
@@ -61,18 +68,18 @@ class DoctrineUserRepository implements UserRepositoryInterface
             ]);
             
             if (!$user->isActive()) {
-                $this->logger->warning('[OAuth2] User ist nicht aktiv', ['email' => $username]);
+                $this->logger->warning('[OAuth2] User ist nicht aktiv', ['email' => $sanitizedUsername]);
                 return null;
             }
 
             // Passwort prüfen mit Symfony PasswordHasher
             if (!$user->getPassword()) {
-                $this->logger->warning('[OAuth2] User hat kein Passwort-Hash', ['email' => $username]);
+                $this->logger->warning('[OAuth2] User hat kein Passwort-Hash', ['email' => $sanitizedUsername]);
                 return null;
             }
 
             $this->logger->info('[OAuth2] Prüfe Passwort für User', [
-                'email' => $username,
+                'email' => $sanitizedUsername,
                 'hasPasswordHash' => strlen($user->getPassword()) > 0,
                 'passwordHashLength' => strlen($user->getPassword()),
                 'storedHash' => $user->getPassword()
@@ -81,32 +88,48 @@ class DoctrineUserRepository implements UserRepositoryInterface
             // Direkter Test des Passworts
             $testHash = $this->passwordHasher->hashPassword($user, $password);
             $this->logger->info('[OAuth2] Test hash generated', [
-                'email' => $username,
+                'email' => $sanitizedUsername,
                 'testHash' => $testHash,
                 'storedHash' => $user->getPassword()
             ]);
             
             $isPasswordValid = $this->passwordHasher->isPasswordValid($user, $password);
             $this->logger->info('[OAuth2] Password validation result', [
-                'email' => $username,
+                'email' => $sanitizedUsername,
                 'isValid' => $isPasswordValid
             ]);
             
             if ($isPasswordValid) {
-                $this->logger->info('[OAuth2] Passwort ist korrekt für User', ['email' => $username]);
+                $this->logger->info('[OAuth2] Passwort ist korrekt für User', ['email' => $sanitizedUsername]);
                 return $user;
             }
 
-            $this->logger->warning('[OAuth2] Passwort ist falsch für User', ['email' => $username]);
+            $this->logger->warning('[OAuth2] Passwort ist falsch für User', ['email' => $sanitizedUsername]);
             return null;
             
         } catch (\Exception $e) {
             $this->logger->error('[OAuth2] Exception in getUserEntityByUserCredentials', [
-                'email' => $username,
+                'email' => $sanitizedUsername,
                 'exception' => $e->getMessage(),
                 'trace' => $e->getTraceAsString()
             ]);
             return null;
         }
+    }
+
+    /**
+     * Sanitize email input
+     */
+    private function sanitizeEmail(string $email): string
+    {
+        return trim(strtolower($email));
+    }
+
+    /**
+     * Validate email format
+     */
+    private function validateEmail(string $email): bool
+    {
+        return filter_var($email, FILTER_VALIDATE_EMAIL) !== false;
     }
 } 

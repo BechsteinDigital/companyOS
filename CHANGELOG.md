@@ -7,6 +7,12 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [0.1.113-alpha] - 2025-06-27
+
+### Added
+- feat: Implement Input-Sanitization und Validierung für E-Mail in DoctrineUse...
+
+
 ## [0.1.112-alpha] - 2025-06-27
 
 ### Added
