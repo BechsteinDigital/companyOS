@@ -3,7 +3,6 @@
 namespace CompanyOS\Bundle\CoreBundle\Infrastructure\Auth\Persistence;
 
 use CompanyOS\Bundle\CoreBundle\Domain\User\Domain\Entity\User;
-use CompanyOS\Bundle\CoreBundle\Domain\User\Domain\Repository\UserRepositoryInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use League\OAuth2\Server\Entities\ClientEntityInterface;
 use League\OAuth2\Server\Entities\UserEntityInterface;
@@ -15,7 +14,6 @@ class DoctrineUserRepository implements OAuthUserRepositoryInterface
 {
     public function __construct(
         private EntityManagerInterface $entityManager,
-        private UserRepositoryInterface $userRepository,
         private UserPasswordHasherInterface $passwordHasher,
         private LoggerInterface $logger
     ) {
@@ -43,7 +41,8 @@ class DoctrineUserRepository implements OAuthUserRepositoryInterface
 
         // User anhand E-Mail finden
         $this->logger->info('[OAuth2] Suche User mit E-Mail', ['email' => $username]);
-        $user = $this->userRepository->findByEmail(new \CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Email($username));
+        
+        $user = $this->entityManager->getRepository(User::class)->findOneBy(['email' => $username]);
         
         if (!$user) {
             $this->logger->warning('[OAuth2] User nicht gefunden für E-Mail', ['email' => $username]);

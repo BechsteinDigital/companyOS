@@ -7,6 +7,12 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [0.1.79-alpha] - 2025-06-27
+
+### Changed
+- refactor: Entfernen der UserRepositoryInterface-Abhängigkeit in DoctrineUser...
+
+
 ## [0.1.78-alpha] - 2025-06-27
 
 ### Added
