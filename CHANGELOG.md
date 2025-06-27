@@ -7,6 +7,12 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [0.1.104-alpha] - 2025-06-27
+
+### Added
+- feat: Registriere UserRepository für OAuth2-Server in services.yaml
+
+
 ## [0.1.103-alpha] - 2025-06-27
 
 ### Added

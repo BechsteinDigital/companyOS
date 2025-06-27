@@ -60,10 +60,6 @@ services:
         arguments:
             $roleRepository: '@CompanyOS\Bundle\CoreBundle\Domain\Role\Domain\Repository\RoleRepositoryInterface'
 
-    # OAuth2 Services - Verwende Standard OAuth2-Server-Bibliothek
-    # Die Standard-Repositories werden automatisch von der OAuth2-Server-Bibliothek geladen
-    # Wir müssen nur unsere UserRepository registrieren
-
     # OAuth2 UserRepository Alias - unsere UserRepository wird verwendet
     League\OAuth2\Server\Repositories\UserRepositoryInterface:
         alias: CompanyOS\Bundle\CoreBundle\Infrastructure\Auth\Persistence\DoctrineUserRepository
