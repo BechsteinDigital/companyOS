@@ -74,7 +74,16 @@ class DoctrineUserRepository implements UserRepositoryInterface
             $this->logger->info('[OAuth2] Prüfe Passwort für User', [
                 'email' => $username,
                 'hasPasswordHash' => strlen($user->getPassword()) > 0,
-                'passwordHashLength' => strlen($user->getPassword())
+                'passwordHashLength' => strlen($user->getPassword()),
+                'storedHash' => $user->getPassword()
+            ]);
+            
+            // Direkter Test des Passworts
+            $testHash = $this->passwordHasher->hashPassword($user, $password);
+            $this->logger->info('[OAuth2] Test hash generated', [
+                'email' => $username,
+                'testHash' => $testHash,
+                'storedHash' => $user->getPassword()
             ]);
             
             $isPasswordValid = $this->passwordHasher->isPasswordValid($user, $password);

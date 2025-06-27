@@ -7,6 +7,12 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [0.1.96-alpha] - 2025-06-27
+
+### Added
+- feat: Hinzufügen von zusätzlichen Passwort-Test-Logs in DoctrineUserRepository
+
+
 ## [0.1.95-alpha] - 2025-06-27
 
 ### Added
