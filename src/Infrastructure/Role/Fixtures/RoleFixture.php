@@ -27,7 +27,12 @@ class RoleFixture extends Fixture
                 'webhook.read', 'webhook.write',
                 'client.read', 'client.write',
                 'profile.read', 'profile.write',
-                'auth.read', 'auth.write'
+                'auth.read', 'auth.write',
+                // CRM Plugin Permissions
+                'crm.read', 'crm.write',
+                'crm.customers.read', 'crm.customers.write',
+                'crm.contracts.read', 'crm.contracts.write',
+                'crm.invoices.read', 'crm.invoices.write'
             ]),
             true // isSystem
         );
@@ -40,7 +45,12 @@ class RoleFixture extends Fixture
             new RoleDescription('Verwaltung von Benutzern und Inhalten'),
             new RolePermissions([
                 'user.read', 'user.write',
-                'plugin.read', 'plugin.write'
+                'plugin.read', 'plugin.write',
+                // CRM Plugin Permissions
+                'crm.read',
+                'crm.customers.read', 'crm.customers.write',
+                'crm.contracts.read', 'crm.contracts.write',
+                'crm.invoices.read'
             ]),
             false
         );
@@ -53,6 +63,7 @@ class RoleFixture extends Fixture
             new RoleDescription('Standard-Benutzer mit Basisrechten'),
             new RolePermissions([
                 'profile.read', 'profile.write'
+                // Keine CRM-Berechtigungen für normale User
             ]),
             false
         );

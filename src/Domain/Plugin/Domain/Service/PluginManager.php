@@ -481,12 +481,7 @@ class PluginManager
     public function getPluginAssets(string $pluginName): array
     {
         $plugin = $this->getPlugin($pluginName);
-        
-        if ($plugin) {
-            return $plugin->getAssets();
-        }
-        
-        return [];
+        return $plugin ? $plugin->getAssets() : [];
     }
 
     /**
@@ -588,5 +583,173 @@ class PluginManager
             $this->logger->error("Migration error for plugin {$pluginName}: " . $e->getMessage());
             return false;
         }
+    }
+
+    /**
+     * Get all frontend components from active plugins
+     */
+    public function getActiveFrontendComponents(): array
+    {
+        $components = [];
+        
+        foreach ($this->loadedPlugins as $pluginName => $plugin) {
+            if ($this->isPluginActive($pluginName)) {
+                $pluginComponents = $plugin->getFrontendComponents();
+                foreach ($pluginComponents as $componentName => $componentConfig) {
+                    $components[$componentName] = array_merge($componentConfig, [
+                        'plugin' => $pluginName
+                    ]);
+                }
+            }
+        }
+        
+        return $components;
+    }
+
+    /**
+     * Get all JavaScript files from active plugins
+     */
+    public function getActiveJavaScriptFiles(): array
+    {
+        $files = [];
+        
+        foreach ($this->loadedPlugins as $pluginName => $plugin) {
+            if ($this->isPluginActive($pluginName)) {
+                $pluginFiles = $plugin->getJavaScriptFiles();
+                foreach ($pluginFiles as $file) {
+                    $files[] = [
+                        'plugin' => $pluginName,
+                        'file' => $file,
+                        'path' => $this->getPluginAssetPath($pluginName, $file)
+                    ];
+                }
+            }
+        }
+        
+        return $files;
+    }
+
+    /**
+     * Get all CSS files from active plugins
+     */
+    public function getActiveCssFiles(): array
+    {
+        $files = [];
+        
+        foreach ($this->loadedPlugins as $pluginName => $plugin) {
+            if ($this->isPluginActive($pluginName)) {
+                $pluginFiles = $plugin->getCssFiles();
+                foreach ($pluginFiles as $file) {
+                    $files[] = [
+                        'plugin' => $pluginName,
+                        'file' => $file,
+                        'path' => $this->getPluginAssetPath($pluginName, $file)
+                    ];
+                }
+            }
+        }
+        
+        return $files;
+    }
+
+    /**
+     * Get all Vue components from active plugins
+     */
+    public function getActiveVueComponents(): array
+    {
+        $components = [];
+        
+        foreach ($this->loadedPlugins as $pluginName => $plugin) {
+            if ($this->isPluginActive($pluginName)) {
+                $pluginComponents = $plugin->getVueComponents();
+                foreach ($pluginComponents as $componentName => $componentConfig) {
+                    $components[$componentName] = array_merge($componentConfig, [
+                        'plugin' => $pluginName
+                    ]);
+                }
+            }
+        }
+        
+        return $components;
+    }
+
+    /**
+     * Check if plugin is active
+     */
+    private function isPluginActive(string $pluginName): bool
+    {
+        if (!$this->pluginRepository) {
+            return false;
+        }
+        
+        $pluginEntity = $this->pluginRepository->findByName($pluginName);
+        return $pluginEntity && $pluginEntity->isActive();
+    }
+
+    /**
+     * Check if plugin is installed
+     */
+    public function isPluginInstalled(string $pluginName): bool
+    {
+        if (!$this->pluginRepository) {
+            return false;
+        }
+        
+        $pluginEntity = $this->pluginRepository->findByName($pluginName);
+        return $pluginEntity !== null;
+    }
+
+    /**
+     * Check if plugin is installed AND active
+     */
+    public function isPluginInstalledAndActive(string $pluginName): bool
+    {
+        if (!$this->pluginRepository) {
+            return false;
+        }
+        
+        $pluginEntity = $this->pluginRepository->findByName($pluginName);
+        return $pluginEntity !== null && $pluginEntity->isActive();
+    }
+
+    /**
+     * Get plugin status (installed and active)
+     */
+    public function getPluginStatus(string $pluginName): array
+    {
+        if (!$this->pluginRepository) {
+            return [
+                'installed' => false,
+                'active' => false,
+                'message' => 'Plugin repository not available'
+            ];
+        }
+        
+        $pluginEntity = $this->pluginRepository->findByName($pluginName);
+        $installed = $pluginEntity !== null;
+        $active = $installed && $pluginEntity->isActive();
+        
+        return [
+            'installed' => $installed,
+            'active' => $active,
+            'name' => $pluginName
+        ];
+    }
+
+    /**
+     * Get plugin asset path
+     */
+    private function getPluginAssetPath(string $pluginName, string $file): string
+    {
+        // Try to find plugin directory
+        $directories = explode(',', $this->pluginDirectories);
+        foreach ($directories as $directory) {
+            $pluginPath = trim($directory) . '/' . $pluginName;
+            if (is_dir($pluginPath)) {
+                return $pluginPath . '/' . $file;
+            }
+        }
+        
+        return '';
     }
 } 

@@ -121,9 +121,4 @@ interface PluginInterface extends BundleInterface
      * Get plugin services
      */
     public function getServices(): array;
-
-    /**
-     * Get plugin assets
-     */
-    public function getAssets(): array;
 } 
