@@ -7,6 +7,12 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [0.1.102-alpha] - 2025-06-27
+
+### Added
+- feat(core): Update routes configuration for User, Role, Plugin, System, Webho...
+
+
 ## [0.1.101-alpha] - 2025-06-27
 
 ### Fixed
