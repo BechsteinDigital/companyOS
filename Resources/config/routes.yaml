@@ -3,38 +3,32 @@
 # company_os_core:
 #     resource: '@CompanyOSCoreBundle/Resources/config/routes.yaml'
 
-# User Routes
-user_routes:
-    resource: '@CompanyOSCoreBundle/Resources/config/routes/user.yaml'
+# User API Routes
+api_users:
+    resource: ../../src/Application/User/Controller/
     type: attribute
     prefix: /api/users
 
-# Role Routes
-role_routes:
-    resource: '@CompanyOSCoreBundle/Resources/config/routes/role.yaml'
+# Role API Routes
+api_roles:
+    resource: ../../src/Application/Role/Controller/
     type: attribute
     prefix: /api/roles
 
-# Plugin Routes
-plugin_routes:
-    resource: '@CompanyOSCoreBundle/Resources/config/routes/plugin.yaml'
+# Plugin API Routes
+api_plugins:
+    resource: ../../src/Application/Plugin/Controller/
     type: attribute
     prefix: /api/plugins
 
-# System Routes
-system_routes:
-    resource: '@CompanyOSCoreBundle/Resources/config/routes/system.yaml'
-    type: attribute
-    prefix: /api/system
-
-# Webhook Routes
-webhook_routes:
-    resource: '@CompanyOSCoreBundle/Resources/config/routes/webhook.yaml'
+# Webhook API Routes
+api_webhooks:
+    resource: ../../src/Application/Webhook/Controller/
     type: attribute
     prefix: /api/webhooks
 
-# Settings Routes
-settings_routes:
-    resource: '@CompanyOSCoreBundle/Resources/config/routes/settings.yaml'
+# Settings API Routes
+api_settings:
+    resource: ../../src/Application/Settings/Controller/
     type: attribute
     prefix: /api/settings 
