@@ -82,7 +82,7 @@ class PluginController extends AbstractController
             )
         ]
     )]
-    #[Route('', methods: ['GET'])]
+    #[Route('', methods: ['GET'], name: 'api_plugins_list')]
     public function index(Request $request): JsonResponse
     {
         $activeOnly = $request->query->getBoolean('active_only', false);
@@ -147,7 +147,7 @@ class PluginController extends AbstractController
             )
         ]
     )]
-    #[Route('/{id}', methods: ['GET'])]
+    #[Route('/{id}', methods: ['GET'], name: 'api_plugins_show')]
     public function show(string $id): JsonResponse
     {
         $query = new GetPluginQuery($id);
@@ -188,7 +188,7 @@ class PluginController extends AbstractController
             )
         ]
     )]
-    #[Route('/loaded', methods: ['GET'])]
+    #[Route('/loaded', methods: ['GET'], name: 'api_plugins_list_loaded')]
     public function getLoadedPlugins(): JsonResponse
     {
         $loadedPlugins = $this->pluginManager->getLoadedPlugins();
@@ -271,7 +271,7 @@ class PluginController extends AbstractController
             )
         ]
     )]
-    #[Route('', methods: ['POST'])]
+    #[Route('', methods: ['POST'], name: 'api_plugins_install')]
     public function install(Request $request): JsonResponse
     {
         try {
@@ -374,7 +374,7 @@ class PluginController extends AbstractController
             )
         ]
     )]
-    #[Route('/{id}/activate', methods: ['POST'])]
+    #[Route('/{id}/activate', methods: ['POST'], name: 'api_plugins_activate')]
     public function activate(string $id): JsonResponse
     {
         try {
@@ -449,7 +449,7 @@ class PluginController extends AbstractController
             )
         ]
     )]
-    #[Route('/{id}/deactivate', methods: ['POST'])]
+    #[Route('/{id}/deactivate', methods: ['POST'], name: 'api_plugins_deactivate')]
     public function deactivate(string $id): JsonResponse
     {
         try {
@@ -524,7 +524,7 @@ class PluginController extends AbstractController
             )
         ]
     )]
-    #[Route('/{id}', methods: ['DELETE'])]
+    #[Route('/{id}', methods: ['DELETE'], name: 'api_plugins_delete')]
     public function delete(string $id): JsonResponse
     {
         try {
@@ -550,7 +550,7 @@ class PluginController extends AbstractController
         }
     }
 
-    #[Route('/{id}/update', methods: ['POST'])]
+    #[Route('/{id}/update', methods: ['POST'], name: 'api_plugins_update')]
     #[OA\Post(
         summary: 'Update plugin',
         description: 'Upload and install a new version of a plugin',

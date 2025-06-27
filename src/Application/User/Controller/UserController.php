@@ -31,7 +31,7 @@ class UserController extends AbstractController
         private SerializerInterface $serializer
     ) {}
 
-    #[Route('', methods: ['GET'])]
+    #[Route('', methods: ['GET'], name: 'api_users_list')]
     #[OA\Get(
         summary: 'Get all users',
         responses: [
@@ -59,7 +59,7 @@ class UserController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', methods: ['GET'])]
+    #[Route('/{id}', methods: ['GET'], name: 'api_users_show')]
     #[OA\Get(
         summary: 'Get user by ID',
         parameters: [
@@ -93,7 +93,7 @@ class UserController extends AbstractController
         return $this->json(['success' => true, 'data' => $user]);
     }
 
-    #[Route('', methods: ['POST'])]
+    #[Route('', methods: ['POST'], name: 'api_users_create')]
     #[OA\Post(
         summary: 'Create user',
         requestBody: new OA\RequestBody(
@@ -138,7 +138,7 @@ class UserController extends AbstractController
         }
     }
 
-    #[Route('/{id}', methods: ['PUT'])]
+    #[Route('/{id}', methods: ['PUT'], name: 'api_users_update')]
     #[OA\Put(
         summary: 'Update user',
         requestBody: new OA\RequestBody(
@@ -190,7 +190,7 @@ class UserController extends AbstractController
         }
     }
 
-    #[Route('/{id}', methods: ['DELETE'])]
+    #[Route('/{id}', methods: ['DELETE'], name: 'api_users_delete')]
     #[OA\Delete(
         summary: 'Delete user',
         parameters: [

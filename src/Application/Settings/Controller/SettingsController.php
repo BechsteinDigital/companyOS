@@ -30,7 +30,7 @@ class SettingsController extends AbstractController
     ) {
     }
 
-    #[Route('', methods: ['GET'])]
+    #[Route('', methods: ['GET'], name: 'api_settings_show')]
     #[OA\Get(
         summary: 'Get company settings',
         description: 'Retrieve the current company settings'
@@ -54,7 +54,7 @@ class SettingsController extends AbstractController
         return $this->json(CompanySettingsResponse::fromEntity($settings));
     }
 
-    #[Route('/initialize', methods: ['POST'])]
+    #[Route('/initialize', methods: ['POST'], name: 'api_settings_initialize')]
     #[OA\Post(
         summary: 'Initialize company settings',
         description: 'Initialize the company settings with basic information'
@@ -118,7 +118,7 @@ class SettingsController extends AbstractController
         }
     }
 
-    #[Route('', methods: ['PUT'])]
+    #[Route('', methods: ['PUT'], name: 'api_settings_update')]
     #[OA\Put(
         summary: 'Update company settings',
         description: 'Update the company settings'
@@ -199,11 +199,11 @@ class SettingsController extends AbstractController
                 $dto->city,
                 $dto->country,
                 $dto->state,
-                $dto->email ? new Email($dto->email) : null,
+                $dto->email,
                 $dto->phone,
                 $dto->fax,
                 $dto->website,
-                $dto->supportEmail ? new Email($dto->supportEmail) : null,
+                $dto->supportEmail,
                 $dto->defaultLanguage,
                 $dto->defaultCurrency,
                 $dto->timezone,
@@ -216,8 +216,8 @@ class SettingsController extends AbstractController
                 $dto->sessionTimeout,
                 $dto->maintenanceMode,
                 $dto->emailFromName,
-                $dto->emailFromAddress ? new Email($dto->emailFromAddress) : null,
-                $dto->emailReplyTo ? new Email($dto->emailReplyTo) : null,
+                $dto->emailFromAddress,
+                $dto->emailReplyTo,
                 $dto->smtpHost,
                 $dto->smtpPort,
                 $dto->smtpEncryption,
@@ -228,11 +228,11 @@ class SettingsController extends AbstractController
             $this->commandBus->dispatch($command);
             return $this->json(['message' => 'Settings updated successfully']);
         } catch (\InvalidArgumentException $e) {
-            return $this->json(['error' => $e->getMessage()], Response::HTTP_NOT_FOUND);
+            return $this->json(['error' => $e->getMessage()], Response::HTTP_BAD_REQUEST);
         }
     }
 
-    #[Route('/salutations', methods: ['GET'])]
+    #[Route('/salutations', methods: ['GET'], name: 'api_settings_list_salutations')]
     #[OA\Get(
         summary: 'Get available salutations',
         description: 'Get all available salutation templates'
@@ -249,15 +249,17 @@ class SettingsController extends AbstractController
     )]
     public function getSalutations(): JsonResponse
     {
-        $envelope = $this->queryBus->dispatch(new GetCompanySettingsQuery());
-        $settings = $envelope->last(HandledStamp::class)?->getResult();
-        if (!$settings) {
-            return $this->json(['error' => 'Settings not found'], Response::HTTP_NOT_FOUND);
-        }
-        return $this->json(['salutations' => $settings->getSalutations()]);
+        $salutations = [
+            'formal' => 'Sehr geehrte/r {title} {lastName},',
+            'informal' => 'Hallo {firstName},',
+            'business' => 'Guten Tag {title} {lastName},',
+            'casual' => 'Hi {firstName},'
+        ];
+        
+        return $this->json(['salutations' => $salutations]);
     }
 
-    #[Route('/salutations/{type}', methods: ['GET'])]
+    #[Route('/salutations/{type}', methods: ['GET'], name: 'api_settings_show_salutation')]
     #[OA\Get(
         summary: 'Get specific salutation',
         description: 'Get a specific salutation template by type'

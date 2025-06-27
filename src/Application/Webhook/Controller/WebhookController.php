@@ -34,7 +34,7 @@ class WebhookController extends AbstractController
     ) {
     }
 
-    #[Route('', name: 'companyos_core_application_webhook_list', methods: ['GET'])]
+    #[Route('', name: 'api_webhooks_list', methods: ['GET'])]
     #[OA\Get(
         summary: 'Get all webhooks',
         description: 'Retrieve a list of all webhooks with optional filtering',
@@ -111,7 +111,7 @@ class WebhookController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'companyos_core_application_webhook_get', methods: ['GET'])]
+    #[Route('/{id}', name: 'api_webhooks_show', methods: ['GET'])]
     #[OA\Get(
         summary: 'Get webhook by ID',
         description: 'Retrieve a specific webhook by its unique identifier',
@@ -168,7 +168,7 @@ class WebhookController extends AbstractController
         ]);
     }
 
-    #[Route('', name: 'companyos_core_application_webhook_create', methods: ['POST'])]
+    #[Route('', name: 'api_webhooks_create', methods: ['POST'])]
     #[OA\Post(
         summary: 'Create a new webhook',
         description: 'Create a new webhook in the system',
@@ -204,35 +204,33 @@ class WebhookController extends AbstractController
     )]
     public function create(Request $request): JsonResponse
     {
-        $data = json_decode($request->getContent(), true);
-        $dto = new CreateWebhookRequest(
-            $data['name'] ?? '',
-            $data['url'] ?? '',
-            $data['events'] ?? [],
-            $data['secret'] ?? null
-        );
-        $errors = $this->validator->validate($dto);
-        if (count($errors) > 0) {
-            return $this->json(['errors' => (string) $errors], Response::HTTP_BAD_REQUEST);
-        }
+        try {
+            $data = json_decode($request->getContent(), true);
+            
+            $command = new CreateWebhookCommand(
+                $data['name'],
+                $data['url'],
+                $data['events'] ?? [],
+                $data['secret'] ?? null,
+                $data['isActive'] ?? true
+            );
 
-        $command = new CreateWebhookCommand($dto->name, $dto->url, $dto->events, $dto->secret);
-        $this->commandBus->dispatch($command);
-        
-        // Find the created webhook by name
-        $webhook = $this->webhookRepository->findByName($dto->name);
-        if (!$webhook) {
-            return $this->json(['error' => 'Failed to create webhook'], Response::HTTP_INTERNAL_SERVER_ERROR);
-        }
+            $webhook = $this->commandBus->dispatch($command);
 
-        return $this->json([
-            'success' => true,
-            'message' => 'Webhook created successfully',
-            'data' => WebhookResponse::fromEntity($webhook)
-        ], Response::HTTP_CREATED);
+            return $this->json([
+                'success' => true,
+                'message' => 'Webhook created successfully',
+                'data' => $webhook
+            ], Response::HTTP_CREATED);
+        } catch (\Throwable $e) {
+            return $this->json([
+                'success' => false,
+                'message' => $e->getMessage()
+            ], Response::HTTP_BAD_REQUEST);
+        }
     }
 
-    #[Route('/{id}', name: 'companyos_core_application_webhook_update', methods: ['PUT'])]
+    #[Route('/{id}', name: 'api_webhooks_update', methods: ['PUT'])]
     #[OA\Put(
         summary: 'Update a webhook',
         description: 'Update an existing webhook in the system',
@@ -276,28 +274,34 @@ class WebhookController extends AbstractController
     )]
     public function update(string $id, Request $request): JsonResponse
     {
-        $data = json_decode($request->getContent(), true);
-        $uuid = Uuid::fromString($id);
-        $command = new UpdateWebhookCommand(
-            $uuid,
-            $data['name'] ?? '',
-            $data['url'] ?? '',
-            $data['events'] ?? [],
-            $data['secret'] ?? null
-        );
-        $this->commandBus->dispatch($command);
-        $webhook = $this->webhookRepository->findById($uuid);
-        if (!$webhook) {
-            return $this->json(['error' => 'Webhook not found'], Response::HTTP_NOT_FOUND);
+        try {
+            $data = json_decode($request->getContent(), true);
+            
+            $command = new UpdateWebhookCommand(
+                $id,
+                $data['name'],
+                $data['url'],
+                $data['events'] ?? [],
+                $data['secret'] ?? null,
+                $data['isActive'] ?? true
+            );
+
+            $webhook = $this->commandBus->dispatch($command);
+
+            return $this->json([
+                'success' => true,
+                'message' => 'Webhook updated successfully',
+                'data' => $webhook
+            ]);
+        } catch (\Throwable $e) {
+            return $this->json([
+                'success' => false,
+                'message' => $e->getMessage()
+            ], Response::HTTP_BAD_REQUEST);
         }
-        return $this->json([
-            'success' => true,
-            'message' => 'Webhook updated successfully',
-            'data' => WebhookResponse::fromEntity($webhook)
-        ]);
     }
 
-    #[Route('/{id}', name: 'companyos_core_application_webhook_delete', methods: ['DELETE'])]
+    #[Route('/{id}', name: 'api_webhooks_delete', methods: ['DELETE'])]
     #[OA\Delete(
         summary: 'Delete a webhook',
         description: 'Delete a webhook from the system',

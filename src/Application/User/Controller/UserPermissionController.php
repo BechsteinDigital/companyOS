@@ -20,7 +20,7 @@ class UserPermissionController extends AbstractController
         private UserRepositoryInterface $userRepository
     ) {}
 
-    #[Route('/check/{userId}/{permission}', methods: ['GET'])]
+    #[Route('/check/{userId}/{permission}', methods: ['GET'], name: 'api_users_check_permission')]
     #[OA\Get(
         summary: 'Check if user has specific permission',
         parameters: [
@@ -72,7 +72,7 @@ class UserPermissionController extends AbstractController
         ]);
     }
 
-    #[Route('/list/{userId}', methods: ['GET'])]
+    #[Route('/list/{userId}', methods: ['GET'], name: 'api_users_list_permissions')]
     #[OA\Get(
         summary: 'Get all permissions for a user',
         parameters: [
@@ -116,7 +116,7 @@ class UserPermissionController extends AbstractController
         ]);
     }
 
-    #[Route('/protected-resource', methods: ['GET'])]
+    #[Route('/protected-resource', methods: ['GET'], name: 'api_users_protected_resource')]
     #[OA\Get(
         summary: 'Protected resource that requires specific permission',
         responses: [

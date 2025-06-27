@@ -88,7 +88,7 @@ class RoleController extends AbstractController
             )
         ]
     )]
-    #[Route('', methods: ['GET'])]
+    #[Route('', methods: ['GET'], name: 'api_roles_list')]
     public function index(Request $request): JsonResponse
     {
         $includeSystem = $request->query->getBoolean('include_system', true);
@@ -154,7 +154,7 @@ class RoleController extends AbstractController
             )
         ]
     )]
-    #[Route('/{id}', methods: ['GET'])]
+    #[Route('/{id}', methods: ['GET'], name: 'api_roles_show')]
     public function show(string $id): JsonResponse
     {
         $query = new GetRoleQuery($id);
@@ -232,30 +232,12 @@ class RoleController extends AbstractController
             )
         ]
     )]
-    #[Route('', methods: ['POST'])]
+    #[Route('', methods: ['POST'], name: 'api_roles_create')]
     public function create(Request $request): JsonResponse
     {
         try {
             /** @var CreateRoleRequest $dto */
-            $dto = $this->serializer->deserialize(
-                $request->getContent(),
-                CreateRoleRequest::class,
-                'json'
-            );
-
-            $errors = $this->validator->validate($dto);
-            if (count($errors) > 0) {
-                $errorMessages = [];
-                foreach ($errors as $error) {
-                    $errorMessages[] = $error->getMessage();
-                }
-
-                return $this->json([
-                    'success' => false,
-                    'message' => 'Validation failed',
-                    'errors' => $errorMessages
-                ], Response::HTTP_BAD_REQUEST);
-            }
+            $dto = $this->serializer->deserialize($request->getContent(), CreateRoleRequest::class, 'json');
 
             $command = new CreateRoleCommand(
                 $dto->name,
@@ -264,17 +246,18 @@ class RoleController extends AbstractController
                 $dto->permissions
             );
 
-            $this->commandBus->dispatch($command);
+            $role = $this->commandBus->dispatch($command);
 
             return $this->json([
                 'success' => true,
-                'message' => 'Role created successfully'
+                'message' => 'Role created successfully',
+                'data' => $role
             ], Response::HTTP_CREATED);
-        } catch (\Exception $e) {
+        } catch (\Throwable $e) {
             return $this->json([
                 'success' => false,
                 'message' => $e->getMessage()
-            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+            ], Response::HTTP_BAD_REQUEST);
         }
     }
 
@@ -344,49 +327,33 @@ class RoleController extends AbstractController
             )
         ]
     )]
-    #[Route('/{id}', methods: ['PUT'])]
+    #[Route('/{id}', methods: ['PUT'], name: 'api_roles_update')]
     public function update(string $id, Request $request): JsonResponse
     {
         try {
             /** @var UpdateRoleRequest $dto */
-            $dto = $this->serializer->deserialize(
-                $request->getContent(),
-                UpdateRoleRequest::class,
-                'json'
-            );
-
-            $errors = $this->validator->validate($dto);
-            if (count($errors) > 0) {
-                $errorMessages = [];
-                foreach ($errors as $error) {
-                    $errorMessages[] = $error->getMessage();
-                }
-
-                return $this->json([
-                    'success' => false,
-                    'message' => 'Validation failed',
-                    'errors' => $errorMessages
-                ], Response::HTTP_BAD_REQUEST);
-            }
+            $dto = $this->serializer->deserialize($request->getContent(), UpdateRoleRequest::class, 'json');
 
             $command = new UpdateRoleCommand(
                 $id,
+                $dto->name,
                 $dto->displayName,
                 $dto->description,
                 $dto->permissions
             );
 
-            $this->commandBus->dispatch($command);
+            $role = $this->commandBus->dispatch($command);
 
             return $this->json([
                 'success' => true,
-                'message' => 'Role updated successfully'
+                'message' => 'Role updated successfully',
+                'data' => $role
             ]);
-        } catch (\Exception $e) {
+        } catch (\Throwable $e) {
             return $this->json([
                 'success' => false,
                 'message' => $e->getMessage()
-            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+            ], Response::HTTP_BAD_REQUEST);
         }
     }
 
@@ -450,7 +417,7 @@ class RoleController extends AbstractController
             )
         ]
     )]
-    #[Route('/{id}', methods: ['DELETE'])]
+    #[Route('/{id}', methods: ['DELETE'], name: 'api_roles_delete')]
     public function delete(string $id): JsonResponse
     {
         try {
@@ -461,11 +428,11 @@ class RoleController extends AbstractController
                 'success' => true,
                 'message' => 'Role deleted successfully'
             ]);
-        } catch (\Exception $e) {
+        } catch (\Throwable $e) {
             return $this->json([
                 'success' => false,
                 'message' => $e->getMessage()
-            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+            ], Response::HTTP_BAD_REQUEST);
         }
     }
 
@@ -522,7 +489,7 @@ class RoleController extends AbstractController
             )
         ]
     )]
-    #[Route('/user/{userId}', methods: ['GET'])]
+    #[Route('/user/{userId}', methods: ['GET'], name: 'api_roles_list_user_roles')]
     public function getUserRoles(string $userId): JsonResponse
     {
         $query = new GetUserRolesQuery($userId);
@@ -603,22 +570,22 @@ class RoleController extends AbstractController
             )
         ]
     )]
-    #[Route('/{roleId}/assign/{userId}', methods: ['POST'])]
+    #[Route('/{roleId}/assign/{userId}', methods: ['POST'], name: 'api_roles_assign_user')]
     public function assignRole(string $roleId, string $userId): JsonResponse
     {
         try {
-            $command = new AssignRoleToUserCommand($userId, $roleId);
+            $command = new AssignRoleToUserCommand($roleId, $userId);
             $this->commandBus->dispatch($command);
 
             return $this->json([
                 'success' => true,
                 'message' => 'Role assigned successfully'
             ]);
-        } catch (\Exception $e) {
+        } catch (\Throwable $e) {
             return $this->json([
                 'success' => false,
                 'message' => $e->getMessage()
-            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+            ], Response::HTTP_BAD_REQUEST);
         }
     }
 
@@ -678,7 +645,7 @@ class RoleController extends AbstractController
             )
         ]
     )]
-    #[Route('/{roleId}/remove/{userId}', methods: ['DELETE'])]
+    #[Route('/{roleId}/remove/{userId}', methods: ['DELETE'], name: 'api_roles_remove_user')]
     public function removeRole(string $roleId, string $userId): JsonResponse
     {
         try {
