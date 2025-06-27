@@ -70,6 +70,10 @@ class OAuthController extends AbstractController
     )]
     public function token(Request $request): Response
     {
+        // Debug-Logging für eingehende Requests
+        error_log('[OAuth2] Token-Request eingegangen: ' . json_encode($request->request->all()));
+        error_log('[OAuth2] Request Headers: ' . json_encode($request->headers->all()));
+        
         try {
             // Request in PSR-7 Format konvertieren
             $psrRequest = $this->createPsrRequest($request);
@@ -81,6 +85,10 @@ class OAuthController extends AbstractController
             return $this->createSymfonyResponse($response);
             
         } catch (OAuthServerException $exception) {
+            error_log('[OAuth2] OAuthServerException: ' . $exception->getErrorType() . ' - ' . $exception->getMessage());
+            error_log('[OAuth2] OAuthServerException Hint: ' . $exception->getHint());
+            error_log('[OAuth2] OAuthServerException Stack: ' . $exception->getTraceAsString());
+            
             return $this->json([
                 'error' => $exception->getErrorType(),
                 'message' => $exception->getMessage(),
@@ -89,8 +97,8 @@ class OAuthController extends AbstractController
             
         } catch (\Exception $exception) {
             // Log the actual exception for debugging
-            error_log('OAuth2 Token Error: ' . $exception->getMessage());
-            error_log('OAuth2 Token Error Stack: ' . $exception->getTraceAsString());
+            error_log('[OAuth2] General Exception: ' . $exception->getMessage());
+            error_log('[OAuth2] General Exception Stack: ' . $exception->getTraceAsString());
             
             return $this->json([
                 'error' => 'server_error',

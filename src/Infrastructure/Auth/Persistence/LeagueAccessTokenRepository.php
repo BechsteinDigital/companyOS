@@ -18,16 +18,29 @@ final class LeagueAccessTokenRepository implements LeagueAccessTokenRepositoryIn
 
     public function getNewToken(ClientEntityInterface $clientEntity, array $scopes, $userIdentifier = null): AccessTokenEntityInterface
     {
+        error_log('[OAuth2] getNewToken aufgerufen:');
+        error_log('[OAuth2] - Client: ' . $clientEntity->getIdentifier());
+        error_log('[OAuth2] - Scopes: ' . json_encode($scopes));
+        error_log('[OAuth2] - UserIdentifier: ' . ($userIdentifier ?? 'null'));
+        
         $accessToken = new LeagueAccessTokenEntity();
         $accessToken->setClient($clientEntity);
         $accessToken->setScopes($scopes);
         $accessToken->setUserIdentifier($userIdentifier);
 
+        error_log('[OAuth2] Neuer AccessToken erstellt: ' . $accessToken->getIdentifier());
         return $accessToken;
     }
 
     public function persistNewAccessToken(AccessTokenEntityInterface $accessTokenEntity): void
     {
+        error_log('[OAuth2] persistNewAccessToken aufgerufen:');
+        error_log('[OAuth2] - Token ID: ' . $accessTokenEntity->getIdentifier());
+        error_log('[OAuth2] - Client: ' . $accessTokenEntity->getClient()->getIdentifier());
+        error_log('[OAuth2] - User: ' . ($accessTokenEntity->getUserIdentifier() ?? 'null'));
+        error_log('[OAuth2] - Scopes: ' . json_encode($accessTokenEntity->getScopes()));
+        error_log('[OAuth2] - Expires: ' . $accessTokenEntity->getExpiryDateTime()->format('Y-m-d H:i:s'));
+        
         $qb = $this->entityManager->getConnection()->createQueryBuilder();
         $qb->insert('oauth2_access_token')
            ->values([
@@ -48,6 +61,7 @@ final class LeagueAccessTokenRepository implements LeagueAccessTokenRepositoryIn
            ]);
 
         $qb->executeQuery();
+        error_log('[OAuth2] AccessToken erfolgreich in DB gespeichert');
     }
 
     public function revokeAccessToken($tokenId): void

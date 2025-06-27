@@ -17,11 +17,19 @@ final class LeagueRefreshTokenRepository implements LeagueRefreshTokenRepository
 
     public function getNewRefreshToken(): RefreshTokenEntityInterface
     {
-        return new LeagueRefreshTokenEntity();
+        error_log('[OAuth2] getNewRefreshToken aufgerufen');
+        $refreshToken = new LeagueRefreshTokenEntity();
+        error_log('[OAuth2] Neuer RefreshToken erstellt: ' . $refreshToken->getIdentifier());
+        return $refreshToken;
     }
 
     public function persistNewRefreshToken(RefreshTokenEntityInterface $refreshTokenEntity): void
     {
+        error_log('[OAuth2] persistNewRefreshToken aufgerufen:');
+        error_log('[OAuth2] - RefreshToken ID: ' . $refreshTokenEntity->getIdentifier());
+        error_log('[OAuth2] - AccessToken ID: ' . $refreshTokenEntity->getAccessToken()->getIdentifier());
+        error_log('[OAuth2] - Expires: ' . $refreshTokenEntity->getExpiryDateTime()->format('Y-m-d H:i:s'));
+        
         $qb = $this->entityManager->getConnection()->createQueryBuilder();
         $qb->insert('oauth2_refresh_token')
            ->values([
@@ -38,6 +46,7 @@ final class LeagueRefreshTokenRepository implements LeagueRefreshTokenRepository
            ]);
 
         $qb->executeQuery();
+        error_log('[OAuth2] RefreshToken erfolgreich in DB gespeichert');
     }
 
     public function revokeRefreshToken($tokenId): void

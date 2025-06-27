@@ -17,6 +17,8 @@ final class LeagueClientRepository implements LeagueClientRepositoryInterface
 
     public function getClientEntity($clientIdentifier): ?ClientEntityInterface
     {
+        error_log('[OAuth2] getClientEntity aufgerufen mit: ' . $clientIdentifier);
+        
         $qb = $this->entityManager->getConnection()->createQueryBuilder();
         $qb->select('c.*')
            ->from('oauth2_client', 'c')
@@ -28,8 +30,11 @@ final class LeagueClientRepository implements LeagueClientRepositoryInterface
         $result = $qb->executeQuery()->fetchAssociative();
 
         if (!$result) {
+            error_log('[OAuth2] Kein Client gefunden für: ' . $clientIdentifier);
             return null;
         }
+
+        error_log('[OAuth2] Client gefunden: ' . json_encode($result));
 
         return new LeagueClientEntity(
             $result['identifier'],
@@ -45,24 +50,30 @@ final class LeagueClientRepository implements LeagueClientRepositoryInterface
 
     public function validateClient($clientIdentifier, $clientSecret, $grantType): bool
     {
+        error_log('[OAuth2] validateClient: id=' . $clientIdentifier . ', secret=' . ($clientSecret ? '***' : 'null') . ', grant=' . $grantType);
+        
         $client = $this->getClientEntity($clientIdentifier);
         
         if (!$client) {
+            error_log('[OAuth2] validateClient: Client nicht gefunden');
             return false;
         }
 
         // Für Client Credentials Grant
         if ($grantType === 'client_credentials') {
-            return $client->isConfidential() && 
-                   $client->getSecret() === $clientSecret;
+            $result = $client->isConfidential() && $client->getSecret() === $clientSecret;
+            error_log('[OAuth2] validateClient client_credentials: ' . ($result ? 'true' : 'false'));
+            return $result;
         }
 
         // Für Password Grant
         if ($grantType === 'password') {
             // Password Grant braucht kein Secret
+            error_log('[OAuth2] validateClient password: true (kein Secret erforderlich)');
             return true;
         }
 
+        error_log('[OAuth2] validateClient: Unbekannter Grant Type - false');
         return false;
     }
 }

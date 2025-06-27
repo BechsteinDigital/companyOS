@@ -26,43 +26,49 @@ class DoctrineUserRepository implements OAuthUserRepositoryInterface
         ClientEntityInterface $clientEntity
     ): ?UserEntityInterface {
         // Debug-Logging
-        error_log("OAuth2 User Auth Debug:");
-        error_log("Username: " . $username);
-        error_log("GrantType: " . $grantType);
-        error_log("Client: " . $clientEntity->getIdentifier());
+        error_log('[OAuth2] getUserEntityByUserCredentials aufgerufen:');
+        error_log('[OAuth2] - Username: ' . $username);
+        error_log('[OAuth2] - GrantType: ' . $grantType);
+        error_log('[OAuth2] - Client: ' . $clientEntity->getIdentifier());
+        error_log('[OAuth2] - Password length: ' . strlen($password));
         
         // Nur für Password Grant
         if ($grantType !== 'password') {
-            error_log("Wrong grant type: " . $grantType);
+            error_log('[OAuth2] Wrong grant type: ' . $grantType . ' - returning null');
             return null;
         }
 
         // User anhand E-Mail finden
+        error_log('[OAuth2] Suche User mit E-Mail: ' . $username);
         $user = $this->userRepository->findByEmail(new \CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Email($username));
         
         if (!$user) {
-            error_log("User not found for email: " . $username);
+            error_log('[OAuth2] User nicht gefunden für E-Mail: ' . $username);
             return null;
         }
         
+        error_log('[OAuth2] User gefunden: ID=' . $user->getId() . ', Email=' . $user->getEmail());
+        
         if (!$user->isActive()) {
-            error_log("User is not active: " . $username);
+            error_log('[OAuth2] User ist nicht aktiv: ' . $username);
             return null;
         }
 
         // Passwort prüfen mit Symfony PasswordHasher
         if (!$user->getPasswordHash()) {
-            error_log("User has no password hash: " . $username);
+            error_log('[OAuth2] User hat kein Passwort-Hash: ' . $username);
             return null;
         }
 
-        error_log("Checking password for user: " . $username);
+        error_log('[OAuth2] Prüfe Passwort für User: ' . $username);
+        error_log('[OAuth2] - Password Hash vorhanden: ' . (strlen($user->getPasswordHash()) > 0 ? 'ja' : 'nein'));
+        
         if ($this->passwordHasher->isPasswordValid($user, $password)) {
-            error_log("Password is valid for user: " . $username);
+            error_log('[OAuth2] Passwort ist korrekt für User: ' . $username);
             return $user;
         }
 
-        error_log("Password is invalid for user: " . $username);
+        error_log('[OAuth2] Passwort ist falsch für User: ' . $username);
         return null;
     }
 } 
