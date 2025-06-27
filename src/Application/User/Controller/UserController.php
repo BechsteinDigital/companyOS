@@ -231,4 +231,42 @@ class UserController extends AbstractController
             ], Response::HTTP_BAD_REQUEST);
         }
     }
+
+    #[Route('/profile', methods: ['GET'], name: 'api_users_profile')]
+    #[OA\Get(
+        summary: 'Get current user profile',
+        description: 'Retrieve the profile of the currently authenticated user',
+        responses: [
+            new OA\Response(
+                response: 200,
+                description: 'User profile retrieved successfully',
+                content: new OA\JsonContent(ref: new Model(type: UserResponse::class))
+            ),
+            new OA\Response(response: 401, description: 'Not authenticated')
+        ]
+    )]
+    public function profile(): JsonResponse
+    {
+        $user = $this->getUser();
+        
+        if (!$user) {
+            return $this->json([
+                'success' => false,
+                'message' => 'Not authenticated'
+            ], Response::HTTP_UNAUTHORIZED);
+        }
+
+        return $this->json([
+            'success' => true,
+            'data' => [
+                'id' => $user->getId()->getValue(),
+                'email' => $user->getEmail()->getValue(),
+                'firstName' => $user->getFirstName(),
+                'lastName' => $user->getLastName(),
+                'fullName' => $user->getFullName(),
+                'isActive' => $user->isActive(),
+                'roles' => $user->getRoles()
+            ]
+        ]);
+    }
 }
