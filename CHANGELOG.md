@@ -7,6 +7,12 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [0.1.83-alpha] - 2025-06-27
+
+### Added
+- feat(security): Update password hashing algorithm for User entity in CompanyO...
+
+
 ## [0.1.82-alpha] - 2025-06-27
 
 ### Fixed

@@ -6,7 +6,8 @@ security:
     # https://symfony.com/doc/current/security.html#registering-the-user-hashing-passwords
     password_hashers:
         Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
-        CompanyOS\Bundle\CoreBundle\Domain\User\Domain\Entity\User: 'auto'
+        CompanyOS\Bundle\CoreBundle\Domain\User\Domain\Entity\User:
+            algorithm: auto
     # https://symfony.com/doc/current/security.html#loading-the-user-the-user-provider
     providers:
         companyos_user_provider:
