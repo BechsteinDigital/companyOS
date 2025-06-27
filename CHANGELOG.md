@@ -7,6 +7,12 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [0.1.75-alpha] - 2025-06-27
+
+### Changed
+- refactor: Update OAuth2 services to use League repositories in CompanyOS Core...
+
+
 ## [0.1.74-alpha] - 2025-06-27
 
 ### Added

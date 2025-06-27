@@ -61,15 +61,15 @@ services:
             $roleRepository: '@CompanyOS\Bundle\CoreBundle\Domain\Role\Domain\Repository\RoleRepositoryInterface'
 
     # OAuth2 Services
-    CompanyOS\Bundle\CoreBundle\Infrastructure\Auth\Persistence\DoctrineClientRepository:
+    CompanyOS\Bundle\CoreBundle\Infrastructure\Auth\Persistence\LeagueClientRepository:
         tags:
             - { name: league_oauth2_server.client_repository }
 
-    CompanyOS\Bundle\CoreBundle\Infrastructure\Auth\Persistence\DoctrineAccessTokenRepository:
+    CompanyOS\Bundle\CoreBundle\Infrastructure\Auth\Persistence\LeagueAccessTokenRepository:
         tags:
             - { name: league_oauth2_server.access_token_repository }
 
-    CompanyOS\Bundle\CoreBundle\Infrastructure\Auth\Persistence\DoctrineRefreshTokenRepository:
+    CompanyOS\Bundle\CoreBundle\Infrastructure\Auth\Persistence\LeagueRefreshTokenRepository:
         tags:
             - { name: league_oauth2_server.refresh_token_repository }
 

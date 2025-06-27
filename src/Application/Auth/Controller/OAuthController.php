@@ -17,8 +17,8 @@ class OAuthController extends AbstractController
 {
     public function __construct(
         private AuthorizationServer $authorizationServer,
-        private \CompanyOS\Bundle\CoreBundle\Infrastructure\Auth\Persistence\DoctrineAccessTokenRepository $accessTokenRepository,
-        private \CompanyOS\Bundle\CoreBundle\Infrastructure\Auth\Persistence\DoctrineRefreshTokenRepository $refreshTokenRepository
+        private \CompanyOS\Bundle\CoreBundle\Infrastructure\Auth\Persistence\LeagueAccessTokenRepository $accessTokenRepository,
+        private \CompanyOS\Bundle\CoreBundle\Infrastructure\Auth\Persistence\LeagueRefreshTokenRepository $refreshTokenRepository
     ) {
     }
 
