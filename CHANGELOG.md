@@ -7,6 +7,12 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [0.1.90-alpha] - 2025-06-27
+
+### Added
+- feat: Updated routes configuration and removed OAuthClientController and OAut...
+
+
 ## [0.1.89-alpha] - 2025-06-27
 
 ### Added

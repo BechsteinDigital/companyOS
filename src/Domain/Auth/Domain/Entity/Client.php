@@ -34,4 +34,9 @@ class Client extends AbstractClient
         parent::__construct($name, $identifier, $secret);
         $this->identifier = $identifier;
     }
+
+    public function getIdentifier(): string
+    {
+        return $this->identifier;
+    }
 } 

@@ -31,10 +31,4 @@ api_webhooks:
 api_settings:
     resource: ../../src/Application/Settings/Controller/
     type: attribute
-    prefix: /api/settings
-
-# Auth API Routes
-api_oauth2:
-    resource: ../../src/Application/Auth/Controller/
-    type: attribute
-    prefix: /api/oauth2 
+    prefix: /api/settings 
