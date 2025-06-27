@@ -16,9 +16,6 @@ class Client extends AbstractClient
     protected string $identifier;
 
     #[ORM\Column(type: 'string')]
-    protected string $name;
-
-    #[ORM\Column(type: 'string')]
     protected string $secret;
 
     #[ORM\Column(type: 'json')]
@@ -46,8 +43,8 @@ class Client extends AbstractClient
         bool $active = true,
         bool $allowPlainTextPkce = false
     ) {
+        parent::__construct($identifier, $name, $secret, $redirectUris, $grants, $scopes, $active, $allowPlainTextPkce);
         $this->identifier = $identifier;
-        $this->name = $name;
         $this->secret = $secret;
         $this->redirectUris = $redirectUris;
         $this->grants = $grants;
