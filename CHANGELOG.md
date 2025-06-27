@@ -7,6 +7,12 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [0.1.100-alpha] - 2025-06-27
+
+### Changed
+- refactor: Mark OAuth2 Controller Services as public for League Bundle registr...
+
+
 ## [0.1.99-alpha] - 2025-06-27
 
 ### Added
