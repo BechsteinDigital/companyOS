@@ -73,13 +73,6 @@ services:
         autowire: true
         autoconfigure: false
 
-    # OAuth2 Controller Services - Als public markieren (werden vom League Bundle registriert)
-    league.oauth2_server.controller.token:
-        public: true
-
-    league.oauth2_server.controller.authorization:
-        public: true
-
     Symfony\Component\DependencyInjection\ContainerInterface: '@service_container'
 
     # Plugin Infrastructure Services

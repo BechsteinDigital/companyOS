@@ -7,6 +7,12 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [0.1.101-alpha] - 2025-06-27
+
+### Fixed
+- fix: Removed unnecessary OAuth2 controller services from services.yaml
+
+
 ## [0.1.100-alpha] - 2025-06-27
 
 ### Changed
