@@ -1,6 +1,5 @@
-# Inhalt von config/packages/security.yaml (bitte ggf. anpassen, falls Bundle-spezifisch) 
-
 # CompanyOS Core Bundle Security Configuration
+# Diese Konfiguration kann im Hauptprojekt überschrieben werden
 
 security:
     # https://symfony.com/doc/current/security.html#registering-the-user-hashing-passwords
@@ -14,29 +13,6 @@ security:
             entity:
                 class: CompanyOS\Bundle\CoreBundle\Domain\User\Domain\Entity\User
                 property: email
-    firewalls:
-        dev:
-            pattern: ^/(_(profiler|wdt)|css|images|js)/
-            security: false
-        main:
-            lazy: true
-            provider: companyos_user_provider
-
-            # activate different ways to authenticate
-            # https://symfony.com.doc/current/security.html#the-firewall
-
-            # https://symfony.com/doc/current/security/impersonating_user.html
-            # switch_user: true
-
-    # Easy way to control access for large sections of your site
-    # Note: Only the *first* access control that matches will be used
-    access_control:
-        - { path: ^/api/oauth2, roles: PUBLIC_ACCESS }
-        - { path: ^/api/users, roles: ROLE_USER }
-        - { path: ^/api/roles, roles: ROLE_ADMIN }
-        - { path: ^/api/plugins, roles: ROLE_ADMIN }
-        - { path: ^/api/webhooks, roles: ROLE_ADMIN }
-        - { path: ^/api/settings, roles: ROLE_ADMIN }
 
 when@test:
     security:

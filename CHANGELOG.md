@@ -7,6 +7,12 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [0.1.106-alpha] - 2025-06-27
+
+### Changed
+- refactor: Remove unnecessary configuration in CompanyOS Core Bundle
+
+
 ## [0.1.105-alpha] - 2025-06-27
 
 ### Added

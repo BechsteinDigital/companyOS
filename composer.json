@@ -1,7 +1,7 @@
 {
   "name": "companyos/core",
   "description": "CompanyOS Core Bundle - Eine modulare Plattform basierend auf DDD, CQRS und Event-Driven Architecture (Alpha Version)",
-  "version": "0.1.105-alpha",
+  "version": "0.1.106-alpha",
   "type": "symfony-bundle",
   "license": "MIT",
   "keywords": [
