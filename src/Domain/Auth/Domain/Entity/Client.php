@@ -13,28 +13,28 @@ class Client extends AbstractClient
 {
     #[ORM\Id]
     #[ORM\Column(type: 'string', length: 32)]
-    protected $identifier;
+    protected string $identifier;
 
     #[ORM\Column(type: 'string')]
-    protected $name;
+    protected string $name;
 
     #[ORM\Column(type: 'string')]
-    protected $secret;
+    protected string $secret;
 
     #[ORM\Column(type: 'json')]
-    protected $redirectUris;
+    protected array $redirectUris;
 
     #[ORM\Column(type: 'json')]
-    protected $grants;
+    protected array $grants;
 
     #[ORM\Column(type: 'json')]
-    protected $scopes;
+    protected array $scopes;
 
     #[ORM\Column(type: 'boolean')]
-    protected $active;
+    protected bool $active;
 
     #[ORM\Column(type: 'boolean')]
-    protected $allowPlainTextPkce;
+    protected bool $allowPlainTextPkce;
 
     public function __construct(
         string $identifier,

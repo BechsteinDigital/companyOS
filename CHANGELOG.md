@@ -7,6 +7,12 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [0.1.85-alpha] - 2025-06-27
+
+### Added
+- feat(Entity): Update Client entity properties to use type hints and improve r...
+
+
 ## [0.1.84-alpha] - 2025-06-27
 
 ### Changed
