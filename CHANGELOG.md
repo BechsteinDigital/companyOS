@@ -7,6 +7,12 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [0.1.94-alpha] - 2025-06-27
+
+### Added
+- feat(Uuid): Add getValue method to return the UUID value
+
+
 ## [0.1.93-alpha] - 2025-06-27
 
 ### Added
