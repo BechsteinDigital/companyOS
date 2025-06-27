@@ -17,6 +17,7 @@ security:
     access_control:
         # Öffentliche Endpunkte
         - { path: ^/api/auth/login, roles: PUBLIC_ACCESS }
-        - { path: ^/api/oauth2/token, roles: PUBLIC_ACCESS }
+        - { path: ^/token, roles: PUBLIC_ACCESS }
+        - { path: ^/authorize, roles: PUBLIC_ACCESS }
         # Geschützte API-Endpunkte
         - { path: ^/api, roles: IS_AUTHENTICATED_FULLY } 

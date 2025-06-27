@@ -7,6 +7,12 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [0.1.92-alpha] - 2025-06-27
+
+### Added
+- feat(security): Aktualisiere Sicherheitskonfiguration für öffentliche Endpunkte
+
+
 ## [0.1.91-alpha] - 2025-06-27
 
 ### Fixed
