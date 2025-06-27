@@ -11,10 +11,6 @@ use League\Bundle\OAuth2ServerBundle\Model\AbstractClient;
 #[ORM\Table(name: 'oauth2_client')]
 class Client extends AbstractClient
 {
-    #[ORM\Id]
-    #[ORM\Column(type: 'string', length: 32)]
-    protected string $identifier;
-
     public function __construct(
         string $identifier,
         string $name,
@@ -26,6 +22,5 @@ class Client extends AbstractClient
         bool $allowPlainTextPkce = false
     ) {
         parent::__construct($identifier, $name, $secret, $redirectUris, $grants, $scopes, $active, $allowPlainTextPkce);
-        $this->identifier = $identifier;
     }
 } 
