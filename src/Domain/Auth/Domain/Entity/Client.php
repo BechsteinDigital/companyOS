@@ -15,24 +15,6 @@ class Client extends AbstractClient
     #[ORM\Column(type: 'string', length: 32)]
     protected string $identifier;
 
-    #[ORM\Column(type: 'string')]
-    protected string $secret;
-
-    #[ORM\Column(type: 'json')]
-    protected array $redirectUris;
-
-    #[ORM\Column(type: 'json')]
-    protected array $grants;
-
-    #[ORM\Column(type: 'json')]
-    protected array $scopes;
-
-    #[ORM\Column(type: 'boolean')]
-    protected bool $active;
-
-    #[ORM\Column(type: 'boolean')]
-    protected bool $allowPlainTextPkce;
-
     public function __construct(
         string $identifier,
         string $name,
@@ -45,11 +27,5 @@ class Client extends AbstractClient
     ) {
         parent::__construct($identifier, $name, $secret, $redirectUris, $grants, $scopes, $active, $allowPlainTextPkce);
         $this->identifier = $identifier;
-        $this->secret = $secret;
-        $this->redirectUris = $redirectUris;
-        $this->grants = $grants;
-        $this->scopes = $scopes;
-        $this->active = $active;
-        $this->allowPlainTextPkce = $allowPlainTextPkce;
     }
 } 

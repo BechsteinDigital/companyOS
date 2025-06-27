@@ -7,6 +7,12 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [0.1.87-alpha] - 2025-06-27
+
+### Changed
+- refactor: Removed unnecessary properties and assignments in Client entity
+
+
 ## [0.1.86-alpha] - 2025-06-27
 
 ### Changed
