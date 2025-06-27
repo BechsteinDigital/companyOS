@@ -80,6 +80,8 @@ services:
 
     CompanyOS\Bundle\CoreBundle\Infrastructure\Auth\Persistence\DoctrineUserRepository:
         public: true
+        autowire: false
+        autoconfigure: false
         tags:
             - { name: league_oauth2_server.user_repository }
         arguments:
@@ -168,4 +170,9 @@ services:
     CompanyOS\Bundle\CoreBundle\Domain\Plugin\Domain\Service\PluginManager:
         arguments:
             $pluginDirectories: '%companyos.plugin.directories%'
-            $consoleApplication: '@?console' 
+            $consoleApplication: '@?console'
+
+    CompanyOS\Bundle\CoreBundle\Infrastructure\User\Persistence\DoctrineUserRepository:
+        public: false
+        autowire: true
+        autoconfigure: true 

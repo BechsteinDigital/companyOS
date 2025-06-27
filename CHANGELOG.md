@@ -7,6 +7,12 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [0.1.82-alpha] - 2025-06-27
+
+### Fixed
+- fix: Deaktiviere Autowiring und Autoconfiguring für DoctrineUserRepository, ...
+
+
 ## [0.1.81-alpha] - 2025-06-27
 
 ### Added
