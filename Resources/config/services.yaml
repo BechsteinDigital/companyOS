@@ -157,4 +157,10 @@ services:
     CompanyOS\Bundle\CoreBundle\Infrastructure\User\Persistence\DoctrineUserRepository:
         public: false
         autowire: true
+        autoconfigure: true
+
+    # Benutzerdefinierter User-Provider für Rollen-Loading
+    CompanyOS\Bundle\CoreBundle\Infrastructure\User\Security\UserProvider:
+        public: false
+        autowire: true
         autoconfigure: true 

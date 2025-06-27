@@ -44,6 +44,9 @@ class User implements UserInterface, UserEntityInterface, PasswordAuthenticatedU
 
     private array $domainEvents = [];
 
+    // Cache für geladene Rollen
+    private ?array $loadedRoles = null;
+
     public function __construct(
         Uuid $id,
         Email $email,
@@ -168,8 +171,29 @@ class User implements UserInterface, UserEntityInterface, PasswordAuthenticatedU
     // UserInterface Methoden
     public function getRoles(): array
     {
-        // Standard-Rolle für alle User
+        // Falls Rollen bereits geladen wurden, verwende diese
+        if ($this->loadedRoles !== null) {
+            return $this->loadedRoles;
+        }
+        
+        // Standard-Rolle für alle User (Fallback)
         return ['ROLE_USER'];
+    }
+
+    /**
+     * Setzt die Rollen für diesen User (wird vom RoleService aufgerufen)
+     */
+    public function setRoles(array $roles): void
+    {
+        $this->loadedRoles = $roles;
+    }
+
+    /**
+     * Lädt die Rollen aus der Datenbank (wird vom RoleService aufgerufen)
+     */
+    public function loadRoles(callable $roleLoader): void
+    {
+        $this->loadedRoles = $roleLoader($this->getId());
     }
 
     public function getPassword(): ?string
