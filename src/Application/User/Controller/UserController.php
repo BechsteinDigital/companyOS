@@ -59,6 +59,86 @@ class UserController extends AbstractController
         ]);
     }
 
+    #[Route('/profile', methods: ['GET'], name: 'api_users_profile')]
+    #[OA\Get(
+        summary: 'Get current user profile',
+        description: 'Retrieve the profile of the currently authenticated user',
+        responses: [
+            new OA\Response(
+                response: 200,
+                description: 'User profile retrieved successfully',
+                content: new OA\JsonContent(ref: new Model(type: UserResponse::class))
+            ),
+            new OA\Response(response: 401, description: 'Not authenticated')
+        ]
+    )]
+    public function profile(): JsonResponse
+    {
+        // Versuche User aus Security Context zu bekommen
+        $user = $this->getUser();
+        
+        // Falls nicht verfügbar, versuche aus Request zu extrahieren
+        if (!$user) {
+            $request = $this->container->get('request_stack')->getCurrentRequest();
+            $token = $request->headers->get('Authorization');
+            
+            if (!$token || !str_starts_with($token, 'Bearer ')) {
+                return $this->json([
+                    'success' => false,
+                    'message' => 'Not authenticated'
+                ], Response::HTTP_UNAUTHORIZED);
+            }
+            
+            $accessToken = substr($token, 7); // "Bearer " entfernen
+            
+            try {
+                // Token validieren und User-ID extrahieren
+                $tokenService = $this->container->get('league.oauth2_server.resource_server');
+                $serverRequest = new \Nyholm\Psr7\ServerRequest('GET', '/');
+                $serverRequest = $serverRequest->withHeader('Authorization', 'Bearer ' . $accessToken);
+                
+                $validatedRequest = $tokenService->validateAuthenticatedRequest($serverRequest);
+                $userId = $validatedRequest->getAttribute('oauth_user_id');
+                
+                if (!$userId) {
+                    return $this->json([
+                        'success' => false,
+                        'message' => 'Invalid token'
+                    ], Response::HTTP_UNAUTHORIZED);
+                }
+                
+                // User aus Repository laden
+                $userRepository = $this->container->get('CompanyOS\Bundle\CoreBundle\Domain\User\Domain\Repository\UserRepositoryInterface');
+                $user = $userRepository->findById(\CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Uuid::fromString($userId));
+                
+                if (!$user) {
+                    return $this->json([
+                        'success' => false,
+                        'message' => 'User not found'
+                    ], Response::HTTP_NOT_FOUND);
+                }
+            } catch (\Exception $e) {
+                return $this->json([
+                    'success' => false,
+                    'message' => 'Invalid token'
+                ], Response::HTTP_UNAUTHORIZED);
+            }
+        }
+        
+        return $this->json([
+            'success' => true,
+            'data' => [
+                'id' => $user->getId()->getValue(),
+                'email' => $user->getEmail()->getValue(),
+                'firstName' => $user->getFirstName(),
+                'lastName' => $user->getLastName(),
+                'fullName' => $user->getFullName(),
+                'isActive' => $user->isActive(),
+                'roles' => $user->getRoles()
+            ]
+        ]);
+    }
+
     #[Route('/{id}', methods: ['GET'], name: 'api_users_show')]
     #[OA\Get(
         summary: 'Get user by ID',
@@ -230,85 +310,5 @@ class UserController extends AbstractController
                 'message' => $e->getMessage()
             ], Response::HTTP_BAD_REQUEST);
         }
-    }
-
-    #[Route('/profile', methods: ['GET'], name: 'api_users_profile')]
-    #[OA\Get(
-        summary: 'Get current user profile',
-        description: 'Retrieve the profile of the currently authenticated user',
-        responses: [
-            new OA\Response(
-                response: 200,
-                description: 'User profile retrieved successfully',
-                content: new OA\JsonContent(ref: new Model(type: UserResponse::class))
-            ),
-            new OA\Response(response: 401, description: 'Not authenticated')
-        ]
-    )]
-    public function profile(): JsonResponse
-    {
-        // Versuche User aus Security Context zu bekommen
-        $user = $this->getUser();
-        
-        // Falls nicht verfügbar, versuche aus Request zu extrahieren
-        if (!$user) {
-            $request = $this->container->get('request_stack')->getCurrentRequest();
-            $token = $request->headers->get('Authorization');
-            
-            if (!$token || !str_starts_with($token, 'Bearer ')) {
-                return $this->json([
-                    'success' => false,
-                    'message' => 'Not authenticated'
-                ], Response::HTTP_UNAUTHORIZED);
-            }
-            
-            $accessToken = substr($token, 7); // "Bearer " entfernen
-            
-            try {
-                // Token validieren und User-ID extrahieren
-                $tokenService = $this->container->get('league.oauth2_server.resource_server');
-                $serverRequest = new \Nyholm\Psr7\ServerRequest('GET', '/');
-                $serverRequest = $serverRequest->withHeader('Authorization', 'Bearer ' . $accessToken);
-                
-                $validatedRequest = $tokenService->validateAuthenticatedRequest($serverRequest);
-                $userId = $validatedRequest->getAttribute('oauth_user_id');
-                
-                if (!$userId) {
-                    return $this->json([
-                        'success' => false,
-                        'message' => 'Invalid token'
-                    ], Response::HTTP_UNAUTHORIZED);
-                }
-                
-                // User aus Repository laden
-                $userRepository = $this->container->get('CompanyOS\Bundle\CoreBundle\Domain\User\Domain\Repository\UserRepositoryInterface');
-                $user = $userRepository->findById(\CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Uuid::fromString($userId));
-                
-                if (!$user) {
-                    return $this->json([
-                        'success' => false,
-                        'message' => 'User not found'
-                    ], Response::HTTP_NOT_FOUND);
-                }
-            } catch (\Exception $e) {
-                return $this->json([
-                    'success' => false,
-                    'message' => 'Invalid token'
-                ], Response::HTTP_UNAUTHORIZED);
-            }
-        }
-        
-        return $this->json([
-            'success' => true,
-            'data' => [
-                'id' => $user->getId()->getValue(),
-                'email' => $user->getEmail()->getValue(),
-                'firstName' => $user->getFirstName(),
-                'lastName' => $user->getLastName(),
-                'fullName' => $user->getFullName(),
-                'isActive' => $user->isActive(),
-                'roles' => $user->getRoles()
-            ]
-        ]);
     }
 }

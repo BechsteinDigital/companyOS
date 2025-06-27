@@ -7,6 +7,12 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [0.1.111-alpha] - 2025-06-27
+
+### Added
+- feat(UserController): Add endpoint to retrieve current user profile
+
+
 ## [0.1.110-alpha] - 2025-06-27
 
 ### Added
