@@ -79,6 +79,7 @@ services:
             - { name: league_oauth2_server.refresh_token_repository }
 
     CompanyOS\Bundle\CoreBundle\Infrastructure\Auth\Persistence\DoctrineUserRepository:
+        public: true
         tags:
             - { name: league_oauth2_server.user_repository }
         arguments:
