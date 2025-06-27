@@ -64,14 +64,14 @@ services:
     # Die Standard-Repositories werden automatisch von der OAuth2-Server-Bibliothek geladen
     # Wir müssen nur unsere UserRepository registrieren
 
+    # OAuth2 UserRepository Alias - unsere UserRepository wird verwendet
+    League\OAuth2\Server\Repositories\UserRepositoryInterface:
+        alias: CompanyOS\Bundle\CoreBundle\Infrastructure\Auth\Persistence\DoctrineUserRepository
+
     CompanyOS\Bundle\CoreBundle\Infrastructure\Auth\Persistence\DoctrineUserRepository:
         public: true
-        autowire: false
+        autowire: true
         autoconfigure: false
-        tags:
-            - { name: league_oauth2_server.user_repository }
-        arguments:
-            $logger: '@logger'
 
     Symfony\Component\DependencyInjection\ContainerInterface: '@service_container'
 
