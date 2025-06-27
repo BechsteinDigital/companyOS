@@ -7,6 +7,12 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [0.1.91-alpha] - 2025-06-27
+
+### Fixed
+- fix: Entferne nicht verwendeten OAuth2 Controller und seine Argumente
+
+
 ## [0.1.90-alpha] - 2025-06-27
 
 ### Added
