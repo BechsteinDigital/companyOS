@@ -7,6 +7,12 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [0.1.99-alpha] - 2025-06-27
+
+### Added
+- feat: Mark OAuth2 Controller Services as public in services.yaml
+
+
 ## [0.1.98-alpha] - 2025-06-27
 
 ### Added

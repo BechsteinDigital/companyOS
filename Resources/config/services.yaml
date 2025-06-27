@@ -73,6 +73,34 @@ services:
         autowire: true
         autoconfigure: false
 
+    # OAuth2 Controller Services - Explizit als public markieren
+    league.oauth2_server.controller.token:
+        class: League\Bundle\OAuth2ServerBundle\Controller\TokenController
+        public: true
+        arguments:
+            - '@league.oauth2_server.authorization_server'
+            - '@league.oauth2_server.factory.psr_http'
+            - '@league.oauth2_server.factory.http_foundation'
+            - '@league.oauth2_server.factory.psr17'
+            - '@event_dispatcher'
+        tags:
+            - { name: controller.service_arguments }
+
+    league.oauth2_server.controller.authorization:
+        class: League\Bundle\OAuth2ServerBundle\Controller\AuthorizationController
+        public: true
+        arguments:
+            - '@league.oauth2_server.authorization_server'
+            - '@event_dispatcher'
+            - '@league.oauth2_server.factory.authorization_request_resolve_event'
+            - '@league.oauth2_server.converter.user'
+            - '@league.oauth2_server.manager.doctrine.client'
+            - '@league.oauth2_server.factory.psr_http'
+            - '@league.oauth2_server.factory.http_foundation'
+            - '@league.oauth2_server.factory.psr17'
+        tags:
+            - { name: controller.service_arguments }
+
     Symfony\Component\DependencyInjection\ContainerInterface: '@service_container'
 
     # Plugin Infrastructure Services
