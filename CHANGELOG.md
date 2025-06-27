@@ -7,6 +7,12 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [0.1.84-alpha] - 2025-06-27
+
+### Changed
+- refactor: Verwende Standard OAuth2-Server-Bibliothek für Token-Generierung u...
+
+
 ## [0.1.83-alpha] - 2025-06-27
 
 ### Added

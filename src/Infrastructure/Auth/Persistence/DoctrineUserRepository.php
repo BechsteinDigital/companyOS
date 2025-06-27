@@ -6,11 +6,11 @@ use CompanyOS\Bundle\CoreBundle\Domain\User\Domain\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use League\OAuth2\Server\Entities\ClientEntityInterface;
 use League\OAuth2\Server\Entities\UserEntityInterface;
-use League\OAuth2\Server\Repositories\UserRepositoryInterface as OAuthUserRepositoryInterface;
+use League\OAuth2\Server\Repositories\UserRepositoryInterface;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Psr\Log\LoggerInterface;
 
-class DoctrineUserRepository implements OAuthUserRepositoryInterface
+class DoctrineUserRepository implements UserRepositoryInterface
 {
     public function __construct(
         private EntityManagerInterface $entityManager,
@@ -62,14 +62,14 @@ class DoctrineUserRepository implements OAuthUserRepositoryInterface
         }
 
         // Passwort prüfen mit Symfony PasswordHasher
-        if (!$user->getPasswordHash()) {
+        if (!$user->getPassword()) {
             $this->logger->warning('[OAuth2] User hat kein Passwort-Hash', ['email' => $username]);
             return null;
         }
 
         $this->logger->info('[OAuth2] Prüfe Passwort für User', [
             'email' => $username,
-            'hasPasswordHash' => strlen($user->getPasswordHash()) > 0
+            'hasPasswordHash' => strlen($user->getPassword()) > 0
         ]);
         
         if ($this->passwordHasher->isPasswordValid($user, $password)) {

@@ -4,118 +4,55 @@ declare(strict_types=1);
 
 namespace CompanyOS\Bundle\CoreBundle\Domain\Auth\Domain\Entity;
 
-use CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Uuid;
 use Doctrine\ORM\Mapping as ORM;
-use League\OAuth2\Server\Entities\ClientEntityInterface;
-use League\OAuth2\Server\Entities\Traits\ClientTrait;
-use League\OAuth2\Server\Entities\Traits\EntityTrait;
+use League\Bundle\OAuth2ServerBundle\Model\AbstractClient;
 
 #[ORM\Entity]
-#[ORM\Table(name: 'oauth_clients')]
-class Client implements ClientEntityInterface
+#[ORM\Table(name: 'oauth2_client')]
+class Client extends AbstractClient
 {
-    use EntityTrait;
-    use ClientTrait;
-
     #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column(type: 'integer')]
-    private int $id;
-
-    #[ORM\Column(type: 'string', unique: true)]
-    private string $clientId;
+    #[ORM\Column(type: 'string', length: 32)]
+    protected $identifier;
 
     #[ORM\Column(type: 'string')]
-    private string $clientName;
+    protected $name;
+
+    #[ORM\Column(type: 'string')]
+    protected $secret;
 
     #[ORM\Column(type: 'json')]
-    private array $redirectUris = [];
+    protected $redirectUris;
 
     #[ORM\Column(type: 'json')]
-    private array $scopes = [];
+    protected $grants;
+
+    #[ORM\Column(type: 'json')]
+    protected $scopes;
 
     #[ORM\Column(type: 'boolean')]
-    private bool $isActive = true;
+    protected $active;
 
-    #[ORM\Column(type: 'datetime_immutable')]
-    private \DateTimeImmutable $createdAt;
+    #[ORM\Column(type: 'boolean')]
+    protected $allowPlainTextPkce;
 
-    #[ORM\Column(type: 'datetime_immutable')]
-    private \DateTimeImmutable $updatedAt;
-
-    public function __construct()
-    {
-        $this->createdAt = new \DateTimeImmutable();
-        $this->updatedAt = new \DateTimeImmutable();
-    }
-
-    public function getId(): Uuid
-    {
-        return Uuid::fromString((string) $this->id);
-    }
-
-    public function getClientId(): Uuid
-    {
-        return Uuid::fromString($this->clientId);
-    }
-
-    public function setClientId(string $clientId): void
-    {
-        $this->clientId = $clientId;
-        $this->updatedAt = new \DateTimeImmutable();
-    }
-
-    public function getClientName(): string
-    {
-        return $this->clientName;
-    }
-
-    public function setClientName(string $clientName): void
-    {
-        $this->clientName = $clientName;
-        $this->updatedAt = new \DateTimeImmutable();
-    }
-
-    public function getRedirectUris(): array
-    {
-        return $this->redirectUris;
-    }
-
-    public function setRedirectUris(array $redirectUris): void
-    {
+    public function __construct(
+        string $identifier,
+        string $name,
+        string $secret,
+        array $redirectUris = [],
+        array $grants = [],
+        array $scopes = [],
+        bool $active = true,
+        bool $allowPlainTextPkce = false
+    ) {
+        $this->identifier = $identifier;
+        $this->name = $name;
+        $this->secret = $secret;
         $this->redirectUris = $redirectUris;
-        $this->updatedAt = new \DateTimeImmutable();
-    }
-
-    public function getScopes(): array
-    {
-        return $this->scopes;
-    }
-
-    public function setScopes(array $scopes): void
-    {
+        $this->grants = $grants;
         $this->scopes = $scopes;
-        $this->updatedAt = new \DateTimeImmutable();
-    }
-
-    public function isActive(): bool
-    {
-        return $this->isActive;
-    }
-
-    public function setIsActive(bool $isActive): void
-    {
-        $this->isActive = $isActive;
-        $this->updatedAt = new \DateTimeImmutable();
-    }
-
-    public function getCreatedAt(): \DateTimeImmutable
-    {
-        return $this->createdAt;
-    }
-
-    public function getUpdatedAt(): \DateTimeImmutable
-    {
-        return $this->updatedAt;
+        $this->active = $active;
+        $this->allowPlainTextPkce = $allowPlainTextPkce;
     }
 } 
