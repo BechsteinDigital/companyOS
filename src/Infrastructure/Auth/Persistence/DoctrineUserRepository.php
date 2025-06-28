@@ -17,8 +17,6 @@ class DoctrineUserRepository implements UserRepositoryInterface
         private UserPasswordHasherInterface $passwordHasher,
         private LoggerInterface $logger
     ) {
-        // Debug-Log beim Konstruktor
-        $this->logger->info('[OAuth2] DoctrineUserRepository wurde instanziiert');
     }
 
     public function getUserEntityByUserCredentials(
@@ -27,13 +25,12 @@ class DoctrineUserRepository implements UserRepositoryInterface
         string $grantType,
         ClientEntityInterface $clientEntity
     ): ?UserEntityInterface {
-        // Debug-Logging am Anfang der Methode
+        // Debug-Logging
         $this->logger->info('[OAuth2] getUserEntityByUserCredentials aufgerufen', [
             'username' => $username,
             'grantType' => $grantType,
             'client' => $clientEntity->getIdentifier(),
             'passwordLength' => strlen($password),
-            'method' => __METHOD__
         ]);
         
         // Nur für Password Grant
@@ -78,21 +75,6 @@ class DoctrineUserRepository implements UserRepositoryInterface
                 return null;
             }
 
-            $this->logger->info('[OAuth2] Prüfe Passwort für User', [
-                'email' => $sanitizedUsername,
-                'hasPasswordHash' => strlen($user->getPassword()) > 0,
-                'passwordHashLength' => strlen($user->getPassword()),
-                'storedHash' => $user->getPassword()
-            ]);
-            
-            // Direkter Test des Passworts
-            $testHash = $this->passwordHasher->hashPassword($user, $password);
-            $this->logger->info('[OAuth2] Test hash generated', [
-                'email' => $sanitizedUsername,
-                'testHash' => $testHash,
-                'storedHash' => $user->getPassword()
-            ]);
-            
             $isPasswordValid = $this->passwordHasher->isPasswordValid($user, $password);
             $this->logger->info('[OAuth2] Password validation result', [
                 'email' => $sanitizedUsername,
@@ -101,6 +83,7 @@ class DoctrineUserRepository implements UserRepositoryInterface
             
             if ($isPasswordValid) {
                 $this->logger->info('[OAuth2] Passwort ist korrekt für User', ['email' => $sanitizedUsername]);
+                // Direkt die User-Entity zurückgeben, da sie bereits UserEntityInterface implementiert
                 return $user;
             }
 
