@@ -105,8 +105,9 @@ class NeuroAIFixtures extends Fixture implements FixtureGroupInterface, Dependen
         foreach ($roles as $role) {
             $manager->getConnection()->executeStatement("
                 INSERT INTO roles (id, name, display_name, description, permissions, is_system, created_at, updated_at) VALUES
-                (UUID(), ?, ?, ?, ?, 0, NOW(), NOW())
+                (?, ?, ?, ?, ?, 0, NOW(), NOW())
             ", [
+                $this->generateUuid(),
                 $role['name'],
                 $role['display_name'],
                 $role['description'],
@@ -145,8 +146,8 @@ class NeuroAIFixtures extends Fixture implements FixtureGroupInterface, Dependen
             $roleId = $manager->getConnection()->fetchOne("SELECT id FROM roles WHERE name = ?", [$userData['role']]);
             $manager->getConnection()->executeStatement("
                 INSERT INTO user_roles (id, user_id, role_id, assigned_at) VALUES
-                (UUID(), ?, ?, NOW())
-            ", [$userId, $roleId]);
+                (?, ?, ?, NOW())
+            ", [$this->generateUuid(), $userId, $roleId]);
         }
     }
 
@@ -164,7 +165,7 @@ class NeuroAIFixtures extends Fixture implements FixtureGroupInterface, Dependen
                 smtp_host, smtp_port, smtp_encryption, smtp_username, smtp_password,
                 salutations, created_at, updated_at
             ) VALUES (
-                UUID(), 'NeuroAI Lab', 'NeuroAI Lab GmbH', 'DE456789012', 'DE567890234',
+                ?, 'NeuroAI Lab', 'NeuroAI Lab GmbH', 'DE456789012', 'DE567890234',
                 'Inklusionsstraße', '42', '10247', 'Berlin', 'Deutschland',
                 'info@neuro-ai-lab.de', '+49 30 98765432', 'https://www.neuro-ai-lab.de', 'support@neuro-ai-lab.de',
                 'de', 'EUR', 'Europe/Berlin',
@@ -175,6 +176,7 @@ class NeuroAIFixtures extends Fixture implements FixtureGroupInterface, Dependen
                 ?, NOW(), NOW()
             )
         ", [
+            $this->generateUuid(),
             json_encode([
                 'neurodivergent_friendly' => 'Hallo {firstName}! 🌈',
                 'clear_simple' => 'Hi {firstName}',
@@ -246,8 +248,9 @@ class NeuroAIFixtures extends Fixture implements FixtureGroupInterface, Dependen
         foreach ($plugins as $plugin) {
             $manager->getConnection()->executeStatement("
                 INSERT INTO plugins (id, name, version, author, active, meta, created_at, updated_at) VALUES
-                (UUID(), ?, ?, ?, ?, ?, NOW(), NOW())
+                (?, ?, ?, ?, ?, ?, NOW(), NOW())
             ", [
+                $this->generateUuid(),
                 $plugin['name'],
                 $plugin['version'],
                 $plugin['author'],
@@ -293,8 +296,9 @@ class NeuroAIFixtures extends Fixture implements FixtureGroupInterface, Dependen
         foreach ($webhooks as $webhook) {
             $manager->getConnection()->executeStatement("
                 INSERT INTO webhooks (id, name, url, events, is_active, secret, created_at, updated_at) VALUES
-                (UUID(), ?, ?, ?, ?, ?, NOW(), NOW())
+                (?, ?, ?, ?, ?, ?, NOW(), NOW())
             ", [
+                $this->generateUuid(),
                 $webhook['name'],
                 $webhook['url'],
                 json_encode($webhook['events']),

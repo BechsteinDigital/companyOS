@@ -646,3 +646,9 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 - Commit: "Fix: Fehler beim Laden von Benutzerprofilen behoben"...
 - [M] composer.json
+
+## [0.1.130-alpha] - 2025-06-29
+
+- Commit: "UUID-Generierung für NeuroAIFixtures hinzugefügt"...
+- [M] composer.json
+- [M] src/DataFixtures/NeuroAIFixtures.php
