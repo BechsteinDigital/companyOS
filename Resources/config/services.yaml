@@ -60,12 +60,20 @@ services:
         arguments:
             $roleRepository: '@CompanyOS\Bundle\CoreBundle\Domain\Role\Domain\Repository\RoleRepositoryInterface'
 
-    # OAuth2 UserRepository Alias - unsere UserRepository wird verwendet
-    League\OAuth2\Server\Repositories\UserRepositoryInterface:
-        alias: CompanyOS\Bundle\CoreBundle\Infrastructure\Auth\Persistence\DoctrineUserRepository
-
+    # OAuth2 UserRepository - WICHTIG: Kein Alias mehr, da League OAuth2 Server Bundle seine eigene UserRepository verwendet
+    # Stattdessen verwenden wir einen Event-Listener für die User-Auflösung
     CompanyOS\Bundle\CoreBundle\Infrastructure\Auth\Persistence\DoctrineUserRepository:
         public: true
+        autowire: true
+        autoconfigure: false
+
+    # OAuth2 UserResolve Event Listener - Verbindet League OAuth2 Server mit unserer DoctrineUserRepository
+    CompanyOS\Bundle\CoreBundle\Infrastructure\Auth\EventListener\UserResolveEventListener:
+        tags:
+            - { name: 'kernel.event_subscriber' }
+
+    # OAuth2 UserConverter - Konvertiert unsere User-Entities zu League OAuth2 Server User-Entities
+    CompanyOS\Bundle\CoreBundle\Infrastructure\Auth\Converter\UserConverter:
         autowire: true
         autoconfigure: false
 

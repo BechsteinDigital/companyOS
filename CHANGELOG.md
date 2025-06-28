@@ -7,6 +7,12 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [0.1.116-alpha] - 2025-06-28
+
+### Added
+- feat: Implementiere OAuth2 UserResolve Event Listener und UserConverter Regis...
+
+
 ## [0.1.115-alpha] - 2025-06-28
 
 ### Added

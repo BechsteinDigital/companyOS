@@ -2,6 +2,7 @@
 
 namespace CompanyOS\Bundle\CoreBundle\DependencyInjection;
 
+use CompanyOS\Bundle\CoreBundle\DependencyInjection\Compiler\OAuth2UserConverterCompilerPass;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
@@ -52,6 +53,9 @@ class CompanyOSCoreExtension extends Extension
         $container->setParameter('companyos.webhook.enabled', $config['webhook']['enabled']);
         $container->setParameter('companyos.webhook.max_retries', $config['webhook']['max_retries']);
         $container->setParameter('companyos.webhook.timeout', $config['webhook']['timeout']);
+        
+        // Compiler Passes registrieren
+        $container->addCompilerPass(new OAuth2UserConverterCompilerPass());
     }
 
     public function getConfiguration(array $config, ContainerBuilder $container): Configuration
