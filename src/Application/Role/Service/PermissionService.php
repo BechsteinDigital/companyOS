@@ -18,7 +18,7 @@ class PermissionService
         $userRoles = $this->roleRepository->findUserRoles($userId);
         
         foreach ($userRoles as $role) {
-            if ($role->permissions()->hasPermission($permission)) {
+            if ($role->hasPermission($permission)) {
                 return true;
             }
         }
@@ -55,7 +55,7 @@ class PermissionService
         $permissions = [];
         
         foreach ($userRoles as $role) {
-            $permissions = array_merge($permissions, $role->permissions()->value());
+            $permissions = array_merge($permissions, $role->getPermissions());
         }
         
         return array_unique($permissions);

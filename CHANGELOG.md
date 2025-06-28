@@ -668,3 +668,9 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - Commit: Hinzufügen von PermissionService und Bereinigung der Authentifizierung....
 - [M] composer.json
 - [M] src/Application/User/Controller/UserController.php
+
+## [0.1.133-alpha] - 2025-06-29
+
+- Commit: "Optimierung der Berechtigungsüberprüfung und -abfrage in PermissionService"...
+- [M] composer.json
+- [M] src/Application/Role/Service/PermissionService.php
