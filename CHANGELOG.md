@@ -596,3 +596,13 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - Commit: "Entferne DocumentControllerExample für Hybrid Access Control"...
 - [M] composer.json
 - [D] src/Application/Document/Controller/DocumentControllerExample.php
+
+## [0.1.123-alpha] - 2025-06-29
+
+- Commit: "Entfernt veraltete Fixtures für Client, LeagueClient, Role und WebpackClient...
+- [M] composer.json
+- [D] src/Infrastructure/Role/Fixtures/ClientFixture.php
+- [D] src/Infrastructure/Role/Fixtures/LeagueClientFixture.php
+- [D] src/Infrastructure/Role/Fixtures/RoleFixture.php
+- [D] src/Infrastructure/Role/Fixtures/WebpackClientFixture.php
+- [M] src/Migrations/Version20250126160000.php
