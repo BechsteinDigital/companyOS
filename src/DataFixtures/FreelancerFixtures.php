@@ -17,6 +17,8 @@ class FreelancerFixtures extends Fixture implements FixtureGroupInterface, Depen
     {
         $this->createFreelancerRoles($manager);
         $this->createFreelancerUsers($manager);
+        $this->createAbacRules($manager);
+        $this->createAclEntries($manager);
         $this->createFreelancerSettings($manager);
         $this->createFreelancerPlugins($manager);
         $this->createFreelancerWebhooks($manager);
@@ -322,5 +324,115 @@ class FreelancerFixtures extends Fixture implements FixtureGroupInterface, Depen
             mt_rand(0, 0x3fff) | 0x8000,
             mt_rand(0, 0xffff), mt_rand(0, 0xffff), mt_rand(0, 0xffff)
         );
+    }
+
+    /**
+     * Create ABAC Rules for Freelancer context
+     */
+    private function createAbacRules(ObjectManager $manager): void
+    {
+        // Flexible dashboard access for freelancer lifestyle
+        $manager->getConnection()->executeStatement("
+            INSERT INTO abac_rules (id, name, permission, description, conditions, effect, priority, is_active, metadata, created_at, updated_at) VALUES
+            (?, 'freelancer_flexible_hours', 'dashboard.view', 'Flexibler Dashboard-Zugriff für Freelancer', ?, 'allow', 100, 1, ?, NOW(), NOW())
+        ", [
+            $this->generateUuid(),
+            json_encode([
+                'time' => [
+                    'hours' => ['$between' => [5, 24]], // Very flexible hours 5:00 - 24:00
+                    'weekdays' => ['$in' => [1, 2, 3, 4, 5, 6, 7]] // All days
+                ]
+            ]),
+            json_encode(['created_by' => 'freelancer_system', 'type' => 'flexible_working'])
+        ]);
+
+        // Self-management permissions
+        $manager->getConnection()->executeStatement("
+            INSERT INTO abac_rules (id, name, permission, description, conditions, effect, priority, is_active, metadata, created_at, updated_at) VALUES
+            (?, 'freelancer_self_management', 'self.manage', 'Selbstverwaltung für Freelancer', ?, 'allow', 200, 1, ?, NOW(), NOW())
+        ", [
+            $this->generateUuid(),
+            json_encode([
+                'user' => [
+                    'type' => ['$eq' => 'freelancer'],
+                    'verified' => ['$eq' => true]
+                ]
+            ]),
+            json_encode(['created_by' => 'freelancer_system', 'type' => 'self_management'])
+        ]);
+
+        // Project access based on client relationship
+        $manager->getConnection()->executeStatement("
+            INSERT INTO abac_rules (id, name, permission, description, conditions, effect, priority, is_active, metadata, created_at, updated_at) VALUES
+            (?, 'freelancer_project_access', 'project.access', 'Projekt-Zugriff basierend auf Kunden-Beziehung', ?, 'allow', 300, 1, ?, NOW(), NOW())
+        ", [
+            $this->generateUuid(),
+            json_encode([
+                '$or' => [
+                    [
+                        'project' => [
+                            'owner_id' => ['$eq' => '{{user.id}}']
+                        ]
+                    ],
+                    [
+                        'project' => [
+                            'collaborators' => ['$contains' => '{{user.id}}']
+                        ]
+                    ]
+                ]
+            ]),
+            json_encode(['created_by' => 'freelancer_system', 'type' => 'project_ownership'])
+        ]);
+    }
+
+    /**
+     * Create ACL Entries for Freelancer users
+     */
+    private function createAclEntries(ObjectManager $manager): void
+    {
+        // Get freelancer user ID
+        $freelancerId = $manager->getConnection()->fetchOne("SELECT id FROM users WHERE email = 'max.freelancer@webdesign.pro'");
+
+        if ($freelancerId) {
+            // Self dashboard access
+            $manager->getConnection()->executeStatement("
+                INSERT INTO access_control_entries (id, user_id, resource_id, resource_type, permission, type, granted_by, reason, expires_at, created_at, updated_at) VALUES
+                (?, ?, 'freelancer-dashboard', 'dashboard', 'dashboard.view', 'allow', ?, 'Freelancer needs dashboard access', NULL, NOW(), NOW())
+            ", [
+                $this->generateUuid(),
+                $freelancerId,
+                $freelancerId
+            ]);
+
+            // Profile management
+            $manager->getConnection()->executeStatement("
+                INSERT INTO access_control_entries (id, user_id, resource_id, resource_type, permission, type, granted_by, reason, expires_at, created_at, updated_at) VALUES
+                (?, ?, 'profile-management', 'profile', 'profile.update', 'allow', ?, 'Freelancer can manage own profile', NULL, NOW(), NOW())
+            ", [
+                $this->generateUuid(),
+                $freelancerId,
+                $freelancerId
+            ]);
+
+            // Project creation access
+            $manager->getConnection()->executeStatement("
+                INSERT INTO access_control_entries (id, user_id, resource_id, resource_type, permission, type, granted_by, reason, expires_at, created_at, updated_at) VALUES
+                (?, ?, 'project-creation', 'projects', 'project.create', 'allow', ?, 'Freelancer can create own projects', NULL, NOW(), NOW())
+            ", [
+                $this->generateUuid(),
+                $freelancerId,
+                $freelancerId
+            ]);
+
+            // Client management
+            $manager->getConnection()->executeStatement("
+                INSERT INTO access_control_entries (id, user_id, resource_id, resource_type, permission, type, granted_by, reason, expires_at, created_at, updated_at) VALUES
+                (?, ?, 'client-management', 'clients', 'client.read', 'allow', ?, 'Freelancer can view own clients', NULL, NOW(), NOW())
+            ", [
+                $this->generateUuid(),
+                $freelancerId,
+                $freelancerId
+            ]);
+        }
     }
 } 

@@ -674,3 +674,13 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - Commit: "Optimierung der Berechtigungsüberprüfung und -abfrage in PermissionService"...
 - [M] composer.json
 - [M] src/Application/Role/Service/PermissionService.php
+
+## [0.1.134-alpha] - 2025-06-29
+
+- Commit: feat: Added ABAC rules and ACL entries for agency context....
+- [M] composer.json
+- [M] src/DataFixtures/AgencyFixtures.php
+- [M] src/DataFixtures/CoreSystemFixtures.php
+- [M] src/DataFixtures/EcommerceFixtures.php
+- [M] src/DataFixtures/FreelancerFixtures.php
+- [M] src/DataFixtures/NeuroAIFixtures.php

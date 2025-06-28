@@ -20,6 +20,8 @@ class EcommerceFixtures extends Fixture implements FixtureGroupInterface, Depend
         $this->createEcommerceSettings($manager);
         $this->createEcommercePlugins($manager);
         $this->createEcommerceWebhooks($manager);
+        $this->createAbacRules($manager);
+        $this->createAclEntries($manager);
         
         $manager->flush();
     }
@@ -431,5 +433,161 @@ class EcommerceFixtures extends Fixture implements FixtureGroupInterface, Depend
             mt_rand(0, 0x3fff) | 0x8000,
             mt_rand(0, 0xffff), mt_rand(0, 0xffff), mt_rand(0, 0xffff)
         );
+    }
+
+    /**
+     * Create ABAC Rules for E-commerce context
+     */
+    private function createAbacRules(ObjectManager $manager): void
+    {
+        // E-commerce dashboard - Extended business hours
+        $manager->getConnection()->executeStatement("
+            INSERT INTO abac_rules (id, name, permission, description, conditions, effect, priority, is_active, metadata, created_at, updated_at) VALUES
+            (?, 'ecommerce_extended_hours', 'dashboard.view', 'E-Commerce Dashboard für erweiterte Geschäftszeiten', ?, 'allow', 100, 1, ?, NOW(), NOW())
+        ", [
+            $this->generateUuid(),
+            json_encode([
+                'time' => [
+                    'hours' => ['$between' => [7, 22]], // 7:00 - 22:00
+                    'weekdays' => ['$in' => [1, 2, 3, 4, 5, 6, 7]] // All days
+                ]
+            ]),
+            json_encode(['created_by' => 'ecommerce_system', 'type' => 'extended_business_hours'])
+        ]);
+
+        // Order Management - Sales and fulfillment teams
+        $manager->getConnection()->executeStatement("
+            INSERT INTO abac_rules (id, name, permission, description, conditions, effect, priority, is_active, metadata, created_at, updated_at) VALUES
+            (?, 'order_management_teams', 'order.manage', 'Bestellverwaltung für Verkaufs- und Fulfillment-Teams', ?, 'allow', 200, 1, ?, NOW(), NOW())
+        ", [
+            $this->generateUuid(),
+            json_encode([
+                'user' => [
+                    'roles' => ['$in' => ['sales_manager', 'fulfillment_manager', 'store_manager', 'customer_service']]
+                ]
+            ]),
+            json_encode(['created_by' => 'ecommerce_system', 'type' => 'order_management'])
+        ]);
+
+        // Financial Access - Critical restrictions
+        $manager->getConnection()->executeStatement("
+            INSERT INTO abac_rules (id, name, permission, description, conditions, effect, priority, is_active, metadata, created_at, updated_at) VALUES
+            (?, 'financial_critical_access', 'finance.read', 'Kritischer Finanz-Zugriff mit Einschränkungen', ?, 'allow', 300, 1, ?, NOW(), NOW())
+        ", [
+            $this->generateUuid(),
+            json_encode([
+                '$and' => [
+                    [
+                        'user' => [
+                            'roles' => ['$in' => ['store_manager', 'financial_analyst']]
+                        ]
+                    ],
+                    [
+                        'time' => [
+                            'hours' => ['$between' => [9, 17]], // Business hours only
+                            'weekdays' => ['$in' => [1, 2, 3, 4, 5]] // Weekdays only
+                        ]
+                    ],
+                    [
+                        'environment' => [
+                            'secure_location' => ['$eq' => true]
+                        ]
+                    ]
+                ]
+            ]),
+            json_encode(['created_by' => 'ecommerce_system', 'type' => 'financial_security'])
+        ]);
+
+        // Inventory Management - Warehouse access
+        $manager->getConnection()->executeStatement("
+            INSERT INTO abac_rules (id, name, permission, description, conditions, effect, priority, is_active, metadata, created_at, updated_at) VALUES
+            (?, 'inventory_warehouse_access', 'inventory.manage', 'Lagerverwaltung für Warehouse-Teams', ?, 'allow', 400, 1, ?, NOW(), NOW())
+        ", [
+            $this->generateUuid(),
+            json_encode([
+                'user' => [
+                    'roles' => ['$in' => ['fulfillment_manager', 'warehouse_supervisor', 'inventory_specialist']]
+                ],
+                'location' => [
+                    'department' => ['$in' => ['Warehouse', 'Fulfillment', 'Logistics']]
+                ]
+            ]),
+            json_encode(['created_by' => 'ecommerce_system', 'type' => 'warehouse_operations'])
+        ]);
+    }
+
+    /**
+     * Create ACL Entries for E-commerce users
+     */
+    private function createAclEntries(ObjectManager $manager): void
+    {
+        // Get user IDs for E-commerce team
+        $storeManagerId = $manager->getConnection()->fetchOne("SELECT id FROM users WHERE email = 'emily.store@fashionhub.com'");
+        $salesManagerId = $manager->getConnection()->fetchOne("SELECT id FROM users WHERE email = 'michael.sales@fashionhub.com'");
+        $fulfillmentManagerId = $manager->getConnection()->fetchOne("SELECT id FROM users WHERE email = 'sarah.fulfillment@fashionhub.com'");
+
+        // Store Manager - Full access
+        if ($storeManagerId) {
+            $manager->getConnection()->executeStatement("
+                INSERT INTO access_control_entries (id, user_id, resource_id, resource_type, permission, type, granted_by, reason, expires_at, created_at, updated_at) VALUES
+                (?, ?, 'ecommerce-dashboard', 'dashboard', 'dashboard.view', 'allow', ?, 'Store Manager needs full dashboard access', NULL, NOW(), NOW())
+            ", [
+                $this->generateUuid(),
+                $storeManagerId,
+                $storeManagerId
+            ]);
+
+            // User Management for Store Manager
+            $manager->getConnection()->executeStatement("
+                INSERT INTO access_control_entries (id, user_id, resource_id, resource_type, permission, type, granted_by, reason, expires_at, created_at, updated_at) VALUES
+                (?, ?, 'user-management', 'users', 'user.create', 'allow', ?, 'Store Manager needs user management', NULL, NOW(), NOW())
+            ", [
+                $this->generateUuid(),
+                $storeManagerId,
+                $storeManagerId
+            ]);
+        }
+
+        // Sales Manager - Order and customer access
+        if ($salesManagerId) {
+            $manager->getConnection()->executeStatement("
+                INSERT INTO access_control_entries (id, user_id, resource_id, resource_type, permission, type, granted_by, reason, expires_at, created_at, updated_at) VALUES
+                (?, ?, 'order-management', 'orders', 'order.manage', 'allow', ?, 'Sales Manager needs order management', NULL, NOW(), NOW())
+            ", [
+                $this->generateUuid(),
+                $salesManagerId,
+                $storeManagerId
+            ]);
+
+            $manager->getConnection()->executeStatement("
+                INSERT INTO access_control_entries (id, user_id, resource_id, resource_type, permission, type, granted_by, reason, expires_at, created_at, updated_at) VALUES
+                (?, ?, 'customer-management', 'customers', 'customer.read', 'allow', ?, 'Sales Manager needs customer access', NULL, NOW(), NOW())
+            ", [
+                $this->generateUuid(),
+                $salesManagerId,
+                $storeManagerId
+            ]);
+        }
+
+        // Fulfillment Manager - Inventory and shipping
+        if ($fulfillmentManagerId) {
+            $manager->getConnection()->executeStatement("
+                INSERT INTO access_control_entries (id, user_id, resource_id, resource_type, permission, type, granted_by, reason, expires_at, created_at, updated_at) VALUES
+                (?, ?, 'inventory-management', 'inventory', 'inventory.manage', 'allow', ?, 'Fulfillment Manager needs inventory access', NULL, NOW(), NOW())
+            ", [
+                $this->generateUuid(),
+                $fulfillmentManagerId,
+                $storeManagerId
+            ]);
+
+            $manager->getConnection()->executeStatement("
+                INSERT INTO access_control_entries (id, user_id, resource_id, resource_type, permission, type, granted_by, reason, expires_at, created_at, updated_at) VALUES
+                (?, ?, 'shipping-management', 'shipping', 'shipping.manage', 'allow', ?, 'Fulfillment Manager needs shipping access', NULL, NOW(), NOW())
+            ", [
+                $this->generateUuid(),
+                $fulfillmentManagerId,
+                $storeManagerId
+            ]);
+        }
     }
 } 

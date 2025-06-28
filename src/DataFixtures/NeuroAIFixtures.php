@@ -20,6 +20,8 @@ class NeuroAIFixtures extends Fixture implements FixtureGroupInterface, Dependen
         $this->createNeuroAISettings($manager);
         $this->createNeuroAIPlugins($manager);
         $this->createNeuroAIWebhooks($manager);
+        $this->createAbacRules($manager);
+        $this->createAclEntries($manager);
         
         $manager->flush();
     }
@@ -318,5 +320,114 @@ class NeuroAIFixtures extends Fixture implements FixtureGroupInterface, Dependen
             mt_rand(0, 0x3fff) | 0x8000,
             mt_rand(0, 0xffff), mt_rand(0, 0xffff), mt_rand(0, 0xffff)
         );
+    }
+
+    /**
+     * Create ABAC Rules for NeuroAI context
+     */
+    private function createAbacRules(ObjectManager $manager): void
+    {
+        // Accessibility-friendly dashboard access
+        $manager->getConnection()->executeStatement("
+            INSERT INTO abac_rules (id, name, permission, description, conditions, effect, priority, is_active, metadata, created_at, updated_at) VALUES
+            (?, 'neuroai_accessibility_dashboard', 'dashboard.view', 'Barrierefreier Dashboard-Zugriff für NeuroAI', ?, 'allow', 100, 1, ?, NOW(), NOW())
+        ", [
+            $this->generateUuid(),
+            json_encode([
+                'accessibility' => [
+                    'high_contrast' => ['$eq' => true],
+                    'screen_reader' => ['$eq' => true]
+                ]
+            ]),
+            json_encode(['created_by' => 'neuroai_system', 'type' => 'accessibility_support'])
+        ]);
+
+        // Neurodiversity-aware user management
+        $manager->getConnection()->executeStatement("
+            INSERT INTO abac_rules (id, name, permission, description, conditions, effect, priority, is_active, metadata, created_at, updated_at) VALUES
+            (?, 'neuroai_user_management', 'user.create', 'Neurodiversitäts-bewusste Benutzerverwaltung', ?, 'allow', 200, 1, ?, NOW(), NOW())
+        ", [
+            $this->generateUuid(),
+            json_encode([
+                'user' => [
+                    'roles' => ['$in' => ['founder', 'ceo', 'head_of_development']]
+                ],
+                'environment' => [
+                    'quiet_hours' => ['$between' => [10, 15]] // Focus time
+                ]
+            ]),
+            json_encode(['created_by' => 'neuroai_system', 'type' => 'neurodiversity_support'])
+        ]);
+
+        // AI Development - Specialized access
+        $manager->getConnection()->executeStatement("
+            INSERT INTO abac_rules (id, name, permission, description, conditions, effect, priority, is_active, metadata, created_at, updated_at) VALUES
+            (?, 'ai_development_access', 'ai.develop', 'KI-Entwicklung für spezialisierte Rollen', ?, 'allow', 300, 1, ?, NOW(), NOW())
+        ", [
+            $this->generateUuid(),
+            json_encode([
+                'user' => [
+                    'roles' => ['$in' => ['ai_researcher', 'senior_developer', 'head_of_development']],
+                    'specialization' => ['$in' => ['neurodiversity', 'accessibility', 'ai_ethics']]
+                ]
+            ]),
+            json_encode(['created_by' => 'neuroai_system', 'type' => 'ai_specialization'])
+        ]);
+    }
+
+    /**
+     * Create ACL Entries for NeuroAI users
+     */
+    private function createAclEntries(ObjectManager $manager): void
+    {
+        // Get user IDs for NeuroAI team
+        $founderId = $manager->getConnection()->fetchOne("SELECT id FROM users WHERE email = 'alex.innovator@neuroai.dev'");
+        $ceoId = $manager->getConnection()->fetchOne("SELECT id FROM users WHERE email = 'sarah.neurodivergent@neuroai.dev'");
+        $headDevId = $manager->getConnection()->fetchOne("SELECT id FROM users WHERE email = 'marcus.architect@neuroai.dev'");
+
+        // Founder dashboard access
+        if ($founderId) {
+            $manager->getConnection()->executeStatement("
+                INSERT INTO access_control_entries (id, user_id, resource_id, resource_type, permission, type, granted_by, reason, expires_at, created_at, updated_at) VALUES
+                (?, ?, 'neuroai-dashboard', 'dashboard', 'dashboard.view', 'allow', ?, 'Founder needs full dashboard access', NULL, NOW(), NOW())
+            ", [
+                $this->generateUuid(),
+                $founderId,
+                $founderId
+            ]);
+        }
+
+        // AI Development access for Head of Development
+        if ($headDevId) {
+            $manager->getConnection()->executeStatement("
+                INSERT INTO access_control_entries (id, user_id, resource_id, resource_type, permission, type, granted_by, reason, expires_at, created_at, updated_at) VALUES
+                (?, ?, 'ai-development', 'ai_systems', 'ai.develop', 'allow', ?, 'Head of Development needs AI access', NULL, NOW(), NOW())
+            ", [
+                $this->generateUuid(),
+                $headDevId,
+                $founderId
+            ]);
+        }
+
+        // User Management for CEO
+        if ($ceoId) {
+            $manager->getConnection()->executeStatement("
+                INSERT INTO access_control_entries (id, user_id, resource_id, resource_type, permission, type, granted_by, reason, expires_at, created_at, updated_at) VALUES
+                (?, ?, 'user-management', 'users', 'user.create', 'allow', ?, 'CEO needs user management capabilities', NULL, NOW(), NOW())
+            ", [
+                $this->generateUuid(),
+                $ceoId,
+                $founderId
+            ]);
+
+            $manager->getConnection()->executeStatement("
+                INSERT INTO access_control_entries (id, user_id, resource_id, resource_type, permission, type, granted_by, reason, expires_at, created_at, updated_at) VALUES
+                (?, ?, 'user-management', 'users', 'user.read', 'allow', ?, 'CEO needs user management capabilities', NULL, NOW(), NOW())
+            ", [
+                $this->generateUuid(),
+                $ceoId,
+                $founderId
+            ]);
+        }
     }
 } 

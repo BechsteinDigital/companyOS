@@ -15,11 +15,12 @@ class AgencyFixtures extends Fixture implements FixtureGroupInterface, Dependent
 {
     public function load(ObjectManager $manager): void
     {
+        $this->createCompanySettings($manager);
+        $this->createOAuth2Clients($manager);
         $this->createAgencyRoles($manager);
         $this->createAgencyUsers($manager);
-        $this->createAgencySettings($manager);
-        $this->createAgencyPlugins($manager);
-        $this->createAgencyWebhooks($manager);
+        $this->createAbacRules($manager);
+        $this->createAclEntries($manager);
         
         $manager->flush();
     }
@@ -320,5 +321,197 @@ class AgencyFixtures extends Fixture implements FixtureGroupInterface, Dependent
             mt_rand(0, 0x3fff) | 0x8000,
             mt_rand(0, 0xffff), mt_rand(0, 0xffff), mt_rand(0, 0xffff)
         );
+    }
+
+    /**
+     * Create ABAC Rules for agency context
+     */
+    private function createAbacRules(ObjectManager $manager): void
+    {
+        // Dashboard Access - Extended hours for agency work
+        $manager->getConnection()->executeStatement("
+            INSERT INTO abac_rules (id, name, permission, description, conditions, effect, priority, is_active, metadata, created_at, updated_at) VALUES
+            (?, 'agency_dashboard_hours', 'dashboard.view', 'Dashboard-Zugriff für Agentur-Arbeitszeiten', ?, 'allow', 100, 1, ?, NOW(), NOW())
+        ", [
+            $this->generateUuid(),
+            json_encode([
+                'time' => [
+                    'hours' => ['$between' => [6, 23]], // Extended hours 6:00 - 23:00
+                    'weekdays' => ['$in' => [1, 2, 3, 4, 5, 6, 7]] // All days
+                ]
+            ]),
+            json_encode(['created_by' => 'agency_system', 'type' => 'time_restriction'])
+        ]);
+
+        // Client Management - Account Managers and Project Managers only
+        $manager->getConnection()->executeStatement("
+            INSERT INTO abac_rules (id, name, permission, description, conditions, effect, priority, is_active, metadata, created_at, updated_at) VALUES
+            (?, 'client_management_roles', 'client.create', 'Klient-Verwaltung nur für Account und Project Manager', ?, 'allow', 200, 1, ?, NOW(), NOW())
+        ", [
+            $this->generateUuid(),
+            json_encode([
+                'user' => [
+                    'roles' => ['$in' => ['account_manager', 'project_manager', 'agency_admin']]
+                ]
+            ]),
+            json_encode(['created_by' => 'agency_system', 'type' => 'role_restriction'])
+        ]);
+
+        // Project Management - Project Managers and above
+        $manager->getConnection()->executeStatement("
+            INSERT INTO abac_rules (id, name, permission, description, conditions, effect, priority, is_active, metadata, created_at, updated_at) VALUES
+            (?, 'project_management_access', 'project.create', 'Projekt-Verwaltung für Manager-Rollen', ?, 'allow', 300, 1, ?, NOW(), NOW())
+        ", [
+            $this->generateUuid(),
+            json_encode([
+                'user' => [
+                    'roles' => ['$in' => ['project_manager', 'account_manager', 'agency_admin']]
+                ]
+            ]),
+            json_encode(['created_by' => 'agency_system', 'type' => 'role_restriction'])
+        ]);
+
+        // Financial Access - Business hours only
+        $manager->getConnection()->executeStatement("
+            INSERT INTO abac_rules (id, name, permission, description, conditions, effect, priority, is_active, metadata, created_at, updated_at) VALUES
+            (?, 'financial_business_hours', 'finance.read', 'Finanz-Zugriff nur während Geschäftszeiten', ?, 'allow', 400, 1, ?, NOW(), NOW())
+        ", [
+            $this->generateUuid(),
+            json_encode([
+                '$and' => [
+                    [
+                        'time' => [
+                            'hours' => ['$between' => [9, 18]], // Business hours
+                            'weekdays' => ['$in' => [1, 2, 3, 4, 5]] // Weekdays only
+                        ]
+                    ],
+                    [
+                        'user' => [
+                            'roles' => ['$in' => ['agency_admin', 'financial_controller']]
+                        ]
+                    ]
+                ]
+            ]),
+            json_encode(['created_by' => 'agency_system', 'type' => 'financial_restriction'])
+        ]);
+
+        // User Management - Admin and HR only
+        $manager->getConnection()->executeStatement("
+            INSERT INTO abac_rules (id, name, permission, description, conditions, effect, priority, is_active, metadata, created_at, updated_at) VALUES
+            (?, 'user_management_admin_hr', 'user.create', 'Benutzerverwaltung nur für Admin und HR', ?, 'allow', 500, 1, ?, NOW(), NOW())
+        ", [
+            $this->generateUuid(),
+            json_encode([
+                'user' => [
+                    'roles' => ['$in' => ['agency_admin', 'hr_manager']]
+                ]
+            ]),
+            json_encode(['created_by' => 'agency_system', 'type' => 'admin_hr_restriction'])
+        ]);
+    }
+
+    /**
+     * Create ACL Entries for agency users
+     */
+    private function createAclEntries(ObjectManager $manager): void
+    {
+        // Get user IDs from database - using correct email addresses
+        $creativeDirectorId = $manager->getConnection()->fetchOne("SELECT id FROM users WHERE email = 'sarah.mueller@pixelagentur.de'");
+        $accountManagerId = $manager->getConnection()->fetchOne("SELECT id FROM users WHERE email = 'thomas.weber@pixelagentur.de'");
+        $projectManagerId = $manager->getConnection()->fetchOne("SELECT id FROM users WHERE email = 'julia.richter@pixelagentur.de'");
+
+        // Dashboard Access for Creative Director (admin role)
+        if ($creativeDirectorId) {
+            $manager->getConnection()->executeStatement("
+                INSERT INTO access_control_entries (id, user_id, resource_id, resource_type, permission, type, granted_by, reason, expires_at, created_at, updated_at) VALUES
+                (?, ?, 'agency-dashboard', 'dashboard', 'dashboard.view', 'allow', ?, 'Creative Director has full dashboard access', NULL, NOW(), NOW())
+            ", [
+                $this->generateUuid(),
+                $creativeDirectorId,
+                $creativeDirectorId
+            ]);
+        }
+
+        // Client Management Access for Account Manager
+        if ($accountManagerId) {
+            $manager->getConnection()->executeStatement("
+                INSERT INTO access_control_entries (id, user_id, resource_id, resource_type, permission, type, granted_by, reason, expires_at, created_at, updated_at) VALUES
+                (?, ?, 'client-management', 'clients', 'client.create', 'allow', ?, 'Account manager needs client management access', NULL, NOW(), NOW())
+            ", [
+                $this->generateUuid(),
+                $accountManagerId,
+                $creativeDirectorId
+            ]);
+
+            $manager->getConnection()->executeStatement("
+                INSERT INTO access_control_entries (id, user_id, resource_id, resource_type, permission, type, granted_by, reason, expires_at, created_at, updated_at) VALUES
+                (?, ?, 'client-management', 'clients', 'client.read', 'allow', ?, 'Account manager needs client management access', NULL, NOW(), NOW())
+            ", [
+                $this->generateUuid(),
+                $accountManagerId,
+                $creativeDirectorId
+            ]);
+        }
+
+        // Project Management Access for Project Manager
+        if ($projectManagerId) {
+            $manager->getConnection()->executeStatement("
+                INSERT INTO access_control_entries (id, user_id, resource_id, resource_type, permission, type, granted_by, reason, expires_at, created_at, updated_at) VALUES
+                (?, ?, 'project-management', 'projects', 'project.create', 'allow', ?, 'Project manager needs project access', NULL, NOW(), NOW())
+            ", [
+                $this->generateUuid(),
+                $projectManagerId,
+                $creativeDirectorId
+            ]);
+
+            $manager->getConnection()->executeStatement("
+                INSERT INTO access_control_entries (id, user_id, resource_id, resource_type, permission, type, granted_by, reason, expires_at, created_at, updated_at) VALUES
+                (?, ?, 'project-management', 'projects', 'project.read', 'allow', ?, 'Project manager needs project access', NULL, NOW(), NOW())
+            ", [
+                $this->generateUuid(),
+                $projectManagerId,
+                $creativeDirectorId
+            ]);
+        }
+
+        // User Management for Creative Director
+        if ($creativeDirectorId) {
+            $manager->getConnection()->executeStatement("
+                INSERT INTO access_control_entries (id, user_id, resource_id, resource_type, permission, type, granted_by, reason, expires_at, created_at, updated_at) VALUES
+                (?, ?, 'user-management', 'users', 'user.create', 'allow', ?, 'Creative Director needs user management', NULL, NOW(), NOW())
+            ", [
+                $this->generateUuid(),
+                $creativeDirectorId,
+                $creativeDirectorId
+            ]);
+
+            $manager->getConnection()->executeStatement("
+                INSERT INTO access_control_entries (id, user_id, resource_id, resource_type, permission, type, granted_by, reason, expires_at, created_at, updated_at) VALUES
+                (?, ?, 'user-management', 'users', 'user.read', 'allow', ?, 'Creative Director needs user management', NULL, NOW(), NOW())
+            ", [
+                $this->generateUuid(),
+                $creativeDirectorId,
+                $creativeDirectorId
+            ]);
+
+            // Role Management for Creative Director
+            $manager->getConnection()->executeStatement("
+                INSERT INTO access_control_entries (id, user_id, resource_id, resource_type, permission, type, granted_by, reason, expires_at, created_at, updated_at) VALUES
+                (?, ?, 'role-management', 'roles', 'role.create', 'allow', ?, 'Creative Director needs role management', NULL, NOW(), NOW())
+            ", [
+                $this->generateUuid(),
+                $creativeDirectorId,
+                $creativeDirectorId
+            ]);
+
+            $manager->getConnection()->executeStatement("
+                INSERT INTO access_control_entries (id, user_id, resource_id, resource_type, permission, type, granted_by, reason, expires_at, created_at, updated_at) VALUES
+                (?, ?, 'role-management', 'roles', 'role.read', 'allow', ?, 'Creative Director needs role management', NULL, NOW(), NOW())
+            ", [
+                $this->generateUuid(),
+                $creativeDirectorId,
+                $creativeDirectorId
+            ]);
+        }
     }
 } 
