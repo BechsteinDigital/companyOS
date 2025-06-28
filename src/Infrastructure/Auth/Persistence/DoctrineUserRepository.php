@@ -27,7 +27,7 @@ class DoctrineUserRepository implements UserRepositoryInterface
     ): ?UserEntityInterface {
         // URL-dekodierung des Passworts (falls nötig)
         $decodedPassword = urldecode($password);
-        
+     
         // Debug-Logging
         $this->logger->info('[OAuth2] getUserEntityByUserCredentials aufgerufen', [
             'username' => $username,

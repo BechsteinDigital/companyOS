@@ -556,3 +556,9 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - Commit: "Passwort-URL-Dekodierung für verbesserte Sicherheit hinzugefügt"...
 - [M] composer.json
 - [M] src/Infrastructure/Auth/Persistence/DoctrineUserRepository.php
+
+## [0.1.119-alpha] - 2025-06-28
+
+- Commit: "Korrigiere Leerzeichen in DoctrineUserRepository.php"...
+- [M] composer.json
+- [M] src/Infrastructure/Auth/Persistence/DoctrineUserRepository.php
