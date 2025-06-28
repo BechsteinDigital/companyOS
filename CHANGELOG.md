@@ -652,3 +652,13 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - Commit: "UUID-Generierung für NeuroAIFixtures hinzugefügt"...
 - [M] composer.json
 - [M] src/DataFixtures/NeuroAIFixtures.php
+
+## [0.1.131-alpha] - 2025-06-29
+
+- Commit: "UUIDs für Agenturen und Systeme generieren, Symfony-Rollen korrigieren"...
+- [M] composer.json
+- [M] src/DataFixtures/AgencyFixtures.php
+- [M] src/DataFixtures/CoreSystemFixtures.php
+- [M] src/DataFixtures/EcommerceFixtures.php
+- [M] src/DataFixtures/FreelancerFixtures.php
+- [M] src/Infrastructure/User/Security/UserProvider.php

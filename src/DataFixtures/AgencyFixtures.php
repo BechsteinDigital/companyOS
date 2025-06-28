@@ -113,8 +113,9 @@ class AgencyFixtures extends Fixture implements FixtureGroupInterface, Dependent
         foreach ($roles as $role) {
             $manager->getConnection()->executeStatement("
                 INSERT INTO roles (id, name, display_name, description, permissions, is_system, created_at, updated_at) VALUES
-                (UUID(), ?, ?, ?, ?, 0, NOW(), NOW())
+                (?, ?, ?, ?, ?, 0, NOW(), NOW())
             ", [
+                $this->generateUuid(),
                 $role['name'],
                 $role['display_name'],
                 $role['description'],
@@ -153,8 +154,8 @@ class AgencyFixtures extends Fixture implements FixtureGroupInterface, Dependent
             $roleId = $manager->getConnection()->fetchOne("SELECT id FROM roles WHERE name = ?", [$userData['role']]);
             $manager->getConnection()->executeStatement("
                 INSERT INTO user_roles (id, user_id, role_id, assigned_at) VALUES
-                (UUID(), ?, ?, NOW())
-            ", [$userId, $roleId]);
+                (?, ?, ?, NOW())
+            ", [$this->generateUuid(), $userId, $roleId]);
         }
     }
 
@@ -173,7 +174,7 @@ class AgencyFixtures extends Fixture implements FixtureGroupInterface, Dependent
                 smtp_host, smtp_port, smtp_encryption, smtp_username, smtp_password,
                 salutations, created_at, updated_at
             ) VALUES (
-                UUID(), 'PixelAgentur', 'PixelAgentur GmbH', 'DE123456789', 'DE987654321',
+                ?, 'PixelAgentur', 'PixelAgentur GmbH', 'DE123456789', 'DE987654321',
                 'Kreativstraße', '42', '10115', 'Berlin', 'Deutschland', 'Berlin',
                 'info@pixelagentur.de', '+49 30 12345678', '+49 30 12345679', 'https://www.pixelagentur.de', 'support@pixelagentur.de',
                 'de', 'EUR', 'Europe/Berlin',
@@ -185,6 +186,7 @@ class AgencyFixtures extends Fixture implements FixtureGroupInterface, Dependent
                 ?, NOW(), NOW()
             )
         ", [
+            $this->generateUuid(),
             json_encode([
                 'formal_male' => 'Sehr geehrter Herr {lastName}',
                 'formal_female' => 'Sehr geehrte Frau {lastName}',
@@ -255,8 +257,9 @@ class AgencyFixtures extends Fixture implements FixtureGroupInterface, Dependent
         foreach ($plugins as $plugin) {
             $manager->getConnection()->executeStatement("
                 INSERT INTO plugins (id, name, version, author, active, meta, created_at, updated_at) VALUES
-                (UUID(), ?, ?, ?, ?, ?, NOW(), NOW())
+                (?, ?, ?, ?, ?, ?, NOW(), NOW())
             ", [
+                $this->generateUuid(),
                 $plugin['name'],
                 $plugin['version'],
                 $plugin['author'],
@@ -295,8 +298,9 @@ class AgencyFixtures extends Fixture implements FixtureGroupInterface, Dependent
         foreach ($webhooks as $webhook) {
             $manager->getConnection()->executeStatement("
                 INSERT INTO webhooks (id, name, url, events, is_active, secret, created_at, updated_at) VALUES
-                (UUID(), ?, ?, ?, ?, ?, NOW(), NOW())
+                (?, ?, ?, ?, ?, ?, NOW(), NOW())
             ", [
+                $this->generateUuid(),
                 $webhook['name'],
                 $webhook['url'],
                 json_encode($webhook['events']),

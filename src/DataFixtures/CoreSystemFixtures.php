@@ -74,16 +74,18 @@ class CoreSystemFixtures extends Fixture implements FixtureGroupInterface
         // Super Admin Role
         $manager->getConnection()->executeStatement("
             INSERT INTO roles (id, name, display_name, description, permissions, is_system, created_at, updated_at) VALUES
-            (UUID(), 'super_admin', 'Super Administrator', 'Vollzugriff auf alle Funktionen inklusive Systemeinstellungen', ?, 1, NOW(), NOW())
+            (?, 'super_admin', 'Super Administrator', 'Vollzugriff auf alle Funktionen inklusive Systemeinstellungen', ?, 1, NOW(), NOW())
         ", [
+            $this->generateUuid(),
             json_encode(['*']) // All permissions
         ]);
 
         // System User Role
         $manager->getConnection()->executeStatement("
             INSERT INTO roles (id, name, display_name, description, permissions, is_system, created_at, updated_at) VALUES
-            (UUID(), 'user', 'Standard User', 'Grundlegende Benutzerrechte', ?, 1, NOW(), NOW())
+            (?, 'user', 'Standard User', 'Grundlegende Benutzerrechte', ?, 1, NOW(), NOW())
         ", [
+            $this->generateUuid(),
             json_encode(['profile.read', 'profile.write'])
         ]);
     }
@@ -102,10 +104,10 @@ class CoreSystemFixtures extends Fixture implements FixtureGroupInterface
 
         // Assign super_admin role
         $superAdminRoleId = $manager->getConnection()->fetchOne("SELECT id FROM roles WHERE name = 'super_admin'");
-        $manager->getConnection()->executeStatement("
-            INSERT INTO user_roles (id, user_id, role_id, assigned_at) VALUES
-            (UUID(), ?, ?, NOW())
-        ", [$adminId, $superAdminRoleId]);
+                    $manager->getConnection()->executeStatement("
+                INSERT INTO user_roles (id, user_id, role_id, assigned_at) VALUES
+                (?, ?, ?, NOW())
+            ", [$this->generateUuid(), $adminId, $superAdminRoleId]);
     }
 
     private function generateUuid(): string

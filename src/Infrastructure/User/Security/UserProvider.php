@@ -72,7 +72,7 @@ class UserProvider implements UserProviderInterface
         $symfonyRoles = ['ROLE_USER']; // Standard-Rolle für alle User
         
         foreach ($roles as $role) {
-            $symfonyRoles[] = 'ROLE_' . strtoupper($role->name()->value());
+            $symfonyRoles[] = 'ROLE_' . strtoupper($role->getName());
         }
         
         // Setze die Rollen im User-Objekt

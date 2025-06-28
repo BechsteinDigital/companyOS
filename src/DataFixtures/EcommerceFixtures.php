@@ -150,8 +150,9 @@ class EcommerceFixtures extends Fixture implements FixtureGroupInterface, Depend
         foreach ($roles as $role) {
             $manager->getConnection()->executeStatement("
                 INSERT INTO roles (id, name, display_name, description, permissions, is_system, created_at, updated_at) VALUES
-                (UUID(), ?, ?, ?, ?, 0, NOW(), NOW())
+                (?, ?, ?, ?, ?, 0, NOW(), NOW())
             ", [
+                $this->generateUuid(),
                 $role['name'],
                 $role['display_name'],
                 $role['description'],
@@ -192,8 +193,8 @@ class EcommerceFixtures extends Fixture implements FixtureGroupInterface, Depend
             $roleId = $manager->getConnection()->fetchOne("SELECT id FROM roles WHERE name = ?", [$userData['role']]);
             $manager->getConnection()->executeStatement("
                 INSERT INTO user_roles (id, user_id, role_id, assigned_at) VALUES
-                (UUID(), ?, ?, NOW())
-            ", [$userId, $roleId]);
+                (?, ?, ?, NOW())
+            ", [$this->generateUuid(), $userId, $roleId]);
         }
     }
 
@@ -212,7 +213,7 @@ class EcommerceFixtures extends Fixture implements FixtureGroupInterface, Depend
                 smtp_host, smtp_port, smtp_encryption, smtp_username, smtp_password,
                 salutations, created_at, updated_at
             ) VALUES (
-                UUID(), 'FashionStyle Shop', 'FashionStyle GmbH & Co. KG', 'DE345678901', 'DE456789123',
+                ?, 'FashionStyle Shop', 'FashionStyle GmbH & Co. KG', 'DE345678901', 'DE456789123',
                 'Modestraße', '88', '80331', 'München', 'Deutschland', 'Bayern',
                 'info@fashionstyle-shop.de', '+49 89 12345678', '+49 89 12345679', 'https://www.fashionstyle-shop.de', 'support@fashionstyle-shop.de',
                 'de', 'EUR', 'Europe/Berlin',
@@ -224,6 +225,7 @@ class EcommerceFixtures extends Fixture implements FixtureGroupInterface, Depend
                 ?, NOW(), NOW()
             )
         ", [
+            $this->generateUuid(),
             json_encode([
                 'welcome_customer' => 'Herzlich willkommen bei FashionStyle, {firstName}!',
                 'order_confirmation' => 'Liebe/r {firstName} {lastName}',
@@ -352,8 +354,9 @@ class EcommerceFixtures extends Fixture implements FixtureGroupInterface, Depend
         foreach ($plugins as $plugin) {
             $manager->getConnection()->executeStatement("
                 INSERT INTO plugins (id, name, version, author, active, meta, created_at, updated_at) VALUES
-                (UUID(), ?, ?, ?, ?, ?, NOW(), NOW())
+                (?, ?, ?, ?, ?, ?, NOW(), NOW())
             ", [
+                $this->generateUuid(),
                 $plugin['name'],
                 $plugin['version'],
                 $plugin['author'],
@@ -406,8 +409,9 @@ class EcommerceFixtures extends Fixture implements FixtureGroupInterface, Depend
         foreach ($webhooks as $webhook) {
             $manager->getConnection()->executeStatement("
                 INSERT INTO webhooks (id, name, url, events, is_active, secret, created_at, updated_at) VALUES
-                (UUID(), ?, ?, ?, ?, ?, NOW(), NOW())
+                (?, ?, ?, ?, ?, ?, NOW(), NOW())
             ", [
+                $this->generateUuid(),
                 $webhook['name'],
                 $webhook['url'],
                 json_encode($webhook['events']),

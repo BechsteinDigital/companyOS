@@ -93,8 +93,9 @@ class FreelancerFixtures extends Fixture implements FixtureGroupInterface, Depen
         foreach ($roles as $role) {
             $manager->getConnection()->executeStatement("
                 INSERT INTO roles (id, name, display_name, description, permissions, is_system, created_at, updated_at) VALUES
-                (UUID(), ?, ?, ?, ?, 0, NOW(), NOW())
+                (?, ?, ?, ?, ?, 0, NOW(), NOW())
             ", [
+                $this->generateUuid(),
                 $role['name'],
                 $role['display_name'],
                 $role['description'],
@@ -131,8 +132,8 @@ class FreelancerFixtures extends Fixture implements FixtureGroupInterface, Depen
             $roleId = $manager->getConnection()->fetchOne("SELECT id FROM roles WHERE name = ?", [$userData['role']]);
             $manager->getConnection()->executeStatement("
                 INSERT INTO user_roles (id, user_id, role_id, assigned_at) VALUES
-                (UUID(), ?, ?, NOW())
-            ", [$userId, $roleId]);
+                (?, ?, ?, NOW())
+            ", [$this->generateUuid(), $userId, $roleId]);
         }
     }
 
@@ -151,7 +152,7 @@ class FreelancerFixtures extends Fixture implements FixtureGroupInterface, Depen
                 smtp_host, smtp_port, smtp_encryption, smtp_username, smtp_password,
                 salutations, created_at, updated_at
             ) VALUES (
-                UUID(), 'Maria Gonzalez Webdesign', 'Maria Gonzalez Webdesign', 'DE234567890', 'DE123987654',
+                ?, 'Maria Gonzalez Webdesign', 'Maria Gonzalez Webdesign', 'DE234567890', 'DE123987654',
                 'Kreativweg', '15', '22083', 'Hamburg', 'Deutschland', 'Hamburg',
                 'info@maria-webdesign.de', '+49 40 98765432', NULL, 'https://www.maria-webdesign.de', 'support@maria-webdesign.de',
                 'de', 'EUR', 'Europe/Berlin',
@@ -163,6 +164,7 @@ class FreelancerFixtures extends Fixture implements FixtureGroupInterface, Depen
                 ?, NOW(), NOW()
             )
         ", [
+            $this->generateUuid(),
             json_encode([
                 'formal_client' => 'Liebe/r {firstName} {lastName}',
                 'informal_client' => 'Hallo {firstName}',
@@ -250,8 +252,9 @@ class FreelancerFixtures extends Fixture implements FixtureGroupInterface, Depen
         foreach ($plugins as $plugin) {
             $manager->getConnection()->executeStatement("
                 INSERT INTO plugins (id, name, version, author, active, meta, created_at, updated_at) VALUES
-                (UUID(), ?, ?, ?, ?, ?, NOW(), NOW())
+                (?, ?, ?, ?, ?, ?, NOW(), NOW())
             ", [
+                $this->generateUuid(),
                 $plugin['name'],
                 $plugin['version'],
                 $plugin['author'],
@@ -297,8 +300,9 @@ class FreelancerFixtures extends Fixture implements FixtureGroupInterface, Depen
         foreach ($webhooks as $webhook) {
             $manager->getConnection()->executeStatement("
                 INSERT INTO webhooks (id, name, url, events, is_active, secret, created_at, updated_at) VALUES
-                (UUID(), ?, ?, ?, ?, ?, NOW(), NOW())
+                (?, ?, ?, ?, ?, ?, NOW(), NOW())
             ", [
+                $this->generateUuid(),
                 $webhook['name'],
                 $webhook['url'],
                 json_encode($webhook['events']),
