@@ -125,6 +125,10 @@ class UserController extends AbstractController
             }
         }
         
+        // Permissions für User laden
+        $permissionService = $this->container->get('CompanyOS\Bundle\CoreBundle\Application\Role\Service\PermissionService');
+        $permissions = $permissionService->getUserPermissions($user);
+
         return $this->json([
             'success' => true,
             'data' => [
@@ -134,7 +138,8 @@ class UserController extends AbstractController
                 'lastName' => $user->getLastName(),
                 'fullName' => $user->getFullName(),
                 'isActive' => $user->isActive(),
-                'roles' => $user->getRoles()
+                'roles' => $user->getRoles(),
+                'permissions' => $permissions
             ]
         ]);
     }

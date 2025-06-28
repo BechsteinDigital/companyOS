@@ -1,23 +1,21 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CompanyOS\Bundle\CoreBundle\Domain\Role\Domain\Entity;
 
-use CompanyOS\Bundle\CoreBundle\Domain\Role\Domain\ValueObject\RoleId;
-use CompanyOS\Bundle\CoreBundle\Domain\Role\Domain\ValueObject\RoleName;
-use CompanyOS\Bundle\CoreBundle\Domain\Role\Domain\ValueObject\RoleDisplayName;
-use CompanyOS\Bundle\CoreBundle\Domain\Role\Domain\ValueObject\RoleDescription;
-use CompanyOS\Bundle\CoreBundle\Domain\Role\Domain\ValueObject\RolePermissions;
+use CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Uuid;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Uid\Uuid;
 
 #[ORM\Entity]
 #[ORM\Table(name: 'roles')]
-#[ORM\HasLifecycleCallbacks]
 class Role
 {
     #[ORM\Id]
     #[ORM\Column(type: 'uuid')]
-    private string $id;
+    private Uuid $id;
 
     #[ORM\Column(type: 'string', length: 100, unique: true)]
     private string $name;
@@ -26,59 +24,60 @@ class Role
     private string $displayName;
 
     #[ORM\Column(type: 'text', nullable: true)]
-    private ?string $description;
-
-    #[ORM\Column(type: 'json')]
-    private array $permissions;
+    private ?string $description = null;
 
     #[ORM\Column(type: 'boolean')]
-    private bool $isSystem;
+    private bool $isSystem = false;
+
+    #[ORM\Column(type: 'json')]
+    private array $permissions = [];
 
     #[ORM\Column(type: 'datetime_immutable')]
     private \DateTimeImmutable $createdAt;
 
-    #[ORM\Column(type: 'datetime_immutable', nullable: true)]
-    private ?\DateTimeImmutable $updatedAt;
+    #[ORM\Column(type: 'datetime_immutable')]
+    private \DateTimeImmutable $updatedAt;
+
+    #[ORM\ManyToMany(targetEntity: 'CompanyOS\Bundle\CoreBundle\Domain\User\Domain\Entity\User', mappedBy: 'roles')]
+    private Collection $users;
 
     public function __construct(
-        RoleName $name,
-        RoleDisplayName $displayName,
-        ?RoleDescription $description = null,
-        RolePermissions $permissions = null,
-        bool $isSystem = false
+        Uuid $id,
+        string $name,
+        string $displayName,
+        ?string $description = null,
+        bool $isSystem = false,
+        array $permissions = []
     ) {
-        $this->id = Uuid::v4()->toRfc4122();
-        $this->name = $name->value();
-        $this->displayName = $displayName->value();
-        $this->description = $description?->value();
-        $this->permissions = $permissions?->value() ?? [];
+        $this->id = $id;
+        $this->name = $name;
+        $this->displayName = $displayName;
+        $this->description = $description;
         $this->isSystem = $isSystem;
+        $this->permissions = $permissions;
         $this->createdAt = new \DateTimeImmutable();
+        $this->updatedAt = new \DateTimeImmutable();
+        $this->users = new ArrayCollection();
     }
 
-    public function id(): RoleId
+    public function getId(): Uuid
     {
-        return new RoleId($this->id);
+        return $this->id;
     }
 
-    public function name(): RoleName
+    public function getName(): string
     {
-        return new RoleName($this->name);
+        return $this->name;
     }
 
-    public function displayName(): RoleDisplayName
+    public function getDisplayName(): string
     {
-        return new RoleDisplayName($this->displayName);
+        return $this->displayName;
     }
 
-    public function description(): ?RoleDescription
+    public function getDescription(): ?string
     {
-        return $this->description ? new RoleDescription($this->description) : null;
-    }
-
-    public function permissions(): RolePermissions
-    {
-        return new RolePermissions($this->permissions);
+        return $this->description;
     }
 
     public function isSystem(): bool
@@ -86,36 +85,53 @@ class Role
         return $this->isSystem;
     }
 
-    public function createdAt(): \DateTimeImmutable
+    public function getPermissions(): array
+    {
+        return $this->permissions;
+    }
+
+    public function hasPermission(string $permission): bool
+    {
+        return in_array($permission, $this->permissions, true);
+    }
+
+    public function addPermission(string $permission): void
+    {
+        if (!$this->hasPermission($permission)) {
+            $this->permissions[] = $permission;
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+    }
+
+    public function removePermission(string $permission): void
+    {
+        $key = array_search($permission, $this->permissions, true);
+        if ($key !== false) {
+            unset($this->permissions[$key]);
+            $this->permissions = array_values($this->permissions);
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+    }
+
+    public function updateDetails(string $displayName, ?string $description = null): void
+    {
+        $this->displayName = $displayName;
+        $this->description = $description;
+        $this->updatedAt = new \DateTimeImmutable();
+    }
+
+    public function getUsers(): Collection
+    {
+        return $this->users;
+    }
+
+    public function getCreatedAt(): \DateTimeImmutable
     {
         return $this->createdAt;
     }
 
-    public function updatedAt(): ?\DateTimeImmutable
+    public function getUpdatedAt(): \DateTimeImmutable
     {
         return $this->updatedAt;
-    }
-
-    public function updateDisplayName(RoleDisplayName $displayName): void
-    {
-        $this->displayName = $displayName->value();
-        $this->updatedAt = new \DateTimeImmutable();
-    }
-
-    public function updateDescription(?RoleDescription $description): void
-    {
-        $this->description = $description?->value();
-        $this->updatedAt = new \DateTimeImmutable();
-    }
-
-    public function updatePermissions(RolePermissions $permissions): void
-    {
-        $this->permissions = $permissions->value();
-        $this->updatedAt = new \DateTimeImmutable();
-    }
-
-    public function canBeDeleted(): bool
-    {
-        return !$this->isSystem;
     }
 } 

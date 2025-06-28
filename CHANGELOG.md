@@ -579,3 +579,14 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - [M] src/Application/Role/QueryHandler/GetUserRolesQueryHandler.php
 - [M] src/Application/User/Query/Handler/GetUserQueryHandler.php
 - [M] src/Domain/ValueObject/Email.php
+
+## [0.1.121-alpha] - 2025-06-28
+
+- Commit: "Entferne Doctrine- und Messenger-Konfiguration, aktualisiere Security-Einste...
+- [D] Resources/config/doctrine.yaml
+- [D] Resources/config/messenger.yaml
+- [M] Resources/config/packages/security.yaml
+- [D] Resources/config/security.yaml
+- [M] composer.json
+- [M] src/Application/User/Controller/UserController.php
+- [M] src/Domain/Role/Domain/Entity/Role.php

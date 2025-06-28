@@ -1,5 +1,5 @@
 # CompanyOS Core Bundle Security Configuration
-# Diese Konfiguration kann im Hauptprojekt überschrieben werden
+# Diese Konfiguration wird automatisch von der Haupt-Anwendung geladen
 
 security:
     # https://symfony.com/doc/current/security.html#registering-the-user-hashing-passwords
@@ -7,12 +7,41 @@ security:
         Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
         CompanyOS\Bundle\CoreBundle\Domain\User\Domain\Entity\User:
             algorithm: auto
+    
     # https://symfony.com/doc/current/security.html#loading-the-user-the-user-provider
     providers:
         companyos_user_provider:
-            entity:
-                class: CompanyOS\Bundle\CoreBundle\Domain\User\Domain\Entity\User
-                property: email
+            id: CompanyOS\Bundle\CoreBundle\Infrastructure\User\Security\UserProvider
+    
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        api:
+            pattern: ^/api
+            stateless: true
+            oauth2: ~
+        main:
+            pattern: ^/
+            stateless: false
+    
+    # Access Control für CoreBundle API-Endpunkte
+    access_control:
+        # Öffentliche API-Dokumentation
+        - { path: ^/api/doc, roles: PUBLIC_ACCESS }
+        - { path: ^/api/doc\.json$, roles: PUBLIC_ACCESS }
+        
+        # Öffentliche OAuth2 und Auth-Endpunkte
+        - { path: ^/api/oauth2/token, roles: PUBLIC_ACCESS }
+        - { path: ^/api/oauth2/authorize, roles: PUBLIC_ACCESS }
+        - { path: ^/api/auth/login, roles: PUBLIC_ACCESS }
+        
+        # Öffentliche System-Endpunkte
+        - { path: ^/api/health, roles: PUBLIC_ACCESS }
+        - { path: ^/api/version, roles: PUBLIC_ACCESS }
+        
+        # Alle anderen API-Endpunkte erfordern Authentifizierung
+        - { path: ^/api, roles: IS_AUTHENTICATED_FULLY }
 
 when@test:
     security:
