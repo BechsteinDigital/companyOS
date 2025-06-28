@@ -31,8 +31,8 @@ final class GetUserProfileQueryHandler implements QueryHandlerInterface
             firstName: $user->getFirstName()->value(),
             lastName: $user->getLastName()->value(),
             isActive: $user->isActive(),
-            createdAt: $user->getCreatedAt()->format('Y-m-d H:i:s'),
-            lastLoginAt: $user->getLastLoginAt()?->format('Y-m-d H:i:s')
+            createdAt: $user->getCreatedAt(),
+            lastLoginAt: $user->getLastLoginAt()
         );
     }
 } 

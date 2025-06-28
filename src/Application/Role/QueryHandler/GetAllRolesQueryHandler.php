@@ -28,8 +28,8 @@ class GetAllRolesQueryHandler
                 permissions: $role->permissions()->value(),
                 isSystem: $role->isSystem(),
                 userCount: $this->roleRepository->getUserCount($role->id()),
-                createdAt: $role->createdAt()->format('Y-m-d H:i:s'),
-                updatedAt: $role->updatedAt()?->format('Y-m-d H:i:s')
+                createdAt: $role->createdAt(),
+                updatedAt: $role->updatedAt()
             );
         }, $roles);
     }

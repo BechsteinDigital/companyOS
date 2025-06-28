@@ -31,7 +31,7 @@ final class GetOAuthClientsQueryHandler implements QueryHandlerInterface
                 redirectUris: $client->getRedirectUris(),
                 scopes: $client->getScopes(),
                 isActive: $client->isActive(),
-                createdAt: $client->getCreatedAt()->format('Y-m-d H:i:s')
+                createdAt: $client->getCreatedAt()
             ),
             $clients
         );

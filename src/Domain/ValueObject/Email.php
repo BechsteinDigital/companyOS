@@ -39,6 +39,11 @@ class Email
         return $this->value;
     }
 
+    public function toString(): string
+    {
+        return $this->value;
+    }
+
     public static function fromString(string $value): self
     {
         return new self($value);

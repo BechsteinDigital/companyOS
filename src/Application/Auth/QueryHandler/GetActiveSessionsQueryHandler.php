@@ -25,8 +25,8 @@ final class GetActiveSessionsQueryHandler implements QueryHandlerInterface
                 id: $token->getId()->value(),
                 clientId: $token->getClientId()->value(),
                 scopes: $token->getScopes(),
-                expiresAt: $token->getExpiresAt()->format('Y-m-d H:i:s'),
-                createdAt: $token->getCreatedAt()->format('Y-m-d H:i:s')
+                expiresAt: $token->getExpiresAt(),
+                createdAt: $token->getCreatedAt()
             ),
             $accessTokens
         );

@@ -562,3 +562,20 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - Commit: "Korrigiere Leerzeichen in DoctrineUserRepository.php"...
 - [M] composer.json
 - [M] src/Infrastructure/Auth/Persistence/DoctrineUserRepository.php
+
+## [0.1.120-alpha] - 2025-06-28
+
+- Commit: Refaktorierung: Entfernung von Datumsformatierungen....
+- [M] composer.json
+- [M] src/Application/Auth/QueryHandler/GetActiveSessionsQueryHandler.php
+- [M] src/Application/Auth/QueryHandler/GetOAuthClientsQueryHandler.php
+- [M] src/Application/Auth/QueryHandler/GetUserProfileQueryHandler.php
+- [M] src/Application/Auth/QueryHandler/ValidateTokenQueryHandler.php
+- [M] src/Application/Plugin/Query/Handler/GetAllPluginsQueryHandler.php
+- [M] src/Application/Plugin/Query/Handler/GetPluginQueryHandler.php
+- [M] src/Application/Plugin/QueryHandler/GetActivePluginsQueryHandler.php
+- [M] src/Application/Role/QueryHandler/GetAllRolesQueryHandler.php
+- [M] src/Application/Role/QueryHandler/GetRoleQueryHandler.php
+- [M] src/Application/Role/QueryHandler/GetUserRolesQueryHandler.php
+- [M] src/Application/User/Query/Handler/GetUserQueryHandler.php
+- [M] src/Domain/ValueObject/Email.php

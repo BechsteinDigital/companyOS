@@ -36,7 +36,7 @@ final class ValidateTokenQueryHandler implements QueryHandlerInterface
                 userId: $accessToken->getUserId()->value(),
                 clientId: $accessToken->getClientId()->value(),
                 scopes: $accessToken->getScopes(),
-                expiresAt: $accessToken->getExpiresAt()->format('Y-m-d H:i:s')
+                expiresAt: $accessToken->getExpiresAt()
             );
         }
 
@@ -45,7 +45,7 @@ final class ValidateTokenQueryHandler implements QueryHandlerInterface
             userId: $accessToken->getUserId()->value(),
             clientId: $accessToken->getClientId()->value(),
             scopes: $accessToken->getScopes(),
-            expiresAt: $accessToken->getExpiresAt()->format('Y-m-d H:i:s')
+            expiresAt: $accessToken->getExpiresAt()
         );
     }
 } 

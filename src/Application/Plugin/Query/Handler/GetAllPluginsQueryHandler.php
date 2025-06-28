@@ -27,8 +27,8 @@ class GetAllPluginsQueryHandler implements QueryHandler
                 'author' => $plugin->getAuthor(),
                 'active' => $plugin->isActive(),
                 'meta' => $plugin->getMeta(),
-                'createdAt' => $plugin->getCreatedAt()->format('Y-m-d H:i:s'),
-                'updatedAt' => $plugin->getUpdatedAt()->format('Y-m-d H:i:s'),
+                            'createdAt' => $plugin->getCreatedAt(),
+            'updatedAt' => $plugin->getUpdatedAt(),
             ];
         }, $plugins);
     }

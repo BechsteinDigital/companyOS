@@ -29,8 +29,8 @@ class GetUserQueryHandler implements QueryHandler
             'lastName' => $user->getLastName(),
             'fullName' => $user->getFullName(),
             'isActive' => $user->isActive(),
-            'createdAt' => $user->getCreatedAt()->format('Y-m-d H:i:s'),
-            'updatedAt' => $user->getUpdatedAt()->format('Y-m-d H:i:s'),
+            'createdAt' => $user->getCreatedAt(),
+            'updatedAt' => $user->getUpdatedAt(),
         ];
     }
 } 
