@@ -8,6 +8,7 @@ use CompanyOS\Bundle\CoreBundle\Application\User\Command\DeleteUserCommand;
 use CompanyOS\Bundle\CoreBundle\Application\User\DTO\CreateUserRequest;
 use CompanyOS\Bundle\CoreBundle\Application\User\DTO\UpdateUserRequest;
 use CompanyOS\Bundle\CoreBundle\Application\User\DTO\UserResponse;
+use CompanyOS\Bundle\CoreBundle\Application\Role\Service\PermissionService;
 use CompanyOS\Bundle\CoreBundle\Application\User\Query\GetUserQuery;
 use CompanyOS\Bundle\CoreBundle\Application\User\Query\GetAllUsersQuery;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -28,7 +29,8 @@ class UserController extends AbstractController
     public function __construct(
         private MessageBusInterface $commandBus,
         private MessageBusInterface $queryBus,
-        private SerializerInterface $serializer
+        private SerializerInterface $serializer,
+        private PermissionService $permissionService
     ) {}
 
     #[Route('', methods: ['GET'], name: 'api_users_list')]
@@ -74,60 +76,18 @@ class UserController extends AbstractController
     )]
     public function profile(): JsonResponse
     {
-        // Versuche User aus Security Context zu bekommen
+        // OAuth2 Authenticator sollte den User bereits bereitstellen
         $user = $this->getUser();
         
-        // Falls nicht verfügbar, versuche aus Request zu extrahieren
         if (!$user) {
-            $request = $this->container->get('request_stack')->getCurrentRequest();
-            $token = $request->headers->get('Authorization');
-            
-            if (!$token || !str_starts_with($token, 'Bearer ')) {
-                return $this->json([
-                    'success' => false,
-                    'message' => 'Not authenticated'
-                ], Response::HTTP_UNAUTHORIZED);
-            }
-            
-            $accessToken = substr($token, 7); // "Bearer " entfernen
-            
-            try {
-                // Token validieren und User-ID extrahieren
-                $tokenService = $this->container->get('league.oauth2_server.resource_server');
-                $serverRequest = new \Nyholm\Psr7\ServerRequest('GET', '/');
-                $serverRequest = $serverRequest->withHeader('Authorization', 'Bearer ' . $accessToken);
-                
-                $validatedRequest = $tokenService->validateAuthenticatedRequest($serverRequest);
-                $userId = $validatedRequest->getAttribute('oauth_user_id');
-                
-                if (!$userId) {
-                    return $this->json([
-                        'success' => false,
-                        'message' => 'Invalid token'
-                    ], Response::HTTP_UNAUTHORIZED);
-                }
-                
-                // User aus Repository laden
-                $userRepository = $this->container->get('CompanyOS\Bundle\CoreBundle\Domain\User\Domain\Repository\UserRepositoryInterface');
-                $user = $userRepository->findById(\CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Uuid::fromString($userId));
-                
-                if (!$user) {
-                    return $this->json([
-                        'success' => false,
-                        'message' => 'User not found'
-                    ], Response::HTTP_NOT_FOUND);
-                }
-            } catch (\Exception $e) {
-                return $this->json([
-                    'success' => false,
-                    'message' => 'Invalid token'
-                ], Response::HTTP_UNAUTHORIZED);
-            }
+            return $this->json([
+                'success' => false,
+                'message' => 'Not authenticated'
+            ], Response::HTTP_UNAUTHORIZED);
         }
         
         // Permissions für User laden
-        $permissionService = $this->container->get('CompanyOS\Bundle\CoreBundle\Application\Role\Service\PermissionService');
-        $permissions = $permissionService->getUserPermissions($user);
+        $permissions = $this->permissionService->getUserPermissions($user);
 
         return $this->json([
             'success' => true,

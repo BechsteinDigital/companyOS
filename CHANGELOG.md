@@ -662,3 +662,9 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - [M] src/DataFixtures/EcommerceFixtures.php
 - [M] src/DataFixtures/FreelancerFixtures.php
 - [M] src/Infrastructure/User/Security/UserProvider.php
+
+## [0.1.132-alpha] - 2025-06-29
+
+- Commit: Hinzufügen von PermissionService und Bereinigung der Authentifizierung....
+- [M] composer.json
+- [M] src/Application/User/Controller/UserController.php
