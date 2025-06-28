@@ -606,3 +606,9 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - [D] src/Infrastructure/Role/Fixtures/RoleFixture.php
 - [D] src/Infrastructure/Role/Fixtures/WebpackClientFixture.php
 - [M] src/Migrations/Version20250126160000.php
+
+## [0.1.124-alpha] - 2025-06-29
+
+- Commit: Hinzufügen von DataFixtures-Services für Doctrine-Fixtures in dev und test Um...
+- [M] Resources/config/services.yaml
+- [M] composer.json

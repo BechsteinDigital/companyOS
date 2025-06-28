@@ -164,4 +164,9 @@ services:
     CompanyOS\Bundle\CoreBundle\Infrastructure\User\Security\UserProvider:
         public: false
         autowire: true
-        autoconfigure: true 
+        autoconfigure: true
+
+    # DataFixtures Services (dev and test environments only)
+    CompanyOS\Bundle\CoreBundle\DataFixtures\:
+        resource: '../../src/DataFixtures/'
+        tags: ['doctrine.fixture.orm'] 
