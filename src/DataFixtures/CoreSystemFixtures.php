@@ -110,9 +110,6 @@ class CoreSystemFixtures extends Fixture implements FixtureGroupInterface
             INSERT INTO user_roles (id, user_id, role_id, assigned_at) VALUES
             (?, ?, ?, NOW())
         ", [$this->generateUuid(), $adminId, $superAdminRoleId]);
-        
-        // Store admin ID for ACL entries
-        $this->addReference('admin-user-id', $adminId);
     }
 
     /**
@@ -231,7 +228,12 @@ class CoreSystemFixtures extends Fixture implements FixtureGroupInterface
      */
     private function createAclEntries(ObjectManager $manager): void
     {
-        $adminUserId = $this->getReference('admin-user-id');
+        // Get admin user ID from database
+        $adminUserId = $manager->getConnection()->fetchOne("SELECT id FROM users WHERE email = 'admin@companyos.dev'");
+
+        if (!$adminUserId) {
+            return; // Skip if admin user doesn't exist
+        }
 
         // Dashboard Resource Access for Admin
         $manager->getConnection()->executeStatement("

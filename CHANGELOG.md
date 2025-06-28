@@ -684,3 +684,10 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - [M] src/DataFixtures/EcommerceFixtures.php
 - [M] src/DataFixtures/FreelancerFixtures.php
 - [M] src/DataFixtures/NeuroAIFixtures.php
+
+## [0.1.135-alpha] - 2025-06-29
+
+- Commit: Überspringe Duplikat-Migration - Tabellen existieren bereits (Version20250101...
+- [M] composer.json
+- [M] src/DataFixtures/CoreSystemFixtures.php
+- [M] src/Migrations/Version20250623231507.php
