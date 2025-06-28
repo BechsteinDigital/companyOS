@@ -8,7 +8,7 @@ Ein vollständiges Symfony-Bundle für das CompanyOS-System mit Plugin-Architekt
 
 ## ⚠️ Alpha Version
 
-**Dies ist eine Alpha-Version (0.1.33-alpha) und ist NICHT für den Produktiveinsatz geeignet.**
+**Dies ist eine Alpha-Version (0.1.118-alpha
 
 ### Was funktioniert:
 - ✅ Grundlegende Bundle-Struktur (DDD-Layer)
@@ -49,7 +49,7 @@ Das CoreBundle folgt einer **API-First-Architektur**:
 ### ⚠️ Nur für Entwickler und Tester
 
 ```bash
-composer require companyos/core:^0.1.117-alpha
+composer require companyos/core:^0.1.118-alpha
 ```
 
 ### Bundle registrieren
@@ -103,7 +103,7 @@ class MyPlugin extends AbstractPlugin
 
     public function getVersion(): string
     {
-        return '1.0.0';
+        return '0.1.118-alpha';
     }
 
     public function getAuthor(): string
@@ -245,19 +245,19 @@ Das Bundle erweitert **nicht** den Symfony-Kernel. Die Plugin-Funktionalität wi
 
 ## Roadmap
 
-### Version 0.2.0 (Beta)
+### Version 0.1.118-alpha (Beta)
 - [ ] Vollständige Controller-Implementierung
 - [ ] Basis-Tests (Unit/Integration)
 - [ ] Datenbank-Migrationen
 - [ ] Verbesserte Dokumentation
 
-### Version 0.5.0 (Beta)
+### Version 0.1.118-alpha (Beta)
 - [ ] Vollständige API-Implementierung
 - [ ] Frontend-Assets
 - [ ] Code Coverage > 80%
 - [ ] CI/CD Pipeline
 
-### Version 1.0.0 (Stable)
+### Version 0.1.118-alpha (Stable)
 - [ ] Production-ready
 - [ ] Vollständige Tests
 - [ ] Vollständige Dokumentation

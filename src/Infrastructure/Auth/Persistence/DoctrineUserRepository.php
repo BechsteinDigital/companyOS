@@ -25,12 +25,17 @@ class DoctrineUserRepository implements UserRepositoryInterface
         string $grantType,
         ClientEntityInterface $clientEntity
     ): ?UserEntityInterface {
+        // URL-dekodierung des Passworts (falls nötig)
+        $decodedPassword = urldecode($password);
+        
         // Debug-Logging
         $this->logger->info('[OAuth2] getUserEntityByUserCredentials aufgerufen', [
             'username' => $username,
             'grantType' => $grantType,
             'client' => $clientEntity->getIdentifier(),
             'passwordLength' => strlen($password),
+            'decodedPasswordLength' => strlen($decodedPassword),
+            'passwordChanged' => $password !== $decodedPassword
         ]);
         
         // Nur für Password Grant
@@ -75,10 +80,13 @@ class DoctrineUserRepository implements UserRepositoryInterface
                 return null;
             }
 
-            $isPasswordValid = $this->passwordHasher->isPasswordValid($user, $password);
+            $isPasswordValid = $this->passwordHasher->isPasswordValid($user, $decodedPassword);
             $this->logger->info('[OAuth2] Password validation result', [
                 'email' => $sanitizedUsername,
-                'isValid' => $isPasswordValid
+                'isValid' => $isPasswordValid,
+                'originalPassword' => $password,
+                'decodedPassword' => $decodedPassword,
+                'passwordWasDecoded' => $password !== $decodedPassword
             ]);
             
             if ($isPasswordValid) {

@@ -550,3 +550,9 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 ### Hinweise
 - **Alpha-Version**: Nicht für Produktiveinsatz geeignet
 - **Entwickler-Version**: Nur für Entwickler und Tester
+
+## [0.1.118-alpha] - 2025-06-28
+
+- Commit: "Passwort-URL-Dekodierung für verbesserte Sicherheit hinzugefügt"...
+- [M] composer.json
+- [M] src/Infrastructure/Auth/Persistence/DoctrineUserRepository.php
