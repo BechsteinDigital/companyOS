@@ -61,12 +61,7 @@ final class Version20250101000000 extends AbstractMigration
             CONSTRAINT FK_54FCD59FD60322AC FOREIGN KEY (role_id) REFERENCES roles (id)
         ) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
 
-        // 4. Insert Default Roles
-        $this->addSql("INSERT INTO roles (id, name, display_name, description, permissions, is_system, created_at, updated_at) VALUES
-            (UUID(), 'admin', 'Administrator', 'Vollzugriff auf alle Funktionen', JSON_ARRAY('user.read', 'user.write', 'role.read', 'role.write', 'plugin.read', 'plugin.write', 'settings.read', 'settings.write', 'webhook.read', 'webhook.write', 'client.read', 'client.write', 'profile.read', 'profile.write', 'auth.read', 'auth.write'), 1, NOW(), NOW()),
-            (UUID(), 'manager', 'Manager', 'Verwaltung von Benutzern und Inhalten', JSON_ARRAY('user.read', 'user.write', 'plugin.read', 'plugin.write'), 0, NOW(), NOW()),
-            (UUID(), 'user', 'Benutzer', 'Standard-Benutzer mit Basisrechten', JSON_ARRAY('profile.read', 'profile.write'), 0, NOW(), NOW())
-        ");
+        // No default data insertion - this will be handled by fixtures
     }
 
     public function down(Schema $schema): void

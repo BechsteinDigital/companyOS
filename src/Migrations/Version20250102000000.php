@@ -70,10 +70,7 @@ final class Version20250102000000 extends AbstractMigration
             CONSTRAINT FK_509FEF5FC7440455 FOREIGN KEY (client) REFERENCES oauth2_client (identifier) ON DELETE CASCADE
         ) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
 
-        // 5. Insert Default OAuth2 Client
-        $this->addSql("INSERT INTO oauth2_client (identifier, name, secret, redirect_uris, grants, scopes, active, allow_plain_text_pkce) VALUES
-            ('backend', 'Backend', NULL, NULL, JSON_ARRAY('password', 'refresh token'), JSON_ARRAY('user.read', 'user.write', 'role.read', 'role.write', 'plugin.read', 'plugin.write', 'settings.read', 'settings.write', 'webhook.read', 'webhook.write', 'client.read', 'client.write', 'profile.read', 'profile.write', 'auth.read', 'auth.write'), 1, 0)
-        ");
+        // No default data insertion - this will be handled by fixtures
     }
 
     public function down(Schema $schema): void

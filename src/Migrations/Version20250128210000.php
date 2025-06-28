@@ -20,13 +20,12 @@ final class Version20250128210000 extends AbstractMigration
 
     public function up(Schema $schema): void
     {
-        // 1. Extend existing user_roles table with new fields
+        // 1. Extend existing user_roles table with new fields (no renaming)
         $this->addSql('ALTER TABLE user_roles 
             ADD COLUMN assigned_by CHAR(36) DEFAULT NULL COMMENT \'(DC2Type:uuid)\',
             ADD COLUMN expires_at DATETIME DEFAULT NULL COMMENT \'(DC2Type:datetime_immutable)\',
             ADD COLUMN assignment_reason TEXT DEFAULT NULL,
-            ADD COLUMN updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT \'(DC2Type:datetime_immutable)\',
-            CHANGE assigned_at created_at DATETIME NOT NULL COMMENT \'(DC2Type:datetime_immutable)\'
+            ADD COLUMN updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT \'(DC2Type:datetime_immutable)\'
         ');
 
         // 2. Access Control Entries Table (ACL) - NEW
@@ -66,12 +65,7 @@ final class Version20250128210000 extends AbstractMigration
             INDEX idx_abac_priority (priority)
         ) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
 
-        // 4. Insert Standard ABAC Rules
-        $this->addSql("INSERT INTO abac_rules (id, name, permission, description, conditions, effect, priority, is_active, created_at, updated_at) VALUES
-            (UUID(), 'Working Hours Rule', 'user.delete', 'Prevent user deletion outside working hours', JSON_OBJECT('time', JSON_OBJECT('\$between', JSON_ARRAY('09:00', '17:00'))), 'deny', 100, 1, NOW(), NOW()),
-            (UUID(), 'Department Rule', 'document.edit', 'Allow document editing only within same department', JSON_OBJECT('user.department', JSON_OBJECT('\$eq', 'document.department')), 'allow', 50, 1, NOW(), NOW()),
-            (UUID(), 'Admin Override', '*', 'Admins bypass all ABAC rules', JSON_OBJECT('user.role', JSON_OBJECT('\$in', JSON_ARRAY('admin'))), 'allow', 1000, 1, NOW(), NOW())
-        ");
+        // No default data insertion - this will be handled by fixtures
     }
 
     public function down(Schema $schema): void
@@ -84,8 +78,7 @@ final class Version20250128210000 extends AbstractMigration
             DROP COLUMN assigned_by,
             DROP COLUMN expires_at, 
             DROP COLUMN assignment_reason,
-            DROP COLUMN updated_at,
-            CHANGE created_at assigned_at DATETIME NOT NULL COMMENT \'(DC2Type:datetime_immutable)\'
+            DROP COLUMN updated_at
         ');
     }
 } 

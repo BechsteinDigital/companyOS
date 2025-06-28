@@ -626,3 +626,12 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 - Commit: "Fix: Fehler bei der Benutzeranmeldung behoben"...
 - [M] composer.json
+
+## [0.1.127-alpha] - 2025-06-29
+
+- Commit: "Erweiterung der Benutzerrollen-Tabelle um neue Felder"...
+- [M] composer.json
+- [M] src/Migrations/Version20250101000000.php
+- [M] src/Migrations/Version20250102000000.php
+- [M] src/Migrations/Version20250126160000.php
+- [M] src/Migrations/Version20250128210000.php
