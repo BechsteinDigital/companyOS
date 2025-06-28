@@ -641,3 +641,8 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - Commit: Entferne veraltete Migrationen für Plugins und Benutzer....
 - [M] composer.json
 - [D] src/Migrations/Version20250623213620.php
+
+## [0.1.129-alpha] - 2025-06-29
+
+- Commit: "Fix: Fehler beim Laden von Benutzerprofilen behoben"...
+- [M] composer.json
