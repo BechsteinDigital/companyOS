@@ -621,3 +621,8 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - [M] src/DataFixtures/EcommerceFixtures.php
 - [M] src/DataFixtures/FreelancerFixtures.php
 - [M] src/DataFixtures/NeuroAIFixtures.php
+
+## [0.1.126-alpha] - 2025-06-29
+
+- Commit: "Fix: Fehler bei der Benutzeranmeldung behoben"...
+- [M] composer.json
