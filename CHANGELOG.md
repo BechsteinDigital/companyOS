@@ -590,3 +590,9 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - [M] composer.json
 - [M] src/Application/User/Controller/UserController.php
 - [M] src/Domain/Role/Domain/Entity/Role.php
+
+## [0.1.122-alpha] - 2025-06-28
+
+- Commit: "Entferne DocumentControllerExample für Hybrid Access Control"...
+- [M] composer.json
+- [D] src/Application/Document/Controller/DocumentControllerExample.php
