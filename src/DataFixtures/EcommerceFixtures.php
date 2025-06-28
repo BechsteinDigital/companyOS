@@ -29,7 +29,7 @@ class EcommerceFixtures extends Fixture implements FixtureGroupInterface, Depend
         return ['ecommerce', 'all'];
     }
 
-    public function getDependencies()
+    public function getDependencies(): array
     {
         return [\CompanyOS\Bundle\CoreBundle\DataFixtures\CoreSystemFixtures::class];
     }

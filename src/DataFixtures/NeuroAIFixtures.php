@@ -29,7 +29,7 @@ class NeuroAIFixtures extends Fixture implements FixtureGroupInterface, Dependen
         return ['neuroai', 'all'];
     }
 
-    public function getDependencies()
+    public function getDependencies(): array
     {
         return [\CompanyOS\Bundle\CoreBundle\DataFixtures\CoreSystemFixtures::class];
     }

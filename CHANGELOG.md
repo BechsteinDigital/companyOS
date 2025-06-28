@@ -612,3 +612,12 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - Commit: Hinzufügen von DataFixtures-Services für Doctrine-Fixtures in dev und test Um...
 - [M] Resources/config/services.yaml
 - [M] composer.json
+
+## [0.1.125-alpha] - 2025-06-29
+
+- Commit: Fix: Updated getDependencies method return type to array...
+- [M] composer.json
+- [M] src/DataFixtures/AgencyFixtures.php
+- [M] src/DataFixtures/EcommerceFixtures.php
+- [M] src/DataFixtures/FreelancerFixtures.php
+- [M] src/DataFixtures/NeuroAIFixtures.php

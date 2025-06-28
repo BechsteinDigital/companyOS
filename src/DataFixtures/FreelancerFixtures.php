@@ -29,7 +29,7 @@ class FreelancerFixtures extends Fixture implements FixtureGroupInterface, Depen
         return ['freelancer', 'all'];
     }
 
-    public function getDependencies()
+    public function getDependencies(): array
     {
         return [\CompanyOS\Bundle\CoreBundle\DataFixtures\CoreSystemFixtures::class];
     }
