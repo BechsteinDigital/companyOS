@@ -752,3 +752,9 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - [M] src/Application/Role/QueryHandler/GetAllRolesQueryHandler.php
 - [M] src/Application/Role/QueryHandler/GetRoleQueryHandler.php
 - [M] src/Infrastructure/Role/Persistence/DoctrineRoleRepository.php
+
+## [0.1.144-alpha] - 2025-06-29
+
+- Commit: Verbesserte Berechtigungsprüfung für Rollen hinzugefügt....
+- [M] composer.json
+- [M] src/Domain/Role/Domain/Entity/Role.php

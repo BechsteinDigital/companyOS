@@ -92,7 +92,26 @@ class Role
 
     public function hasPermission(string $permission): bool
     {
-        return in_array($permission, $this->permissions, true);
+        // 1. Super-Admin: ** = alle Permissions
+        if (in_array('**', $this->permissions, true)) {
+            return true;
+        }
+        
+        // 2. Exakte Permission-Übereinstimmung
+        if (in_array($permission, $this->permissions, true)) {
+            return true;
+        }
+        
+        // 3. Wildcard-Permissions (z.B. user.* für user.create, user.read, etc.)
+        $permissionParts = explode('.', $permission);
+        if (count($permissionParts) >= 2) {
+            $wildcardPermission = $permissionParts[0] . '.*';
+            if (in_array($wildcardPermission, $this->permissions, true)) {
+                return true;
+            }
+        }
+        
+        return false;
     }
 
     public function addPermission(string $permission): void
