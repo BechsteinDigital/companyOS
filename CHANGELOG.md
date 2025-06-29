@@ -709,3 +709,9 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - [M] composer.json
 - [M] src/Application/Role/Service/PermissionService.php
 - [M] src/Application/User/Controller/UserPermissionController.php
+
+## [0.1.139-alpha] - 2025-06-29
+
+- Commit: Hinzufügen der Methode zur Abfrage von Navigationsberechtigungen....
+- [M] composer.json
+- [M] src/Application/User/Controller/UserPermissionController.php

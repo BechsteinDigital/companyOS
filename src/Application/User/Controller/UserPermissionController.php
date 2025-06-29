@@ -295,4 +295,89 @@ class UserPermissionController extends AbstractController
             'context' => $context
         ]);
     }
+
+    #[Route('/navigation/{userId}', methods: ['GET'], name: 'api_users_navigation_permissions')]
+    #[OA\Get(
+        summary: 'Get navigation permissions for user',
+        parameters: [
+            new OA\Parameter(
+                name: 'userId',
+                in: 'path',
+                required: true,
+                schema: new OA\Schema(type: 'string', format: 'uuid')
+            )
+        ],
+        responses: [
+            new OA\Response(
+                response: 200,
+                description: 'Navigation permissions for user',
+                content: new OA\JsonContent(
+                    type: 'object',
+                    properties: [
+                        new OA\Property(property: 'success', type: 'boolean'),
+                        new OA\Property(property: 'navigationPermissions', type: 'object'),
+                        new OA\Property(property: 'userPermissions', type: 'array', items: new OA\Items(type: 'string'))
+                    ]
+                )
+            )
+        ]
+    )]
+    public function getNavigationPermissions(string $userId): JsonResponse
+    {
+        try {
+            $user = $this->userRepository->findById(Uuid::fromString($userId));
+        } catch (\Exception $e) {
+            return $this->json([
+                'success' => false,
+                'message' => 'Invalid user ID format'
+            ], 400);
+        }
+        
+        if (!$user) {
+            return $this->json([
+                'success' => false,
+                'message' => 'User not found'
+            ], 404);
+        }
+
+        $permissions = $this->permissionService->getUserPermissions($user);
+        
+        // Navigation-spezifische Permission-Mappings
+        $navigationPermissions = [
+            'dashboard' => in_array('dashboard.view', $permissions) || in_array('**', $permissions),
+            'administration' => $this->hasAnyPermission($permissions, [
+                'user.create', 'user.read', 'user.update', 'user.delete',
+                'role.create', 'role.read', 'role.update', 'role.delete',
+                'administration.*', '**'
+            ]),
+            'system' => $this->hasAnyPermission($permissions, [
+                'plugin.create', 'plugin.read', 'plugin.update', 'plugin.delete',
+                'settings.create', 'settings.read', 'settings.update', 'settings.delete',
+                'webhook.create', 'webhook.read', 'webhook.update', 'webhook.delete',
+                'system.*', '**'
+            ]),
+            'development' => $this->hasAnyPermission($permissions, [
+                'api.read', 'api.documentation', 'system.monitoring', 'system.status',
+                'development.*', '**'
+            ]),
+            'profile' => in_array('profile.read', $permissions) || in_array('profile.*', $permissions) || in_array('**', $permissions)
+        ];
+
+        return $this->json([
+            'success' => true,
+            'navigationPermissions' => $navigationPermissions,
+            'userPermissions' => $permissions,
+            'userId' => $userId
+        ]);
+    }
+
+    private function hasAnyPermission(array $userPermissions, array $requiredPermissions): bool
+    {
+        foreach ($requiredPermissions as $required) {
+            if (in_array($required, $userPermissions)) {
+                return true;
+            }
+        }
+        return false;
+    }
 } 
