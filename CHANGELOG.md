@@ -697,3 +697,8 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - Commit: Skip duplicate migration - company_settings table already exists...
 - [M] composer.json
 - [M] src/Migrations/Version20250625130000.php
+
+## [0.1.137-alpha] - 2025-06-29
+
+- Commit: "Fehler behoben und Leistung verbessert"...
+- [M] composer.json
