@@ -740,3 +740,15 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - [M] src/Application/Role/QueryHandler/GetRoleQueryHandler.php
 - [M] src/Application/Role/QueryHandler/GetUserRolesQueryHandler.php
 - [M] src/Infrastructure/Role/Persistence/DoctrineRoleRepository.php
+
+## [0.1.143-alpha] - 2025-06-29
+
+- Commit: "Fix Role ID type casting and handle exceptions"...
+- [M] composer.json
+- [M] src/Application/Role/CommandHandler/AssignRoleToUserCommandHandler.php
+- [M] src/Application/Role/CommandHandler/CreateRoleCommandHandler.php
+- [M] src/Application/Role/CommandHandler/DeleteRoleCommandHandler.php
+- [M] src/Application/Role/CommandHandler/UpdateRoleCommandHandler.php
+- [M] src/Application/Role/QueryHandler/GetAllRolesQueryHandler.php
+- [M] src/Application/Role/QueryHandler/GetRoleQueryHandler.php
+- [M] src/Infrastructure/Role/Persistence/DoctrineRoleRepository.php

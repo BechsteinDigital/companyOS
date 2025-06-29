@@ -23,7 +23,12 @@ class DeleteRoleCommandHandler
 
     public function __invoke(DeleteRoleCommand $command): void
     {
-        $roleId = new RoleId($command->id);
+        try {
+            $roleId = new RoleId($command->id);
+        } catch (\Exception $e) {
+            throw new \InvalidArgumentException('Invalid role ID format');
+        }
+        
         $role = $this->roleRepository->findById($roleId);
 
         if (!$role) {
@@ -31,7 +36,7 @@ class DeleteRoleCommandHandler
         }
 
         $this->roleRepository->delete($role);
-        $this->eventDispatcher->dispatch(new RoleDeleted($role->id()));
-        $this->eventBus->dispatch(new RoleDeletedEvent((string)$role->id(), $role->name()->value()));
+        $this->eventDispatcher->dispatch(new RoleDeleted($role->getId()));
+        $this->eventBus->dispatch(new RoleDeletedEvent((string)$role->getId(), $role->getName()));
     }
 } 

@@ -31,7 +31,7 @@ class AssignRoleToUserCommandHandler
         }
         $user->assignRole($role);
         $this->userRepository->save($user);
-        $this->eventDispatcher->dispatch(new RoleAssignedToUser($role->id(), $user->getId()));
-        $this->eventBus->dispatch(new RoleAssignedToUserEvent((string)$role->id(), (string)$user->getId()));
+        $this->eventDispatcher->dispatch(new RoleAssignedToUser($role->getId(), $user->getId()));
+        $this->eventBus->dispatch(new RoleAssignedToUserEvent((string)$role->getId(), (string)$user->getId()));
     }
 } 

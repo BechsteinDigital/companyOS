@@ -38,7 +38,7 @@ class CreateRoleCommandHandler
 
         $role = new Role($name, $displayName, $description, $permissions);
         $this->roleRepository->save($role);
-        $this->eventDispatcher->dispatch(new RoleCreated($role->id()));
-        $this->eventBus->dispatch(new RoleCreatedEvent((string)$role->id(), $role->name()->value()));
+        $this->eventDispatcher->dispatch(new RoleCreated($role->getId()));
+        $this->eventBus->dispatch(new RoleCreatedEvent((string)$role->getId(), $role->getName()));
     }
 } 

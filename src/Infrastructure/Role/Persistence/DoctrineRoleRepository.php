@@ -36,22 +36,32 @@ class DoctrineRoleRepository implements RoleRepositoryInterface
 
     public function findAll(bool $includeSystem = true, ?string $search = null): array
     {
-        $criteria = [];
-        
-        if (!$includeSystem) {
-            $criteria['isSystem'] = false;
+        try {
+            $criteria = [];
+            
+            if (!$includeSystem) {
+                $criteria['isSystem'] = false;
+            }
+
+            $roles = $this->roleRepository->findBy($criteria);
+
+            if ($search) {
+                $roles = array_filter($roles, function (Role $role) use ($search) {
+                    try {
+                        return stripos($role->getName(), $search) !== false ||
+                               stripos($role->getDisplayName(), $search) !== false;
+                    } catch (\Exception $e) {
+                        error_log("Error filtering role: " . $e->getMessage());
+                        return false;
+                    }
+                });
+            }
+
+            return array_values($roles);
+        } catch (\Exception $e) {
+            error_log("Error in findAll roles: " . $e->getMessage());
+            return [];
         }
-
-        $roles = $this->roleRepository->findBy($criteria);
-
-        if ($search) {
-            $roles = array_filter($roles, function (Role $role) use ($search) {
-                return stripos($role->getName(), $search) !== false ||
-                       stripos($role->getDisplayName(), $search) !== false;
-            });
-        }
-
-        return array_values($roles);
     }
 
     public function save(Role $role): void

@@ -26,7 +26,12 @@ class UpdateRoleCommandHandler
 
     public function __invoke(UpdateRoleCommand $command): void
     {
-        $roleId = new RoleId($command->id);
+        try {
+            $roleId = new RoleId($command->id);
+        } catch (\Exception $e) {
+            throw new \InvalidArgumentException('Invalid role ID format');
+        }
+        
         $role = $this->roleRepository->findById($roleId);
 
         if (!$role) {
@@ -46,7 +51,7 @@ class UpdateRoleCommandHandler
         }
 
         $this->roleRepository->save($role);
-        $this->eventDispatcher->dispatch(new RoleUpdated($role->id()));
-        $this->eventBus->dispatch(new RoleUpdatedEvent((string)$role->id(), $role->name()->value()));
+        $this->eventDispatcher->dispatch(new RoleUpdated($role->getId()));
+        $this->eventBus->dispatch(new RoleUpdatedEvent((string)$role->getId(), $role->getName()));
     }
 } 

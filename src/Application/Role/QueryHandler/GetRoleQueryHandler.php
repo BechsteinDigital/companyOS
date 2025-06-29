@@ -18,7 +18,13 @@ class GetRoleQueryHandler
 
     public function __invoke(GetRoleQuery $query): ?RoleResponse
     {
-        $roleId = new RoleId($query->id);
+        try {
+            $roleId = new RoleId($query->id);
+        } catch (\Exception $e) {
+            // Invalid UUID provided
+            return null;
+        }
+        
         $role = $this->roleRepository->findById($roleId);
 
         if (!$role) {

@@ -20,25 +20,32 @@ class GetAllRolesQueryHandler
     {
         $roles = $this->roleRepository->findAll($query->includeSystem, $query->search);
 
-        return array_map(function ($role) {
+        $validRoles = [];
+        
+        foreach ($roles as $role) {
             try {
+                // Validate that we can create a RoleId from the role's ID
                 $roleId = new RoleId((string)$role->getId());
                 $userCount = $this->roleRepository->getUserCount($roleId);
+                
+                $validRoles[] = new RoleResponse(
+                    id: (string)$role->getId(),
+                    name: $role->getName(),
+                    displayName: $role->getDisplayName(),
+                    description: $role->getDescription(),
+                    permissions: $role->getPermissions(),
+                    isSystem: $role->isSystem(),
+                    userCount: $userCount,
+                    createdAt: $role->getCreatedAt(),
+                    updatedAt: $role->getUpdatedAt()
+                );
             } catch (\Exception $e) {
-                $userCount = 0; // Fallback if UUID validation fails
+                // Skip invalid roles - log the error but don't fail the entire request
+                error_log("Skipping invalid role with ID: " . ($role->getId() ?? 'null') . " - Error: " . $e->getMessage());
+                continue;
             }
-            
-            return new RoleResponse(
-                id: (string)$role->getId(),
-                name: $role->getName(),
-                displayName: $role->getDisplayName(),
-                description: $role->getDescription(),
-                permissions: $role->getPermissions(),
-                isSystem: $role->isSystem(),
-                userCount: $userCount,
-                createdAt: $role->getCreatedAt(),
-                updatedAt: $role->getUpdatedAt()
-            );
-        }, $roles);
+        }
+        
+        return $validRoles;
     }
 } 
