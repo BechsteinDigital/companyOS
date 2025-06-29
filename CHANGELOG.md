@@ -758,3 +758,8 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - Commit: Verbesserte Berechtigungsprüfung für Rollen hinzugefügt....
 - [M] composer.json
 - [M] src/Domain/Role/Domain/Entity/Role.php
+
+## [0.1.146-alpha] - 2025-06-29
+
+- Commit: Aktualisiere Version auf 0.1.145-alpha....
+- [M] composer.json
