@@ -25,6 +25,13 @@ class GetRoleQueryHandler
             return null;
         }
 
+        try {
+            $newRoleId = new RoleId((string)$role->getId());
+            $userCount = $this->roleRepository->getUserCount($newRoleId);
+        } catch (\Exception $e) {
+            $userCount = 0; // Fallback if UUID validation fails
+        }
+        
         return new RoleResponse(
             id: (string)$role->getId(),
             name: $role->getName(),
@@ -32,7 +39,7 @@ class GetRoleQueryHandler
             description: $role->getDescription(),
             permissions: $role->getPermissions(),
             isSystem: $role->isSystem(),
-            userCount: $this->roleRepository->getUserCount($role->getId()),
+            userCount: $userCount,
             createdAt: $role->getCreatedAt(),
             updatedAt: $role->getUpdatedAt()
         );

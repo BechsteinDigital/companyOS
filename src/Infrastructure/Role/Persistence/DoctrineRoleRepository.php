@@ -46,8 +46,8 @@ class DoctrineRoleRepository implements RoleRepositoryInterface
 
         if ($search) {
             $roles = array_filter($roles, function (Role $role) use ($search) {
-                return stripos($role->name()->value(), $search) !== false ||
-                       stripos($role->displayName()->value(), $search) !== false;
+                return stripos($role->getName(), $search) !== false ||
+                       stripos($role->getDisplayName(), $search) !== false;
             });
         }
 

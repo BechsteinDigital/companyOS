@@ -731,3 +731,12 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - [M] src/Application/Role/QueryHandler/GetUserRolesQueryHandler.php
 - [M] src/Application/User/QueryHandler/GetAllUsersQueryHandler.php
 - [M] src/Application/User/QueryHandler/GetUserQueryHandler.php
+
+## [0.1.142-alpha] - 2025-06-29
+
+- Commit: Fix UUID validation and use getters for role name and display name....
+- [M] composer.json
+- [M] src/Application/Role/QueryHandler/GetAllRolesQueryHandler.php
+- [M] src/Application/Role/QueryHandler/GetRoleQueryHandler.php
+- [M] src/Application/Role/QueryHandler/GetUserRolesQueryHandler.php
+- [M] src/Infrastructure/Role/Persistence/DoctrineRoleRepository.php
