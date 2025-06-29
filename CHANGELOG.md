@@ -702,3 +702,10 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 - Commit: "Fehler behoben und Leistung verbessert"...
 - [M] composer.json
+
+## [0.1.138-alpha] - 2025-06-29
+
+- Commit: "Implementiere ABAC-basierte Berechtigungsprüfung mit Kontextunterstützung"...
+- [M] composer.json
+- [M] src/Application/Role/Service/PermissionService.php
+- [M] src/Application/User/Controller/UserPermissionController.php

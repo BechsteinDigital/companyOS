@@ -7,6 +7,7 @@ use CompanyOS\Bundle\CoreBundle\Domain\User\Domain\Repository\UserRepositoryInte
 use CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Uuid;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use OpenApi\Attributes as OA;
@@ -152,6 +153,146 @@ class UserPermissionController extends AbstractController
         return $this->json([
             'success' => true,
             'message' => 'Access granted to protected resource'
+        ]);
+    }
+
+    #[Route('/check-permission', methods: ['POST'], name: 'api_users_check_permission_post')]
+    #[OA\Post(
+        summary: 'Check if user has specific permission (POST)',
+        requestBody: new OA\RequestBody(
+            required: true,
+            content: new OA\JsonContent(
+                type: 'object',
+                properties: [
+                    new OA\Property(property: 'user_id', type: 'string', format: 'uuid'),
+                    new OA\Property(property: 'permission', type: 'string', example: 'dashboard.view'),
+                    new OA\Property(property: 'context', type: 'object')
+                ]
+            )
+        ),
+        responses: [
+            new OA\Response(
+                response: 200,
+                description: 'Permission check result',
+                content: new OA\JsonContent(
+                    type: 'object',
+                    properties: [
+                        new OA\Property(property: 'success', type: 'boolean'),
+                        new OA\Property(property: 'allowed', type: 'boolean'),
+                        new OA\Property(property: 'permission', type: 'string')
+                    ]
+                )
+            )
+        ]
+    )]
+    public function checkPermissionPost(Request $request): JsonResponse
+    {
+        $data = json_decode($request->getContent(), true);
+        
+        if (!$data || !isset($data['user_id']) || !isset($data['permission'])) {
+            return $this->json([
+                'success' => false,
+                'message' => 'Missing required fields: user_id, permission'
+            ], 400);
+        }
+
+        try {
+            $user = $this->userRepository->findById(Uuid::fromString($data['user_id']));
+        } catch (\Exception $e) {
+            return $this->json([
+                'success' => false,
+                'message' => 'Invalid user ID format'
+            ], 400);
+        }
+        
+        if (!$user) {
+            return $this->json([
+                'success' => false,
+                'message' => 'User not found'
+            ], 404);
+        }
+
+        $permission = $data['permission'];
+        $context = $data['context'] ?? [];
+        
+        // Advanced permission check mit Context (ABAC)
+        $hasPermission = $this->permissionService->hasPermissionWithContext($user, $permission, $context);
+
+        return $this->json([
+            'success' => true,
+            'allowed' => $hasPermission,
+            'permission' => $permission,
+            'context' => $context
+        ]);
+    }
+
+    #[Route('/check-permissions-batch', methods: ['POST'], name: 'api_users_check_permissions_batch')]
+    #[OA\Post(
+        summary: 'Check multiple permissions for user (batch)',
+        requestBody: new OA\RequestBody(
+            required: true,
+            content: new OA\JsonContent(
+                type: 'object',
+                properties: [
+                    new OA\Property(property: 'user_id', type: 'string', format: 'uuid'),
+                    new OA\Property(property: 'permissions', type: 'array', items: new OA\Items(type: 'string')),
+                    new OA\Property(property: 'context', type: 'object')
+                ]
+            )
+        ),
+        responses: [
+            new OA\Response(
+                response: 200,
+                description: 'Batch permission check results',
+                content: new OA\JsonContent(
+                    type: 'object',
+                    properties: [
+                        new OA\Property(property: 'success', type: 'boolean'),
+                        new OA\Property(property: 'permissions', type: 'object')
+                    ]
+                )
+            )
+        ]
+    )]
+    public function checkPermissionsBatch(Request $request): JsonResponse
+    {
+        $data = json_decode($request->getContent(), true);
+        
+        if (!$data || !isset($data['user_id']) || !isset($data['permissions'])) {
+            return $this->json([
+                'success' => false,
+                'message' => 'Missing required fields: user_id, permissions'
+            ], 400);
+        }
+
+        try {
+            $user = $this->userRepository->findById(Uuid::fromString($data['user_id']));
+        } catch (\Exception $e) {
+            return $this->json([
+                'success' => false,
+                'message' => 'Invalid user ID format'
+            ], 400);
+        }
+        
+        if (!$user) {
+            return $this->json([
+                'success' => false,
+                'message' => 'User not found'
+            ], 404);
+        }
+
+        $permissions = $data['permissions'];
+        $context = $data['context'] ?? [];
+        $results = [];
+        
+        foreach ($permissions as $permission) {
+            $results[$permission] = $this->permissionService->hasPermissionWithContext($user, $permission, $context);
+        }
+
+        return $this->json([
+            'success' => true,
+            'permissions' => $results,
+            'context' => $context
         ]);
     }
 } 
