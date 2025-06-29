@@ -29,11 +29,11 @@ class GetUserQueryHandler
         $roles = $this->roleRepository->findUserRoles((string)$user->getId());
         $roleResponses = array_map(function ($role) {
             return new RoleResponse(
-                id: (string)$role->id(),
-                name: $role->name()->value(),
-                displayName: $role->displayName()->value(),
-                description: $role->getDescription()->value(),
-                permissions: $role->getPermissions()->value(),
+                id: (string)$role->getId(),
+                name: $role->getName(),
+                displayName: $role->getDisplayName(),
+                description: $role->getDescription(),
+                permissions: $role->getPermissions(),
                 isSystem: $role->isSystem(),
                 createdAt: $role->getCreatedAt(),
                 updatedAt: $role->getUpdatedAt()

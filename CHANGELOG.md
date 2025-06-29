@@ -721,3 +721,13 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - Commit: Refactor UserPermissionController to use current authenticated user....
 - [M] composer.json
 - [M] src/Application/User/Controller/UserPermissionController.php
+
+## [0.1.141-alpha] - 2025-06-29
+
+- Commit: "Refaktorierte Role-Abfrage-Handler für bessere Lesbarkeit"...
+- [M] composer.json
+- [M] src/Application/Role/QueryHandler/GetAllRolesQueryHandler.php
+- [M] src/Application/Role/QueryHandler/GetRoleQueryHandler.php
+- [M] src/Application/Role/QueryHandler/GetUserRolesQueryHandler.php
+- [M] src/Application/User/QueryHandler/GetAllUsersQueryHandler.php
+- [M] src/Application/User/QueryHandler/GetUserQueryHandler.php

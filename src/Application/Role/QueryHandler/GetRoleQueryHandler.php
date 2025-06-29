@@ -26,15 +26,15 @@ class GetRoleQueryHandler
         }
 
         return new RoleResponse(
-            id: (string)$role->id(),
-            name: $role->name()->value(),
-            displayName: $role->displayName()->value(),
-            description: $role->description()?->value(),
-            permissions: $role->permissions()->value(),
+            id: (string)$role->getId(),
+            name: $role->getName(),
+            displayName: $role->getDisplayName(),
+            description: $role->getDescription(),
+            permissions: $role->getPermissions(),
             isSystem: $role->isSystem(),
-            userCount: $this->roleRepository->getUserCount($role->id()),
-            createdAt: $role->createdAt(),
-            updatedAt: $role->updatedAt()
+            userCount: $this->roleRepository->getUserCount($role->getId()),
+            createdAt: $role->getCreatedAt(),
+            updatedAt: $role->getUpdatedAt()
         );
     }
 } 

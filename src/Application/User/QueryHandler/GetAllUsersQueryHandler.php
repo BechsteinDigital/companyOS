@@ -27,9 +27,9 @@ class GetAllUsersQueryHandler
             $roles = $this->roleRepository->findUserRoles((string)$user->getId());
             $userRoles = array_map(function ($role) {
                 return [
-                    'id' => (string)$role->id(),
-                    'name' => $role->name()->value(),
-                    'displayName' => $role->displayName()->value(),
+                    'id' => (string)$role->getId(),
+                    'name' => $role->getName(),
+                    'displayName' => $role->getDisplayName(),
                 ];
             }, $roles);
 
