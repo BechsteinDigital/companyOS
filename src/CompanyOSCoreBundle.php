@@ -6,6 +6,7 @@ use CompanyOS\Bundle\CoreBundle\DependencyInjection\CompanyOSCoreExtension;
 use CompanyOS\Bundle\CoreBundle\Infrastructure\Plugin\DependencyInjection\PluginCompilerPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
+use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
 
 class CompanyOSCoreBundle extends Bundle
 {
@@ -20,6 +21,11 @@ class CompanyOSCoreBundle extends Bundle
         
         // Plugin Compiler Pass registrieren
         $container->addCompilerPass(new PluginCompilerPass());
+    }
+
+    public function loadRoutes(RoutingConfigurator $routes): void
+    {
+        $routes->import($this->getPath() . '/Resources/config/routes.yaml');
     }
 
     public function boot(): void

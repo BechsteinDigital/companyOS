@@ -782,3 +782,9 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - [M] src/Application/User/Controller/UserControllerHybridExample.php
 - [M] src/Application/User/Controller/UserPermissionController.php
 - [M] src/Application/Webhook/Controller/WebhookController.php
+
+## [0.1.149-alpha] - 2025-06-30
+
+- Commit: feat: Release – Änderungen: M src/CompanyOSCoreBundle.php; ...
+- [M] composer.json
+- [M] src/CompanyOSCoreBundle.php
