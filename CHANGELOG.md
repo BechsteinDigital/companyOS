@@ -793,3 +793,9 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 - Commit: feat: Verschiedene Verbesserungen...
 - [M] composer.json
+
+## [0.1.151-alpha] - 2025-06-30
+
+- Commit: feat: Release – Änderungen: M CompanyOSCoreBundle.php; ...
+- [M] CompanyOSCoreBundle.php
+- [M] composer.json
