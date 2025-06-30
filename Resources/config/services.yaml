@@ -88,6 +88,11 @@ services:
         tags:
             - { name: 'kernel.extension' }
 
+    # Plugin Twig Extension
+    CompanyOS\Bundle\CoreBundle\Infrastructure\Plugin\Twig\PluginAssetExtension:
+        tags:
+            - { name: 'twig.extension' }
+
     # Event Store
     CompanyOS\Bundle\CoreBundle\Domain\Event\EventStore:
         alias: CompanyOS\Bundle\CoreBundle\Infrastructure\Persistence\DoctrineEventStore

@@ -763,3 +763,9 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 - Commit: Aktualisiere Version auf 0.1.145-alpha....
 - [M] composer.json
+
+## [0.1.147-alpha] - 2025-06-30
+
+- Commit: feat: Release – Änderungen: M Resources/config/services.yaml; ...
+- [M] Resources/config/services.yaml
+- [M] composer.json
