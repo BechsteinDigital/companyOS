@@ -769,3 +769,16 @@ und dieses Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - Commit: feat: Release – Änderungen: M Resources/config/services.yaml; ...
 - [M] Resources/config/services.yaml
 - [M] composer.json
+
+## [0.1.148-alpha] - 2025-06-30
+
+- Commit: feat: Release – Änderungen: M src/Application/Controller/SystemController.php...
+- [M] composer.json
+- [M] src/Application/Controller/SystemController.php
+- [M] src/Application/Plugin/Controller/PluginController.php
+- [M] src/Application/Role/Controller/RoleController.php
+- [M] src/Application/Settings/Controller/SettingsController.php
+- [M] src/Application/User/Controller/UserController.php
+- [M] src/Application/User/Controller/UserControllerHybridExample.php
+- [M] src/Application/User/Controller/UserPermissionController.php
+- [M] src/Application/Webhook/Controller/WebhookController.php

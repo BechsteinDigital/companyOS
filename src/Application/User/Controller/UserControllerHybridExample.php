@@ -9,7 +9,7 @@ use CompanyOS\Bundle\CoreBundle\Domain\User\Domain\Repository\UserRepositoryInte
 use CompanyOS\Bundle\CoreBundle\Domain\ValueObject\Uuid;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 
 /**
  * Beispiel-Controller für Hybrid Permission System
